@@ -84,7 +84,8 @@ const NewsPage = () => {
       image: "https://images.unsplash.com/photo-1542838132-92c53300491e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHx3b29kJTIwZXh0cmFjdGlvbnxlbnwwfHx8fDE3NTE0Mjk4Njh8MA&ixlib=rb-4.1.0&q=85",
       author: "Chuyên gia Nguyễn Văn Minh",
       date: "2025-01-02",
-      readTime: "8 phút đọc"
+      readTime: "8 phút đọc",
+      sourceUrl: "https://sonmochuong.vn/cach-nhan-biet-tram-huong-that-gia"
     },
     {
       id: 2,
