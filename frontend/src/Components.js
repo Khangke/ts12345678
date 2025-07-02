@@ -529,10 +529,10 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Liên hệ</h4>
             <div className="space-y-2">
-              <p className="text-gray-400">📍 123 Đường ABC, Quận 1, TP.HCM</p>
-              <p className="text-gray-400">📞 0909 123 456</p>
-              <p className="text-gray-400">✉️ tramhuong@shop.com</p>
-              <p className="text-gray-400">🕐 Thứ 2 - Chủ nhật: 8:00 - 22:00</p>
+              <p className="text-gray-400">📍 3/29E đường 182, Phường Tăng Nhơn Phú A, TP. Thủ Đức, TPHCM</p>
+              <p className="text-gray-400">📞 0762 222 448</p>
+              <p className="text-gray-400">✉️ sonmochuong@gmail.com</p>
+              <p className="text-gray-400">🕐 Thứ 2 - Chủ nhật: 8:00 - 20:00</p>
             </div>
           </div>
         </div>
