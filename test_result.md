@@ -107,6 +107,21 @@ user_problem_statement: "sửa hoàn thành các đoạn còn dang dở. và th�
 recent_issue: "ở phần đăng sản phẩm nếu click vào 2 ô danh mục và chất liệu mà không chọn tag thì click ra ngoài không đóng được các lựa chọn"
 
 frontend:
+  - task: "Fix dropdown click-outside behavior for category and material"
+    implemented: true
+    working: true
+    file: "frontend/src/admin/pages/ProductManagement.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "User reported dropdown bug: ở phần đăng sản phẩm nếu click vào 2 ô danh mục và chất liệu mà không chọn tag thì click ra ngoài không đóng được các lựa chọn"
+      - working: true
+        agent: "main"
+        comment: "Fixed z-index layering issue: Updated click-outside overlays from z-5 to z-20, dropdowns from z-10 to z-30, added stopPropagation to prevent closing when clicking inside dropdown"
+
   - task: "Implement size-based pricing UI"
     implemented: true
     working: true
