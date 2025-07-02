@@ -9,7 +9,8 @@ import {
   HomeIcon,
   BookIcon,
   ShoppingBagIcon,
-  CloseIcon
+  CloseIcon,
+  NewsIcon
 } from '../Icons';
 
 export const MobileBottomNav = ({ cartCount, onCartClick }) => {
