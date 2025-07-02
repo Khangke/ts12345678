@@ -488,15 +488,40 @@ export const ProductsSection = ({ onProductClick }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Cache products in localStorage để tăng tốc load
+  const CACHE_KEY = 'products_cache';
+  const CACHE_DURATION = 5 * 60 * 1000; // 5 phút
+
   useEffect(() => {
     fetchProducts();
   }, []);
 
   const fetchProducts = async () => {
     try {
+      // Kiểm tra cache trước
+      const cachedData = localStorage.getItem(CACHE_KEY);
+      if (cachedData) {
+        const { data, timestamp } = JSON.parse(cachedData);
+        const isValid = Date.now() - timestamp < CACHE_DURATION;
+        
+        if (isValid) {
+          setProducts(data);
+          setLoading(false);
+          return; // Dùng cache, không cần fetch API
+        }
+      }
+
+      // Nếu không có cache hoặc cache hết hạn, fetch từ API
       const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
       const response = await fetch(`${BACKEND_URL}/api/products`);
       const data = await response.json();
+      
+      // Lưu vào cache
+      localStorage.setItem(CACHE_KEY, JSON.stringify({
+        data,
+        timestamp: Date.now()
+      }));
+      
       setProducts(data);
     } catch (error) {
       console.error('Error fetching products:', error);
