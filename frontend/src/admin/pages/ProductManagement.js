@@ -375,15 +375,42 @@ const ProductManagement = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Kích cỡ (cách nhau bằng dấu phẩy)
+                    Kích cỡ và giá theo size
                   </label>
-                  <input
-                    type="text"
-                    value={formData.sizesText}
-                    onChange={(e) => setFormData({ ...formData, sizesText: e.target.value, sizes: e.target.value.split(',').map(s => s.trim()).filter(s => s) })}
-                    placeholder="16mm, 18mm, 20mm"
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
-                  />
+                  <div className="space-y-2">
+                    {formData.sizes.map((size, index) => (
+                      <div key={size} className="flex items-center space-x-2">
+                        <span className="bg-gray-100 dark:bg-gray-700 px-3 py-2 rounded text-sm min-w-[80px]">
+                          {size}
+                        </span>
+                        <input
+                          type="text"
+                          value={formData.size_prices[size] || ''}
+                          onChange={(e) => handleSizePriceChange(size, e.target.value)}
+                          placeholder="1.500.000đ"
+                          className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => handleSizeRemove(size)}
+                          className="text-red-600 hover:text-red-800 px-2 py-1"
+                        >
+                          ✕
+                        </button>
+                      </div>
+                    ))}
+                    <button
+                      type="button"
+                      onClick={handleSizeAdd}
+                      className="text-amber-800 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300 text-sm flex items-center space-x-1"
+                    >
+                      <span>+</span>
+                      <span>Thêm kích cỡ</span>
+                    </button>
+                  </div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                    Nếu không có size cụ thể, vui lòng nhập giá chung ở trên
+                  </div>
                 </div>
 
                 <div>
