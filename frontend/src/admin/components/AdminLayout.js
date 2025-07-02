@@ -60,12 +60,9 @@ const AdminLayout = ({ children }) => {
   return (
     <div className="flex h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       {/* Sidebar */}
-      <motion.div 
-        variants={sidebarVariants}
-        initial="closed"
-        animate={sidebarOpen ? "open" : "closed"}
-        className={`fixed inset-y-0 left-0 z-50 w-72 bg-white dark:bg-gray-800 shadow-2xl border-r border-gray-200 dark:border-gray-700 lg:translate-x-0 lg:static lg:inset-0`}
-      >
+      <div className={`fixed inset-y-0 left-0 z-50 w-72 bg-white dark:bg-gray-800 shadow-2xl border-r border-gray-200 dark:border-gray-700 transform transition-transform duration-300 ease-in-out ${
+        sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+      } lg:translate-x-0 lg:static lg:inset-0`}>
         {/* Sidebar Header */}
         <div className="flex items-center justify-between h-20 px-6 bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700">
           <Link to="/admin/dashboard" className="flex items-center space-x-3">
