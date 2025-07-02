@@ -257,7 +257,7 @@ const OrderManagement = () => {
                 setActiveTab('pending');
                 setStatusFilter('all');
               }}
-              className={`flex-1 py-3 px-6 rounded-xl font-semibold transition-all flex items-center justify-center space-x-2 ${
+              className={`flex-1 py-3 px-4 rounded-xl font-semibold transition-all flex items-center justify-center space-x-2 ${
                 activeTab === 'pending'
                   ? 'bg-gradient-to-r from-amber-600 to-orange-600 text-white shadow-lg'
                   : 'text-gray-600 dark:text-gray-400 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/20'
@@ -271,14 +271,28 @@ const OrderManagement = () => {
                 setActiveTab('processed');
                 setStatusFilter('all');
               }}
-              className={`flex-1 py-3 px-6 rounded-xl font-semibold transition-all flex items-center justify-center space-x-2 ${
+              className={`flex-1 py-3 px-4 rounded-xl font-semibold transition-all flex items-center justify-center space-x-2 ${
                 activeTab === 'processed'
-                  ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-lg'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20'
+                  ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20'
               }`}
             >
               <CheckCircleIcon className="w-5 h-5" />
               <span>Đã xử lý ({processedCount})</span>
+            </button>
+            <button
+              onClick={() => {
+                setActiveTab('delivered');
+                setStatusFilter('all');
+              }}
+              className={`flex-1 py-3 px-4 rounded-xl font-semibold transition-all flex items-center justify-center space-x-2 ${
+                activeTab === 'delivered'
+                  ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-lg'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20'
+              }`}
+            >
+              <PackageIcon className="w-5 h-5" />
+              <span>Đã giao hàng ({deliveredCount})</span>
             </button>
           </div>
         </div>
