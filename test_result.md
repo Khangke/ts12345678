@@ -542,6 +542,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test thành công GET /api/products và nhận được danh sách 3 sản phẩm mẫu cho frontend."
+      - working: true
+        agent: "testing"
+        comment: "Đã test lại public products API và xác nhận hoạt động đúng. API trả về danh sách sản phẩm với đầy đủ thông tin bao gồm size_prices và sizes. Đã kiểm tra tính nhất quán giữa sizes và size_prices. Cấu trúc dữ liệu phù hợp cho việc hiển thị trên modern UI với size-based pricing."
 
 metadata:
   created_by: "main_agent"
