@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { 
   Header, 
-  HeroSection, 
-  FeaturesSection, 
-  AboutSection, 
-  ProductsSection, 
-  ContactSection, 
   Footer,
   ProductDetailModal,
   CartModal,
@@ -14,6 +10,7 @@ import {
   ToastNotification,
   SuccessPage
 } from './Components';
+import { HomePage, AboutPage, ProductsPage, ContactPage } from './pages';
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
