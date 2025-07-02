@@ -62,7 +62,7 @@ export const MobileBottomNav = ({ cartCount, onCartClick }) => {
                   : 'text-gray-600 dark:text-gray-400 hover:text-amber-700 dark:hover:text-amber-300 hover:bg-gray-50 dark:hover:bg-gray-800'
               }`}
             >
-              <span className={`text-lg transition-transform duration-300 ${
+              <span className={`transition-transform duration-300 ${
                 isActive(item.path) ? 'scale-110' : 'scale-100'
               }`}>
                 {item.icon}
