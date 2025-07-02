@@ -90,11 +90,11 @@ export const HeroSection = () => {
 
             <div className="flex space-x-8 mt-12">
               <div className="text-center">
-                <div className="text-3xl font-bold text-amber-800">50+</div>
+                <div className="text-3xl font-bold text-amber-800">100+</div>
                 <div className="text-gray-600">Sản phẩm</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-amber-800">300+</div>
+                <div className="text-3xl font-bold text-amber-800">1000+</div>
                 <div className="text-gray-600">Khách hàng</div>
               </div>
             </div>
