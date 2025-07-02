@@ -3,7 +3,7 @@ import { HeroSection, FeaturesSection } from '../Components';
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="bg-white dark:bg-gray-900 transition-colors duration-500">
       <HeroSection />
       <FeaturesSection />
     </div>
