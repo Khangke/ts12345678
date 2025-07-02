@@ -71,6 +71,7 @@ class Product(BaseModel):
     price: str  # base price (for backward compatibility)
     size_prices: dict = {}  # dictionary mapping size to price, e.g. {"10mm": "1500000", "12mm": "1800000"}
     images: List[str] = []  # array of base64 encoded images (max 10)
+    image: Optional[str] = None  # backward compatibility - single image (first from images array)
     category: str
     material: str
     rating: float = 4.5
