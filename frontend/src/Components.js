@@ -12,6 +12,7 @@ import {
   ClockIcon,
   ShoppingBagIcon
 } from './Icons';
+import { useScrollAnimation, useStaggerAnimation } from './hooks/useScrollAnimation';
 
 // Header Component
 export const Header = ({ cartCount, onCartClick }) => {
@@ -23,56 +24,68 @@ export const Header = ({ cartCount, onCartClick }) => {
   };
 
   return (
-    <header className="fixed top-0 w-full bg-white shadow-md z-50">
+    <header className="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-lg z-50 transition-all duration-300">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-12 h-12 bg-amber-800 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-xl">SMH</span>
+          <Link to="/" className="flex items-center space-x-2 group">
+            <div className="w-12 h-12 bg-gradient-to-br from-amber-800 to-amber-900 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+              <span className="text-white font-bold text-xl group-hover:animate-pulse">SMH</span>
             </div>
-            <span className="text-2xl font-bold text-amber-800">Sơn Mộc Hương</span>
+            <span className="text-2xl font-bold text-amber-800 group-hover:text-amber-900 transition-colors duration-300">Sơn Mộc Hương</span>
           </Link>
 
           {/* Navigation */}
           <nav className="hidden md:flex space-x-8">
             <Link 
               to="/" 
-              className={`text-gray-700 hover:text-amber-800 transition-colors font-medium ${
+              className={`relative text-gray-700 hover:text-amber-800 transition-all duration-300 font-medium group ${
                 isActive('/') ? 'text-amber-800 font-semibold' : ''
               }`}
             >
               Trang chủ
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-amber-800 transition-all duration-300 group-hover:w-full ${
+                isActive('/') ? 'w-full' : ''
+              }`}></span>
             </Link>
             <Link 
               to="/about" 
-              className={`text-gray-700 hover:text-amber-800 transition-colors font-medium ${
+              className={`relative text-gray-700 hover:text-amber-800 transition-all duration-300 font-medium group ${
                 isActive('/about') ? 'text-amber-800 font-semibold' : ''
               }`}
             >
               Giới thiệu
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-amber-800 transition-all duration-300 group-hover:w-full ${
+                isActive('/about') ? 'w-full' : ''
+              }`}></span>
             </Link>
             <Link 
               to="/products" 
-              className={`text-gray-700 hover:text-amber-800 transition-colors font-medium ${
+              className={`relative text-gray-700 hover:text-amber-800 transition-all duration-300 font-medium group ${
                 isActive('/products') ? 'text-amber-800 font-semibold' : ''
               }`}
             >
               Sản phẩm
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-amber-800 transition-all duration-300 group-hover:w-full ${
+                isActive('/products') ? 'w-full' : ''
+              }`}></span>
             </Link>
             <Link 
               to="/contact" 
-              className={`text-gray-700 hover:text-amber-800 transition-colors font-medium ${
+              className={`relative text-gray-700 hover:text-amber-800 transition-all duration-300 font-medium group ${
                 isActive('/contact') ? 'text-amber-800 font-semibold' : ''
               }`}
             >
               Liên hệ
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-amber-800 transition-all duration-300 group-hover:w-full ${
+                isActive('/contact') ? 'w-full' : ''
+              }`}></span>
             </Link>
           </nav>
 
           {/* Contact Info & Cart */}
           <div className="hidden lg:flex items-center space-x-4">
-            <div className="text-sm">
+            <div className="text-sm animate-fade-in-right">
               <div className="text-gray-600 flex items-center space-x-1">
                 <PhoneIcon className="w-4 h-4 text-amber-800" />
                 <span>0762 222 448</span>
@@ -84,16 +97,16 @@ export const Header = ({ cartCount, onCartClick }) => {
             </div>
             <button 
               onClick={onCartClick}
-              className="relative bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors"
+              className="relative bg-gray-100 p-2 rounded-full hover:bg-amber-50 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md group"
             >
-              <ShoppingCartIcon className="w-6 h-6 text-amber-800" />
+              <ShoppingCartIcon className="w-6 h-6 text-amber-800 group-hover:animate-bounce" />
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center cart-badge">
+                <span className="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center cart-badge animate-scale-in">
                   {cartCount}
                 </span>
               )}
             </button>
-            <button className="bg-amber-800 text-white px-6 py-2 rounded-full hover:bg-amber-900 transition-colors">
+            <button className="bg-gradient-to-r from-amber-800 to-amber-900 text-white px-6 py-2 rounded-full hover:from-amber-900 hover:to-amber-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform hover:-translate-y-0.5">
               Mua ngay
             </button>
           </div>
@@ -103,11 +116,11 @@ export const Header = ({ cartCount, onCartClick }) => {
             {/* Mobile Cart Button */}
             <button 
               onClick={onCartClick}
-              className="relative bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors"
+              className="relative bg-gray-100 p-2 rounded-full hover:bg-amber-50 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md group"
             >
-              <ShoppingCartIcon className="w-6 h-6 text-amber-800" />
+              <ShoppingCartIcon className="w-6 h-6 text-amber-800 group-hover:animate-bounce" />
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center cart-badge">
+                <span className="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center cart-badge animate-scale-in">
                   {cartCount}
                 </span>
               )}
@@ -115,13 +128,13 @@ export const Header = ({ cartCount, onCartClick }) => {
 
             {/* Mobile menu button */}
             <button 
-              className="p-2"
+              className="p-2 hover:bg-gray-100 rounded-lg transition-all duration-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <div className="w-6 h-6 flex flex-col justify-center">
-                <span className={`block h-0.5 w-6 bg-gray-600 transform transition ${isMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
-                <span className={`block h-0.5 w-6 bg-gray-600 my-1 transition ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-                <span className={`block h-0.5 w-6 bg-gray-600 transform transition ${isMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+                <span className={`block h-0.5 w-6 bg-gray-600 transform transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
+                <span className={`block h-0.5 w-6 bg-gray-600 my-1 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`block h-0.5 w-6 bg-gray-600 transform transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
               </div>
             </button>
           </div>
@@ -129,11 +142,11 @@ export const Header = ({ cartCount, onCartClick }) => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4">
+          <div className="lg:hidden mt-4 pb-4 animate-slide-in-top">
             <nav className="flex flex-col space-y-3">
               <Link 
                 to="/" 
-                className={`text-gray-700 hover:text-amber-800 transition-colors ${
+                className={`text-gray-700 hover:text-amber-800 transition-all duration-300 hover:translate-x-2 hover:font-medium ${
                   isActive('/') ? 'text-amber-800 font-semibold' : ''
                 }`}
                 onClick={() => setIsMenuOpen(false)}
@@ -142,7 +155,7 @@ export const Header = ({ cartCount, onCartClick }) => {
               </Link>
               <Link 
                 to="/about" 
-                className={`text-gray-700 hover:text-amber-800 transition-colors ${
+                className={`text-gray-700 hover:text-amber-800 transition-all duration-300 hover:translate-x-2 hover:font-medium ${
                   isActive('/about') ? 'text-amber-800 font-semibold' : ''
                 }`}
                 onClick={() => setIsMenuOpen(false)}
@@ -151,7 +164,7 @@ export const Header = ({ cartCount, onCartClick }) => {
               </Link>
               <Link 
                 to="/products" 
-                className={`text-gray-700 hover:text-amber-800 transition-colors ${
+                className={`text-gray-700 hover:text-amber-800 transition-all duration-300 hover:translate-x-2 hover:font-medium ${
                   isActive('/products') ? 'text-amber-800 font-semibold' : ''
                 }`}
                 onClick={() => setIsMenuOpen(false)}
@@ -160,7 +173,7 @@ export const Header = ({ cartCount, onCartClick }) => {
               </Link>
               <Link 
                 to="/contact" 
-                className={`text-gray-700 hover:text-amber-800 transition-colors ${
+                className={`text-gray-700 hover:text-amber-800 transition-all duration-300 hover:translate-x-2 hover:font-medium ${
                   isActive('/contact') ? 'text-amber-800 font-semibold' : ''
                 }`}
                 onClick={() => setIsMenuOpen(false)}
