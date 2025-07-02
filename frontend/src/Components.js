@@ -77,18 +77,12 @@ export const Header = ({ cartCount, onCartClick }) => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4">
+          <div className="lg:hidden mt-4 pb-4">
             <nav className="flex flex-col space-y-3">
               <a href="#home" className="text-gray-700 hover:text-amber-800 transition-colors">Trang chủ</a>
               <a href="#about" className="text-gray-700 hover:text-amber-800 transition-colors">Giới thiệu</a>
               <a href="#products" className="text-gray-700 hover:text-amber-800 transition-colors">Sản phẩm</a>
               <a href="#contact" className="text-gray-700 hover:text-amber-800 transition-colors">Liên hệ</a>
-              <button 
-                onClick={onCartClick}
-                className="text-left text-gray-700 hover:text-amber-800 transition-colors"
-              >
-                🛒 Giỏ hàng ({cartCount})
-              </button>
             </nav>
           </div>
         )}
