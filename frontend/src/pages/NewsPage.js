@@ -244,9 +244,7 @@ const NewsPage = () => {
                 <article 
                   key={news.id}
                   data-index={index}
-                  className={`group bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-3xl shadow-xl dark:shadow-amber-900/20 overflow-hidden hover:shadow-2xl dark:hover:shadow-amber-500/30 transition-all duration-700 hover:transform hover:scale-105 hover:-translate-y-3 cursor-pointer border border-gray-100/50 dark:border-amber-700/30 ${
-                    visibleCards.has(index) ? 'animate-fade-in-up opacity-100' : 'opacity-0 translate-y-8'
-                  }`}
+                  className={`group bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-3xl shadow-xl dark:shadow-amber-900/20 overflow-hidden hover:shadow-2xl dark:hover:shadow-amber-500/30 transition-all duration-700 hover:transform hover:scale-105 hover:-translate-y-3 cursor-pointer border border-gray-100/50 dark:border-amber-700/30 animate-fade-in-up opacity-100`}
                   style={{ 
                     animationDelay: `${index * 0.15}s`,
                     transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
