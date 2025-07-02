@@ -59,6 +59,52 @@ const ProductManagement = () => {
   // New size input state
   const [newSize, setNewSize] = useState({ name: '', price: '' });
 
+  // Price formatting functions
+  const formatPrice = (value) => {
+    // Remove all non-digits
+    const numericValue = value.replace(/\D/g, '');
+    
+    if (!numericValue) return '';
+    
+    // Add thousand separators
+    const formatted = numericValue.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    
+    return formatted + 'vnđ';
+  };
+
+  const unformatPrice = (value) => {
+    // Remove formatting to get raw number
+    return value.replace(/[^\d]/g, '');
+  };
+
+  const handlePriceChange = (value, field = 'price') => {
+    const rawValue = unformatPrice(value);
+    const formattedValue = formatPrice(rawValue);
+    
+    if (field === 'price') {
+      setFormData({ ...formData, price: formattedValue });
+    }
+    
+    return { raw: rawValue, formatted: formattedValue };
+  };
+
+  const handleSizePriceChange = (size, value) => {
+    const rawValue = unformatPrice(value);
+    const formattedValue = formatPrice(rawValue);
+    
+    setFormData({ 
+      ...formData, 
+      size_prices: { ...formData.size_prices, [size]: formattedValue }
+    });
+  };
+
+  const handleNewSizePriceChange = (value) => {
+    const rawValue = unformatPrice(value);
+    const formattedValue = formatPrice(rawValue);
+    
+    setNewSize({ ...newSize, price: formattedValue });
+  };
+
   useEffect(() => {
     fetchProducts();
   }, []);
