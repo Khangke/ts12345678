@@ -539,7 +539,7 @@ export const Footer = () => {
 
         <div className="border-t border-gray-700 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400">© 2025 Trầm Hương Shop. Tất cả quyền được bảo lưu.</p>
+            <p className="text-gray-400">© 2025 Sơn Mộc Hương. Tất cả quyền được bảo lưu.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">Chính sách bảo mật</a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">Điều khoản sử dụng</a>
