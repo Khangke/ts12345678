@@ -649,5 +649,255 @@ export const newsData = [
     date: "2024-10-24",
     readTime: "16 phút đọc",
     sourceUrl: "https://sonmochuong.vn/tuong-lai-nganh-tram-huong"
+  },
+  {
+    id: 31,
+    title: "Trầm hương Việt Nam xuất khẩu: Thành tựu và thách thức",
+    category: "Thị trường",
+    excerpt: "Phân tích tình hình xuất khẩu trầm hương Việt Nam ra thế giới, những thành tựu đạt được và các thách thức cần vượt qua trong tương lai.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Việt Nam đang ngày càng khẳng định vị thế trên thị trường trầm hương quốc tế với những sản phẩm chất lượng cao.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Thành tựu xuất khẩu</h3>
+        <p class="mb-4">Kim ngạch xuất khẩu tăng trưởng mạnh, sản phẩm Việt được ưa chuộng tại nhiều thị trường lớn.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Thách thức cần vượt qua</h3>
+        <p class="mb-4">Cạnh tranh gay gắt, tiêu chuẩn chất lượng ngày càng cao và nhu cầu bảo tồn tài nguyên.</p>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxleHBvcnR8ZW58MHx8fHwxNzUxNDI5ODczfDA&ixlib=rb-4.1.0&q=85",
+    author: "Chuyên gia Xuất nhập khẩu Võ Minh Tâm",
+    date: "2024-10-22",
+    readTime: "12 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/tram-huong-viet-nam-xuat-khau"
+  },
+  {
+    id: 32,
+    title: "Trải nghiệm trầm hương qua các giác quan",
+    category: "Kiến thức",
+    excerpt: "Hướng dẫn cách trải nghiệm trầm hương một cách toàn diện qua thị giác, khứu giác, xúc giác để đánh giá chất lượng chính xác nhất.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Việc đánh giá trầm hương cần sử dụng tất cả các giác quan để có cái nhìn toàn diện về chất lượng.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Quan sát bằng mắt</h3>
+        <p class="mb-4">Kiểm tra màu sắc, vân gỗ, độ bóng và các đặc điểm bề ngoài khác.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Cảm nhận qua mùi hương</h3>
+        <p class="mb-4">Phân biệt các tầng hương từ nhẹ đến đậm đà, từ tươi mát đến ấm áp.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">3. Kiểm tra qua xúc giác</h3>
+        <p class="mb-4">Cảm nhận độ mịn màng, độ ẩm và trọng lượng của gỗ trầm.</p>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxzZW5zZXN8ZW58MHx8fHwxNzUxNDI5ODczfDA&ixlib=rb-4.1.0&q=85",
+    author: "Chuyên gia Cảm quan Lê Thị Ngọc",
+    date: "2024-10-20",
+    readTime: "9 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/trai-nghiem-tram-huong-qua-giac-quan"
+  },
+  {
+    id: 33,
+    title: "Trầm hương với người cao tuổi: Lợi ích và cách sử dụng",
+    category: "Sức khỏe",
+    excerpt: "Khám phá những lợi ích đặc biệt của trầm hương đối với người cao tuổi và cách sử dụng an toàn, hiệu quả cho sức khỏe.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Trầm hương mang lại nhiều lợi ích đặc biệt cho người cao tuổi, giúp cải thiện chất lượng cuộc sống.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Lợi ích cho sức khỏe</h3>
+        <p class="mb-4">Giúp cải thiện giấc ngủ, giảm căng thẳng và tăng cường khả năng miễn dịch tự nhiên.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Hỗ trợ tinh thần</h3>
+        <p class="mb-4">Tạo cảm giác bình an, giảm lo âu và tăng cường khả năng tập trung, ghi nhớ.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">3. Cách sử dụng phù hợp</h3>
+        <p class="mb-4">Xông nhẹ trong phòng, đeo vòng tay hoặc đặt cảnh trầm trong không gian sinh hoạt.</p>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxlbGRlcmx5fGVufDB8fHx8MTc1MTQyOTg3M3ww&ixlib=rb-4.1.0&q=85",
+    author: "Bác sĩ Lão khoa Nguyễn Thị Kim",
+    date: "2024-10-18",
+    readTime: "10 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/tram-huong-nguoi-cao-tuoi"
+  },
+  {
+    id: 34,
+    title: "Lễ hội và sự kiện trầm hương Việt Nam",
+    category: "Văn hóa",
+    excerpt: "Tìm hiểu về các lễ hội, triển lám và sự kiện văn hóa liên quan đến trầm hương tại Việt Nam, nơi giao lưu và học hỏi kiến thức.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Các lễ hội trầm hương là cơ hội tuyệt vời để tìm hiểu văn hóa và giao lưu với những người yêu thích trầm hương.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Lễ hội trầm hương Khánh Hòa</h3>
+        <p class="mb-4">Sự kiện thường niên quy mô lớn với nhiều hoạt động trưng bày, biểu diễn và hội thảo chuyên môn.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Triển lãm quốc tế</h3>
+        <p class="mb-4">Các triển lãm thương mại quốc tế giúp kết nối với thị trường toàn cầu.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">3. Hội thảo chuyên ngành</h3>
+        <p class="mb-4">Các buổi hội thảo về nghiên cứu, bảo tồn và phát triển ngành trầm hương.</p>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxmZXN0aXZhbHxlbnwwfHx8fDE3NTE0Mjk4NzN8MA&ixlib=rb-4.1.0&q=85",
+    author: "Nhà tổ chức sự kiện Trần Văn Hải",
+    date: "2024-10-16",
+    readTime: "8 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/le-hoi-su-kien-tram-huong"
+  },
+  {
+    id: 35,
+    title: "Trầm hương và năng lượng tích cực: Khoa học hay tâm linh?",
+    category: "Nghiên cứu",
+    excerpt: "Phân tích khoa học về tác động của trầm hương đến năng lượng con người, phân biệt giữa hiệu ứng tâm lý và tác dụng sinh học thực tế.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Tác động của trầm hương đến năng lượng con người đang được khoa học nghiên cứu kỹ lưỡng.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Nghiên cứu khoa học</h3>
+        <p class="mb-4">Các nghiên cứu EEG cho thấy trầm hương có thể thay đổi sóng não và trạng thái ý thức.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Cơ chế hoạt động</h3>
+        <p class="mb-4">Hợp chất thơm tác động lên hệ thần kinh trung ương thông qua đường khứu giác.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">3. Hiệu ứng tâm lý</h3>
+        <p class="mb-4">Yếu tố tâm lý và niềm tin cá nhân cũng đóng vai trò quan trọng trong trải nghiệm.</p>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxlbmVyZ3l8ZW58MHx8fHwxNzUxNDI5ODczfDA&ixlib=rb-4.1.0&q=85",
+    author: "Tiến sĩ Vật lý trị liệu Phạm Đức An",
+    date: "2024-10-14",
+    readTime: "13 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/tram-huong-nang-luong-tich-cuc"
+  },
+  {
+    id: 36,
+    title: "Cộng đồng những người yêu trầm hương Việt Nam",
+    category: "Cộng đồng",
+    excerpt: "Khám phá cộng đồng những người đam mê trầm hương tại Việt Nam, các câu lạc bộ, diễn đàn và hoạt động giao lưu thường xuyên.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Cộng đồng yêu trầm hương Việt Nam ngày càng phát triển mạnh mẽ với nhiều hoạt động ý nghĩa.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Câu lạc bộ trầm hương</h3>
+        <p class="mb-4">Các CLB địa phương tổ chức họp mặt, chia sẻ kinh nghiệm và giao lưu kiến thức.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Diễn đàn trực tuyến</h3>
+        <p class="mb-4">Không gian ảo để thảo luận, mua bán và tư vấn về trầm hương.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">3. Hoạt động thiện nguyện</h3>
+        <p class="mb-4">Các chương trình trồng cây, bảo tồn môi trường và hỗ trợ cộng đồng.</p>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxjb21tdW5pdHl8ZW58MHx8fHwxNzUxNDI5ODczfDA&ixlib=rb-4.1.0&q=85",
+    author: "Trưởng CLB Trầm Hương Sài Gòn Nguyễn Văn Đức",
+    date: "2024-10-12",
+    readTime: "7 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/cong-dong-nguoi-yeu-tram-huong"
+  },
+  {
+    id: 37,
+    title: "Trầm hương trong thiết kế nội thất văn phòng hiện đại",
+    category: "Kiến trúc",
+    excerpt: "Tìm hiểu xu hướng sử dụng trầm hương trong thiết kế văn phòng hiện đại để tạo không gian làm việc tích cực và năng suất cao.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Trầm hương đang trở thành xu hướng mới trong thiết kế văn phòng hiện đại, tạo môi trường làm việc tối ưu.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Lợi ích trong môi trường làm việc</h3>
+        <p class="mb-4">Giảm stress, tăng khả năng tập trung và cải thiện năng suất làm việc của nhân viên.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Ứng dụng thiết kế</h3>
+        <p class="mb-4">Sử dụng trong phòng họp, không gian nghỉ ngơi và khu vực tiếp khách.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">3. Lưu ý khi áp dụng</h3>
+        <p class="mb-4">Cần cân nhắc mức độ phù hợp và không gian thông thoáng để tránh quá đậm đà.</p>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxvZmZpY2V8ZW58MHx8fHwxNzUxNDI5ODczfDA&ixlib=rb-4.1.0&q=85",
+    author: "Kiến trúc sư Lê Minh Tuấn",
+    date: "2024-10-10",
+    readTime: "9 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/tram-huong-thiet-ke-van-phong"
+  },
+  {
+    id: 38,
+    title: "Kỹ thuật trồng và chăm sóc cây trầm hương",
+    category: "Kỹ thuật",
+    excerpt: "Hướng dẫn chi tiết kỹ thuật trồng cây trầm hương từ khâu chọn giống, trồng trọt đến chăm sóc và thu hoạch bền vững.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Trồng cây trầm hương đòi hỏi kiến thức chuyên môn và kỹ thuật chăm sóc phù hợp để đạt chất lượng cao.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Chọn giống và đất đai</h3>
+        <p class="mb-4">Chọn giống cây trầm hương chất lượng cao và đất có độ pH phù hợp (5.5-6.5).</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Kỹ thuật trồng</h3>
+        <p class="mb-4">Thời điểm trồng, khoảng cách và phương pháp chăm sóc giai đoạn đầu.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">3. Quản lý dài hạn</h3>
+        <p class="mb-4">Tưới nước, bón phân, phòng trừ sâu bệnh và kỹ thuật tạo dầu trầm.</p>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxwbGFudGluZ3xlbnwwfHx8fDE3NTE0Mjk4NzN8MA&ixlib=rb-4.1.0&q=85",
+    author: "Kỹ sư Nông nghiệp Võ Thanh Bình",
+    date: "2024-10-08",
+    readTime: "14 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/ky-thuat-trong-cham-soc-cay-tram"
+  },
+  {
+    id: 39,
+    title: "Trầm hương với yoga và mindfulness",
+    category: "Tâm linh",
+    excerpt: "Khám phá cách kết hợp trầm hương với các bài tập yoga và mindfulness để đạt được trạng thái thư giãn và tĩnh tâm sâu sắc nhất.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Sự kết hợp giữa trầm hương và yoga tạo nên trải nghiệm thiền định hoàn hảo cho cơ thể và tâm hồn.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Chuẩn bị không gian</h3>
+        <p class="mb-4">Tạo không gian yên tĩnh với hương trầm nhẹ nhàng, ánh sáng dịu và nhiệt độ phù hợp.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Kỹ thuật thở và mindfulness</h3>
+        <p class="mb-4">Kết hợp hương trầm với các bài tập thở sâu và tập trung vào hiện tại.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">3. Lợi ích kép</h3>
+        <p class="mb-4">Tăng cường hiệu quả của cả yoga lẫn aromatherapy, đạt được sự cân bằng toàn diện.</p>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHx5b2dhfGVufDB8fHx8MTc1MTQyOTg3M3ww&ixlib=rb-4.1.0&q=85",
+    author: "Giảng viên Yoga Nguyễn Thị Hồng",
+    date: "2024-10-06",
+    readTime: "11 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/tram-huong-yoga-mindfulness"
+  },
+  {
+    id: 40,
+    title: "Bí quyết bảo quản và trưng bày bộ sưu tập trầm hương",
+    category: "Bảo dưỡng",
+    excerpt: "Hướng dẫn toàn diện cách bảo quản, trưng bày và quản lý bộ sưu tập trầm hương để duy trì giá trị và vẻ đẹp lâu dài.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Việc bảo quản và trưng bày bộ sưu tập trầm hương đúng cách sẽ giữ gìn giá trị và vẻ đẹp của những món đồ quý giá.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Môi trường bảo quản lý tưởng</h3>
+        <p class="mb-4">Kiểm soát độ ẩm (45-55%), nhiệt độ ổn định (18-22°C) và tránh ánh sáng trực tiếp.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Phương pháp trưng bày</h3>
+        <p class="mb-4">Sử dụng tủ kính, kệ gỗ tự nhiên và bố trí hợp lý để tôn lên vẻ đẹp.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">3. Bảo dưỡng định kỳ</h3>
+        <p class="mb-4">Vệ sinh nhẹ nhàng, kiểm tra tình trạng và ghi chép theo dõi sự thay đổi.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">4. Bảo hiểm và an ninh</h3>
+        <p class="mb-4">Thẩm định giá trị, mua bảo hiểm và đảm bảo an ninh cho bộ sưu tập.</p>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxjb2xsZWN0aW9ufGVufDB8fHx8MTc1MTQyOTg3M3ww&ixlib=rb-4.1.0&q=85",
+    author: "Chuyên gia Bảo tồn Cổ vật Trần Thành Đạt",
+    date: "2024-10-04",
+    readTime: "15 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/bi-quyet-bao-quan-bo-suu-tap-tram-huong"
   }
 ];
