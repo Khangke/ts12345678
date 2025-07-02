@@ -271,7 +271,7 @@ def test_admin_products(token: str):
             log_test("Admin Products - DELETE", False, error=str(e))
 
 def test_admin_orders(token: str):
-    """Test admin orders endpoints"""
+    """Test admin orders endpoints with size-specific pricing"""
     # Test GET all orders
     try:
         response = requests.get(
@@ -291,7 +291,7 @@ def test_admin_orders(token: str):
         log_test("Admin Orders - GET All", False, error=str(e))
         orders = []
     
-    # Create a test order if none exist
+    # Create a test order with size-specific pricing if none exist
     order_id = None
     if not orders:
         try:
@@ -300,39 +300,60 @@ def test_admin_orders(token: str):
             if product_response.status_code == 200 and len(product_response.json()) > 0:
                 product = product_response.json()[0]
                 
-                # Create an order
-                order_data = {
-                    "customer_name": "Test Customer",
-                    "customer_phone": "0123456789",
-                    "customer_email": "test@example.com",
-                    "customer_address": "123 Test Street",
-                    "note": "This is a test order",
-                    "items": [
-                        {
-                            "product_id": product["id"],
-                            "product_name": product["name"],
-                            "price": product["price"],
-                            "quantity": 1
-                        }
-                    ],
-                    "total_price": int(product["price"].replace(".", "")),
-                    "shipping_fee": 30000
-                }
-                
-                order_response = requests.post(
-                    f"{API_URL}/orders",
-                    json=order_data
-                )
-                
-                if order_response.status_code == 200 and "id" in order_response.json():
-                    order_id = order_response.json()["id"]
-                    print(f"  Created test order with ID: {order_id}")
+                # Get the first size and its price from size_prices
+                if product.get("size_prices") and product.get("sizes"):
+                    selected_size = product["sizes"][0]
+                    size_specific_price = product["size_prices"][selected_size]
+                    
+                    # Create an order with size-specific pricing
+                    order_data = {
+                        "customer_name": "Test Customer",
+                        "customer_phone": "0123456789",
+                        "customer_email": "test@example.com",
+                        "customer_address": "123 Test Street",
+                        "note": "This is a test order with size-specific pricing",
+                        "items": [
+                            {
+                                "product_id": product["id"],
+                                "product_name": product["name"],
+                                "price": size_specific_price,  # Use size-specific price
+                                "quantity": 1,
+                                "selected_size": selected_size,  # Include selected size
+                                "size_specific_price": size_specific_price  # Include size-specific price
+                            }
+                        ],
+                        "total_price": int(size_specific_price.replace(".", "").replace("đ", "")),
+                        "shipping_fee": 30000
+                    }
+                    
+                    order_response = requests.post(
+                        f"{API_URL}/orders",
+                        json=order_data
+                    )
+                    
+                    if order_response.status_code == 200 and "id" in order_response.json():
+                        order_id = order_response.json()["id"]
+                        
+                        # Verify order items have size-specific fields
+                        order_items = order_response.json().get("items", [])
+                        if (len(order_items) > 0 and 
+                            "selected_size" in order_items[0] and 
+                            "size_specific_price" in order_items[0] and
+                            order_items[0]["selected_size"] == selected_size and
+                            order_items[0]["size_specific_price"] == size_specific_price):
+                            log_test("Create Order with Size-Specific Pricing", True, order_response)
+                        else:
+                            log_test("Create Order with Size-Specific Pricing", False, order_response,
+                                    "Order created but size-specific fields not saved correctly")
+                    else:
+                        log_test("Create Order with Size-Specific Pricing", False, order_response,
+                                f"Failed to create order: {order_response.status_code}")
                 else:
-                    print(f"  Failed to create test order: {order_response.status_code}")
+                    log_test("Create Order with Size-Specific Pricing", False, error="Product doesn't have size_prices or sizes")
             else:
-                print("  No products available to create test order")
+                log_test("Create Order with Size-Specific Pricing", False, error="No products available to create test order")
         except Exception as e:
-            print(f"  Error creating test order: {str(e)}")
+            log_test("Create Order with Size-Specific Pricing", False, error=str(e))
     elif len(orders) > 0:
         order_id = orders[0]["id"]
     
