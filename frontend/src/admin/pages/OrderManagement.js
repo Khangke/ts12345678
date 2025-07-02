@@ -206,6 +206,14 @@ const OrderManagement = () => {
               <option value="all">Tất cả trạng thái</option>
               {activeTab === 'pending' ? (
                 <option value="pending">Chờ xác nhận</option>
+              ) : activeTab === 'processed' ? (
+                <>
+                  <option value="confirmed">Đã xác nhận</option>
+                  <option value="shipping">Đang giao</option>
+                  <option value="cancelled">Đã hủy</option>
+                </>
+              ) : activeTab === 'delivered' ? (
+                <option value="delivered">Đã giao hàng</option>
               ) : (
                 <>
                   <option value="confirmed">Đã xác nhận</option>
