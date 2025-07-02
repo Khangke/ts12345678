@@ -33,30 +33,6 @@ const AdminLayout = ({ children }) => {
 
   const isActive = (path) => location.pathname === path;
 
-  const sidebarVariants = {
-    open: {
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15
-      }
-    },
-    closed: {
-      x: "-100%",
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15
-      }
-    }
-  };
-
-  const backdropVariants = {
-    open: { opacity: 1 },
-    closed: { opacity: 0 }
-  };
-
   return (
     <div className="flex h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       {/* Sidebar */}
@@ -150,16 +126,15 @@ const AdminLayout = ({ children }) => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Sidebar Backdrop */}
       <AnimatePresence>
         {sidebarOpen && (
           <motion.div 
-            variants={backdropVariants}
-            initial="closed"
-            animate="open"
-            exit="closed"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className="fixed inset-0 z-40 bg-black bg-opacity-50 lg:hidden"
             onClick={() => setSidebarOpen(false)}
           />
