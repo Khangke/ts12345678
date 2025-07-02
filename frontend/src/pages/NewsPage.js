@@ -354,7 +354,7 @@ const NewsPage = () => {
           {filteredNews.map((news, index) => (
             <article 
               key={news.id}
-              className={`group bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-amber-900/10 overflow-hidden hover:shadow-2xl dark:hover:shadow-amber-900/20 transition-all duration-500 hover:transform hover:scale-105 hover:-translate-y-2 cursor-pointer border border-gray-100 dark:border-gray-700 ${
+              className={`group bg-white dark:bg-gray-800/90 dark:backdrop-blur-sm rounded-2xl shadow-lg dark:shadow-amber-900/20 overflow-hidden hover:shadow-2xl dark:hover:shadow-amber-500/30 transition-all duration-500 hover:transform hover:scale-105 hover:-translate-y-2 cursor-pointer border border-gray-100 dark:border-amber-700/30 ${
                 isNewsVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
