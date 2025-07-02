@@ -461,7 +461,7 @@ const OrderManagement = () => {
                     )}
                     <div className="flex items-start space-x-3 md:col-span-2">
                       <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
-                        <MapPin className="w-5 h-5 text-white" />
+                        <LocationIcon className="w-5 h-5 text-white" />
                       </div>
                       <div>
                         <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Địa chỉ giao hàng</p>
