@@ -253,3 +253,17 @@ export const CheckCircleIcon = ({ className = "w-6 h-6", color = "currentColor" 
     <path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"/>
   </svg>
 );
+
+// Home Icon
+export const HomeIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
+  <svg className={className} fill={color} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"/>
+  </svg>
+);
+
+// Book Icon
+export const BookIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
+  <svg className={className} fill={color} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V7H5V5H19M5,19V9H19V19H5Z"/>
+  </svg>
+);
