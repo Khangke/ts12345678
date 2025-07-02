@@ -120,6 +120,17 @@ export const Header = ({ cartCount, onCartClick }) => {
               }`}></span>
             </Link>
             <Link 
+              to="/news" 
+              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium focus:outline-none ${
+                isActive('/news') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
+              }`}
+            >
+              Tin tức
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-800 dark:bg-amber-400 transition-all duration-300 ${
+                isActive('/news') ? 'w-full' : 'w-0'
+              }`}></span>
+            </Link>
+            <Link 
               to="/contact" 
               className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium focus:outline-none ${
                 isActive('/contact') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
