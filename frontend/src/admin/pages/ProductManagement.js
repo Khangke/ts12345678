@@ -213,8 +213,15 @@ const ProductManagement = () => {
     e.preventDefault();
     
     try {
+      // Prepare size prices for backend (keep formatted version)
+      const processedSizePrices = {};
+      Object.entries(formData.size_prices).forEach(([size, price]) => {
+        processedSizePrices[size] = price; // Keep the formatted price with vnđ
+      });
+      
       const productData = {
         ...formData,
+        size_prices: processedSizePrices,
         image: formData.images[0] || formData.image,
         images: formData.images.length > 0 ? formData.images : [formData.image].filter(Boolean)
       };
