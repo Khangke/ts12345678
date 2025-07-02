@@ -304,8 +304,6 @@ const NewsPage = () => {
     ? newsData 
     : newsData.filter(item => item.category === selectedCategory);
 
-  const [selectedNews, setSelectedNews] = useState(null);
-
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('vi-VN', {
       year: 'numeric',
