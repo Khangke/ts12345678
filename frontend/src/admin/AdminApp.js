@@ -22,6 +22,7 @@ const AdminApp = () => {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/products" element={<ProductManagement />} />
                 <Route path="/orders" element={<OrderManagement />} />
+                <Route path="/customers" element={<CustomerManagement />} />
               </Routes>
             </AdminLayout>
           </ProtectedRoute>
