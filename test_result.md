@@ -796,3 +796,18 @@ agent_communication:
       - working: true
         agent: "main"
         comment: "✅ Removed all framer-motion animations (AnimatePresence, motion components, variants) ✅ Simplified tab switching - orders now appear instantly without animations ✅ Replaced motion.button with regular button elements ✅ Simplified table rows - removed initial/animate/exit animations ✅ Kept functionality intact while removing all 'flying' effects ✅ Loading spinner now uses simple CSS animation instead of framer-motion"
+
+  - task: "Enhance order management with clickable rows and status dropdown"
+    implemented: true
+    working: true
+    file: "frontend/src/admin/pages/OrderManagement.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "User requested: 'tôi muốn có thể chọn trạng thái ở đây và click vào đơn là vào chi tiết luôn'"
+      - working: true
+        agent: "main"
+        comment: "✅ Enhanced order table with clickable rows - click anywhere on row to view order details ✅ Status dropdown already existed and working ✅ Added stopPropagation to prevent row click when clicking dropdown or detail button ✅ Added cursor-pointer to indicate clickable rows ✅ Improved UX - users can now click entire row to view details instead of just the button"
