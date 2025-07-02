@@ -756,6 +756,26 @@ const ProductManagement = () => {
                           className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
                           required
                         />
+                        
+                        {/* Selected Material Tag */}
+                        {formData.material && (
+                          <div className="mt-2">
+                            <div className="inline-flex items-center bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-400 px-3 py-2 rounded-lg text-sm font-medium">
+                              <Hash className="w-4 h-4 mr-1" />
+                              {formData.material}
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setFormData({ ...formData, material: '' });
+                                  setMaterialInput('');
+                                }}
+                                className="ml-2 text-green-600 hover:text-green-800 dark:text-green-300 dark:hover:text-green-100 transition-colors"
+                              >
+                                <X className="w-4 h-4" />
+                              </button>
+                            </div>
+                          </div>
+                        )}
                         {showMaterialDropdown && (
                           <div 
                             className="absolute top-full left-0 right-0 z-30 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl mt-1 shadow-lg max-h-60 overflow-y-auto"
