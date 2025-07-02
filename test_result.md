@@ -104,7 +104,7 @@
 
 user_problem_statement: "sửa hoàn thành các đoạn còn dang dở. và thêm tính năng, nếu chọn size thì giá nhảy theo size. lưu ý code trong phần đăng đơn hàng luôn"
 
-recent_issue: "ở phần đăng sản phẩm nếu click vào 2 ô danh mục và chất liệu mà không chọn tag thì click ra ngoài không đóng được các lựa chọn"
+recent_issue: "check lại font chữ, tôi thấy hiển thị vẫn bị lỗi ở phần kích cỡ và giá. và ở phần quản lý đơn hàng, ở mục chờ xử lý và đã xử lý. tôi muốn khi click qua mục đó là những đơn ở mục đó hiện ra luôn chứ không phải bay lên như vậy"
 
 frontend:
   - task: "Complete icon replacement in mobile components"
