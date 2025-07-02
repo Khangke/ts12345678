@@ -255,8 +255,46 @@ test_plan:
   test_all: true
   test_priority: "high_first"
 
+  - task: "Thêm animations/transitions đẹp hơn"
+    implemented: false
+    working: "NA"
+    file: "frontend/src/Components.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Bắt đầu thêm smooth animations, scroll effects, hover transitions nâng cao"
+
+  - task: "Cải tiến UI/UX cho mobile"
+    implemented: false
+    working: "NA"
+    file: "frontend/src/Components.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Tối ưu mobile navigation, touch interactions, spacing và typography"
+
+  - task: "Thêm dark mode"
+    implemented: false
+    working: "NA"
+    file: "frontend/src/"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Tạo dark mode context, theme toggle, persistence với localStorage"
+
 agent_communication:
   - agent: "main"
     message: "Bắt đầu dự án chuyển từ single page application thành multi-page với navigation menu thực sự."
   - agent: "main"  
     message: "Đã hoàn thành việc tạo multi-page navigation: cài đặt React Router, tạo 4 pages riêng biệt (Home, About, Products, Contact), cập nhật Header với Links và active states, setup routing system. Frontend compile thành công. Sẵn sàng test navigation."
+  - agent: "main"
+    message: "Bắt đầu giai đoạn 2: Cải tiến thiết kế nâng cao - animations/transitions, mobile UX và dark mode."
