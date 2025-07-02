@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import { useToast } from '../../components/Toast';
 import { motion, AnimatePresence, Reorder } from 'framer-motion';
 import { 
   Plus, 
@@ -28,6 +29,10 @@ const ProductManagement = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   
+  // Loading states for preventing double-click
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  
   // Predefined categories and materials
   const [availableCategories, setAvailableCategories] = useState([
     'Vòng tay trầm', 'Tinh dầu trầm', 'Cảnh trầm', 'Nhẫn trầm', 'Dây chuyền trầm'
@@ -47,6 +52,7 @@ const ProductManagement = () => {
   const materialRef = useRef(null);
   
   const { BACKEND_URL, getAuthHeader } = useAuth();
+  const { showSuccess, showError } = useToast();
 
   const [formData, setFormData] = useState({
     name: '',
