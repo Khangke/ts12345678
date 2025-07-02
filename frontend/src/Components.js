@@ -20,6 +20,35 @@ export const Header = ({ cartCount, onCartClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Prefetch products when user hovers on products link
+  const prefetchProducts = async () => {
+    try {
+      const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
+      
+      // Check if already cached
+      const CACHE_KEY = 'products_cache';
+      const CACHE_DURATION = 5 * 60 * 1000; // 5 phút
+      const cachedData = localStorage.getItem(CACHE_KEY);
+      
+      if (cachedData) {
+        const { timestamp } = JSON.parse(cachedData);
+        const isValid = Date.now() - timestamp < CACHE_DURATION;
+        if (isValid) return; // Cache still valid
+      }
+
+      // Prefetch data
+      const response = await fetch(`${BACKEND_URL}/api/products`);
+      const data = await response.json();
+      
+      localStorage.setItem(CACHE_KEY, JSON.stringify({
+        data,
+        timestamp: Date.now()
+      }));
+    } catch (error) {
+      console.log('Prefetch failed');
+    }
+  };
+
   const isActive = (path) => {
     return location.pathname === path;
   };
