@@ -1259,16 +1259,17 @@ export const SuccessPage = ({ orderInfo, onContinueShopping }) => {
             onClick={onContinueShopping}
             className="bg-amber-800 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-900 transition-colors shadow-lg w-full md:w-auto"
           >
-            🛍️ Tiếp tục mua sắm
+            <ShoppingBagIcon className="w-6 h-6 mr-2" />
+            Tiếp tục mua sắm
           </button>
           
           <div className="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-4 mt-6">
             <div className="flex items-center justify-center space-x-2 text-gray-600">
-              <span>📞</span>
+              <PhoneIcon className="w-5 h-5" />
               <span>Hotline: 0762 222 448</span>
             </div>
             <div className="flex items-center justify-center space-x-2 text-gray-600">
-              <span>⏰</span>
+              <ClockIcon className="w-5 h-5" />
               <span>Giao hàng: 1-3 ngày</span>
             </div>
           </div>
