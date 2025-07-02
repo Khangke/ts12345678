@@ -49,19 +49,36 @@ const OrderManagement = () => {
   };
 
   const updateOrderStatus = async (orderId, status) => {
+    if (isUpdatingStatus) return; // Prevent double updates
+    
+    setIsUpdatingStatus(true);
+    
     try {
       await axios.put(`${BACKEND_URL}/api/admin/orders/${orderId}/status`, 
         { status }, 
         { headers: getAuthHeader() }
       );
+      
+      const statusTexts = {
+        pending: 'Chờ xác nhận',
+        confirmed: 'Đã xác nhận',
+        shipping: 'Đang giao',
+        delivered: 'Đã giao',
+        cancelled: 'Đã hủy'
+      };
+      
+      showSuccess(`Cập nhật trạng thái đơn hàng thành "${statusTexts[status]}" thành công!`);
       fetchOrders();
+      
       if (selectedOrder && selectedOrder.id === orderId) {
         const updatedOrder = { ...selectedOrder, status };
         setSelectedOrder(updatedOrder);
       }
     } catch (error) {
       console.error('Error updating order status:', error);
-      alert('Có lỗi xảy ra khi cập nhật trạng thái đơn hàng');
+      showError('Có lỗi xảy ra khi cập nhật trạng thái đơn hàng. Vui lòng thử lại!');
+    } finally {
+      setIsUpdatingStatus(false);
     }
   };
 
