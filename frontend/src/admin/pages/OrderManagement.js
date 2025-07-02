@@ -138,33 +138,136 @@ const OrderManagement = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-800"></div>
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+          className="w-12 h-12 border-4 border-amber-200 border-t-amber-600 rounded-full"
+        />
       </div>
     );
   }
 
   return (
-    <div className="p-6">
-      <div className="flex justify-between items-center mb-8">
+    <motion.div 
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="p-6 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-gray-900 dark:to-gray-800 min-h-screen"
+    >
+      {/* Header */}
+      <motion.div variants={itemVariants} className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Quản lý đơn hàng</h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-2">Theo dõi và cập nhật trạng thái đơn hàng</p>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-amber-600 via-orange-600 to-amber-800 bg-clip-text text-transparent">
+            Quản lý đơn hàng
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-2 text-lg">Theo dõi và cập nhật trạng thái đơn hàng</p>
         </div>
-        
-        {/* Status Filter */}
-        <select
-          value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value)}
-          className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
-        >
-          <option value="all">Tất cả</option>
-          <option value="pending">Chờ xác nhận</option>
-          <option value="confirmed">Đã xác nhận</option>
-          <option value="shipping">Đang giao</option>
-          <option value="delivered">Đã giao</option>
-          <option value="cancelled">Đã hủy</option>
-        </select>
-      </div>
+      </motion.div>
+
+      {/* Search and Filter Section */}
+      <motion.div variants={itemVariants} className="mb-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          {/* Search Customer */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <User className="w-4 h-4 inline mr-1" />
+              Tìm kiếm khách hàng
+            </label>
+            <div className="relative">
+              <Search className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Tên, SĐT, email, mã đơn hàng..."
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
+              />
+            </div>
+          </div>
+
+          {/* Status Filter */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <Filter className="w-4 h-4 inline mr-1" />
+              Lọc theo trạng thái
+            </label>
+            <select
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
+            >
+              <option value="all">Tất cả trạng thái</option>
+              {activeTab === 'pending' ? (
+                <option value="pending">Chờ xác nhận</option>
+              ) : (
+                <>
+                  <option value="confirmed">Đã xác nhận</option>
+                  <option value="shipping">Đang giao</option>
+                  <option value="delivered">Đã giao</option>
+                  <option value="cancelled">Đã hủy</option>
+                </>
+              )}
+            </select>
+          </div>
+
+          {/* Quick Stats */}
+          <div className="lg:col-span-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Thống kê nhanh
+            </label>
+            <div className="flex space-x-4">
+              <div className="bg-amber-100 dark:bg-amber-900/50 px-3 py-2 rounded-lg">
+                <div className="text-xs text-amber-600 dark:text-amber-400">Chờ xử lý</div>
+                <div className="text-lg font-bold text-amber-800 dark:text-amber-400">{pendingCount}</div>
+              </div>
+              <div className="bg-green-100 dark:bg-green-900/50 px-3 py-2 rounded-lg">
+                <div className="text-xs text-green-600 dark:text-green-400">Đã xử lý</div>
+                <div className="text-lg font-bold text-green-800 dark:text-green-400">{processedCount}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Tab Navigation */}
+      <motion.div variants={itemVariants} className="mb-6">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 p-2">
+          <div className="flex space-x-2">
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                setActiveTab('pending');
+                setStatusFilter('all');
+              }}
+              className={`flex-1 py-3 px-6 rounded-xl font-semibold transition-all flex items-center justify-center space-x-2 ${
+                activeTab === 'pending'
+                  ? 'bg-gradient-to-r from-amber-600 to-orange-600 text-white shadow-lg'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/20'
+              }`}
+            >
+              <Clock className="w-5 h-5" />
+              <span>Chờ xử lý ({pendingCount})</span>
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                setActiveTab('processed');
+                setStatusFilter('all');
+              }}
+              className={`flex-1 py-3 px-6 rounded-xl font-semibold transition-all flex items-center justify-center space-x-2 ${
+                activeTab === 'processed'
+                  ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-lg'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20'
+              }`}
+            >
+              <CheckCircle className="w-5 h-5" />
+              <span>Đã xử lý ({processedCount})</span>
+            </motion.button>
+          </div>
+        </div>
+      </motion.div>
 
       {/* Orders Table */}
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
