@@ -451,7 +451,7 @@ const OrderManagement = () => {
                     {selectedOrder.customer_email && (
                       <div className="flex items-center space-x-3">
                         <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                          <Mail className="w-5 h-5 text-white" />
+                          <EmailIcon className="w-5 h-5 text-white" />
                         </div>
                         <div>
                           <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Email</p>
