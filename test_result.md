@@ -820,7 +820,7 @@ agent_communication:
     file: "frontend/src/admin/pages/OrderManagement.js"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
@@ -828,3 +828,6 @@ agent_communication:
       - working: true
         agent: "main"
         comment: "✅ Enhanced order table with clickable rows - click anywhere on row to view order details ✅ Status dropdown already existed and working ✅ Added stopPropagation to prevent row click when clicking dropdown or detail button ✅ Added cursor-pointer to indicate clickable rows ✅ Improved UX - users can now click entire row to view details instead of just the button"
+      - working: true
+        agent: "testing"
+        comment: "✅ Tested clickable row functionality - clicking on order ID cell and customer name cell successfully opens order detail modal ✅ Verified that clicking on status dropdown doesn't trigger row click (stopPropagation working correctly) ✅ Confirmed 'Chi tiết' button still works as expected ✅ Tab navigation between 'Chờ xử lý' and 'Đã xử lý' working properly ✅ No console errors detected during testing"
