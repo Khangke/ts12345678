@@ -225,6 +225,10 @@ async def get_all_products(current_admin = Depends(get_current_admin)):
 
 @api_router.post("/admin/products", response_model=Product)
 async def create_product(product_data: ProductCreate, current_admin = Depends(get_current_admin)):
+    # Validate maximum 10 images
+    if len(product_data.images) > 10:
+        raise HTTPException(status_code=400, detail="Maximum 10 images allowed per product")
+    
     product_dict = product_data.dict()
     product_dict["id"] = str(uuid.uuid4())
     product_dict["created_at"] = datetime.utcnow()
