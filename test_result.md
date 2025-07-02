@@ -805,7 +805,7 @@ agent_communication:
   - agent: "testing"
     message: "Đã test chức năng clickable rows trong Order Management: ✅ Clicking trên các phần khác nhau của order row (ID, customer name) đều mở modal chi tiết đơn hàng ✅ Clicking trên status dropdown không trigger row click (stopPropagation hoạt động đúng) ✅ Nút 'Chi tiết' vẫn hoạt động bình thường ✅ Tab navigation giữa 'Chờ xử lý' và 'Đã xử lý' hoạt động tốt ✅ Không phát hiện lỗi console trong quá trình test"
   - agent: "testing"
-    message: "Đã test thành công tạo đơn hàng với trạng thái 'delivered' theo yêu cầu: (1) Login admin thành công với admin/admin123, (2) Lấy danh sách sản phẩm, (3) Tạo đơn hàng mới với thông tin khách hàng 'Phạm Thị D' và sản phẩm có size-based pricing, (4) Cập nhật trạng thái đơn hàng thành 'delivered', (5) Xác nhận đơn hàng tồn tại với trạng thái 'delivered' trong database. Đơn hàng này sẽ hiển thị trong tab 'Đã xử lý' của OrderManagement."
+    message: "Đã test thành công tạo đơn hàng mới với trạng thái 'delivered' theo yêu cầu: (1) Login admin thành công với admin/admin123, (2) Lấy danh sách sản phẩm, (3) Tạo đơn hàng mới với thông tin khách hàng 'Hoàng Văn E' (SĐT: 0901234567, Email: hoangvane@example.com, Địa chỉ: 555 Đường Võ Văn Tần, Quận 3, TP.HCM) và sản phẩm Tinh dầu trầm hương nguyên chất size 10ml, (4) Cập nhật trạng thái đơn hàng thành 'delivered', (5) Xác nhận đơn hàng tồn tại với trạng thái 'delivered' trong database. Đơn hàng này sẽ hiển thị trong tab 'Đã xử lý' của OrderManagement. Tổng số đơn hàng 'delivered' hiện tại là 2."
   - task: "Fix font display issues in size and price sections"
     implemented: true
     working: true
