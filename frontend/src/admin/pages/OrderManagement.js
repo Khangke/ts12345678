@@ -584,7 +584,7 @@ const OrderManagement = () => {
                       <span>Ngày tạo: {new Date(selectedOrder.created_at).toLocaleString('vi-VN')}</span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <Edit className="w-4 h-4" />
+                      <EditIcon className="w-4 h-4" />
                       <span>Cập nhật cuối: {new Date(selectedOrder.updated_at).toLocaleString('vi-VN')}</span>
                     </div>
                   </div>
