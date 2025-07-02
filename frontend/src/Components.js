@@ -352,7 +352,7 @@ export const ProductsSection = () => {
                 />
                 <div className="absolute top-4 left-4">
                   <span className="bg-amber-800 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    Nổi bật
+                    {product.category}
                   </span>
                 </div>
               </div>
