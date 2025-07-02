@@ -129,23 +129,23 @@ export const FeaturesSection = () => {
   const features = [
     {
       icon: '🏆',
-      title: 'Chuyên nghiệp',
-      description: 'Hơn 10 năm kinh nghiệm trong lĩnh vực trầm hương và các sản phẩm thiền định.'
+      title: 'Chất lượng cao',
+      description: 'Sản phẩm trầm hương nguyên chất được chọn lọc kỹ lưỡng từ những vùng đất nổi tiếng về trầm hương tại Việt Nam.'
     },
     {
       icon: '🌿',
-      title: 'Không gian thư giãn',
-      description: 'Mang đến không gian an yên với hương thơm tự nhiên từ trầm hương chất lượng cao.'
+      title: 'Từ thiên nhiên',
+      description: 'Tất cả sản phẩm đều từ nguyên liệu tự nhiên, mang lại hương thơm đặc trưng và lợi ích sức khỏe.'
     },
     {
-      icon: '📱',
-      title: 'Lộ trình linh hoạt',
-      description: 'Tư vấn chọn sản phẩm phù hợp với nhu cầu và sở thích của từng khách hàng.'
+      icon: '🚚',
+      title: 'Miễn phí ship',
+      description: 'Miễn phí ship toàn quốc cho đơn hàng từ 300.000đ, giao hàng nhanh chóng và an toàn.'
     },
     {
-      icon: '📞',
-      title: 'Tư vấn miễn phí',
-      description: 'Tư vấn chi tiết về cách sử dụng và bảo quản sản phẩm trầm hương một cách tốt nhất.'
+      icon: '💬',
+      title: 'Tư vấn tận tâm',
+      description: 'Đội ngũ chuyên gia tư vấn nhiệt tình, giúp bạn chọn lựa sản phẩm phù hợp nhất.'
     }
   ];
 
