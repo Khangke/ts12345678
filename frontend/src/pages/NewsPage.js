@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { newsData } from '../data/newsData';
 
+console.log('NewsData loaded:', newsData.length, 'articles');
+
 const NewsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [newsRef, isNewsVisible] = useScrollAnimation(0.1);
