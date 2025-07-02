@@ -553,6 +553,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test lại admin dashboard stats API và xác nhận hoạt động đúng. API trả về đầy đủ các trường cần thiết cho modern UI: product_count, orders (với breakdown theo trạng thái), total_revenue và recent_orders. Cấu trúc dữ liệu phù hợp cho việc hiển thị trên dashboard với charts và cards."
+      - working: true
+        agent: "testing"
+        comment: "Đã test lại admin dashboard stats API sau frontend dropdown fix và xác nhận hoạt động đúng. API trả về đầy đủ các trường cần thiết cho modern UI: product_count, orders (với breakdown theo trạng thái), total_revenue và recent_orders. Cấu trúc dữ liệu phù hợp cho việc hiển thị trên dashboard với charts và cards. Thống kê đơn hàng và sản phẩm được cập nhật chính xác sau khi tạo mới."
   
   - task: "Test public products API"
     implemented: true
