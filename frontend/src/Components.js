@@ -973,22 +973,22 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
               {product.sizes && (
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold mb-3 text-gray-800 dark:text-white transition-colors duration-300">Chọn kích cỡ:</h3>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-3">
                     {product.sizes.map((size) => (
                       <button
                         key={size}
                         onClick={() => setSelectedSize(size)}
-                        className={`px-4 py-2 border rounded-lg transition-all duration-200 ${
+                        className={`px-4 py-3 border-2 rounded-lg transition-all duration-200 min-w-[100px] ${
                           selectedSize === size 
-                            ? 'border-amber-800 dark:border-amber-600 bg-amber-800 dark:bg-amber-600 text-white' 
-                            : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:border-amber-800 dark:hover:border-amber-600'
+                            ? 'border-amber-800 dark:border-amber-600 bg-amber-800 dark:bg-amber-600 text-white shadow-lg' 
+                            : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:border-amber-800 dark:hover:border-amber-600 hover:shadow-md'
                         }`}
                       >
                         <div className="text-center">
-                          <div className="font-medium">{size}</div>
+                          <div className="font-semibold text-sm">{size}</div>
                           {product.size_prices && product.size_prices[size] && (
-                            <div className={`text-xs mt-1 ${
-                              selectedSize === size ? 'text-amber-100' : 'text-amber-800 dark:text-amber-400'
+                            <div className={`text-sm mt-1 font-medium ${
+                              selectedSize === size ? 'text-white' : 'text-amber-800 dark:text-amber-400'
                             }`}>
                               {product.size_prices[size]}
                             </div>
