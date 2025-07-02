@@ -296,7 +296,7 @@ const OrderManagement = () => {
             <thead className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-gray-700 dark:to-gray-600">
               <tr>
                 <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  <Package className="w-4 h-4 inline mr-2" />
+                  <PackageIcon className="w-4 h-4 inline mr-2" />
                   Mã đơn hàng
                 </th>
                 <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
