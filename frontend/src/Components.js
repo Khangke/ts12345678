@@ -909,7 +909,7 @@ export const CheckoutModal = ({
       alert('Vui lòng điền đầy đủ thông tin bắt buộc!');
       return;
     }
-    onOrderComplete();
+    onOrderComplete(customerInfo);
   };
 
   return (
