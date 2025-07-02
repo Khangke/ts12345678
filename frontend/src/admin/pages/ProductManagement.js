@@ -242,11 +242,35 @@ const ProductManagement = () => {
             <div className="p-4">
               <h3 className="font-semibold text-gray-800 dark:text-white mb-2">{product.name}</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 line-clamp-2">{product.description}</p>
+              
+              {/* Size-based pricing display */}
+              {product.size_prices && Object.keys(product.size_prices).length > 0 ? (
+                <div className="mb-2">
+                  <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Giá theo size:</div>
+                  <div className="flex flex-wrap gap-1">
+                    {Object.entries(product.size_prices).slice(0, 3).map(([size, price]) => (
+                      <span key={size} className="text-xs bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-400 px-2 py-1 rounded">
+                        {size}: {price}
+                      </span>
+                    ))}
+                    {Object.keys(product.size_prices).length > 3 && (
+                      <span className="text-xs text-gray-500">+{Object.keys(product.size_prices).length - 3}</span>
+                    )}
+                  </div>
+                </div>
+              ) : (
+                <div className="mb-2">
+                  <span className="text-amber-800 dark:text-amber-400 font-bold">{product.price}</span>
+                </div>
+              )}
+              
               <div className="flex justify-between items-center">
-                <span className="text-amber-800 dark:text-amber-400 font-bold">{product.price}</span>
                 <span className="text-xs bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-400 px-2 py-1 rounded">
                   {product.category}
                 </span>
+                {product.images && product.images.length > 0 && (
+                  <span className="text-xs text-gray-500">{product.images.length} ảnh</span>
+                )}
               </div>
             </div>
           </div>
