@@ -579,8 +579,10 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test API response format cho modern UI và xác nhận tất cả endpoints trả về dữ liệu với cấu trúc phù hợp. Products API trả về đầy đủ các trường cần thiết (id, name, description, price, image, images, category, material, rating, sizes, size_prices). Admin stats API trả về cấu trúc dữ liệu phù hợp cho dashboard với charts và cards (product_count, orders breakdown, total_revenue, recent_orders)."
-    message: "Bắt đầu implement size-based pricing functionality theo yêu cầu người dùng: 'sửa hoàn thành các đoạn còn dang dở. và thêm tính năng, nếu chọn size thì giá nhảy theo size. lưu ý code trong phần đăng đơn hàng luôn'"
+
+agent_communication:
   - agent: "main"
+    message: "Bắt đầu implement size-based pricing functionality theo yêu cầu người dùng: 'sửa hoàn thành các đoạn còn dang dở. và thêm tính năng, nếu chọn size thì giá nhảy theo size. lưu ý code trong phần đăng đơn hàng luôn'"
     message: "Hoàn thành Phase 1 - Backend Enhancement: ✅ Cập nhật Product model với size_prices dictionary ✅ Tạo seed-products endpoint với sample data ✅ Cập nhật OrderItem model cho size-specific pricing ✅ Successfully seeded 3 products with different size-based pricing"
   - agent: "main"
     message: "Hoàn thành Phase 2 - Frontend Implementation: ✅ Cập nhật ProductDetailModal với size-based pricing UI ✅ Size buttons hiển thị price cho từng size ✅ Current price thay đổi dynamically khi chọn size ✅ Cart và order functions sử dụng size-specific price ✅ ProductsSection load từ backend API với error handling. Sẵn sàng testing complete flow!"
