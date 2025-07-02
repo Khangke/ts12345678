@@ -102,7 +102,56 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Thay thế tất cả icon web hiện tại (emoji) bằng icon chuyên nghiệp từ iconmonstr.com cho website bán trầm hương"
+user_problem_statement: "Chuyển từ single page application thành multi-page với navigation menu thực sự. Mỗi menu item (Trang chủ, Giới thiệu, Sản phẩm, Liên hệ) sẽ dẫn đến trang riêng biệt thay vì scroll xuống sections."
+
+frontend:
+  - task: "Cài đặt React Router"
+    implemented: false
+    working: "NA"
+    file: "frontend/package.json"
+    stuck_count: 0  
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Cài đặt react-router-dom để tạo routing system"
+
+  - task: "Tạo pages riêng biệt từ sections"
+    implemented: false
+    working: "NA"
+    file: "frontend/src/pages/"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Tách HeroSection, AboutSection, ProductsSection, ContactSection thành các pages riêng"
+
+  - task: "Cập nhật navigation menu"
+    implemented: false
+    working: "NA"
+    file: "frontend/src/Components.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Thay anchor links bằng React Router Links"
+
+  - task: "Tạo routing system"
+    implemented: false
+    working: "NA"
+    file: "frontend/src/App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Setup BrowserRouter và Routes trong App.js"
 
 frontend:
   - task: "Tạo hệ thống icon component SVG"
