@@ -338,15 +338,23 @@ const ProductManagement = () => {
   };
 
   const handleDelete = async (productId) => {
+    if (isDeleting) return; // Prevent double deletion
+    
+    setIsDeleting(true);
+    
     try {
       await axios.delete(`${BACKEND_URL}/api/admin/products/${productId}`, {
         headers: getAuthHeader()
       });
+      
+      showSuccess('Xóa sản phẩm thành công!');
       fetchProducts();
       setDeleteConfirm(null);
     } catch (error) {
       console.error('Error deleting product:', error);
-      alert('Có lỗi xảy ra khi xóa sản phẩm');
+      showError('Có lỗi xảy ra khi xóa sản phẩm. Vui lòng thử lại!');
+    } finally {
+      setIsDeleting(false);
     }
   };
 
