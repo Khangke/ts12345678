@@ -882,7 +882,7 @@ const ProductManagement = () => {
                                 type="text"
                                 value={formData.size_prices[size] || ''}
                                 onChange={(e) => handleSizePriceChange(size, e.target.value)}
-                                placeholder="99.999vnđ"
+                                placeholder="10.000 VNĐ"
                                 className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
                               />
                               <motion.button
