@@ -13,6 +13,7 @@ import {
   ShoppingBagIcon
 } from './Icons';
 import { useScrollAnimation, useStaggerAnimation } from './hooks/useScrollAnimation';
+import { DarkModeToggle } from './contexts/DarkModeContext';
 
 // Header Component
 export const Header = ({ cartCount, onCartClick }) => {
