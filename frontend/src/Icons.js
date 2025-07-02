@@ -267,3 +267,45 @@ export const BookIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
     <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V7H5V5H19M5,19V9H19V19H5Z"/>
   </svg>
 );
+
+// User Circle Icon
+export const UserCircleIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
+  <svg className={className} fill={color} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z"/>
+  </svg>
+);
+
+// Credit Card Icon
+export const CreditCardIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
+  <svg className={className} fill={color} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M20,18H4V12H20V18M20,8H4V6H20V8Z"/>
+  </svg>
+);
+
+// Message Circle Icon
+export const MessageCircleIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
+  <svg className={className} fill={color} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12,2C6.48,2 2,6.48 2,12C2,13.54 2.36,14.98 3,16.24V22L8.76,19C9.82,19.64 11.05,20 12.38,20H12C17.52,20 22,15.52 22,10C22,4.48 17.52,0 12,0V2Z"/>
+  </svg>
+);
+
+// Map Pin Icon
+export const MapPinIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
+  <svg className={className} fill={color} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12,2C15.31,2 18,4.66 18,7.95C18,12.41 12,19 12,19S6,12.41 6,7.95C6,4.66 8.69,2 12,2M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6Z"/>
+  </svg>
+);
+
+// Mail Icon
+export const MailIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
+  <svg className={className} fill={color} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z"/>
+  </svg>
+);
+
+// Sticky Note Icon
+export const StickyNoteIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
+  <svg className={className} fill={color} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18,3H6A2,2 0 0,0 4,5V19A2,2 0 0,0 6,21H14L20,15V5A2,2 0 0,0 18,3M18,14H14V18H6V5H18V14Z"/>
+  </svg>
+);
