@@ -402,7 +402,13 @@ const NewsPage = () => {
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <button className="text-amber-800 dark:text-amber-300 font-medium text-sm hover:text-amber-900 dark:hover:text-amber-200 transition-colors duration-300 group-hover:underline">
+                  <button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(`/news/${news.id}`);
+                    }}
+                    className="text-amber-800 dark:text-amber-300 font-medium text-sm hover:text-amber-900 dark:hover:text-amber-200 transition-colors duration-300 group-hover:underline"
+                  >
                     Đọc thêm →
                   </button>
                   <div className="w-8 h-8 bg-amber-100 dark:bg-amber-600/30 rounded-full flex items-center justify-center group-hover:bg-amber-200 dark:group-hover:bg-amber-500/50 transition-colors duration-300">
