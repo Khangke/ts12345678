@@ -295,7 +295,8 @@ const OrderManagement = () => {
                 filteredOrders.map((order, index) => (
                   <tr 
                     key={order.id}
-                    className="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors"
+                    onClick={() => setSelectedOrder(order)}
+                    className="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors cursor-pointer"
                   >
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm font-bold text-amber-800 dark:text-amber-400">{order.order_id}</div>
@@ -323,6 +324,7 @@ const OrderManagement = () => {
                       <select
                         value={order.status}
                         onChange={(e) => updateOrderStatus(order.id, e.target.value)}
+                        onClick={(e) => e.stopPropagation()} // Prevent row click when clicking dropdown
                         disabled={isUpdatingStatus}
                         className={`px-3 py-2 rounded-lg text-xs font-semibold border-2 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all ${getStatusColor(order.status)} ${
                           isUpdatingStatus ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:opacity-80'
@@ -340,7 +342,10 @@ const OrderManagement = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm space-x-2">
                       <button
-                        onClick={() => setSelectedOrder(order)}
+                        onClick={(e) => {
+                          e.stopPropagation(); // Prevent row click when clicking button
+                          setSelectedOrder(order);
+                        }}
                         className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-lg flex items-center space-x-1"
                       >
                         <EyeIcon className="w-4 h-4" />
