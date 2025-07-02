@@ -34,6 +34,7 @@ const OrderManagement = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const [isUpdatingStatus, setIsUpdatingStatus] = useState(false);
+  const [updatingOrderId, setUpdatingOrderId] = useState(null);
   const { BACKEND_URL, getAuthHeader } = useAuth();
   const { showSuccess, showError } = useToast();
 
