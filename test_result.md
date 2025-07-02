@@ -643,6 +643,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test lại admin order management API sau frontend dropdown fix và xác nhận hoạt động đúng. Đã tạo test order với size-specific pricing thành công. Order được tạo với selected_size và size_specific_price đúng. Đã test PUT /api/admin/orders/{id}/status để cập nhật trạng thái đơn hàng từ 'pending' sang 'confirmed'. Đã test backward compatibility với order không có size-specific pricing và xác nhận hoạt động đúng. API trả về dữ liệu đúng định dạng và status code phù hợp."
+      - working: true
+        agent: "testing"
+        comment: "Đã test lại admin order management API sau frontend toast notifications và loading states implementation và xác nhận hoạt động đúng. Đã tạo test order với size-specific pricing thành công. Order được tạo với selected_size và size_specific_price đúng. Đã test PUT /api/admin/orders/{id}/status để cập nhật trạng thái đơn hàng từ 'pending' sang 'confirmed'. Đã test backward compatibility với order không có size-specific pricing và xác nhận hoạt động đúng. API trả về dữ liệu đúng định dạng và status code phù hợp."
   
   - task: "Test admin dashboard stats API"
     implemented: true
