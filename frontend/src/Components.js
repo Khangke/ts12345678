@@ -1022,18 +1022,20 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
 
               {/* Price & Actions */}
               <div className="mb-6">
-                <div className="text-3xl font-bold text-amber-800 dark:text-amber-400 mb-2 transition-colors duration-300">
-                  {currentPrice}
+                <div className="mb-3">
+                  <span className="text-4xl font-bold text-amber-800 dark:text-amber-400 transition-colors duration-300">
+                    {currentPrice}
+                  </span>
                   {selectedSize && product.size_prices && product.size_prices[selectedSize] && (
-                    <span className="text-sm text-gray-600 dark:text-gray-400 ml-2 font-normal">
-                      (Size: {selectedSize})
-                    </span>
+                    <div className="text-base text-gray-600 dark:text-gray-400 mt-1 font-medium">
+                      Kích cỡ đã chọn: <span className="font-semibold text-amber-700 dark:text-amber-300">{selectedSize}</span>
+                    </div>
                   )}
                 </div>
                 {/* Show price comparison if size pricing is available */}
                 {product.size_prices && Object.keys(product.size_prices).length > 1 && (
-                  <div className="text-sm text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-300">
-                    Giá thay đổi theo kích cỡ đã chọn
+                  <div className="text-sm text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-300 bg-amber-50 dark:bg-amber-900/20 p-3 rounded-lg border border-amber-200 dark:border-amber-700">
+                    <span className="font-medium">💡 Mẹo:</span> Giá sẽ thay đổi tương ứng với kích cỡ bạn chọn
                   </div>
                 )}
                 <div className="flex space-x-4">
