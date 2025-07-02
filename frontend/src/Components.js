@@ -10,7 +10,8 @@ import {
   EmailIcon, 
   LocationIcon,
   ClockIcon,
-  ShoppingBagIcon
+  ShoppingBagIcon,
+  NewsIcon
 } from './Icons';
 import { useScrollAnimation, useStaggerAnimation } from './hooks/useScrollAnimation';
 import { DarkModeToggle } from './contexts/DarkModeContext';
