@@ -405,12 +405,13 @@ export const ContactSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <h2 className="text-4xl font-bold text-white mb-6">
-              Let You Talk To
+              Liên hệ với
               <br />
-              Trầm Hương Trainer
+              Sơn Mộc Hương
             </h2>
             <p className="text-gray-300 mb-8">
-              Liên hệ với chúng tôi để được tư vấn về các sản phẩm trầm hương phù hợp nhất với nhu cầu của bạn.
+              Liên hệ với chúng tôi để được tư vấn về các sản phẩm trầm hương chất lượng cao. 
+              Đội ngũ chuyên gia sẽ giúp bạn chọn lựa sản phẩm phù hợp nhất.
             </p>
             <button className="bg-amber-800 text-white px-8 py-3 rounded-full hover:bg-amber-900 transition-colors">
               Liên hệ ngay
