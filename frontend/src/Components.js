@@ -263,7 +263,7 @@ export const AboutSection = () => {
 };
 
 // Products Section Component
-export const ProductsSection = () => {
+export const ProductsSection = ({ onProductClick }) => {
   const products = [
     {
       id: 1,
@@ -273,7 +273,13 @@ export const ProductsSection = () => {
       image: 'https://images.pexels.com/photos/2297252/pexels-photo-2297252.jpeg',
       category: 'Vòng tay trầm',
       material: 'Trầm hương tự nhiên',
-      rating: 4.9
+      rating: 4.9,
+      sizes: ['16mm', '18mm', '20mm'],
+      reviews: [
+        { name: 'Nguyễn Văn A', rating: 5, comment: 'Sản phẩm rất đẹp, hương thơm tự nhiên' },
+        { name: 'Trần Thị B', rating: 5, comment: 'Chất lượng tốt, đúng như mô tả' }
+      ],
+      detailDescription: 'Vòng tay trầm hương tự nhiên được chế tác từ gỗ trầm hương Việt Nam cao cấp. Sản phẩm có hương thơm nhẹ nhàng, mang lại cảm giác thư giãn và bình an cho người đeo.'
     },
     {
       id: 2,
@@ -283,7 +289,13 @@ export const ProductsSection = () => {
       image: 'https://images.unsplash.com/photo-1581669808238-7f73311e2031?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHx3b29kZW4lMjBiZWFkc3xlbnwwfHx8fDE3NTE0Mjk4OTR8MA&ixlib=rb-4.1.0&q=85',
       category: 'Vòng tay cao cấp',
       material: 'Trầm hương chìm nước',
-      rating: 4.8
+      rating: 4.8,
+      sizes: ['16mm', '18mm', '20mm', '22mm'],
+      reviews: [
+        { name: 'Lê Văn C', rating: 5, comment: 'Trầm chìm nước thật, hương rất thơm' },
+        { name: 'Phạm Thị D', rating: 4, comment: 'Đắt nhưng xứng đáng với giá tiền' }
+      ],
+      detailDescription: 'Vòng tay trầm hương chìm nước là loại trầm hương cao cấp nhất, có mật độ cao, chìm trong nước và tỏa hương đặc trưng khi đốt.'
     },
     {
       id: 3,
@@ -293,7 +305,12 @@ export const ProductsSection = () => {
       image: 'https://images.pexels.com/photos/8484055/pexels-photo-8484055.jpeg',
       category: 'Nhang nụ trầm',
       material: 'Trầm hương nguyên chất',
-      rating: 4.9
+      rating: 4.9,
+      sizes: ['Hộp 50 nụ', 'Hộp 100 nụ'],
+      reviews: [
+        { name: 'Hoàng Văn E', rating: 5, comment: 'Nhang nụ chất lượng, hương thơm tự nhiên' }
+      ],
+      detailDescription: 'Nhang nụ trầm hương được làm từ bột trầm hương nguyên chất, không chất phụ gia, tạo khói nhẹ và hương thơm dễ chịu.'
     },
     {
       id: 4,
@@ -303,7 +320,12 @@ export const ProductsSection = () => {
       image: 'https://images.unsplash.com/photo-1742474561321-10e657e125f4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxhZ2Fyd29vZCUyMG9pbHxlbnwwfHx8fDE3NTE0Mjk4NzN8MA&ixlib=rb-4.1.0&q=85',
       category: 'Tinh dầu trầm',
       material: 'Tinh dầu nguyên chất',
-      rating: 4.7
+      rating: 4.7,
+      sizes: ['5ml', '10ml', '20ml'],
+      reviews: [
+        { name: 'Vũ Thị F', rating: 5, comment: 'Tinh dầu thật 100%, rất thơm' }
+      ],
+      detailDescription: 'Tinh dầu trầm hương được chưng cất từ gỗ trầm hương cao cấp, có tác dụng thư giãn tinh thần, giảm stress.'
     },
     {
       id: 5,
@@ -313,7 +335,12 @@ export const ProductsSection = () => {
       image: 'https://images.unsplash.com/photo-1541795083-1b160cf4f3d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwYnVybmluZ3xlbnwwfHx8fDE3NTE0Mjk4ODl8MA&ixlib=rb-4.1.0&q=85',
       category: 'Cảnh trầm',
       material: 'Gỗ trầm hương nguyên khối',
-      rating: 4.8
+      rating: 4.8,
+      sizes: ['Size S (10-15cm)', 'Size M (15-20cm)', 'Size L (20-30cm)'],
+      reviews: [
+        { name: 'Đỗ Văn G', rating: 5, comment: 'Cảnh trầm đẹp, thích hợp trang trí' }
+      ],
+      detailDescription: 'Cảnh trầm hương được chế tác thủ công từ gỗ trầm hương tự nhiên, mang ý nghĩa phong thủy tốt lành.'
     },
     {
       id: 6,
@@ -323,7 +350,12 @@ export const ProductsSection = () => {
       image: 'https://images.unsplash.com/photo-1509726360306-3f44543aea4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85',
       category: 'Nhang tăm',
       material: 'Trầm hương tự nhiên',
-      rating: 4.6
+      rating: 4.6,
+      sizes: ['Hộp 100 que', 'Hộp 200 que'],
+      reviews: [
+        { name: 'Bùi Thị H', rating: 4, comment: 'Nhang tăm dễ sử dụng, hương nhẹ nhàng' }
+      ],
+      detailDescription: 'Nhang tăm trầm hương được làm từ bột trầm hương pha trộn với chất liệu tự nhiên, tạo hương thơm dễ chịu.'
     },
     {
       id: 7,
@@ -333,7 +365,12 @@ export const ProductsSection = () => {
       image: 'https://images.unsplash.com/photo-1608393189376-5264bcca3582?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwxfHZ2aWV0bmFtZXNlJTIwYWdhcndvb2R8ZW58MHx8fHwxNzUxNDI5ODg0fDA&ixlib=rb-4.1.0&q=85',
       category: 'Vòng tay cao cấp',
       material: 'Trầm hương + Vàng 24k',
-      rating: 4.7
+      rating: 4.7,
+      sizes: ['16mm', '18mm', '20mm'],
+      reviews: [
+        { name: 'Trương Văn I', rating: 5, comment: 'Sản phẩm cao cấp, rất đẹp và sang trọng' }
+      ],
+      detailDescription: 'Vòng tay trầm hương bọc vàng 24k là sự kết hợp hoàn hảo giữa trầm hương và vàng, tạo nên sản phẩm đẳng cấp.'
     },
     {
       id: 8,
@@ -343,7 +380,12 @@ export const ProductsSection = () => {
       image: 'https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg',
       category: 'Phụ kiện xông trầm',
       material: 'Gốm sứ cao cấp',
-      rating: 4.9
+      rating: 4.9,
+      sizes: ['Bộ cơ bản', 'Bộ cao cấp', 'Bộ VIP'],
+      reviews: [
+        { name: 'Ngô Thị J', rating: 5, comment: 'Bộ phụ kiện đầy đủ, chất lượng tốt' }
+      ],
+      detailDescription: 'Bộ phụ kiện xông trầm gồm lư xông gốm sứ, kẹp gỗ, đế xông và các phụ kiện cần thiết để xông trầm hương.'
     }
   ];
 
@@ -360,7 +402,11 @@ export const ProductsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
-            <div key={product.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+            <div 
+              key={product.id} 
+              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer"
+              onClick={() => onProductClick(product)}
+            >
               <div className="relative">
                 <img 
                   src={product.image}
@@ -395,8 +441,14 @@ export const ProductsSection = () => {
                 
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-bold text-amber-800">{product.price}</span>
-                  <button className="bg-amber-800 text-white px-4 py-2 rounded-full hover:bg-amber-900 transition-colors text-sm">
-                    Mua ngay
+                  <button 
+                    className="bg-amber-800 text-white px-4 py-2 rounded-full hover:bg-amber-900 transition-colors text-sm"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onProductClick(product);
+                    }}
+                  >
+                    Xem chi tiết
                   </button>
                 </div>
               </div>
