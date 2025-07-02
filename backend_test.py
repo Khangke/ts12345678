@@ -376,6 +376,70 @@ def test_admin_orders(token: str):
         except Exception as e:
             log_test("Admin Orders - PUT Status Update", False, error=str(e))
 
+def test_response_format_for_modern_ui():
+    """Test API response formats for compatibility with modern UI components"""
+    try:
+        # Test public products API format for modern UI
+        response = requests.get(f"{API_URL}/products")
+        
+        if response.status_code == 200 and isinstance(response.json(), list):
+            products = response.json()
+            
+            # Check for fields needed by modern UI components
+            required_fields = ['id', 'name', 'description', 'price', 'image', 'images', 
+                              'category', 'material', 'rating', 'sizes', 'size_prices']
+            
+            all_fields_present = all(all(field in product for field in required_fields) 
+                                    for product in products)
+            
+            if all_fields_present:
+                log_test("API Response Format for Modern UI - Products", True)
+            else:
+                log_test("API Response Format for Modern UI - Products", False, 
+                        error="Products API response missing fields required for modern UI")
+        else:
+            log_test("API Response Format for Modern UI - Products", False, response,
+                    f"Expected status 200 with array, got {response.status_code}")
+    except Exception as e:
+        log_test("API Response Format for Modern UI - Products", False, error=str(e))
+    
+    # Get admin token for testing admin endpoints
+    try:
+        token = get_admin_token()
+        
+        # Test admin stats API format for modern UI (charts, cards)
+        response = requests.get(
+            f"{API_URL}/admin/stats",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+        
+        if response.status_code == 200:
+            stats = response.json()
+            
+            # Check for fields needed by dashboard charts and cards
+            required_fields = ['product_count', 'orders', 'total_revenue']
+            orders_fields = ['pending', 'confirmed', 'shipping', 'delivered', 'cancelled', 'total']
+            
+            fields_present = all(field in stats for field in required_fields)
+            orders_fields_present = all(field in stats['orders'] for field in orders_fields)
+            
+            if fields_present and orders_fields_present:
+                log_test("API Response Format for Modern UI - Admin Stats", True)
+            else:
+                missing = []
+                if not fields_present:
+                    missing.append("main stats fields")
+                if not orders_fields_present:
+                    missing.append("order status breakdown")
+                
+                log_test("API Response Format for Modern UI - Admin Stats", False,
+                        error=f"Admin stats API response missing fields required for modern UI: {', '.join(missing)}")
+        else:
+            log_test("API Response Format for Modern UI - Admin Stats", False, response,
+                    f"Expected status 200, got {response.status_code}")
+    except Exception as e:
+        log_test("API Response Format for Modern UI - Admin Stats", False, error=str(e))
+
 def test_admin_stats(token: str):
     """Test admin stats endpoint"""
     try:
