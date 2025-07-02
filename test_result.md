@@ -619,6 +619,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test lại admin product management API sau frontend dropdown fix và xác nhận hoạt động đúng. Đã seed 3 sản phẩm mẫu với size-based pricing thành công. Đã test CRUD operations đầy đủ: GET all products, POST new product với size_prices, GET specific product, PUT update product (thêm size mới và thay đổi giá), DELETE product. Tất cả endpoints đều trả về dữ liệu đúng định dạng và status code phù hợp. Đã test backward compatibility với sản phẩm không có size-based pricing và xác nhận hoạt động đúng."
+      - working: true
+        agent: "testing"
+        comment: "Đã test lại admin product management API sau frontend toast notifications và loading states implementation và xác nhận hoạt động đúng. Đã test CRUD operations đầy đủ: GET all products, POST new product với size_prices, GET specific product, PUT update product (thêm size mới và thay đổi giá), DELETE product. Tất cả endpoints đều trả về dữ liệu đúng định dạng và status code phù hợp. Đã test backward compatibility với sản phẩm không có size-based pricing và xác nhận hoạt động đúng."
   
   - task: "Test admin order management API"
     implemented: true
