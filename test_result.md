@@ -311,11 +311,20 @@ backend:
         agent: "main"
         comment: "API endpoints cho CRUD products, orders management, admin auth"
 
+metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 0
+  run_ui: false
+
 test_plan:
   current_focus:
     - "Test navigation giữa các pages"
     - "Verify routing hoạt động đúng"
     - "Test responsive trên mobile và desktop"
+    - "Test admin panel functionality"
+    - "Test product management CRUD"
+    - "Test order management system"
   stuck_tasks: []
   test_all: true
   test_priority: "high_first"
