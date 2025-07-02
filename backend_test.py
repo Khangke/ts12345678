@@ -643,12 +643,235 @@ def test_create_order_with_size_pricing():
     except Exception as e:
         log_test("Create Order with Size-Specific Pricing", False, error=str(e))
 
+def test_sample_orders_flow():
+    """Test the complete flow for creating sample orders for testing:
+    1. Create admin user if not exists
+    2. Admin login
+    3. Seed sample products
+    4. Create test orders with different statuses
+    5. Verify orders exist
+    """
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    print(f"{Colors.HEADER}TESTING SAMPLE ORDERS FLOW{Colors.ENDC}")
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    
+    # Step 1: Create admin user if not exists
+    try:
+        response = requests.post(f"{API_URL}/admin/create")
+        
+        if response.status_code == 200:
+            log_test("Create Admin User", True, response)
+        else:
+            log_test("Create Admin User", False, response, 
+                    f"Expected status 200, got {response.status_code}")
+    except Exception as e:
+        log_test("Create Admin User", False, error=str(e))
+    
+    # Step 2: Admin login
+    token = None
+    try:
+        response = requests.post(
+            f"{API_URL}/admin/login",
+            json={"username": ADMIN_USERNAME, "password": ADMIN_PASSWORD}
+        )
+        
+        if response.status_code == 200 and "access_token" in response.json():
+            token = response.json()["access_token"]
+            log_test("Admin Login", True, response)
+        else:
+            log_test("Admin Login", False, response, 
+                    f"Expected status 200 with access_token, got {response.status_code}")
+    except Exception as e:
+        log_test("Admin Login", False, error=str(e))
+    
+    if not token:
+        print(f"{Colors.FAIL}Cannot proceed without admin token{Colors.ENDC}")
+        return
+    
+    # Step 3: Seed sample products
+    try:
+        response = requests.post(
+            f"{API_URL}/admin/seed-products",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+        
+        if response.status_code == 200 and "message" in response.json():
+            log_test("Seed Sample Products", True, response)
+        else:
+            log_test("Seed Sample Products", False, response, 
+                    f"Expected status 200 with message, got {response.status_code}")
+    except Exception as e:
+        log_test("Seed Sample Products", False, error=str(e))
+    
+    # Get products for creating orders
+    products = []
+    try:
+        response = requests.get(f"{API_URL}/products")
+        
+        if response.status_code == 200 and isinstance(response.json(), list):
+            products = response.json()
+            log_test("Get Products for Orders", True)
+            print(f"  Found {len(products)} products")
+        else:
+            log_test("Get Products for Orders", False, response, 
+                    f"Expected status 200 with array, got {response.status_code}")
+    except Exception as e:
+        log_test("Get Products for Orders", False, error=str(e))
+    
+    if not products:
+        print(f"{Colors.FAIL}Cannot create orders without products{Colors.ENDC}")
+        return
+    
+    # Step 4: Create test orders with different statuses
+    order_ids = []
+    
+    # Create 3 orders with different customer data
+    customers = [
+        {
+            "name": "Nguyễn Văn A",
+            "phone": "0912345678",
+            "email": "nguyenvana@example.com",
+            "address": "123 Đường Lê Lợi, Quận 1, TP.HCM",
+            "note": "Giao hàng giờ hành chính"
+        },
+        {
+            "name": "Trần Thị B",
+            "phone": "0987654321",
+            "email": "tranthib@example.com",
+            "address": "456 Đường Nguyễn Huệ, Quận 1, TP.HCM",
+            "note": "Gọi trước khi giao"
+        },
+        {
+            "name": "Lê Văn C",
+            "phone": "0909123456",
+            "email": "levanc@example.com",
+            "address": "789 Đường Cách Mạng Tháng 8, Quận 3, TP.HCM",
+            "note": "Giao buổi tối sau 18h"
+        }
+    ]
+    
+    for i, customer in enumerate(customers):
+        # Select a product with size-based pricing
+        product = products[i % len(products)]
+        
+        # Get a size and its price
+        if product.get("size_prices") and product.get("sizes"):
+            selected_size = product["sizes"][0]
+            size_specific_price = product["size_prices"][selected_size]
+            
+            # Create order
+            try:
+                order_data = {
+                    "customer_name": customer["name"],
+                    "customer_phone": customer["phone"],
+                    "customer_email": customer["email"],
+                    "customer_address": customer["address"],
+                    "note": customer["note"],
+                    "items": [
+                        {
+                            "product_id": product["id"],
+                            "product_name": product["name"],
+                            "price": size_specific_price,
+                            "quantity": 1,
+                            "selected_size": selected_size,
+                            "size_specific_price": size_specific_price
+                        }
+                    ],
+                    "total_price": int(size_specific_price.replace(".", "").replace("đ", "")),
+                    "shipping_fee": 30000
+                }
+                
+                response = requests.post(
+                    f"{API_URL}/orders",
+                    json=order_data
+                )
+                
+                if response.status_code == 200 and "id" in response.json():
+                    order_id = response.json()["id"]
+                    order_ids.append(order_id)
+                    log_test(f"Create Test Order {i+1}", True, response)
+                else:
+                    log_test(f"Create Test Order {i+1}", False, response, 
+                            f"Expected status 200 with id, got {response.status_code}")
+            except Exception as e:
+                log_test(f"Create Test Order {i+1}", False, error=str(e))
+        else:
+            log_test(f"Create Test Order {i+1}", False, 
+                    error=f"Product {product['name']} doesn't have size-based pricing")
+    
+    # Update order statuses to have different statuses
+    if len(order_ids) >= 3:
+        status_updates = [
+            {"order_index": 0, "status": "confirmed"},
+            {"order_index": 1, "status": "shipping"},
+            {"order_index": 2, "status": "pending"}  # Keep as pending
+        ]
+        
+        for update in status_updates:
+            if update["status"] != "pending":  # Skip if we want to keep it pending
+                try:
+                    order_id = order_ids[update["order_index"]]
+                    status_data = {"status": update["status"]}
+                    
+                    response = requests.put(
+                        f"{API_URL}/admin/orders/{order_id}/status",
+                        headers={"Authorization": f"Bearer {token}"},
+                        json=status_data
+                    )
+                    
+                    if response.status_code == 200 and response.json()["status"] == update["status"]:
+                        log_test(f"Update Order {update['order_index']+1} Status to {update['status']}", True, response)
+                    else:
+                        log_test(f"Update Order {update['order_index']+1} Status to {update['status']}", False, response, 
+                                f"Expected status 200 with updated status, got {response.status_code}")
+                except Exception as e:
+                    log_test(f"Update Order {update['order_index']+1} Status to {update['status']}", False, error=str(e))
+    
+    # Step 5: Verify orders exist
+    try:
+        response = requests.get(
+            f"{API_URL}/admin/orders",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+        
+        if response.status_code == 200 and isinstance(response.json(), list):
+            orders = response.json()
+            
+            # Check if our created orders exist
+            created_orders_exist = all(order_id in [order["id"] for order in orders] for order_id in order_ids)
+            
+            # Check if we have orders with different statuses
+            statuses = set(order["status"] for order in orders)
+            multiple_statuses = len(statuses) > 1
+            
+            if created_orders_exist and multiple_statuses:
+                log_test("Verify Orders Exist with Different Statuses", True, response)
+                print(f"  Found {len(orders)} orders with statuses: {', '.join(statuses)}")
+            elif created_orders_exist:
+                log_test("Verify Orders Exist", True, response)
+                print(f"  Found {len(orders)} orders but all have the same status: {next(iter(statuses))}")
+            else:
+                log_test("Verify Orders Exist", False, response, 
+                        "Not all created orders were found in the admin orders list")
+        else:
+            log_test("Verify Orders Exist", False, response, 
+                    f"Expected status 200 with array, got {response.status_code}")
+    except Exception as e:
+        log_test("Verify Orders Exist", False, error=str(e))
+    
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    print(f"{Colors.HEADER}SAMPLE ORDERS FLOW COMPLETED{Colors.ENDC}")
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+
 def run_tests():
     """Run all tests"""
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
     print(f"{Colors.HEADER}TESTING ADMIN SYSTEM BACKEND APIs{Colors.ENDC}")
     print(f"{Colors.HEADER}Backend URL: {BACKEND_URL}{Colors.ENDC}")
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    
+    # Test the sample orders flow specifically requested
+    test_sample_orders_flow()
     
     # Test admin login
     test_admin_login()
