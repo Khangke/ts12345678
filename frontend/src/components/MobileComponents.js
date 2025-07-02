@@ -54,8 +54,8 @@ export const MobileBottomNav = ({ cartCount, onCartClick }) => {
               to={item.path}
               className={`flex flex-col items-center justify-center space-y-1 transition-all duration-300 ${
                 isActive(item.path) 
-                  ? 'text-amber-800 bg-amber-50' 
-                  : 'text-gray-600 hover:text-amber-700 hover:bg-gray-50'
+                  ? 'text-amber-800 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20' 
+                  : 'text-gray-600 dark:text-gray-400 hover:text-amber-700 dark:hover:text-amber-300 hover:bg-gray-50 dark:hover:bg-gray-800'
               }`}
             >
               <span className={`text-lg transition-transform duration-300 ${
@@ -65,7 +65,7 @@ export const MobileBottomNav = ({ cartCount, onCartClick }) => {
               </span>
               <span className="text-xs font-medium">{item.label}</span>
               {isActive(item.path) && (
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-amber-800 rounded-t-full animate-scale-in"></div>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-amber-800 dark:bg-amber-400 rounded-t-full animate-scale-in"></div>
               )}
             </Link>
           ))}
@@ -73,12 +73,12 @@ export const MobileBottomNav = ({ cartCount, onCartClick }) => {
           {/* Cart button */}
           <button
             onClick={onCartClick}
-            className="flex flex-col items-center justify-center space-y-1 text-gray-600 hover:text-amber-700 hover:bg-gray-50 transition-all duration-300 relative"
+            className="flex flex-col items-center justify-center space-y-1 text-gray-600 dark:text-gray-400 hover:text-amber-700 dark:hover:text-amber-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 relative"
           >
             <div className="relative">
               <ShoppingCartIcon className="w-6 h-6" />
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center animate-bounce">
+                <span className="absolute -top-2 -right-2 bg-amber-800 dark:bg-amber-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center animate-bounce">
                   {cartCount}
                 </span>
               )}
