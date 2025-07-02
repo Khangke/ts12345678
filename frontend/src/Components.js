@@ -46,17 +46,33 @@ export const Header = ({ cartCount, onCartClick }) => {
             </button>
           </div>
 
-          {/* Mobile menu button */}
-          <button 
-            className="md:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <div className="w-6 h-6 flex flex-col justify-center">
-              <span className={`block h-0.5 w-6 bg-gray-600 transform transition ${isMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
-              <span className={`block h-0.5 w-6 bg-gray-600 my-1 transition ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-              <span className={`block h-0.5 w-6 bg-gray-600 transform transition ${isMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
-            </div>
-          </button>
+          {/* Mobile Cart & Menu */}
+          <div className="lg:hidden flex items-center space-x-3">
+            {/* Mobile Cart Button */}
+            <button 
+              onClick={onCartClick}
+              className="relative bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors"
+            >
+              🛒
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center cart-badge">
+                  {cartCount}
+                </span>
+              )}
+            </button>
+
+            {/* Mobile menu button */}
+            <button 
+              className="p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <div className="w-6 h-6 flex flex-col justify-center">
+                <span className={`block h-0.5 w-6 bg-gray-600 transform transition ${isMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
+                <span className={`block h-0.5 w-6 bg-gray-600 my-1 transition ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`block h-0.5 w-6 bg-gray-600 transform transition ${isMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+              </div>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
