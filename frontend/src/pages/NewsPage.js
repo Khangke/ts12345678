@@ -437,48 +437,6 @@ const NewsPage = () => {
         )}
       </div>
 
-      {/* News Detail Modal */}
-      {selectedNews && (
-        <div className="fixed inset-0 bg-black/60 dark:bg-black/80 flex items-center justify-center z-50 p-4 transition-colors duration-300">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl dark:shadow-amber-900/20">
-            <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6 z-10">
-              <div className="flex justify-between items-start">
-                <div className="flex-1 mr-4">
-                  <span className="bg-amber-800 dark:bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-medium">
-                    {selectedNews.category}
-                  </span>
-                  <h2 className="text-2xl font-bold text-gray-800 dark:text-white mt-3 leading-tight">
-                    {selectedNews.title}
-                  </h2>
-                  <div className="flex items-center space-x-4 mt-3 text-sm text-gray-600 dark:text-gray-400">
-                    <span>✍️ {selectedNews.author}</span>
-                    <span>📅 {formatDate(selectedNews.date)}</span>
-                    <span>⏱️ {selectedNews.readTime}</span>
-                  </div>
-                </div>
-                <button 
-                  onClick={() => setSelectedNews(null)} 
-                  className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-2xl p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-all duration-300"
-                >
-                  ×
-                </button>
-              </div>
-            </div>
-
-            <div className="p-6">
-              <img 
-                src={selectedNews.image}
-                alt={selectedNews.title}
-                className="w-full h-64 object-cover rounded-lg shadow-lg dark:shadow-amber-900/20 mb-8"
-              />
-              <div 
-                className="prose prose-lg max-w-none dark:prose-invert prose-amber"
-                dangerouslySetInnerHTML={{ __html: selectedNews.content }}
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
