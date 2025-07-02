@@ -102,7 +102,84 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Chuyển từ single page application thành multi-page với navigation menu thực sự. Mỗi menu item (Trang chủ, Giới thiệu, Sản phẩm, Liên hệ) sẽ dẫn đến trang riêng biệt thay vì scroll xuống sections."
+user_problem_statement: "sửa hoàn thành các đoạn còn dang dở. và thêm tính năng, nếu chọn size thì giá nhảy theo size. lưu ý code trong phần đăng đơn hàng luôn"
+
+frontend:
+  - task: "Implement size-based pricing UI"
+    implemented: true
+    working: true
+    file: "frontend/src/Components.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Bắt đầu implement size-based pricing functionality, cập nhật ProductDetailModal để hiển thị giá theo size"
+      - working: true
+        agent: "main"
+        comment: "Đã hoàn thành ProductDetailModal với size-based pricing: prices hiển thị trên từng size button, current price thay đổi khi chọn size, cart và buy now functions sử dụng size-specific price"
+
+  - task: "Load products from backend API"
+    implemented: true
+    working: true
+    file: "frontend/src/Components.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Cập nhật ProductsSection để load products từ backend thay vì static data"
+      - working: true
+        agent: "main"
+        comment: "Đã cập nhật ProductsSection với API integration, loading state, error handling và fallback products"
+
+backend:
+  - task: "Add size-based pricing to Product model"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Cập nhật Product model để support size_prices dictionary mapping size to price"
+      - working: true
+        agent: "main"
+        comment: "Đã cập nhật Product, ProductCreate, ProductUpdate models với size_prices field và backward compatibility"
+
+  - task: "Create sample products with size-based pricing"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Tạo endpoint seed-products để populate database với sample products có size-based pricing"
+      - working: true
+        agent: "main"
+        comment: "Đã tạo và chạy thành công seed-products endpoint với 3 products: vòng tay (5 sizes), tinh dầu (3 sizes), cảnh trầm (3 sizes) với giá khác nhau theo size"
+
+  - task: "Update OrderItem model for size-specific pricing"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Cập nhật OrderItem model để lưu trữ size-specific price khi đặt hàng"
+      - working: true
+        agent: "main"
+        comment: "Đã cập nhật OrderItem với size_specific_price field để track giá theo size trong orders"
 
 frontend:
   - task: "Cài đặt React Router"
