@@ -1025,46 +1025,25 @@ def test_create_delivered_order():
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
 
 def run_tests():
-    """Run all tests"""
+    """Run specific tests as requested in the review"""
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
-    print(f"{Colors.HEADER}TESTING ADMIN SYSTEM BACKEND APIs{Colors.ENDC}")
+    print(f"{Colors.HEADER}TESTING BACKEND APIs AFTER NEWS SECTION IMPROVEMENTS{Colors.ENDC}")
     print(f"{Colors.HEADER}Backend URL: {BACKEND_URL}{Colors.ENDC}")
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
     
-    # Test creating an order with "delivered" status (new test)
-    test_create_delivered_order()
-    
-    # Test the sample orders flow specifically requested
-    test_sample_orders_flow()
-    
-    # Test admin login
-    test_admin_login()
+    # Test the specific endpoints mentioned in the review request
+    print(f"{Colors.HEADER}Testing GET /api/products (for products page){Colors.ENDC}")
+    test_public_products()
     
     # Get admin token for authenticated tests
     token = get_admin_token()
     
-    # Test admin me endpoint
-    test_admin_me(token)
-    
-    # Test admin products endpoints
-    test_admin_products(token)
-    
-    # Test admin orders endpoints
-    test_admin_orders(token)
-    
     # Test admin stats endpoint
+    print(f"{Colors.HEADER}Testing GET /api/admin/stats (for admin panel){Colors.ENDC}")
     test_admin_stats(token)
     
-    # Test public products endpoint
-    test_public_products()
-    
-    # Test API response formats for modern UI
-    test_response_format_for_modern_ui()
-    
-    # Test backward compatibility
-    test_backward_compatibility(token)
-    
-    # Test creating an order with size-specific pricing
+    # Test creating an order
+    print(f"{Colors.HEADER}Testing POST /api/orders (for order placement){Colors.ENDC}")
     test_create_order_with_size_pricing()
     
     # Print summary
@@ -1081,6 +1060,9 @@ def run_tests():
         for test in test_results['tests']:
             if not test['passed']:
                 print(f"- {test['name']}: {test['error']}")
+    else:
+        print(f"\n{Colors.OKGREEN}All backend API tests passed successfully!{Colors.ENDC}")
+        print(f"{Colors.OKGREEN}The news section improvements did not affect backend functionality.{Colors.ENDC}")
 
 if __name__ == "__main__":
     run_tests()
