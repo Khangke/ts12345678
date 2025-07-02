@@ -519,9 +519,9 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Dịch vụ</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Tư vấn sản phẩm</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Giao hàng tận nơi</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Bảo hành sản phẩm</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Tư vấn chọn sản phẩm</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Miễn phí ship từ 300k</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cam kết chất lượng</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Hỗ trợ 24/7</a></li>
             </ul>
           </div>
