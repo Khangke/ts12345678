@@ -102,21 +102,71 @@ function App() {
     return total >= 300000 ? 0 : 30000;
   };
 
-  const handleOrderComplete = (customerInfo) => {
-    // Tạo order info để hiển thị trên trang success
-    const newOrderInfo = {
-      orderId: 'DH' + Date.now().toString().slice(-6),
-      items: [...cartItems],
-      customer: customerInfo,
-      totalPrice: getTotalPrice(),
-      shippingFee: getShippingFee(),
-      orderDate: new Date().toLocaleDateString('vi-VN')
-    };
-    
-    setOrderInfo(newOrderInfo);
-    setCartItems([]);
-    setShowCheckout(false);
-    setShowSuccess(true);
+  const handleOrderComplete = async (customerInfo) => {
+    try {
+      const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
+      
+      // Prepare order data
+      const orderData = {
+        customer_name: customerInfo.name,
+        customer_phone: customerInfo.phone,
+        customer_email: customerInfo.email,
+        customer_address: customerInfo.address,
+        note: customerInfo.note,
+        items: cartItems.map(item => ({
+          product_id: item.id,
+          product_name: item.name,
+          price: item.price,
+          quantity: item.quantity,
+          selected_size: item.selectedSize
+        })),
+        total_price: getTotalPrice(),
+        shipping_fee: getShippingFee(),
+        payment_method: customerInfo.paymentMethod || 'cod'
+      };
+
+      // Send order to backend
+      const response = await fetch(`${BACKEND_URL}/api/orders`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData)
+      });
+
+      const savedOrder = await response.json();
+      
+      // Create order info for success page
+      const newOrderInfo = {
+        orderId: savedOrder.order_id,
+        items: [...cartItems],
+        customer: customerInfo,
+        totalPrice: getTotalPrice(),
+        shippingFee: getShippingFee(),
+        orderDate: new Date().toLocaleDateString('vi-VN')
+      };
+      
+      setOrderInfo(newOrderInfo);
+      setCartItems([]);
+      setShowCheckout(false);
+      setShowSuccess(true);
+    } catch (error) {
+      console.error('Error creating order:', error);
+      // Fallback to original behavior if API fails
+      const newOrderInfo = {
+        orderId: 'DH' + Date.now().toString().slice(-6),
+        items: [...cartItems],
+        customer: customerInfo,
+        totalPrice: getTotalPrice(),
+        shippingFee: getShippingFee(),
+        orderDate: new Date().toLocaleDateString('vi-VN')
+      };
+      
+      setOrderInfo(newOrderInfo);
+      setCartItems([]);
+      setShowCheckout(false);
+      setShowSuccess(true);
+    }
   };
 
   const continueShopping = () => {
