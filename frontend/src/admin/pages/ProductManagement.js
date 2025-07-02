@@ -271,12 +271,12 @@ const ProductManagement = () => {
     setEditingProduct(product);
     
     // Format prices when loading for edit
-    const formattedPrice = product.price.includes('vnđ') ? product.price : formatPrice(product.price.replace(/[^\d]/g, ''));
+    const formattedPrice = product.price.includes('VNĐ') ? product.price : formatPrice(product.price.replace(/[^\d]/g, ''));
     const formattedSizePrices = {};
     
     if (product.size_prices) {
       Object.entries(product.size_prices).forEach(([size, price]) => {
-        formattedSizePrices[size] = price.includes('vnđ') ? price : formatPrice(price.replace(/[^\d]/g, ''));
+        formattedSizePrices[size] = price.includes('VNĐ') ? price : formatPrice(price.replace(/[^\d]/g, ''));
       });
     }
     
