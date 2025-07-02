@@ -773,8 +773,8 @@ const ProductManagement = () => {
                             <input
                               type="text"
                               value={newSize.price}
-                              onChange={(e) => setNewSize({ ...newSize, price: e.target.value })}
-                              placeholder="Giá (vd: 1.500.000đ)"
+                              onChange={(e) => handleNewSizePriceChange(e.target.value)}
+                              placeholder="99.999vnđ"
                               className="px-3 py-2 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
                             />
                             <motion.button
