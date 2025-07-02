@@ -11,6 +11,7 @@ import {
   SuccessPage
 } from './Components';
 import { MobileBottomNav, MobileQuickActions } from './components/MobileComponents';
+import { DarkModeProvider } from './contexts/DarkModeContext';
 import { HomePage, AboutPage, ProductsPage, ContactPage } from './pages';
 
 function App() {
