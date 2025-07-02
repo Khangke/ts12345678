@@ -1099,3 +1099,135 @@ export const ToastNotification = ({ message, onClose }) => {
     </div>
   );
 };
+
+// Success Page Component
+export const SuccessPage = ({ orderInfo, onContinueShopping }) => {
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('vi-VN').format(price) + 'đ';
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center p-4">
+      <div className="max-w-2xl w-full">
+        {/* Success Icon & Message */}
+        <div className="text-center mb-8">
+          <div className="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
+            <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">Đặt hàng thành công!</h1>
+          <p className="text-lg text-gray-600 mb-8">
+            Cảm ơn bạn đã tin tưởng Sơn Mộc Hương. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.
+          </p>
+        </div>
+
+        {/* Order Information Card */}
+        <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+          <div className="border-b pb-6 mb-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Thông tin đơn hàng</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <span className="text-gray-600">Mã đơn hàng:</span>
+                <p className="font-bold text-amber-800">{orderInfo.orderId}</p>
+              </div>
+              <div>
+                <span className="text-gray-600">Ngày đặt:</span>
+                <p className="font-medium">{orderInfo.orderDate}</p>
+              </div>
+              <div>
+                <span className="text-gray-600">Khách hàng:</span>
+                <p className="font-medium">{orderInfo.customer.name}</p>
+              </div>
+              <div>
+                <span className="text-gray-600">Điện thoại:</span>
+                <p className="font-medium">{orderInfo.customer.phone}</p>
+              </div>
+            </div>
+            <div className="mt-4">
+              <span className="text-gray-600">Địa chỉ giao hàng:</span>
+              <p className="font-medium">{orderInfo.customer.address}</p>
+            </div>
+          </div>
+
+          {/* Order Items */}
+          <div className="mb-6">
+            <h3 className="text-xl font-bold text-gray-800 mb-4">Sản phẩm đã đặt</h3>
+            <div className="space-y-4">
+              {orderInfo.items.map((item) => (
+                <div key={item.cartId} className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                  <img 
+                    src={item.image} 
+                    alt={item.name}
+                    className="w-16 h-16 object-cover rounded-lg"
+                  />
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-gray-800">{item.name}</h4>
+                    {item.selectedSize && (
+                      <p className="text-sm text-gray-600">Size: {item.selectedSize}</p>
+                    )}
+                    <p className="text-sm text-gray-600">Số lượng: {item.quantity}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="font-bold text-amber-800">{item.price}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Order Summary */}
+          <div className="border-t pt-6">
+            <div className="space-y-2 mb-4">
+              <div className="flex justify-between">
+                <span className="text-gray-600">Tạm tính:</span>
+                <span className="font-medium">{formatPrice(orderInfo.totalPrice)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">Phí vận chuyển:</span>
+                <span className={`font-medium ${orderInfo.shippingFee === 0 ? 'text-green-600' : ''}`}>
+                  {orderInfo.shippingFee === 0 ? 'Miễn phí' : formatPrice(orderInfo.shippingFee)}
+                </span>
+              </div>
+              <div className="flex justify-between text-xl font-bold border-t pt-2">
+                <span>Tổng cộng:</span>
+                <span className="text-amber-800">{formatPrice(orderInfo.totalPrice + orderInfo.shippingFee)}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="text-center space-y-4">
+          <button 
+            onClick={onContinueShopping}
+            className="bg-amber-800 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-900 transition-colors shadow-lg w-full md:w-auto"
+          >
+            🛍️ Tiếp tục mua sắm
+          </button>
+          
+          <div className="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-4 mt-6">
+            <div className="flex items-center justify-center space-x-2 text-gray-600">
+              <span>📞</span>
+              <span>Hotline: 0762 222 448</span>
+            </div>
+            <div className="flex items-center justify-center space-x-2 text-gray-600">
+              <span>⏰</span>
+              <span>Giao hàng: 1-3 ngày</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Message */}
+        <div className="text-center mt-8 p-6 bg-white bg-opacity-70 rounded-xl">
+          <p className="text-gray-600 mb-2">
+            <strong>Lưu ý:</strong> Chúng tôi sẽ gọi điện xác nhận đơn hàng trong vòng 30 phút.
+          </p>
+          <p className="text-sm text-gray-500">
+            Nếu có thắc mắc, vui lòng liên hệ hotline: <strong>0762 222 448</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
