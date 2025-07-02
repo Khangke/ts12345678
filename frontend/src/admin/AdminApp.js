@@ -7,6 +7,7 @@ import AdminLogin from './pages/AdminLogin';
 import Dashboard from './pages/Dashboard';
 import ProductManagement from './pages/ProductManagement';
 import OrderManagement from './pages/OrderManagement';
+import CustomerManagement from './pages/CustomerManagement';
 
 const AdminApp = () => {
   return (
