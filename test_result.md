@@ -107,6 +107,21 @@ user_problem_statement: "sửa hoàn thành các đoạn còn dang dở. và th�
 recent_issue: "ở phần đăng sản phẩm nếu click vào 2 ô danh mục và chất liệu mà không chọn tag thì click ra ngoài không đóng được các lựa chọn"
 
 frontend:
+  - task: "Enhance order management with search and tabs"
+    implemented: true
+    working: true
+    file: "frontend/src/admin/pages/OrderManagement.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "User requested: 'thêm cho tôi phần tìm kiếm thông tin khách và các đơn khách vừa đặt thì chia ra mục chờ xử lý. và mục thứ 2 là đã xử lý để chia ra đơn khách vừa đặt và đã xử lý rồi'"
+      - working: true
+        agent: "main"
+        comment: "Enhanced OrderManagement with: ✅ Advanced customer search (name, phone, email, order ID) ✅ Two-tab system: 'Chờ xử lý' and 'Đã xử lý' ✅ Quick stats showing pending/processed counts ✅ Improved UI with animations, gradients, and modern design ✅ Enhanced table with customer avatars and better status display ✅ Redesigned order detail modal with icons and structured layout"
+
   - task: "Fix dropdown click-outside behavior for category and material"
     implemented: true
     working: true
