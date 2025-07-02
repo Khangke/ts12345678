@@ -188,7 +188,7 @@ const OrderManagement = () => {
           {/* Status Filter */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              <Filter className="w-4 h-4 inline mr-1" />
+              <FilterIcon className="w-4 h-4 inline mr-1" />
               Lọc theo trạng thái
             </label>
             <select
