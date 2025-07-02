@@ -13,6 +13,7 @@ import {
 import { MobileBottomNav, MobileQuickActions } from './components/MobileComponents';
 import { DarkModeProvider } from './contexts/DarkModeContext';
 import { HomePage, AboutPage, ProductsPage, ContactPage } from './pages';
+import AdminApp from './admin/AdminApp';
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
