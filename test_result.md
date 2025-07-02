@@ -470,6 +470,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test thành công POST /api/admin/login với credentials (admin/admin123), nhận được JWT token hợp lệ. Đã test GET /api/admin/me với token hợp lệ và nhận được thông tin admin user. Đã test protected routes không có token và nhận được lỗi 401 như mong đợi."
+      - working: true
+        agent: "testing"
+        comment: "Đã test lại admin authentication API và xác nhận hoạt động đúng. Đã tạo admin user thành công với endpoint /api/admin/create. Login với admin/admin123 trả về JWT token hợp lệ. Endpoint /api/admin/me trả về thông tin user đúng khi có token và lỗi 401 khi không có token."
   
   - task: "Test admin product management API"
     implemented: true
