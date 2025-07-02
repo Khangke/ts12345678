@@ -629,7 +629,7 @@ const ProductManagement = () => {
                           required
                         />
                         {showCategoryDropdown && (
-                          <div className="absolute top-full left-0 right-0 z-10 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl mt-1 shadow-lg max-h-60 overflow-y-auto">
+                          <div className="absolute top-full left-0 right-0 z-30 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl mt-1 shadow-lg max-h-60 overflow-y-auto">
                             {availableCategories
                               .filter(cat => cat.toLowerCase().includes(categoryInput.toLowerCase()))
                               .map((category, index) => (
