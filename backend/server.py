@@ -230,16 +230,26 @@ async def get_all_products(current_admin = Depends(get_current_admin)):
 
 @api_router.post("/admin/products", response_model=Product)
 async def create_product(product_data: ProductCreate, current_admin = Depends(get_current_admin)):
+    # Handle backward compatibility: if images is empty but image is provided, use image
+    images = product_data.images
+    if not images and product_data.image:
+        images = [product_data.image]
+    
     # Validate maximum 10 images
-    if len(product_data.images) > 10:
+    if len(images) > 10:
         raise HTTPException(status_code=400, detail="Maximum 10 images allowed per product")
     
     product_dict = product_data.dict()
+    product_dict["images"] = images
     product_dict["id"] = str(uuid.uuid4())
     product_dict["created_at"] = datetime.utcnow()
     product_dict["updated_at"] = datetime.utcnow()
     product_dict["rating"] = 4.5
     product_dict["reviews"] = []
+    
+    # Ensure backward compatibility for single image field
+    if images:
+        product_dict["image"] = images[0]
     
     product_obj = Product(**product_dict)
     await db.products.insert_one(product_obj.dict())
