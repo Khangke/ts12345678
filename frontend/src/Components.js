@@ -448,7 +448,7 @@ export const ProductsSection = ({ onProductClick }) => {
                       onProductClick(product);
                     }}
                   >
-                    Xem chi tiết
+                    Mua ngay
                   </button>
                 </div>
               </div>
