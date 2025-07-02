@@ -86,6 +86,7 @@ class ProductCreate(BaseModel):
     price: str  # base price
     size_prices: Optional[dict] = {}  # dictionary mapping size to price
     images: List[str] = []  # array of base64 encoded images (max 10)
+    image: Optional[str] = None  # backward compatibility - single image
     category: str
     material: str
     sizes: List[str] = []
