@@ -512,10 +512,9 @@ export const ProductsSection = ({ onProductClick }) => {
         { name: 'Hoàng Văn E', rating: 5, comment: 'Nhang nụ chất lượng, hương thơm tự nhiên' }
       ],
       detail_description: 'Nhang nụ trầm hương được làm từ bột trầm hương nguyên chất, không chất phụ gia, tạo khói nhẹ và hương thơm dễ chịu.'
-    }
-  ];
+    },
     {
-      id: 2,
+      id: '3',
       name: 'Vòng tay trầm hương chìm nước',
       description: 'Vòng tay trầm hương chìm nước cao cấp, hương thơm đặc trưng và bền lâu, phù hợp làm quà tặng.',
       price: '12.000.000đ',
@@ -528,22 +527,7 @@ export const ProductsSection = ({ onProductClick }) => {
         { name: 'Lê Văn C', rating: 5, comment: 'Trầm chìm nước thật, hương rất thơm' },
         { name: 'Phạm Thị D', rating: 4, comment: 'Đắt nhưng xứng đáng với giá tiền' }
       ],
-      detailDescription: 'Vòng tay trầm hương chìm nước là loại trầm hương cao cấp nhất, có mật độ cao, chìm trong nước và tỏa hương đặc trưng khi đốt.'
-    },
-    {
-      id: 3,
-      name: 'Nhang nụ trầm hương',
-      description: 'Nhang nụ trầm hương cao cấp, cháy lâu và tỏa hương đều, tạo không gian thư giãn và thanh tịnh.',
-      price: '280.000đ',
-      image: 'https://images.pexels.com/photos/8484055/pexels-photo-8484055.jpeg',
-      category: 'Nhang nụ trầm',
-      material: 'Trầm hương nguyên chất',
-      rating: 4.9,
-      sizes: ['Hộp 50 nụ', 'Hộp 100 nụ'],
-      reviews: [
-        { name: 'Hoàng Văn E', rating: 5, comment: 'Nhang nụ chất lượng, hương thơm tự nhiên' }
-      ],
-      detailDescription: 'Nhang nụ trầm hương được làm từ bột trầm hương nguyên chất, không chất phụ gia, tạo khói nhẹ và hương thơm dễ chịu.'
+      detail_description: 'Vòng tay trầm hương chìm nước là loại trầm hương cao cấp nhất, có mật độ cao, chìm trong nước và tỏa hương đặc trưng khi đốt.'
     },
     {
       id: 4,
