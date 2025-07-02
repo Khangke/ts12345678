@@ -7,6 +7,10 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        'sans': ['"Be Vietnam Pro"', '"Inter"', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+        'vietnamese': ['"Be Vietnam Pro"', 'sans-serif'],
+      },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-in-out',
         'fade-in-up': 'fadeInUp 0.8s ease-out',
