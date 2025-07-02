@@ -485,7 +485,7 @@ const OrderManagement = () => {
                 {/* Order Items */}
                 <div className="mb-6">
                   <h3 className="font-bold text-gray-800 dark:text-white mb-4 flex items-center text-lg">
-                    <Package className="w-5 h-5 text-amber-600 mr-2" />
+                    <PackageIcon className="w-5 h-5 text-amber-600 mr-2" />
                     Sản phẩm đặt hàng
                   </h3>
                   <div className="space-y-3">
