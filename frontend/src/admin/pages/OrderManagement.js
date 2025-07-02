@@ -88,9 +88,52 @@ const OrderManagement = () => {
     return texts[status] || status;
   };
 
-  const filteredOrders = statusFilter === 'all' 
-    ? orders 
-    : orders.filter(order => order.status === statusFilter);
+  // Filter orders based on tab and search
+  const filteredOrders = orders.filter(order => {
+    // Tab filter
+    const isPending = ['pending'].includes(order.status);
+    const isProcessed = ['confirmed', 'shipping', 'delivered', 'cancelled'].includes(order.status);
+    
+    const tabMatch = activeTab === 'pending' ? isPending : isProcessed;
+    
+    // Status filter (within the tab)
+    const statusMatch = statusFilter === 'all' || order.status === statusFilter;
+    
+    // Search filter
+    const searchMatch = !searchTerm || 
+      order.customer_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      order.customer_phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      order.order_id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (order.customer_email && order.customer_email.toLowerCase().includes(searchTerm.toLowerCase()));
+    
+    return tabMatch && statusMatch && searchMatch;
+  });
+
+  // Get counts for tabs
+  const pendingCount = orders.filter(order => ['pending'].includes(order.status)).length;
+  const processedCount = orders.filter(order => ['confirmed', 'shipping', 'delivered', 'cancelled'].includes(order.status)).length;
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100
+      }
+    }
+  };
 
   if (loading) {
     return (
