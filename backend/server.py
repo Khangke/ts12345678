@@ -94,7 +94,8 @@ class ProductUpdate(BaseModel):
     name: Optional[str] = None
     description: Optional[str] = None
     detail_description: Optional[str] = None
-    price: Optional[str] = None
+    price: Optional[str] = None  # base price
+    size_prices: Optional[dict] = None  # dictionary mapping size to price
     images: Optional[List[str]] = None  # array of base64 encoded images (max 10)
     category: Optional[str] = None
     material: Optional[str] = None
