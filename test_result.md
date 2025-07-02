@@ -691,6 +691,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test lại public products API sau frontend dropdown fix và xác nhận hoạt động đúng. API trả về danh sách sản phẩm với đầy đủ thông tin bao gồm size_prices và sizes. Đã kiểm tra tính nhất quán giữa sizes và size_prices. Cấu trúc dữ liệu phù hợp cho việc hiển thị trên modern UI với size-based pricing. API cũng hỗ trợ sản phẩm không có size-based pricing (legacy products)."
+      - working: true
+        agent: "testing"
+        comment: "Đã test lại public products API sau frontend toast notifications và loading states implementation và xác nhận hoạt động đúng. API trả về danh sách sản phẩm với đầy đủ thông tin bao gồm size_prices và sizes. Đã kiểm tra tính nhất quán giữa sizes và size_prices. Cấu trúc dữ liệu phù hợp cho việc hiển thị trên modern UI với size-based pricing. API cũng hỗ trợ sản phẩm không có size-based pricing (legacy products)."
 
 metadata:
   created_by: "main_agent"
