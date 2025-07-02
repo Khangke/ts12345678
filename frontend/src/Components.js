@@ -162,7 +162,7 @@ export const Header = ({ cartCount, onCartClick }) => {
             <nav className="flex flex-col space-y-3 p-4">
               <Link 
                 to="/" 
-                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium ${
+                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium focus:outline-none ${
                   isActive('/') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
                 }`}
                 onClick={() => setIsMenuOpen(false)}
@@ -171,7 +171,7 @@ export const Header = ({ cartCount, onCartClick }) => {
               </Link>
               <Link 
                 to="/about" 
-                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium ${
+                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium focus:outline-none ${
                   isActive('/about') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
                 }`}
                 onClick={() => setIsMenuOpen(false)}
@@ -180,7 +180,7 @@ export const Header = ({ cartCount, onCartClick }) => {
               </Link>
               <Link 
                 to="/products" 
-                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium ${
+                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium focus:outline-none ${
                   isActive('/products') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
                 }`}
                 onClick={() => setIsMenuOpen(false)}
@@ -189,7 +189,7 @@ export const Header = ({ cartCount, onCartClick }) => {
               </Link>
               <Link 
                 to="/contact" 
-                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium ${
+                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium focus:outline-none ${
                   isActive('/contact') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
                 }`}
                 onClick={() => setIsMenuOpen(false)}
@@ -198,7 +198,7 @@ export const Header = ({ cartCount, onCartClick }) => {
               </Link>
               <Link 
                 to="/admin" 
-                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium ${
+                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium focus:outline-none ${
                   isActive('/admin') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
                 }`}
                 onClick={() => setIsMenuOpen(false)}
