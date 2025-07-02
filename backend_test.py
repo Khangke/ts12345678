@@ -1027,23 +1027,23 @@ def test_create_delivered_order():
 def run_tests():
     """Run specific tests as requested in the review"""
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
-    print(f"{Colors.HEADER}TESTING BACKEND APIs AFTER NEWS SECTION IMPROVEMENTS{Colors.ENDC}")
+    print(f"{Colors.HEADER}TESTING BACKEND APIs - HEALTH CHECK{Colors.ENDC}")
     print(f"{Colors.HEADER}Backend URL: {BACKEND_URL}{Colors.ENDC}")
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
     
     # Test the specific endpoints mentioned in the review request
-    print(f"{Colors.HEADER}Testing GET /api/products (for products page){Colors.ENDC}")
+    print(f"{Colors.HEADER}1. Testing GET /api/products endpoint{Colors.ENDC}")
     test_public_products()
     
     # Get admin token for authenticated tests
     token = get_admin_token()
     
     # Test admin stats endpoint
-    print(f"{Colors.HEADER}Testing GET /api/admin/stats (for admin panel){Colors.ENDC}")
+    print(f"{Colors.HEADER}2. Testing GET /api/admin/stats endpoint{Colors.ENDC}")
     test_admin_stats(token)
     
     # Test creating an order
-    print(f"{Colors.HEADER}Testing POST /api/orders (for order placement){Colors.ENDC}")
+    print(f"{Colors.HEADER}3. Testing additional endpoint: POST /api/orders{Colors.ENDC}")
     test_create_order_with_size_pricing()
     
     # Print summary
@@ -1062,7 +1062,7 @@ def run_tests():
                 print(f"- {test['name']}: {test['error']}")
     else:
         print(f"\n{Colors.OKGREEN}All backend API tests passed successfully!{Colors.ENDC}")
-        print(f"{Colors.OKGREEN}The news section improvements did not affect backend functionality.{Colors.ENDC}")
+        print(f"{Colors.OKGREEN}Backend health check complete - all endpoints returning status 200 with proper data format.{Colors.ENDC}")
 
 if __name__ == "__main__":
     run_tests()
