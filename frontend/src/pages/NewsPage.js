@@ -383,29 +383,29 @@ const NewsPage = () => {
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors duration-300 line-clamp-2">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-amber-100 mb-3 group-hover:text-amber-800 dark:group-hover:text-amber-300 transition-colors duration-300 line-clamp-2">
                   {news.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 transition-colors duration-300">
+                <p className="text-gray-600 dark:text-amber-200/80 text-sm mb-4 line-clamp-3 transition-colors duration-300">
                   {news.excerpt}
                 </p>
                 
-                <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-4">
+                <div className="flex items-center justify-between text-xs text-gray-500 dark:text-amber-300/70 mb-4">
                   <span className="flex items-center space-x-2">
-                    <div className="w-6 h-6 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center">
-                      <span className="text-amber-800 dark:text-amber-400 font-bold text-xs">A</span>
+                    <div className="w-6 h-6 bg-amber-100 dark:bg-amber-600/30 rounded-full flex items-center justify-center">
+                      <span className="text-amber-800 dark:text-amber-300 font-bold text-xs">A</span>
                     </div>
-                    <span>{news.author}</span>
+                    <span className="dark:text-amber-200">{news.author}</span>
                   </span>
-                  <span>{formatDate(news.date)}</span>
+                  <span className="dark:text-amber-200">{formatDate(news.date)}</span>
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <button className="text-amber-800 dark:text-amber-400 font-medium text-sm hover:text-amber-900 dark:hover:text-amber-300 transition-colors duration-300 group-hover:underline">
+                  <button className="text-amber-800 dark:text-amber-300 font-medium text-sm hover:text-amber-900 dark:hover:text-amber-200 transition-colors duration-300 group-hover:underline">
                     Đọc thêm →
                   </button>
-                  <div className="w-8 h-8 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center group-hover:bg-amber-200 dark:group-hover:bg-amber-800/50 transition-colors duration-300">
-                    <span className="text-amber-800 dark:text-amber-400 text-xs">📖</span>
+                  <div className="w-8 h-8 bg-amber-100 dark:bg-amber-600/30 rounded-full flex items-center justify-center group-hover:bg-amber-200 dark:group-hover:bg-amber-500/50 transition-colors duration-300">
+                    <span className="text-amber-800 dark:text-amber-300 text-xs">📖</span>
                   </div>
                 </div>
 
