@@ -5,6 +5,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 const NewsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [newsRef, isNewsVisible] = useScrollAnimation(0.1);
+  const navigate = useNavigate();
 
   const newsData = [
     {
