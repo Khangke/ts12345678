@@ -880,7 +880,7 @@ agent_communication:
     file: "frontend/src/admin/pages/OrderManagement.js"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
