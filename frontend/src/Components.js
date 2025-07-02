@@ -29,7 +29,7 @@ export const Header = ({ cartCount, onCartClick }) => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
+          <Link to="/" className="flex items-center space-x-2 group focus:outline-none">
             <div className="w-12 h-12 bg-gradient-to-br from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
               <span className="text-white font-bold text-xl group-hover:animate-pulse">SMH</span>
             </div>
