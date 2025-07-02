@@ -3,7 +3,7 @@ import { ProductsSection } from '../Components';
 
 const ProductsPage = ({ onProductClick }) => {
   return (
-    <div>
+    <div className="pt-20">
       <ProductsSection onProductClick={onProductClick} />
     </div>
   );
