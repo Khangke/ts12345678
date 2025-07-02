@@ -542,7 +542,7 @@ export const ProductsSection = ({ onProductClick }) => {
       reviews: [
         { name: 'Vũ Thị F', rating: 5, comment: 'Tinh dầu thật 100%, rất thơm' }
       ],
-      detailDescription: 'Tinh dầu trầm hương được chưng cất từ gỗ trầm hương cao cấp, có tác dụng thư giãn tinh thần, giảm stress.'
+      detail_description: 'Tinh dầu trầm hương được chưng cất từ gỗ trầm hương cao cấp, có tác dụng thư giãn tinh thần, giảm stress.'
     },
     {
       id: 5,
