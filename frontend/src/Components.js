@@ -11,9 +11,9 @@ export const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="w-12 h-12 bg-amber-800 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-xl">TH</span>
+              <span className="text-white font-bold text-xl">SMH</span>
             </div>
-            <span className="text-2xl font-bold text-amber-800">Trầm Hương Shop</span>
+            <span className="text-2xl font-bold text-amber-800">Sơn Mộc Hương</span>
           </div>
 
           {/* Navigation */}
