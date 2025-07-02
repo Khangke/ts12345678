@@ -78,6 +78,12 @@ textarea:focus {
   outline-offset: 2px;
 }
 
+/* Remove focus outline for navigation elements but keep accessibility */
+nav a:focus,
+.nav-link:focus {
+  outline: none;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
