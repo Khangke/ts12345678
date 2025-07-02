@@ -144,7 +144,7 @@ export const Header = ({ cartCount, onCartClick }) => {
 
             {/* Mobile menu button */}
             <button 
-              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300"
+              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300 focus:outline-none"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <div className="w-6 h-6 flex flex-col justify-center">
