@@ -104,6 +104,8 @@
 
 user_problem_statement: "sửa hoàn thành các đoạn còn dang dở. và thêm tính năng, nếu chọn size thì giá nhảy theo size. lưu ý code trong phần đăng đơn hàng luôn"
 
+recent_issue: "ở phần đăng sản phẩm nếu click vào 2 ô danh mục và chất liệu mà không chọn tag thì click ra ngoài không đóng được các lựa chọn"
+
 frontend:
   - task: "Implement size-based pricing UI"
     implemented: true
