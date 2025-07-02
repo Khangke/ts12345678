@@ -985,7 +985,7 @@ const ProductManagement = () => {
       {/* Click outside handlers */}
       {showCategoryDropdown && (
         <div 
-          className="fixed inset-0 z-5" 
+          className="fixed inset-0 z-20" 
           onClick={() => {
             setShowCategoryDropdown(false);
             setCategoryInput(formData.category); // Reset to current value
@@ -994,7 +994,7 @@ const ProductManagement = () => {
       )}
       {showMaterialDropdown && (
         <div 
-          className="fixed inset-0 z-5" 
+          className="fixed inset-0 z-20" 
           onClick={() => {
             setShowMaterialDropdown(false);
             setMaterialInput(formData.material); // Reset to current value
