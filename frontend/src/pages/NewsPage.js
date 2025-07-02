@@ -5,7 +5,55 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 const NewsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [newsRef, isNewsVisible] = useScrollAnimation(0.1);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [visibleCards, setVisibleCards] = useState(new Set());
   const navigate = useNavigate();
+  const heroRef = useRef(null);
+
+  // Simulate loading for smooth entry
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Intersection Observer for staggered animations
+  useEffect(() => {
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = parseInt(entry.target.dataset.index);
+          setVisibleCards(prev => new Set([...prev, index]));
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      threshold: 0.1,
+      rootMargin: '50px'
+    });
+
+    const cards = document.querySelectorAll('[data-index]');
+    cards.forEach(card => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Parallax effect for hero section
+  useEffect(() => {
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const scrollY = window.scrollY;
+        const parallaxSpeed = 0.5;
+        heroRef.current.style.transform = `translateY(${scrollY * parallaxSpeed}px)`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const newsData = [
     {
