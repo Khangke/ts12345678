@@ -174,7 +174,7 @@ const OrderManagement = () => {
               Tìm kiếm khách hàng
             </label>
             <div className="relative">
-              <Search className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
+              <SearchIcon className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
               <input
                 type="text"
                 value={searchTerm}
