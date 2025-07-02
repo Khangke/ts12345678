@@ -435,7 +435,7 @@ const OrderManagement = () => {
               {/* Order Items */}
               <div className="mb-6">
                 <h3 className="font-bold text-gray-800 dark:text-white mb-4 flex items-center text-lg">
-                  <PackageIcon className="w-5 h-5 text-amber-600 mr-2" />
+                  <ShoppingBagIcon className="w-5 h-5 text-amber-600 mr-2" />
                   Sản phẩm đặt hàng
                 </h3>
                 <div className="space-y-3">
@@ -445,8 +445,8 @@ const OrderManagement = () => {
                       className="flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600"
                     >
                       <div className="flex items-center space-x-4">
-                        <div className="w-12 h-12 bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg flex items-center justify-center">
-                          <PackageIcon className="w-6 h-6 text-white" />
+                        <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center">
+                          <ShoppingBagIcon className="w-6 h-6 text-white" />
                         </div>
                         <div>
                           <p className="font-semibold text-gray-800 dark:text-white">{item.product_name}</p>
