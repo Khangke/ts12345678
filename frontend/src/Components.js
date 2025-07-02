@@ -94,6 +94,7 @@ export const Header = ({ cartCount, onCartClick }) => {
               className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium focus:outline-none ${
                 isActive('/products') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
               }`}
+              onMouseEnter={prefetchProducts} // Prefetch khi hover
             >
               Sản phẩm
               <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-800 dark:bg-amber-400 transition-all duration-300 ${
