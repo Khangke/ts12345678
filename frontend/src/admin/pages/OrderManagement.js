@@ -282,7 +282,7 @@ const OrderManagement = () => {
                   : 'text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20'
               }`}
             >
-              <CheckCircle className="w-5 h-5" />
+              <CheckCircleIcon className="w-5 h-5" />
               <span>Đã xử lý ({processedCount})</span>
             </motion.button>
           </div>
