@@ -1,4 +1,15 @@
 import React, { useState } from 'react';
+import { 
+  ShoppingCartIcon, 
+  TrophyIcon, 
+  LeafIcon, 
+  TruckIcon, 
+  ChatIcon, 
+  PhoneIcon, 
+  EmailIcon, 
+  LocationIcon,
+  ClockIcon
+} from './Icons';
 
 // Header Component
 export const Header = ({ cartCount, onCartClick }) => {
