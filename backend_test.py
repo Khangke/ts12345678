@@ -344,18 +344,45 @@ def test_admin_stats(token: str):
         log_test("Admin Stats", False, error=str(e))
 
 def test_public_products():
-    """Test public products endpoint"""
+    """Test public products endpoint with size-based pricing"""
     try:
         response = requests.get(f"{API_URL}/products")
         
         if response.status_code == 200 and isinstance(response.json(), list):
-            log_test("Public Products", True, response)
-            print(f"  Found {len(response.json())} products")
+            products = response.json()
+            
+            # Check if products have size_prices field
+            has_size_prices = all('size_prices' in product for product in products)
+            
+            # Check if products have both price and size_prices
+            has_both_prices = all('price' in product and 'size_prices' in product for product in products)
+            
+            # Check if sizes and size_prices match
+            sizes_match = all(set(product.get('sizes', [])) == set(product.get('size_prices', {}).keys()) 
+                             for product in products if product.get('sizes') and product.get('size_prices'))
+            
+            if has_size_prices and has_both_prices and sizes_match:
+                log_test("Public Products with Size-Based Pricing", True, response)
+                print(f"  Found {len(products)} products with size-based pricing")
+                # Print example of size_prices from first product
+                if products:
+                    print(f"  Example size_prices: {json.dumps(products[0].get('size_prices', {}), indent=2)}")
+            else:
+                errors = []
+                if not has_size_prices:
+                    errors.append("Some products missing size_prices field")
+                if not has_both_prices:
+                    errors.append("Some products missing either price or size_prices field")
+                if not sizes_match:
+                    errors.append("Sizes and size_prices keys don't match for some products")
+                
+                log_test("Public Products with Size-Based Pricing", False, response, 
+                        f"Size-based pricing validation failed: {', '.join(errors)}")
         else:
-            log_test("Public Products", False, response, 
+            log_test("Public Products with Size-Based Pricing", False, response, 
                     f"Expected status 200 with array, got {response.status_code}")
     except Exception as e:
-        log_test("Public Products", False, error=str(e))
+        log_test("Public Products with Size-Based Pricing", False, error=str(e))
 
 def run_tests():
     """Run all tests"""
