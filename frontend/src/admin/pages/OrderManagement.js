@@ -341,7 +341,7 @@ const OrderManagement = () => {
                           <div>
                             <div className="text-sm font-medium text-gray-900 dark:text-white">{order.customer_name}</div>
                             <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center">
-                              <Phone className="w-3 h-3 mr-1" />
+                              <PhoneIcon className="w-3 h-3 mr-1" />
                               {order.customer_phone}
                             </div>
                           </div>
