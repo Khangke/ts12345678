@@ -925,17 +925,17 @@ const ProductManagement = () => {
                               initial={{ opacity: 0, x: -20 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: index * 0.1 }}
-                              className="flex items-center space-x-3 bg-white dark:bg-gray-600 p-3 rounded-lg border border-gray-200 dark:border-gray-500"
+                              className="flex items-center space-x-3 bg-white dark:bg-gray-600 p-4 rounded-lg border border-gray-200 dark:border-gray-500"
                             >
-                              <div className="bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-400 px-3 py-2 rounded-lg text-sm font-medium min-w-[100px] text-center">
+                              <div className="bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-400 px-4 py-3 rounded-lg text-base font-semibold min-w-[120px] text-center">
                                 {size}
                               </div>
                               <input
                                 type="text"
                                 value={formData.size_prices[size] || ''}
                                 onChange={(e) => handleSizePriceChange(size, e.target.value)}
-                                placeholder="10.000 VNĐ"
-                                className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                                placeholder="Giá (vd: 10.000 VNĐ)"
+                                className="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white text-base font-medium placeholder-gray-500 dark:placeholder-gray-400"
                               />
                               <motion.button
                                 whileHover={{ scale: 1.1 }}
@@ -949,7 +949,7 @@ const ProductManagement = () => {
                             </motion.div>
                           ))}
                           {formData.sizes.length === 0 && (
-                            <p className="text-gray-500 dark:text-gray-400 text-center py-4">
+                            <p className="text-gray-500 dark:text-gray-400 text-center py-4 text-base">
                               Chưa có size nào. Thêm size để tạo bảng giá theo kích cỡ.
                             </p>
                           )}
