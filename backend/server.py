@@ -254,6 +254,11 @@ async def update_product(product_id: str, product_data: ProductUpdate, current_a
         raise HTTPException(status_code=404, detail="Product not found")
     
     update_data = {k: v for k, v in product_data.dict().items() if v is not None}
+    
+    # Validate maximum 10 images if images are being updated
+    if "images" in update_data and len(update_data["images"]) > 10:
+        raise HTTPException(status_code=400, detail="Maximum 10 images allowed per product")
+    
     update_data["updated_at"] = datetime.utcnow()
     
     await db.products.update_one({"id": product_id}, {"$set": update_data})
