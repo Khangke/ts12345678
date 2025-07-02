@@ -168,7 +168,7 @@ backend:
     file: "backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
@@ -176,6 +176,9 @@ backend:
       - working: true
         agent: "main"
         comment: "Đã cập nhật Product, ProductCreate, ProductUpdate models với size_prices field và backward compatibility"
+      - working: true
+        agent: "testing"
+        comment: "Đã test lại Product model sau frontend dropdown fix và xác nhận hoạt động đúng. Model hỗ trợ đầy đủ size_prices dictionary và backward compatibility. Đã test tạo và cập nhật sản phẩm với size_prices và xác nhận dữ liệu được lưu trữ đúng."
 
   - task: "Create sample products with size-based pricing"
     implemented: true
