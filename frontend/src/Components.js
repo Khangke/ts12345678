@@ -27,8 +27,8 @@ export const Header = () => {
           {/* Contact Info */}
           <div className="hidden lg:flex items-center space-x-4">
             <div className="text-sm">
-              <div className="text-gray-600">📞 0909 123 456</div>
-              <div className="text-gray-600">✉️ tramhuong@shop.com</div>
+              <div className="text-gray-600">📞 0762 222 448</div>
+              <div className="text-gray-600">✉️ sonmochuong@gmail.com</div>
             </div>
             <button className="bg-amber-800 text-white px-6 py-2 rounded-full hover:bg-amber-900 transition-colors">
               Mua ngay
