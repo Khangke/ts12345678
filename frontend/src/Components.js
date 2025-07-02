@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // Header Component
-export const Header = () => {
+export const Header = ({ cartCount, onCartClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -24,12 +24,23 @@ export const Header = () => {
             <a href="#contact" className="text-gray-700 hover:text-amber-800 transition-colors font-medium">Liên hệ</a>
           </nav>
 
-          {/* Contact Info */}
+          {/* Contact Info & Cart */}
           <div className="hidden lg:flex items-center space-x-4">
             <div className="text-sm">
               <div className="text-gray-600">📞 0762 222 448</div>
               <div className="text-gray-600">✉️ sonmochuong@gmail.com</div>
             </div>
+            <button 
+              onClick={onCartClick}
+              className="relative bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors"
+            >
+              🛒
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </button>
             <button className="bg-amber-800 text-white px-6 py-2 rounded-full hover:bg-amber-900 transition-colors">
               Mua ngay
             </button>
@@ -56,6 +67,12 @@ export const Header = () => {
               <a href="#about" className="text-gray-700 hover:text-amber-800 transition-colors">Giới thiệu</a>
               <a href="#products" className="text-gray-700 hover:text-amber-800 transition-colors">Sản phẩm</a>
               <a href="#contact" className="text-gray-700 hover:text-amber-800 transition-colors">Liên hệ</a>
+              <button 
+                onClick={onCartClick}
+                className="text-left text-gray-700 hover:text-amber-800 transition-colors"
+              >
+                🛒 Giỏ hàng ({cartCount})
+              </button>
             </nav>
           </div>
         )}
