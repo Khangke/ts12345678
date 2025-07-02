@@ -69,7 +69,7 @@ class Product(BaseModel):
     description: str
     detail_description: str
     price: str
-    image: str  # base64 encoded image
+    images: List[str] = []  # array of base64 encoded images (max 10)
     category: str
     material: str
     rating: float = 4.5
@@ -83,7 +83,7 @@ class ProductCreate(BaseModel):
     description: str
     detail_description: str
     price: str
-    image: str
+    images: List[str] = []  # array of base64 encoded images (max 10)
     category: str
     material: str
     sizes: List[str] = []
@@ -93,7 +93,7 @@ class ProductUpdate(BaseModel):
     description: Optional[str] = None
     detail_description: Optional[str] = None
     price: Optional[str] = None
-    image: Optional[str] = None
+    images: Optional[List[str]] = None  # array of base64 encoded images (max 10)
     category: Optional[str] = None
     material: Optional[str] = None
     sizes: Optional[List[str]] = None
