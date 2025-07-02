@@ -895,12 +895,31 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
   const [selectedSize, setSelectedSize] = useState(product.sizes?.[0] || null);
   const [quantity, setQuantity] = useState(1);
 
+  // Utility function to get price based on selected size
+  const getPriceForSize = (size) => {
+    if (product.size_prices && product.size_prices[size]) {
+      return product.size_prices[size];
+    }
+    return product.price; // fallback to base price
+  };
+
+  // Get current price based on selected size
+  const currentPrice = selectedSize ? getPriceForSize(selectedSize) : product.price;
+
   const handleAddToCart = () => {
-    onAddToCart(product, quantity, selectedSize);
+    const productWithCurrentPrice = {
+      ...product,
+      price: currentPrice // Use size-specific price
+    };
+    onAddToCart(productWithCurrentPrice, quantity, selectedSize);
   };
 
   const handleBuyNow = () => {
-    onBuyNow(product, quantity, selectedSize);
+    const productWithCurrentPrice = {
+      ...product,
+      price: currentPrice // Use size-specific price
+    };
+    onBuyNow(productWithCurrentPrice, quantity, selectedSize);
   };
 
   return (
