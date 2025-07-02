@@ -38,14 +38,20 @@ export const Header = ({ cartCount, onCartClick }) => {
           {/* Contact Info & Cart */}
           <div className="hidden lg:flex items-center space-x-4">
             <div className="text-sm">
-              <div className="text-gray-600">📞 0762 222 448</div>
-              <div className="text-gray-600">✉️ sonmochuong@gmail.com</div>
+              <div className="text-gray-600 flex items-center space-x-1">
+                <PhoneIcon className="w-4 h-4 text-amber-800" />
+                <span>0762 222 448</span>
+              </div>
+              <div className="text-gray-600 flex items-center space-x-1">
+                <EmailIcon className="w-4 h-4 text-amber-800" />
+                <span>sonmochuong@gmail.com</span>
+              </div>
             </div>
             <button 
               onClick={onCartClick}
               className="relative bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors"
             >
-              🛒
+              <ShoppingCartIcon className="w-6 h-6 text-amber-800" />
               {cartCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center cart-badge">
                   {cartCount}
