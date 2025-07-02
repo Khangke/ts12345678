@@ -27,6 +27,8 @@ module.exports = {
         'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
         'wiggle': 'wiggle 1s ease-in-out infinite',
         'spin-slow': 'spin 3s linear infinite',
+        'gradient-x': 'gradientX 3s ease infinite',
+        'shimmer': 'shimmer 2s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
