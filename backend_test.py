@@ -582,6 +582,67 @@ def test_public_products():
     except Exception as e:
         log_test("Public Products with Size-Based Pricing", False, error=str(e))
 
+def test_create_order_with_size_pricing():
+    """Test creating an order with size-specific pricing"""
+    try:
+        # First get a product to use in the order
+        product_response = requests.get(f"{API_URL}/products")
+        if product_response.status_code == 200 and len(product_response.json()) > 0:
+            product = product_response.json()[0]
+            
+            # Get the first size and its price from size_prices
+            if product.get("size_prices") and product.get("sizes"):
+                selected_size = product["sizes"][0]
+                size_specific_price = product["size_prices"][selected_size]
+                
+                # Create an order with size-specific pricing
+                order_data = {
+                    "customer_name": "Test Customer",
+                    "customer_phone": "0123456789",
+                    "customer_email": "test@example.com",
+                    "customer_address": "123 Test Street",
+                    "note": "This is a test order with size-specific pricing",
+                    "items": [
+                        {
+                            "product_id": product["id"],
+                            "product_name": product["name"],
+                            "price": size_specific_price,  # Use size-specific price
+                            "quantity": 1,
+                            "selected_size": selected_size,  # Include selected size
+                            "size_specific_price": size_specific_price  # Include size-specific price
+                        }
+                    ],
+                    "total_price": int(size_specific_price.replace(".", "").replace("đ", "")),
+                    "shipping_fee": 30000
+                }
+                
+                order_response = requests.post(
+                    f"{API_URL}/orders",
+                    json=order_data
+                )
+                
+                if order_response.status_code == 200 and "id" in order_response.json():
+                    # Verify order items have size-specific fields
+                    order_items = order_response.json().get("items", [])
+                    if (len(order_items) > 0 and 
+                        "selected_size" in order_items[0] and 
+                        "size_specific_price" in order_items[0] and
+                        order_items[0]["selected_size"] == selected_size and
+                        order_items[0]["size_specific_price"] == size_specific_price):
+                        log_test("Create Order with Size-Specific Pricing", True, order_response)
+                    else:
+                        log_test("Create Order with Size-Specific Pricing", False, order_response,
+                                "Order created but size-specific fields not saved correctly")
+                else:
+                    log_test("Create Order with Size-Specific Pricing", False, order_response,
+                            f"Failed to create order: {order_response.status_code}")
+            else:
+                log_test("Create Order with Size-Specific Pricing", False, error="Product doesn't have size_prices or sizes")
+        else:
+            log_test("Create Order with Size-Specific Pricing", False, error="No products available to create test order")
+    except Exception as e:
+        log_test("Create Order with Size-Specific Pricing", False, error=str(e))
+
 def run_tests():
     """Run all tests"""
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
@@ -615,6 +676,9 @@ def run_tests():
     
     # Test backward compatibility
     test_backward_compatibility(token)
+    
+    # Test creating an order with size-specific pricing
+    test_create_order_with_size_pricing()
     
     # Print summary
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
