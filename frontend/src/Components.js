@@ -972,13 +972,22 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
                       <button
                         key={size}
                         onClick={() => setSelectedSize(size)}
-                        className={`px-4 py-2 border rounded-lg ${
+                        className={`px-4 py-2 border rounded-lg transition-all duration-200 ${
                           selectedSize === size 
                             ? 'border-amber-800 bg-amber-800 text-white' 
                             : 'border-gray-300 hover:border-amber-800'
                         }`}
                       >
-                        {size}
+                        <div className="text-center">
+                          <div className="font-medium">{size}</div>
+                          {product.size_prices && product.size_prices[size] && (
+                            <div className={`text-xs mt-1 ${
+                              selectedSize === size ? 'text-amber-100' : 'text-amber-800'
+                            }`}>
+                              {product.size_prices[size]}
+                            </div>
+                          )}
+                        </div>
                       </button>
                     ))}
                   </div>
