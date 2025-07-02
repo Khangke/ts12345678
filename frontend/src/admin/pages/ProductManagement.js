@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Reorder } from 'framer-motion';
 import { 
   Plus, 
   Edit3, 
@@ -13,7 +13,9 @@ import {
   Package,
   Tag,
   DollarSign,
-  Ruler
+  Ruler,
+  GripVertical,
+  Hash
 } from 'lucide-react';
 import axios from 'axios';
 
@@ -25,6 +27,21 @@ const ProductManagement = () => {
   const [deleteConfirm, setDeleteConfirm] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
+  
+  // Predefined categories and materials
+  const [availableCategories, setAvailableCategories] = useState([
+    'Vòng tay trầm', 'Tinh dầu trầm', 'Cảnh trầm', 'Nhẫn trầm', 'Dây chuyền trầm'
+  ]);
+  const [availableMaterials, setAvailableMaterials] = useState([
+    'Trầm hương tự nhiên', 'Gỗ trầm hương nguyên khối', 'Tinh dầu nguyên chất', 'Trầm hương cao cấp'
+  ]);
+  
+  // Category and material input states
+  const [categoryInput, setCategoryInput] = useState('');
+  const [materialInput, setMaterialInput] = useState('');
+  const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
+  const [showMaterialDropdown, setShowMaterialDropdown] = useState(false);
+  
   const { BACKEND_URL, getAuthHeader } = useAuth();
 
   const [formData, setFormData] = useState({
@@ -39,6 +56,9 @@ const ProductManagement = () => {
     size_prices: {}
   });
 
+  // New size input state
+  const [newSize, setNewSize] = useState({ name: '', price: '' });
+
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -49,6 +69,12 @@ const ProductManagement = () => {
         headers: getAuthHeader()
       });
       setProducts(response.data);
+      
+      // Extract unique categories and materials from existing products
+      const categories = [...new Set(response.data.map(p => p.category))];
+      const materials = [...new Set(response.data.map(p => p.material))];
+      setAvailableCategories(prev => [...new Set([...prev, ...categories])]);
+      setAvailableMaterials(prev => [...new Set([...prev, ...materials])]);
     } catch (error) {
       console.error('Error fetching products:', error);
     } finally {
@@ -81,15 +107,16 @@ const ProductManagement = () => {
     setFormData({ ...formData, images: newImages });
   };
 
-  const handleSizeAdd = () => {
-    const sizeName = prompt('Nhập tên kích cỡ (ví dụ: 16mm, 18mm):');
-    if (sizeName && !formData.sizes.includes(sizeName)) {
-      const newSizes = [...formData.sizes, sizeName];
+  // Enhanced size management
+  const handleAddSize = () => {
+    if (newSize.name && newSize.price && !formData.sizes.includes(newSize.name)) {
+      const newSizes = [...formData.sizes, newSize.name];
       setFormData({ 
         ...formData, 
         sizes: newSizes,
-        size_prices: { ...formData.size_prices, [sizeName]: '' }
+        size_prices: { ...formData.size_prices, [newSize.name]: newSize.price }
       });
+      setNewSize({ name: '', price: '' });
     }
   };
 
@@ -109,6 +136,36 @@ const ProductManagement = () => {
       ...formData, 
       size_prices: { ...formData.size_prices, [size]: price }
     });
+  };
+
+  // Category management
+  const handleCategorySelect = (category) => {
+    setFormData({ ...formData, category });
+    setCategoryInput(category);
+    setShowCategoryDropdown(false);
+  };
+
+  const handleCategoryAdd = () => {
+    if (categoryInput && !availableCategories.includes(categoryInput)) {
+      setAvailableCategories([...availableCategories, categoryInput]);
+    }
+    setFormData({ ...formData, category: categoryInput });
+    setShowCategoryDropdown(false);
+  };
+
+  // Material management
+  const handleMaterialSelect = (material) => {
+    setFormData({ ...formData, material });
+    setMaterialInput(material);
+    setShowMaterialDropdown(false);
+  };
+
+  const handleMaterialAdd = () => {
+    if (materialInput && !availableMaterials.includes(materialInput)) {
+      setAvailableMaterials([...availableMaterials, materialInput]);
+    }
+    setFormData({ ...formData, material: materialInput });
+    setShowMaterialDropdown(false);
   };
 
   const handleSubmit = async (e) => {
@@ -154,6 +211,8 @@ const ProductManagement = () => {
       sizes: product.sizes || [],
       size_prices: product.size_prices || {}
     });
+    setCategoryInput(product.category);
+    setMaterialInput(product.material);
     setShowModal(true);
   };
 
@@ -183,6 +242,9 @@ const ProductManagement = () => {
       sizes: [],
       size_prices: {}
     });
+    setCategoryInput('');
+    setMaterialInput('');
+    setNewSize({ name: '', price: '' });
     setEditingProduct(null);
   };
 
@@ -415,7 +477,7 @@ const ProductManagement = () => {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-200 dark:border-gray-700"
+              className="bg-white dark:bg-gray-800 rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-200 dark:border-gray-700"
             >
               <div className="p-6">
                 <div className="flex justify-between items-center mb-6">
@@ -434,193 +496,293 @@ const ProductManagement = () => {
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Tên sản phẩm *
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
-                        required
-                      />
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    {/* Left Column - Basic Info */}
+                    <div className="space-y-6">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                          Tên sản phẩm *
+                        </label>
+                        <input
+                          type="text"
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
+                          required
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                          Giá cơ bản *
+                        </label>
+                        <input
+                          type="text"
+                          value={formData.price}
+                          onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                          placeholder="1.500.000đ"
+                          className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
+                          required
+                        />
+                      </div>
+
+                      {/* Category with Tags */}
+                      <div className="relative">
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                          <Tag className="w-4 h-4 inline mr-1" />
+                          Danh mục *
+                        </label>
+                        <input
+                          type="text"
+                          value={categoryInput}
+                          onChange={(e) => setCategoryInput(e.target.value)}
+                          onFocus={() => setShowCategoryDropdown(true)}
+                          placeholder="Chọn hoặc thêm danh mục mới"
+                          className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
+                          required
+                        />
+                        {showCategoryDropdown && (
+                          <div className="absolute top-full left-0 right-0 z-10 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl mt-1 shadow-lg max-h-40 overflow-y-auto">
+                            {availableCategories
+                              .filter(cat => cat.toLowerCase().includes(categoryInput.toLowerCase()))
+                              .map((category, index) => (
+                              <div
+                                key={index}
+                                onClick={() => handleCategorySelect(category)}
+                                className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer text-gray-800 dark:text-white"
+                              >
+                                {category}
+                              </div>
+                            ))}
+                            {categoryInput && !availableCategories.includes(categoryInput) && (
+                              <div
+                                onClick={handleCategoryAdd}
+                                className="px-4 py-2 hover:bg-amber-100 dark:hover:bg-amber-900/50 cursor-pointer text-amber-600 dark:text-amber-400 border-t border-gray-200 dark:border-gray-600"
+                              >
+                                <Plus className="w-4 h-4 inline mr-1" />
+                                Thêm "{categoryInput}"
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Material with Tags */}
+                      <div className="relative">
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                          <Hash className="w-4 h-4 inline mr-1" />
+                          Chất liệu *
+                        </label>
+                        <input
+                          type="text"
+                          value={materialInput}
+                          onChange={(e) => setMaterialInput(e.target.value)}
+                          onFocus={() => setShowMaterialDropdown(true)}
+                          placeholder="Chọn hoặc thêm chất liệu mới"
+                          className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
+                          required
+                        />
+                        {showMaterialDropdown && (
+                          <div className="absolute top-full left-0 right-0 z-10 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl mt-1 shadow-lg max-h-40 overflow-y-auto">
+                            {availableMaterials
+                              .filter(mat => mat.toLowerCase().includes(materialInput.toLowerCase()))
+                              .map((material, index) => (
+                              <div
+                                key={index}
+                                onClick={() => handleMaterialSelect(material)}
+                                className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer text-gray-800 dark:text-white"
+                              >
+                                {material}
+                              </div>
+                            ))}
+                            {materialInput && !availableMaterials.includes(materialInput) && (
+                              <div
+                                onClick={handleMaterialAdd}
+                                className="px-4 py-2 hover:bg-amber-100 dark:hover:bg-amber-900/50 cursor-pointer text-amber-600 dark:text-amber-400 border-t border-gray-200 dark:border-gray-600"
+                              >
+                                <Plus className="w-4 h-4 inline mr-1" />
+                                Thêm "{materialInput}"
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                          Mô tả ngắn *
+                        </label>
+                        <textarea
+                          value={formData.description}
+                          onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                          rows="3"
+                          className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
+                          required
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                          Mô tả chi tiết *
+                        </label>
+                        <textarea
+                          value={formData.detail_description}
+                          onChange={(e) => setFormData({ ...formData, detail_description: e.target.value })}
+                          rows="4"
+                          className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
+                          required
+                        />
+                      </div>
                     </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Giá *
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.price}
-                        onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                        placeholder="1.500.000đ"
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Danh mục *
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.category}
-                        onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                        placeholder="Vòng tay trầm"
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Chất liệu *
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.material}
-                        onChange={(e) => setFormData({ ...formData, material: e.target.value })}
-                        placeholder="Trầm hương tự nhiên"
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Mô tả ngắn *
-                    </label>
-                    <textarea
-                      value={formData.description}
-                      onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                      rows="3"
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Mô tả chi tiết *
-                    </label>
-                    <textarea
-                      value={formData.detail_description}
-                      onChange={(e) => setFormData({ ...formData, detail_description: e.target.value })}
-                      rows="4"
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Kích cỡ và giá theo size
-                    </label>
-                    <div className="space-y-3">
-                      {formData.sizes.map((size, index) => (
-                        <motion.div 
-                          key={size}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          className="flex items-center space-x-3 bg-gray-50 dark:bg-gray-700 p-3 rounded-xl"
-                        >
-                          <span className="bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-400 px-3 py-2 rounded-lg text-sm font-medium min-w-[100px]">
-                            {size}
-                          </span>
+                    {/* Right Column - Images and Sizes */}
+                    <div className="space-y-6">
+                      {/* Image Upload with Drag & Drop */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                          <ImageIcon className="w-4 h-4 inline mr-1" />
+                          Hình ảnh sản phẩm * (Tối đa 10 ảnh)
+                        </label>
+                        <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-6 text-center hover:border-amber-400 transition-colors">
                           <input
-                            type="text"
-                            value={formData.size_prices[size] || ''}
-                            onChange={(e) => handleSizePriceChange(size, e.target.value)}
-                            placeholder="1.500.000đ"
-                            className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-600 dark:text-white transition-all"
+                            type="file"
+                            accept="image/*"
+                            multiple
+                            onChange={handleImageUpload}
+                            className="hidden"
+                            id="image-upload"
+                            required={!editingProduct && formData.images.length === 0}
                           />
-                          <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            type="button"
-                            onClick={() => handleSizeRemove(size)}
-                            className="text-red-600 hover:text-red-800 p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                          >
-                            <X className="w-4 h-4" />
-                          </motion.button>
-                        </motion.div>
-                      ))}
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        type="button"
-                        onClick={handleSizeAdd}
-                        className="w-full text-amber-800 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300 text-sm flex items-center justify-center space-x-2 py-3 border-2 border-dashed border-amber-300 dark:border-amber-700 rounded-xl hover:border-amber-400 dark:hover:border-amber-600 transition-colors"
-                      >
-                        <Plus className="w-4 h-4" />
-                        <span>Thêm kích cỡ</span>
-                      </motion.button>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Hình ảnh sản phẩm * (Tối đa 10 ảnh)
-                    </label>
-                    <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-6 text-center hover:border-amber-400 transition-colors">
-                      <input
-                        type="file"
-                        accept="image/*"
-                        multiple
-                        onChange={handleImageUpload}
-                        className="hidden"
-                        id="image-upload"
-                        required={!editingProduct && formData.images.length === 0}
-                      />
-                      <label htmlFor="image-upload" className="cursor-pointer">
-                        <Upload className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                        <p className="text-gray-600 dark:text-gray-400">Kéo thả ảnh vào đây hoặc click để chọn</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">PNG, JPG, GIF tối đa 10MB mỗi ảnh</p>
-                      </label>
-                    </div>
-                    
-                    {/* Image Preview Grid */}
-                    {formData.images.length > 0 && (
-                      <div className="mt-4">
-                        <div className="text-sm text-gray-600 dark:text-gray-400 mb-3 flex items-center">
-                          <ImageIcon className="w-4 h-4 mr-1" />
-                          Đã chọn {formData.images.length}/10 ảnh
+                          <label htmlFor="image-upload" className="cursor-pointer">
+                            <Upload className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                            <p className="text-gray-600 dark:text-gray-400">Kéo thả ảnh vào đây hoặc click để chọn</p>
+                            <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">PNG, JPG, GIF tối đa 10MB mỗi ảnh</p>
+                          </label>
                         </div>
-                        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
-                          {formData.images.map((image, index) => (
-                            <motion.div 
-                              key={index}
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              className="relative group"
+                        
+                        {/* Image Preview with Drag & Drop Reorder */}
+                        {formData.images.length > 0 && (
+                          <div className="mt-4">
+                            <div className="text-sm text-gray-600 dark:text-gray-400 mb-3 flex items-center">
+                              <ImageIcon className="w-4 h-4 mr-1" />
+                              Đã chọn {formData.images.length}/10 ảnh - Kéo để sắp xếp lại
+                            </div>
+                            <Reorder.Group 
+                              values={formData.images} 
+                              onReorder={(newImages) => setFormData({ ...formData, images: newImages })}
+                              className="grid grid-cols-3 sm:grid-cols-4 gap-3"
                             >
-                              <img 
-                                src={image} 
-                                alt={`Preview ${index + 1}`} 
-                                className="w-full h-24 object-cover rounded-xl border-2 border-gray-200 dark:border-gray-600 group-hover:border-amber-400 transition-colors"
+                              {formData.images.map((image, index) => (
+                                <Reorder.Item key={`${image}-${index}`} value={image}>
+                                  <motion.div 
+                                    className="relative group cursor-move"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileDrag={{ scale: 1.1 }}
+                                    dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+                                  >
+                                    <img 
+                                      src={image} 
+                                      alt={`Preview ${index + 1}`} 
+                                      className="w-full h-24 object-cover rounded-xl border-2 border-gray-200 dark:border-gray-600 group-hover:border-amber-400 transition-colors"
+                                    />
+                                    <motion.button
+                                      whileHover={{ scale: 1.1 }}
+                                      whileTap={{ scale: 0.9 }}
+                                      type="button"
+                                      onClick={() => removeImage(index)}
+                                      className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
+                                    >
+                                      <X className="w-3 h-3" />
+                                    </motion.button>
+                                    <div className="absolute top-1 left-1 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded flex items-center">
+                                      <GripVertical className="w-3 h-3 mr-1" />
+                                      {index + 1}
+                                    </div>
+                                  </motion.div>
+                                </Reorder.Item>
+                              ))}
+                            </Reorder.Group>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Enhanced Size Management */}
+                      <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6">
+                        <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center">
+                          <Ruler className="w-5 h-5 text-amber-600 mr-2" />
+                          Quản lý kích cỠ và giá
+                        </h4>
+                        
+                        {/* Add Size Form */}
+                        <div className="bg-white dark:bg-gray-600 rounded-lg p-4 mb-4">
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <input
+                              type="text"
+                              value={newSize.name}
+                              onChange={(e) => setNewSize({ ...newSize, name: e.target.value })}
+                              placeholder="Tên size (vd: 16mm)"
+                              className="px-3 py-2 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                            />
+                            <input
+                              type="text"
+                              value={newSize.price}
+                              onChange={(e) => setNewSize({ ...newSize, price: e.target.value })}
+                              placeholder="Giá (vd: 1.500.000đ)"
+                              className="px-3 py-2 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                            />
+                            <motion.button
+                              whileHover={{ scale: 1.02 }}
+                              whileTap={{ scale: 0.98 }}
+                              type="button"
+                              onClick={handleAddSize}
+                              disabled={!newSize.name || !newSize.price}
+                              className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-4 py-2 rounded-lg hover:from-amber-700 hover:to-orange-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                            >
+                              <Plus className="w-4 h-4 mr-1" />
+                              Thêm
+                            </motion.button>
+                          </div>
+                        </div>
+
+                        {/* Size List */}
+                        <div className="space-y-3">
+                          {formData.sizes.map((size, index) => (
+                            <motion.div 
+                              key={size}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: index * 0.1 }}
+                              className="flex items-center space-x-3 bg-white dark:bg-gray-600 p-3 rounded-lg border border-gray-200 dark:border-gray-500"
+                            >
+                              <div className="bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-400 px-3 py-2 rounded-lg text-sm font-medium min-w-[100px] text-center">
+                                {size}
+                              </div>
+                              <input
+                                type="text"
+                                value={formData.size_prices[size] || ''}
+                                onChange={(e) => handleSizePriceChange(size, e.target.value)}
+                                placeholder="1.500.000đ"
+                                className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
                               />
                               <motion.button
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 type="button"
-                                onClick={() => removeImage(index)}
-                                className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
+                                onClick={() => handleSizeRemove(size)}
+                                className="text-red-600 hover:text-red-800 p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
                               >
-                                <X className="w-3 h-3" />
+                                <Trash2 className="w-4 h-4" />
                               </motion.button>
-                              <div className="absolute bottom-1 left-1 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">
-                                {index + 1}
-                              </div>
                             </motion.div>
                           ))}
+                          {formData.sizes.length === 0 && (
+                            <p className="text-gray-500 dark:text-gray-400 text-center py-4">
+                              Chưa có size nào. Thêm size để tạo bảng giá theo kích cỡ.
+                            </p>
+                          )}
                         </div>
                       </div>
-                    )}
+                    </div>
                   </div>
 
                   <div className="flex space-x-4 pt-6 border-t border-gray-200 dark:border-gray-700">
@@ -698,6 +860,20 @@ const ProductManagement = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Click outside handlers */}
+      {showCategoryDropdown && (
+        <div 
+          className="fixed inset-0 z-5" 
+          onClick={() => setShowCategoryDropdown(false)}
+        />
+      )}
+      {showMaterialDropdown && (
+        <div 
+          className="fixed inset-0 z-5" 
+          onClick={() => setShowMaterialDropdown(false)}
+        />
+      )}
     </motion.div>
   );
 };
