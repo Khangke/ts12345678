@@ -113,7 +113,7 @@ frontend:
     file: "frontend/src/admin/pages/ProductManagement.js"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
@@ -121,6 +121,9 @@ frontend:
       - working: true
         agent: "main"
         comment: "Fixed z-index layering issue: Updated click-outside overlays from z-5 to z-20, dropdowns from z-10 to z-30, added stopPropagation to prevent closing when clicking inside dropdown"
+      - working: true
+        agent: "testing"
+        comment: "Đã test backend API sau frontend dropdown fix và xác nhận tất cả API endpoints vẫn hoạt động đúng. Không có ảnh hưởng nào đến backend functionality."
 
   - task: "Implement size-based pricing UI"
     implemented: true
