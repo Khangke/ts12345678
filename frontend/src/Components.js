@@ -579,60 +579,75 @@ export const ProductsSection = ({ onProductClick }) => {
     }
   ];
 
+  const { visibleItems, setRef } = useStaggerAnimation(products, 100);
+
   return (
-    <section id="products" className="py-20 bg-gray-50">
+    <section id="products" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Sản phẩm trầm hương chất lượng cao</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4 animate-fade-in-up">
+            Sản phẩm trầm hương chất lượng cao
+          </h2>
+          <div className="w-32 h-1 bg-gradient-to-r from-amber-800 to-orange-600 mx-auto rounded-full mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}></div>
+          <p className="text-gray-600 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             Khám phá bộ sưu tập trầm hương đa dạng từ Sơn Mộc Hương - từ vòng tay trầm hương đến nhang nụ, 
             tất cả đều được chọn lọc kỹ lưỡng để mang đến cho bạn chất lượng tốt nhất.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
+          {products.map((product, index) => (
             <div 
               key={product.id} 
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer"
+              ref={setRef(index)}
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl cursor-pointer group transition-all duration-500 hover:transform hover:scale-105 hover:-translate-y-2 ${
+                visibleItems.has(index) ? 'animate-fade-in-up opacity-100' : 'opacity-0'
+              }`}
+              style={{ animationDelay: `${index * 0.1}s` }}
               onClick={() => onProductClick(product)}
             >
-              <div className="relative">
+              <div className="relative overflow-hidden">
                 <img 
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-800/0 to-amber-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute top-4 left-4">
-                  <span className="bg-amber-800 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-amber-800 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg animate-bounce-in">
                     {product.category}
                   </span>
+                </div>
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-lg">
+                    <span className="text-amber-800 text-sm font-bold">HOT</span>
+                  </div>
                 </div>
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{product.name}</h3>
-                <p className="text-gray-600 text-sm mb-4">{product.description}</p>
+                <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-amber-800 transition-colors duration-300">{product.name}</h3>
+                <p className="text-gray-600 text-sm mb-4 line-clamp-2">{product.description}</p>
                 
                 <div className="flex items-center space-x-2 mb-3">
-                  <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center group-hover:bg-amber-200 transition-colors duration-300">
                     <span className="text-amber-800 text-xs">✓</span>
                   </div>
-                  <span className="text-sm text-gray-600">{product.material}</span>
+                  <span className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors">{product.material}</span>
                 </div>
                 
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-1">
-                    <span className="text-yellow-400">★</span>
+                    <span className="text-yellow-400 group-hover:animate-pulse">★</span>
                     <span className="text-sm text-gray-600">{product.rating}</span>
                   </div>
-                  <span className="text-sm text-amber-600 font-medium">Chất lượng cao</span>
+                  <span className="text-sm text-amber-600 font-medium group-hover:text-amber-700 transition-colors">Chất lượng cao</span>
                 </div>
                 
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-amber-800">{product.price}</span>
+                  <span className="text-2xl font-bold text-amber-800 group-hover:animate-pulse">{product.price}</span>
                   <button 
-                    className="bg-amber-800 text-white px-4 py-2 rounded-full hover:bg-amber-900 transition-colors text-sm"
+                    className="bg-amber-800 text-white px-4 py-2 rounded-full hover:bg-amber-900 transition-all duration-300 text-sm shadow-lg hover:shadow-xl transform hover:scale-105 group-hover:animate-bounce"
                     onClick={(e) => {
                       e.stopPropagation();
                       onProductClick(product);
@@ -641,13 +656,18 @@ export const ProductsSection = ({ onProductClick }) => {
                     Mua ngay
                   </button>
                 </div>
+
+                {/* Animated progress bar on hover */}
+                <div className="mt-4 h-1 bg-gray-200 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="h-full bg-gradient-to-r from-amber-600 to-orange-600 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></div>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <button className="bg-amber-800 text-white px-8 py-3 rounded-full hover:bg-amber-900 transition-colors">
+        <div className="text-center mt-12 animate-fade-in-up" style={{ animationDelay: '1s' }}>
+          <button className="bg-gradient-to-r from-amber-800 to-amber-900 text-white px-8 py-3 rounded-full hover:from-amber-900 hover:to-amber-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1">
             Xem tất cả sản phẩm
           </button>
         </div>
