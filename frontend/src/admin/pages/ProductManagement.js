@@ -687,16 +687,28 @@ const ProductManagement = () => {
                           required
                         />
                         {showMaterialDropdown && (
-                          <div className="absolute top-full left-0 right-0 z-10 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl mt-1 shadow-lg max-h-40 overflow-y-auto">
+                          <div className="absolute top-full left-0 right-0 z-10 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl mt-1 shadow-lg max-h-60 overflow-y-auto">
                             {availableMaterials
                               .filter(mat => mat.toLowerCase().includes(materialInput.toLowerCase()))
                               .map((material, index) => (
                               <div
                                 key={index}
-                                onClick={() => handleMaterialSelect(material)}
-                                className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer text-gray-800 dark:text-white"
+                                className="flex items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer text-gray-800 dark:text-white group"
                               >
-                                {material}
+                                <span onClick={() => handleMaterialSelect(material)} className="flex-1">
+                                  {material}
+                                </span>
+                                <motion.button
+                                  whileHover={{ scale: 1.1 }}
+                                  whileTap={{ scale: 0.9 }}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleMaterialDelete(material);
+                                  }}
+                                  className="opacity-0 group-hover:opacity-100 text-red-500 hover:text-red-700 p-1 rounded transition-all"
+                                >
+                                  <X className="w-3 h-3" />
+                                </motion.button>
                               </div>
                             ))}
                             {materialInput && !availableMaterials.includes(materialInput) && (
@@ -706,6 +718,11 @@ const ProductManagement = () => {
                               >
                                 <Plus className="w-4 h-4 inline mr-1" />
                                 Thêm "{materialInput}"
+                              </div>
+                            )}
+                            {availableMaterials.filter(mat => mat.toLowerCase().includes(materialInput.toLowerCase())).length === 0 && !materialInput && (
+                              <div className="px-4 py-2 text-gray-500 dark:text-gray-400 text-center">
+                                Không có chất liệu nào
                               </div>
                             )}
                           </div>
