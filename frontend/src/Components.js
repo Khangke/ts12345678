@@ -16,25 +16,58 @@ import {
 // Header Component
 export const Header = ({ cartCount, onCartClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
 
   return (
     <header className="fixed top-0 w-full bg-white shadow-md z-50">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <div className="w-12 h-12 bg-amber-800 rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-xl">SMH</span>
             </div>
             <span className="text-2xl font-bold text-amber-800">Sơn Mộc Hương</span>
-          </div>
+          </Link>
 
           {/* Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <a href="#home" className="text-gray-700 hover:text-amber-800 transition-colors font-medium">Trang chủ</a>
-            <a href="#about" className="text-gray-700 hover:text-amber-800 transition-colors font-medium">Giới thiệu</a>
-            <a href="#products" className="text-gray-700 hover:text-amber-800 transition-colors font-medium">Sản phẩm</a>
-            <a href="#contact" className="text-gray-700 hover:text-amber-800 transition-colors font-medium">Liên hệ</a>
+            <Link 
+              to="/" 
+              className={`text-gray-700 hover:text-amber-800 transition-colors font-medium ${
+                isActive('/') ? 'text-amber-800 font-semibold' : ''
+              }`}
+            >
+              Trang chủ
+            </Link>
+            <Link 
+              to="/about" 
+              className={`text-gray-700 hover:text-amber-800 transition-colors font-medium ${
+                isActive('/about') ? 'text-amber-800 font-semibold' : ''
+              }`}
+            >
+              Giới thiệu
+            </Link>
+            <Link 
+              to="/products" 
+              className={`text-gray-700 hover:text-amber-800 transition-colors font-medium ${
+                isActive('/products') ? 'text-amber-800 font-semibold' : ''
+              }`}
+            >
+              Sản phẩm
+            </Link>
+            <Link 
+              to="/contact" 
+              className={`text-gray-700 hover:text-amber-800 transition-colors font-medium ${
+                isActive('/contact') ? 'text-amber-800 font-semibold' : ''
+              }`}
+            >
+              Liên hệ
+            </Link>
           </nav>
 
           {/* Contact Info & Cart */}
