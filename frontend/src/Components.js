@@ -514,14 +514,6 @@ export const ProductsSection = ({ onProductClick }) => {
       detail_description: 'Nhang nụ trầm hương được làm từ bột trầm hương nguyên chất, không chất phụ gia, tạo khói nhẹ và hương thơm dễ chịu.'
     }
   ];
-      rating: 4.9,
-      sizes: ['16mm', '18mm', '20mm'],
-      reviews: [
-        { name: 'Nguyễn Văn A', rating: 5, comment: 'Sản phẩm rất đẹp, hương thơm tự nhiên' },
-        { name: 'Trần Thị B', rating: 5, comment: 'Chất lượng tốt, đúng như mô tả' }
-      ],
-      detailDescription: 'Vòng tay trầm hương tự nhiên được chế tác từ gỗ trầm hương Việt Nam cao cấp. Sản phẩm có hương thơm nhẹ nhàng, mang lại cảm giác thư giãn và bình an cho người đeo.'
-    },
     {
       id: 2,
       name: 'Vòng tay trầm hương chìm nước',
