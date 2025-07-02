@@ -119,9 +119,19 @@ const OrderManagement = () => {
   const filteredOrders = orders.filter(order => {
     // Tab filter
     const isPending = ['pending'].includes(order.status);
-    const isProcessed = ['confirmed', 'shipping', 'delivered', 'cancelled'].includes(order.status);
+    const isProcessed = ['confirmed', 'shipping', 'cancelled'].includes(order.status);
+    const isDelivered = ['delivered'].includes(order.status);
     
-    const tabMatch = activeTab === 'pending' ? isPending : isProcessed;
+    let tabMatch;
+    if (activeTab === 'pending') {
+      tabMatch = isPending;
+    } else if (activeTab === 'processed') {
+      tabMatch = isProcessed;
+    } else if (activeTab === 'delivered') {
+      tabMatch = isDelivered;
+    } else {
+      tabMatch = false;
+    }
     
     // Status filter (within the tab)
     const statusMatch = statusFilter === 'all' || order.status === statusFilter;
@@ -138,7 +148,8 @@ const OrderManagement = () => {
 
   // Get counts for tabs
   const pendingCount = orders.filter(order => ['pending'].includes(order.status)).length;
-  const processedCount = orders.filter(order => ['confirmed', 'shipping', 'delivered', 'cancelled'].includes(order.status)).length;
+  const processedCount = orders.filter(order => ['confirmed', 'shipping', 'cancelled'].includes(order.status)).length;
+  const deliveredCount = orders.filter(order => ['delivered'].includes(order.status)).length;
 
   if (loading) {
     return (
