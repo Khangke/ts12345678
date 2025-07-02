@@ -33,19 +33,19 @@ export const Header = ({ cartCount, onCartClick }) => {
             <div className="w-12 h-12 bg-gradient-to-br from-amber-800 to-amber-900 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
               <span className="text-white font-bold text-xl group-hover:animate-pulse">SMH</span>
             </div>
-            <span className="text-2xl font-bold text-amber-800 group-hover:text-amber-900 transition-colors duration-300">Sơn Mộc Hương</span>
+            <span className="text-2xl font-bold text-amber-800 dark:text-amber-400 group-hover:text-amber-900 dark:group-hover:text-amber-300 transition-colors duration-300">Sơn Mộc Hương</span>
           </Link>
 
           {/* Navigation */}
           <nav className="hidden md:flex space-x-8">
             <Link 
               to="/" 
-              className={`relative text-gray-700 hover:text-amber-800 transition-all duration-300 font-medium group ${
-                isActive('/') ? 'text-amber-800 font-semibold' : ''
+              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium group ${
+                isActive('/') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
               }`}
             >
               Trang chủ
-              <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-amber-800 transition-all duration-300 group-hover:w-full ${
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-amber-800 dark:bg-amber-400 transition-all duration-300 group-hover:w-full ${
                 isActive('/') ? 'w-full' : ''
               }`}></span>
             </Link>
