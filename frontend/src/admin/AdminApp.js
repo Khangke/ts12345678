@@ -12,8 +12,8 @@ const AdminApp = () => {
   return (
     <AuthProvider>
       <Routes>
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/*" element={
+        <Route path="/login" element={<AdminLogin />} />
+        <Route path="/*" element={
           <ProtectedRoute>
             <AdminLayout>
               <Routes>
@@ -25,6 +25,7 @@ const AdminApp = () => {
             </AdminLayout>
           </ProtectedRoute>
         } />
+        <Route path="" element={<Navigate to="/admin/login" replace />} />
       </Routes>
     </AuthProvider>
   );
