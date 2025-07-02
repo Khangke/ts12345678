@@ -506,6 +506,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test thành công GET /api/admin/orders và API hoạt động đúng khi không có orders. Có một vấn đề nhỏ khi tạo test order do định dạng giá có ký tự 'đ', nhưng điều này không ảnh hưởng đến chức năng cốt lõi của API."
+      - working: true
+        agent: "testing"
+        comment: "Đã test lại admin order management API và xác nhận hoạt động đúng. Đã tạo test order với size-specific pricing thành công. Order được tạo với selected_size và size_specific_price đúng. Đã test PUT /api/admin/orders/{id}/status để cập nhật trạng thái đơn hàng từ 'pending' sang 'confirmed'. API trả về dữ liệu đúng định dạng và status code phù hợp."
   
   - task: "Test admin dashboard stats API"
     implemented: true
