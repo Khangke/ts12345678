@@ -553,6 +553,21 @@ frontend:
         agent: "testing"
         comment: "Đã test backend API sau frontend dark mode implementation và xác nhận tất cả API endpoints vẫn hoạt động đúng. Không có ảnh hưởng nào đến backend functionality."
 
+  - task: "Backend API health check"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Bắt đầu test backend API health check theo yêu cầu"
+      - working: true
+        agent: "testing"
+        comment: "✅ GET /api/products endpoint trả về status 200 và danh sách 3 sản phẩm với đầy đủ thông tin size-based pricing ✅ GET /api/admin/stats endpoint trả về status 200 và thống kê chính xác về sản phẩm, đơn hàng và doanh thu ✅ POST /api/orders endpoint hoạt động tốt, có thể tạo đơn hàng mới với size-specific pricing. Tất cả API endpoints đều trả về status code 200 và dữ liệu đúng định dạng. Backend hoạt động ổn định và sẵn sàng cho việc kiểm tra frontend news functionality."
+
 backend:
   - task: "Tạo database models cho products và orders"
     implemented: true
