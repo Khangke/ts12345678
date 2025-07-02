@@ -16,8 +16,7 @@ const NewsPage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-      console.log('Loading finished, showing articles');
-    }, 100);
+    }, 300);
     return () => clearTimeout(timer);
   }, []);
 
