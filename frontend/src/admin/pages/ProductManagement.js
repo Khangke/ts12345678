@@ -557,14 +557,20 @@ const ProductManagement = () => {
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                           Giá cơ bản *
                         </label>
-                        <input
-                          type="text"
-                          value={formData.price}
-                          onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                          placeholder="1.500.000đ"
-                          className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
-                          required
-                        />
+                        <div className="relative">
+                          <DollarSign className="absolute left-3 top-3.5 h-5 w-5 text-amber-600" />
+                          <input
+                            type="text"
+                            value={formData.price}
+                            onChange={(e) => handlePriceChange(e.target.value)}
+                            placeholder="99.999vnđ"
+                            className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
+                            required
+                          />
+                        </div>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                          Nhập số, ví dụ: 99999 → 99.999vnđ
+                        </p>
                       </div>
 
                       {/* Category with Tags */}
