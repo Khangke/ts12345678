@@ -373,124 +373,194 @@ const OrderManagement = () => {
       </motion.div>
 
       {/* Order Detail Modal */}
-      {selectedOrder && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white dark:bg-gray-800 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
-                  Chi tiết đơn hàng {selectedOrder.order_id}
-                </h2>
-                <button 
-                  onClick={() => setSelectedOrder(null)} 
-                  className="text-gray-500 hover:text-gray-700 text-2xl"
-                >
-                  ×
-                </button>
-              </div>
-
-              {/* Customer Info */}
-              <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <h3 className="font-semibold text-gray-800 dark:text-white mb-3">Thông tin khách hàng</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Tên khách hàng</p>
-                    <p className="font-medium text-gray-800 dark:text-white">{selectedOrder.customer_name}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Số điện thoại</p>
-                    <p className="font-medium text-gray-800 dark:text-white">{selectedOrder.customer_phone}</p>
-                  </div>
-                  {selectedOrder.customer_email && (
-                    <div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Email</p>
-                      <p className="font-medium text-gray-800 dark:text-white">{selectedOrder.customer_email}</p>
-                    </div>
-                  )}
-                  <div className="md:col-span-2">
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Địa chỉ giao hàng</p>
-                    <p className="font-medium text-gray-800 dark:text-white">{selectedOrder.customer_address}</p>
-                  </div>
-                  {selectedOrder.note && (
-                    <div className="md:col-span-2">
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Ghi chú</p>
-                      <p className="font-medium text-gray-800 dark:text-white">{selectedOrder.note}</p>
-                    </div>
-                  )}
+      <AnimatePresence>
+        {selectedOrder && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          >
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-200 dark:border-gray-700"
+            >
+              <div className="p-6">
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-2xl font-bold text-gray-800 dark:text-white flex items-center">
+                    <Package className="w-6 h-6 text-amber-600 mr-2" />
+                    Chi tiết đơn hàng {selectedOrder.order_id}
+                  </h2>
+                  <motion.button 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setSelectedOrder(null)} 
+                    className="text-gray-500 hover:text-gray-700 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    <X className="w-6 h-6" />
+                  </motion.button>
                 </div>
-              </div>
 
-              {/* Order Items */}
-              <div className="mb-6">
-                <h3 className="font-semibold text-gray-800 dark:text-white mb-3">Sản phẩm đặt hàng</h3>
-                <div className="space-y-3">
-                  {selectedOrder.items.map((item, index) => (
-                    <div key={index} className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                      <div>
-                        <p className="font-medium text-gray-800 dark:text-white">{item.product_name}</p>
-                        {item.selected_size && (
-                          <p className="text-sm text-gray-600 dark:text-gray-400">Size: {item.selected_size}</p>
-                        )}
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Số lượng: {item.quantity}</p>
+                {/* Customer Info */}
+                <div className="mb-6 p-6 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-gray-700 dark:to-gray-600 rounded-xl border border-amber-200 dark:border-gray-600">
+                  <h3 className="font-bold text-gray-800 dark:text-white mb-4 flex items-center text-lg">
+                    <User className="w-5 h-5 text-amber-600 mr-2" />
+                    Thông tin khách hàng
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
+                        <User className="w-5 h-5 text-white" />
                       </div>
-                      <p className="font-semibold text-gray-800 dark:text-white">{item.price}</p>
+                      <div>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Tên khách hàng</p>
+                        <p className="font-semibold text-gray-800 dark:text-white">{selectedOrder.customer_name}</p>
+                      </div>
                     </div>
-                  ))}
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                        <Phone className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Số điện thoại</p>
+                        <p className="font-semibold text-gray-800 dark:text-white">{selectedOrder.customer_phone}</p>
+                      </div>
+                    </div>
+                    {selectedOrder.customer_email && (
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                          <Mail className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Email</p>
+                          <p className="font-semibold text-gray-800 dark:text-white">{selectedOrder.customer_email}</p>
+                        </div>
+                      </div>
+                    )}
+                    <div className="flex items-start space-x-3 md:col-span-2">
+                      <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
+                        <MapPin className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Địa chỉ giao hàng</p>
+                        <p className="font-semibold text-gray-800 dark:text-white">{selectedOrder.customer_address}</p>
+                      </div>
+                    </div>
+                    {selectedOrder.note && (
+                      <div className="flex items-start space-x-3 md:col-span-2">
+                        <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center">
+                          <FileText className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Ghi chú</p>
+                          <p className="font-semibold text-gray-800 dark:text-white">{selectedOrder.note}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Order Items */}
+                <div className="mb-6">
+                  <h3 className="font-bold text-gray-800 dark:text-white mb-4 flex items-center text-lg">
+                    <Package className="w-5 h-5 text-amber-600 mr-2" />
+                    Sản phẩm đặt hàng
+                  </h3>
+                  <div className="space-y-3">
+                    {selectedOrder.items.map((item, index) => (
+                      <motion.div 
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        className="flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600"
+                      >
+                        <div className="flex items-center space-x-4">
+                          <div className="w-12 h-12 bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg flex items-center justify-center">
+                            <Package className="w-6 h-6 text-white" />
+                          </div>
+                          <div>
+                            <p className="font-semibold text-gray-800 dark:text-white">{item.product_name}</p>
+                            {item.selected_size && (
+                              <p className="text-sm text-amber-600 dark:text-amber-400 font-medium">Size: {item.selected_size}</p>
+                            )}
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Số lượng: {item.quantity}</p>
+                          </div>
+                        </div>
+                        <p className="font-bold text-lg text-amber-800 dark:text-amber-400">{item.price}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Order Summary */}
+                <div className="mb-6 p-6 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-gray-700 dark:to-gray-600 rounded-xl border border-green-200 dark:border-gray-600">
+                  <h3 className="font-bold text-gray-800 dark:text-white mb-4 text-lg">Tóm tắt đơn hàng</h3>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600 dark:text-gray-400">Tạm tính:</span>
+                      <span className="font-semibold text-gray-800 dark:text-white">{formatPrice(selectedOrder.total_price)}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600 dark:text-gray-400">Phí vận chuyển:</span>
+                      <span className="font-semibold text-gray-800 dark:text-white">
+                        {selectedOrder.shipping_fee === 0 ? 'Miễn phí' : formatPrice(selectedOrder.shipping_fee)}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center text-xl font-bold border-t border-green-200 dark:border-gray-600 pt-3">
+                      <span className="text-gray-800 dark:text-white">Tổng cộng:</span>
+                      <span className="text-green-700 dark:text-green-400">
+                        {formatPrice(selectedOrder.total_price + selectedOrder.shipping_fee)}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Status Update */}
+                <div className="mb-6">
+                  <h3 className="font-bold text-gray-800 dark:text-white mb-4 flex items-center text-lg">
+                    <Edit className="w-5 h-5 text-amber-600 mr-2" />
+                    Cập nhật trạng thái
+                  </h3>
+                  <div className="flex flex-wrap gap-3">
+                    {['pending', 'confirmed', 'shipping', 'delivered', 'cancelled'].map((status) => (
+                      <motion.button
+                        key={status}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => updateOrderStatus(selectedOrder.id, status)}
+                        disabled={selectedOrder.status === status}
+                        className={`px-6 py-3 rounded-xl font-semibold transition-all shadow-md ${
+                          selectedOrder.status === status
+                            ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                            : 'bg-white text-gray-800 hover:bg-gray-50 border-2 border-gray-200 hover:border-amber-300 hover:text-amber-700 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600'
+                        }`}
+                      >
+                        {getStatusText(status)}
+                      </motion.button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-4 rounded-xl">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-2">
+                      <Calendar className="w-4 h-4" />
+                      <span>Ngày tạo: {new Date(selectedOrder.created_at).toLocaleString('vi-VN')}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Edit className="w-4 h-4" />
+                      <span>Cập nhật cuối: {new Date(selectedOrder.updated_at).toLocaleString('vi-VN')}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              {/* Order Summary */}
-              <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <h3 className="font-semibold text-gray-800 dark:text-white mb-3">Tóm tắt đơn hàng</h3>
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600 dark:text-gray-400">Tạm tính:</span>
-                    <span className="text-gray-800 dark:text-white">{formatPrice(selectedOrder.total_price)}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600 dark:text-gray-400">Phí vận chuyển:</span>
-                    <span className="text-gray-800 dark:text-white">
-                      {selectedOrder.shipping_fee === 0 ? 'Miễn phí' : formatPrice(selectedOrder.shipping_fee)}
-                    </span>
-                  </div>
-                  <div className="flex justify-between text-lg font-semibold border-t pt-2">
-                    <span className="text-gray-800 dark:text-white">Tổng cộng:</span>
-                    <span className="text-amber-800 dark:text-amber-400">
-                      {formatPrice(selectedOrder.total_price + selectedOrder.shipping_fee)}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Status Update */}
-              <div className="mb-6">
-                <h3 className="font-semibold text-gray-800 dark:text-white mb-3">Cập nhật trạng thái</h3>
-                <div className="flex flex-wrap gap-2">
-                  {['pending', 'confirmed', 'shipping', 'delivered', 'cancelled'].map((status) => (
-                    <button
-                      key={status}
-                      onClick={() => updateOrderStatus(selectedOrder.id, status)}
-                      disabled={selectedOrder.status === status}
-                      className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                        selectedOrder.status === status
-                          ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                          : 'bg-amber-100 text-amber-800 hover:bg-amber-200 dark:bg-amber-900/50 dark:text-amber-400 dark:hover:bg-amber-900'
-                      }`}
-                    >
-                      {getStatusText(status)}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="text-sm text-gray-500 dark:text-gray-400">
-                <p>Ngày tạo: {new Date(selectedOrder.created_at).toLocaleString('vi-VN')}</p>
-                <p>Cập nhật cuối: {new Date(selectedOrder.updated_at).toLocaleString('vi-VN')}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };
