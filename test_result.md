@@ -765,3 +765,32 @@ agent_communication:
     message: "CONTINUATION TASK - Hoàn thành Phase 1: Icon replacement ✅ Thêm HomeIcon, BookIcon vào Icons.js ✅ Thay thế emoji (🏠📖🛍️📞) trong MobileComponents.js bằng SVG icons ✅ Thay thế ✕ symbol bằng CloseIcon. Phase 2: Admin panel optimization ✅ Tạo Toast notification system với success/error messages ✅ Thêm loading states cho ProductManagement (isSubmitting, isDeleting) ✅ Thêm loading states cho OrderManagement (isUpdatingStatus) ✅ Prevent double-click với disabled buttons ✅ Smooth animations với spinner loading ✅ Toast messages cho add/update/delete operations"
   - agent: "testing"
     message: "Đã test lại toàn bộ backend API sau frontend toast notifications và loading states implementation và xác nhận tất cả API endpoints vẫn hoạt động đúng. Admin authentication hoạt động tốt với credentials admin/admin123. Admin API endpoints (stats, products, orders) trả về dữ liệu đúng định dạng. Product operations (CRUD) hoạt động đúng với size-based pricing. Đã test backward compatibility với sản phẩm và đơn hàng không có size-based pricing và xác nhận hoạt động đúng. Public products API trả về dữ liệu phù hợp cho frontend. Tất cả API endpoints trả về cấu trúc dữ liệu phù hợp cho modern UI."
+  - task: "Fix font display issues in size and price sections"
+    implemented: true
+    working: true
+    file: "frontend/src/Components.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "User reported font display issues in size and price sections of ProductDetailModal"
+      - working: true
+        agent: "main"
+        comment: "✅ Enhanced size selection UI: increased button size (min-w-[100px]), improved spacing (gap-3), better contrast (border-2), larger font (text-sm for size, font-medium for price) ✅ Improved price display: larger main price (text-4xl), better size indicator layout, added helpful tip box with amber styling ✅ Better typography and contrast for readability"
+
+  - task: "Simplify order management tab behavior"
+    implemented: true
+    working: true
+    file: "frontend/src/admin/pages/OrderManagement.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "User requested simpler tab behavior - orders should show directly instead of flying animations when switching between 'chờ xử lý' and 'đã xử lý' tabs"
+      - working: true
+        agent: "main"
+        comment: "✅ Removed all framer-motion animations (AnimatePresence, motion components, variants) ✅ Simplified tab switching - orders now appear instantly without animations ✅ Replaced motion.button with regular button elements ✅ Simplified table rows - removed initial/animate/exit animations ✅ Kept functionality intact while removing all 'flying' effects ✅ Loading spinner now uses simple CSS animation instead of framer-motion"
