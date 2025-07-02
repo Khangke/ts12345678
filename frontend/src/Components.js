@@ -199,12 +199,13 @@ export const AboutSection = () => {
 
           <div className="lg:w-1/2 lg:pl-16">
             <h2 className="text-4xl font-bold text-gray-800 mb-6">
-              Đến với Trầm Hương
+              Sơn Mộc Hương
               <br />
-              <span className="text-amber-800">Cuộc sống nhẹ nhàng hơn</span>
+              <span className="text-amber-800">Trầm hương chất lượng cao</span>
             </h2>
             <p className="text-gray-600 mb-8 text-lg">
-              Chúng tôi mang đến cho bạn những sản phẩm trầm hương cao cấp, được tuyển chọn kỹ lưỡng từ những vùng đất nổi tiếng với trầm hương chất lượng tốt nhất.
+              Sơn Mộc Hương tự hào mang đến cho khách hàng những sản phẩm trầm hương từ thiên nhiên, 
+              với nguyên liệu trầm hương nguyên chất được chọn lọc kỹ lưỡng từ những vùng đất nổi tiếng về trầm hương tại Việt Nam.
             </p>
 
             <div className="space-y-4">
@@ -212,25 +213,25 @@ export const AboutSection = () => {
                 <div className="w-6 h-6 bg-amber-800 rounded-full flex items-center justify-center">
                   <span className="text-white text-xs">✓</span>
                 </div>
-                <span className="text-gray-700">Hỗp mỗi lòn mối ngủ</span>
+                <span className="text-gray-700">Trầm hương nguyên chất 100%</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-6 h-6 bg-amber-800 rounded-full flex items-center justify-center">
                   <span className="text-white text-xs">✓</span>
                 </div>
-                <span className="text-gray-700">Tiết kiệm chi phí</span>
+                <span className="text-gray-700">Cam kết chất lượng với giá trị thực</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-6 h-6 bg-amber-800 rounded-full flex items-center justify-center">
                   <span className="text-white text-xs">✓</span>
                 </div>
-                <span className="text-gray-700">Hướng tư vấn miễn phí</span>
+                <span className="text-gray-700">Dịch vụ tận tâm, uy tín</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-6 h-6 bg-amber-800 rounded-full flex items-center justify-center">
                   <span className="text-white text-xs">✓</span>
                 </div>
-                <span className="text-gray-700">Dịch vụ chăm sóc chu đáo</span>
+                <span className="text-gray-700">Miễn phí ship từ 300.000đ</span>
               </div>
             </div>
 
