@@ -516,7 +516,10 @@ export const AboutSection = () => {
 // Products Section Component
 export const ProductsSection = ({ onProductClick }) => {
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
 
   // Cache products in localStorage để tăng tốc load
   const CACHE_KEY = 'products_cache';
