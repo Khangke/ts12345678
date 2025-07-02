@@ -247,6 +247,15 @@ export const Header = ({ cartCount, onCartClick }) => {
                 Sản phẩm
               </Link>
               <Link 
+                to="/news" 
+                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium focus:outline-none ${
+                  isActive('/news') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Tin tức
+              </Link>
+              <Link 
                 to="/contact" 
                 className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium focus:outline-none ${
                   isActive('/contact') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
