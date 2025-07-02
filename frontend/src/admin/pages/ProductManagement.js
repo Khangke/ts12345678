@@ -921,9 +921,9 @@ const ProductManagement = () => {
 
                       {/* Enhanced Size Management */}
                       <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6">
-                        <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center">
-                          <Ruler className="w-5 h-5 text-amber-600 mr-2" />
-                          Quản lý kích cỠ và giá
+                        <h4 className="text-xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
+                          <Ruler className="w-6 h-6 text-amber-600 mr-2" />
+                          Quản lý kích cỡ và giá
                         </h4>
                         
                         {/* Add Size Form */}
