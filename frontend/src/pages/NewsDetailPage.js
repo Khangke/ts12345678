@@ -56,44 +56,6 @@ const NewsDetailPage = () => {
               </li>
             </ul>
           </div>
-
-          <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-300 mb-6 border-l-4 border-amber-600 dark:border-amber-400 pl-4">2. Kiểm tra mùi hương</h3>
-          <p class="mb-6 text-gray-700 dark:text-amber-200 leading-relaxed">Trầm hương thật có mùi thơm nhẹ nhàng, thanh tao, không gắt. Khi đốt, hương thơm lan tỏa đều và bền lâu. Trầm giả thường có mùi hắc hoặc quá nồng, gây khó chịu khi hít vào.</p>
-
-          <div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 p-6 rounded-xl border border-amber-300 dark:border-amber-600/50 mb-6">
-            <h4 class="text-lg font-semibold text-amber-800 dark:text-amber-300 mb-3">💡 Mẹo nhận biết:</h4>
-            <p class="text-gray-700 dark:text-amber-200">Trầm hương thật khi cạo nhẹ sẽ có mùi thơm thoang thoảng. Nếu phải cạo mạnh mới có mùi hoặc mùi quá nồng thì có thể là hàng giả.</p>
-          </div>
-
-          <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-300 mb-6 border-l-4 border-amber-600 dark:border-amber-400 pl-4">3. Test chìm nước</h3>
-          <p class="mb-4 text-gray-700 dark:text-amber-200 leading-relaxed">Trầm hương chất lượng cao có tỷ trọng lớn sẽ chìm xuống nước. Tuy nhiên, không phải trầm chìm nước nào cũng là trầm thật, cần kết hợp nhiều yếu tố khác để đánh giá chính xác.</p>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-600/30">
-              <h5 class="font-semibold text-green-800 dark:text-green-300 mb-2">✓ Trầm chìm nước thật</h5>
-              <p class="text-sm text-green-700 dark:text-green-200">Chìm từ từ, không tạo bọt khí, nước vẫn trong</p>
-            </div>
-            <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border border-red-200 dark:border-red-600/30">
-              <h5 class="font-semibold text-red-800 dark:text-red-300 mb-2">✗ Trầm giả</h5>
-              <p class="text-sm text-red-700 dark:text-red-200">Nổi hoặc chìm nhanh, có thể tạo bọt, nước bị đục</p>
-            </div>
-          </div>
-
-          <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-300 mb-6 border-l-4 border-amber-600 dark:border-amber-400 pl-4">4. Kiểm tra nguồn gốc</h3>
-          <p class="mb-4 text-gray-700 dark:text-amber-200 leading-relaxed">Chọn mua từ những nhà cung cấp uy tín, có giấy tờ chứng nhận nguồn gốc xuất xứ rõ ràng. Tránh mua từ những nguồn không rõ ràng hoặc giá quá rẻ so với thị trường.</p>
-
-          <div class="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg border border-yellow-200 dark:border-yellow-600/30 mb-6">
-            <h4 class="text-lg font-semibold text-yellow-800 dark:text-yellow-300 mb-3">⚠️ Lưu ý quan trọng:</h4>
-            <ul class="space-y-2 text-yellow-700 dark:text-yellow-200">
-              <li>• Không nên chỉ dựa vào một yếu tố để đánh giá</li>
-              <li>• Cần tìm hiểu kỹ về người bán và nguồn gốc sản phẩm</li>
-              <li>• Nếu không am hiểu, nên nhờ chuyên gia tư vấn</li>
-              <li>• Giá quá rẻ thường là dấu hiệu của hàng giả</li>
-            </ul>
-          </div>
-
-          <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-300 mb-6 border-l-4 border-amber-600 dark:border-amber-400 pl-4">5. Kết luận</h3>
-          <p class="text-gray-700 dark:text-amber-200 leading-relaxed">Việc nhận biết trầm hương thật giả đòi hỏi kinh nghiệm và kiến thức. Hãy luôn thận trọng khi mua và không ngần ngại hỏi ý kiến chuyên gia. Đầu tư vào trầm hương thật sẽ mang lại giá trị lâu dài và sự an tâm cho người sử dụng.</p>
         </div>
       `,
       image: "https://images.unsplash.com/photo-1542838132-92c53300491e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHx3b29kJTIwZXh0cmFjdGlvbnxlbnwwfHx8fDE3NTE0Mjk4Njh8MA&ixlib=rb-4.1.0&q=85",
@@ -109,59 +71,6 @@ const NewsDetailPage = () => {
       content: `
         <div class="prose prose-lg max-w-none dark:prose-invert">
           <p class="text-lg text-gray-700 dark:text-amber-200 mb-6 leading-relaxed">Trầm hương không chỉ có giá trị kinh tế cao mà còn mang lại nhiều lợi ích thiết thực cho sức khỏe và đời sống tinh thần của con người.</p>
-          
-          <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-300 mb-6 border-l-4 border-amber-600 dark:border-amber-400 pl-4">1. Tác dụng thư giãn tinh thần</h3>
-          <p class="mb-6 text-gray-700 dark:text-amber-200 leading-relaxed">Hương thơm của trầm hương có khả năng kích thích hệ thần kinh phó giao cảm, giúp cơ thể thư giãn, giảm căng thẳng và lo âu hiệu quả. Các nghiên cứu khoa học đã chứng minh rằng việc hít hương trầm có thể làm giảm nồng độ cortisol - hormone gây stress trong máu.</p>
-
-          <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-600/30 mb-6">
-            <h4 class="text-lg font-semibold text-blue-800 dark:text-blue-300 mb-3">🧠 Cơ chế hoạt động:</h4>
-            <ul class="space-y-2 text-blue-700 dark:text-blue-200">
-              <li>• Kích thích giải phóng endorphin tự nhiên</li>
-              <li>• Tăng cường hoạt động của hệ thần kinh phó giao cảm</li>
-              <li>• Giảm sản xuất hormone stress cortisol</li>
-              <li>• Cân bằng các chất dẫn truyền thần kinh</li>
-            </ul>
-          </div>
-
-          <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-300 mb-6 border-l-4 border-amber-600 dark:border-amber-400 pl-4">2. Cải thiện chất lượng giấc ngủ</h3>
-          <p class="mb-4 text-gray-700 dark:text-amber-200 leading-relaxed">Xông trầm hương trước khi ngủ giúp tạo không gian yên tĩnh, thúc đẩy giấc ngủ sâu và chất lượng. Nhiều người sử dụng trầm hương đã báo cáo giảm thời gian rơi vào giấc ngủ và ít bị thức giấc trong đêm.</p>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border border-purple-200 dark:border-purple-600/30 text-center">
-              <div class="text-2xl mb-2">🌙</div>
-              <h5 class="font-semibold text-purple-800 dark:text-purple-300 mb-1">Ngủ sâu hơn</h5>
-              <p class="text-sm text-purple-700 dark:text-purple-200">Tăng 30% thời gian ngủ sâu</p>
-            </div>
-            <div class="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg border border-indigo-200 dark:border-indigo-600/30 text-center">
-              <div class="text-2xl mb-2">⏰</div>
-              <h5 class="font-semibold text-indigo-800 dark:text-indigo-300 mb-1">Ngủ nhanh hơn</h5>
-              <p class="text-sm text-indigo-700 dark:text-indigo-200">Giảm 40% thời gian rơi vào giấc ngủ</p>
-            </div>
-            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-600/30 text-center">
-              <div class="text-2xl mb-2">😴</div>
-              <h5 class="font-semibold text-green-800 dark:text-green-300 mb-1">Ít thức giấc</h5>
-              <p class="text-sm text-green-700 dark:text-green-200">Giảm 50% số lần thức giấc</p>
-            </div>
-          </div>
-
-          <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-300 mb-6 border-l-4 border-amber-600 dark:border-amber-400 pl-4">3. Tăng cường khả năng tập trung</h3>
-          <p class="mb-4 text-gray-700 dark:text-amber-200 leading-relaxed">Nhiều nghiên cứu cho thấy hương trầm giúp cải thiện khả năng tập trung và làm việc hiệu quả hơn. Đặc biệt hữu ích cho những người làm việc trí óc hoặc học sinh, sinh viên cần tập trung cao độ.</p>
-
-          <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-300 mb-6 border-l-4 border-amber-600 dark:border-amber-400 pl-4">4. Hỗ trợ thiền định và yoga</h3>
-          <p class="mb-4 text-gray-700 dark:text-amber-200 leading-relaxed">Trầm hương được sử dụng rộng rãi trong các buổi thiền và yoga để tạo không gian thiêng liêng, giúp tâm trí an tĩnh và đạt được trạng thái mindfulness sâu hơn.</p>
-
-          <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-300 mb-6 border-l-4 border-amber-600 dark:border-amber-400 pl-4">5. Thanh lọc không khí</h3>
-          <p class="mb-4 text-gray-700 dark:text-amber-200 leading-relaxed">Khói trầm hương có tác dụng khử trùng, thanh lọc không khí, loại bỏ các vi khuẩn có hại trong môi trường, tạo ra không gian sống trong lành và an toàn.</p>
-
-          <div class="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-lg border border-amber-200 dark:border-amber-600/30 mb-6">
-            <h4 class="text-lg font-semibold text-amber-800 dark:text-amber-300 mb-3">🌿 Lưu ý sử dụng an toàn:</h4>
-            <ul class="space-y-2 text-amber-700 dark:text-amber-200">
-              <li>• Sử dụng trong không gian thông thoáng</li>
-              <li>• Không xông quá lâu (tối đa 30 phút/lần)</li>
-              <li>• Tránh sử dụng khi có trẻ nhỏ hoặc người mẫn cảm</li>
-              <li>• Chọn trầm hương chất lượng cao, không hóa chất</li>
-            </ul>
-          </div>
         </div>
       `,
       image: "https://images.unsplash.com/photo-1541795083-1b160cf4f3d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwYnVybmluZ3xlbnwwfHx8fDE3NTE0Mjk4ODl8MA&ixlib=rb-4.1.0&q=85",
@@ -169,7 +78,6 @@ const NewsDetailPage = () => {
       date: "2025-01-01",
       readTime: "6 phút đọc"
     },
-    // Thêm các bài viết khác tương tự...
     {
       id: 3,
       title: "Cách bảo quản trầm hương đúng cách để giữ được hương thơm lâu dài",
@@ -387,75 +295,6 @@ const NewsDetailPage = () => {
             >
               Đọc thêm bài viết khác →
             </button>
-          </div>
-        </div>
-      </div>
-            </div>
-
-            {/* Main Content */}
-            <div 
-              className="prose prose-lg max-w-none dark:prose-invert prose-amber dark:prose-headings:text-amber-200 dark:prose-p:text-amber-100 dark:prose-strong:text-amber-200 dark:prose-li:text-amber-100"
-              dangerouslySetInnerHTML={{ __html: news.content }}
-            />
-
-            {/* Tags/Share Section */}
-            <div className="mt-12 pt-8 border-t border-gray-200 dark:border-amber-700/30">
-              <div className="flex flex-wrap items-center justify-between">
-                <div className="flex items-center space-x-3 mb-4 md:mb-0">
-                  <span className="text-gray-600 dark:text-amber-300 font-medium">Tags:</span>
-                  <span className="bg-amber-100 dark:bg-amber-600/30 text-amber-800 dark:text-amber-300 px-3 py-1 rounded-full text-sm">
-                    {news.category}
-                  </span>
-                  <span className="bg-amber-100 dark:bg-amber-600/30 text-amber-800 dark:text-amber-300 px-3 py-1 rounded-full text-sm">
-                    Trầm hương
-                  </span>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                  <span className="text-gray-600 dark:text-amber-300 font-medium">Chia sẻ:</span>
-                  <button className="text-amber-800 dark:text-amber-300 hover:text-amber-900 dark:hover:text-amber-200 transition-colors">
-                    📘 Facebook
-                  </button>
-                  <button className="text-amber-800 dark:text-amber-300 hover:text-amber-900 dark:hover:text-amber-200 transition-colors">
-                    🐦 Twitter
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Related Articles */}
-          <div className="mt-16">
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-amber-100 mb-8 text-center">
-              Bài viết liên quan
-            </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {newsData.filter(item => item.id !== news.id).slice(0, 2).map((relatedNews) => (
-                <Link
-                  key={relatedNews.id}
-                  to={`/news/${relatedNews.id}`}
-                  className="group bg-white dark:bg-gray-800/90 dark:backdrop-blur-sm rounded-xl shadow-lg dark:shadow-amber-900/20 overflow-hidden hover:shadow-2xl dark:hover:shadow-amber-500/30 transition-all duration-500 hover:transform hover:scale-105 border border-gray-100 dark:border-amber-700/30"
-                >
-                  <img 
-                    src={relatedNews.image}
-                    alt={relatedNews.title}
-                    className="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="p-6">
-                    <span className="bg-amber-800 dark:bg-amber-600 text-white px-2 py-1 rounded-full text-xs font-medium">
-                      {relatedNews.category}
-                    </span>
-                    <h4 className="text-lg font-bold text-gray-800 dark:text-amber-100 mt-3 mb-2 group-hover:text-amber-800 dark:group-hover:text-amber-300 transition-colors duration-300 line-clamp-2">
-                      {relatedNews.title}
-                    </h4>
-                    <p className="text-gray-600 dark:text-amber-200/80 text-sm line-clamp-2">
-                      {relatedNews.excerpt}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-            </div>
           </div>
         </div>
       </div>
