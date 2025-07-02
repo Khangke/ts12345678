@@ -334,10 +334,10 @@ export const ProductsSection = () => {
     <section id="products" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Tham gia lớp học Trầm Hương</h2>
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">Sản phẩm trầm hương chất lượng cao</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Chúng tôi cam kết mang đến cho bạn những sản phẩm trầm hương chất lượng cao, 
-            giúp bạn có được những phút giây thư giãn và bình an trong cuộc sống.
+            Khám phá bộ sưu tập trầm hương đa dạng từ Sơn Mộc Hương - từ vòng tay trầm hương đến nhang nụ, 
+            tất cả đều được chọn lọc kỹ lưỡng để mang đến cho bạn chất lượng tốt nhất.
           </p>
         </div>
 
