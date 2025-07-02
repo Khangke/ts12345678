@@ -337,12 +337,12 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Test navigation giữa các pages"
-    - "Verify routing hoạt động đúng"
-    - "Test responsive trên mobile và desktop"
-    - "Test admin panel functionality"
+    - "Test admin login functionality"
+    - "Test admin dashboard stats"
     - "Test product management CRUD"
     - "Test order management system"
+    - "Test admin panel navigation"
+    - "Test responsive admin UI"
   stuck_tasks: []
   test_all: true
   test_priority: "high_first"
