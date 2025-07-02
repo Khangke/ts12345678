@@ -135,34 +135,25 @@ const OrderManagement = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          className="w-12 h-12 border-4 border-amber-200 border-t-amber-600 rounded-full"
-        />
+        <div className="w-12 h-12 border-4 border-amber-200 border-t-amber-600 rounded-full animate-spin"></div>
       </div>
     );
   }
 
   return (
-    <motion.div 
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      className="p-6 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-gray-900 dark:to-gray-800 min-h-screen"
-    >
+    <div className="p-6 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-gray-900 dark:to-gray-800 min-h-screen">
       {/* Header */}
-      <motion.div variants={itemVariants} className="flex justify-between items-center mb-8">
+      <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-amber-600 via-orange-600 to-amber-800 bg-clip-text text-transparent">
             Quản lý đơn hàng
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mt-2 text-lg">Theo dõi và cập nhật trạng thái đơn hàng</p>
         </div>
-      </motion.div>
+      </div>
 
       {/* Search and Filter Section */}
-      <motion.div variants={itemVariants} className="mb-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+      <div className="mb-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Search Customer */}
           <div>
@@ -224,7 +215,7 @@ const OrderManagement = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Tab Navigation */}
       <div className="mb-6">
@@ -263,7 +254,7 @@ const OrderManagement = () => {
       </div>
 
       {/* Orders Table */}
-      <motion.div variants={itemVariants} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-gray-700 dark:to-gray-600">
@@ -340,226 +331,203 @@ const OrderManagement = () => {
                   </tr>
                 ))
               ) : (
-                  <tr>
-                    <td colSpan="6" className="px-6 py-12 text-center">
-                      <div className="text-gray-500 dark:text-gray-400">
-                        <PackageIcon className="w-12 h-12 mx-auto mb-4 opacity-50" />
-                        <p className="text-lg font-medium mb-2">Không tìm thấy đơn hàng</p>
-                        <p className="text-sm">
-                          {searchTerm ? 'Thử tìm kiếm với từ khóa khác' : 'Chưa có đơn hàng nào trong mục này'}
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                )}
+                <tr>
+                  <td colSpan="6" className="px-6 py-12 text-center">
+                    <div className="text-gray-500 dark:text-gray-400">
+                      <PackageIcon className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                      <p className="text-lg font-medium mb-2">Không tìm thấy đơn hàng</p>
+                      <p className="text-sm">
+                        {searchTerm ? 'Thử tìm kiếm với từ khóa khác' : 'Chưa có đơn hàng nào trong mục này'}
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
-      </motion.div>
+      </div>
 
       {/* Order Detail Modal */}
-      <AnimatePresence>
-        {selectedOrder && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-          >
-            <motion.div 
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-200 dark:border-gray-700"
-            >
-              <div className="p-6">
-                <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-2xl font-bold text-gray-800 dark:text-white flex items-center">
-                    <PackageIcon className="w-6 h-6 text-amber-600 mr-2" />
-                    Chi tiết đơn hàng {selectedOrder.order_id}
-                  </h2>
-                  <motion.button 
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => setSelectedOrder(null)} 
-                    className="text-gray-500 hover:text-gray-700 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                  >
-                    <CloseIcon className="w-6 h-6" />
-                  </motion.button>
-                </div>
+      {selectedOrder && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-200 dark:border-gray-700">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-white flex items-center">
+                  <PackageIcon className="w-6 h-6 text-amber-600 mr-2" />
+                  Chi tiết đơn hàng {selectedOrder.order_id}
+                </h2>
+                <button 
+                  onClick={() => setSelectedOrder(null)} 
+                  className="text-gray-500 hover:text-gray-700 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <CloseIcon className="w-6 h-6" />
+                </button>
+              </div>
 
-                {/* Customer Info */}
-                <div className="mb-6 p-6 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-gray-700 dark:to-gray-600 rounded-xl border border-amber-200 dark:border-gray-600">
-                  <h3 className="font-bold text-gray-800 dark:text-white mb-4 flex items-center text-lg">
-                    <UserIcon className="w-5 h-5 text-amber-600 mr-2" />
-                    Thông tin khách hàng
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Customer Info */}
+              <div className="mb-6 p-6 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-gray-700 dark:to-gray-600 rounded-xl border border-amber-200 dark:border-gray-600">
+                <h3 className="font-bold text-gray-800 dark:text-white mb-4 flex items-center text-lg">
+                  <UserIcon className="w-5 h-5 text-amber-600 mr-2" />
+                  Thông tin khách hàng
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
+                      <UserIcon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Tên khách hàng</p>
+                      <p className="font-semibold text-gray-800 dark:text-white">{selectedOrder.customer_name}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                      <PhoneIcon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Số điện thoại</p>
+                      <p className="font-semibold text-gray-800 dark:text-white">{selectedOrder.customer_phone}</p>
+                    </div>
+                  </div>
+                  {selectedOrder.customer_email && (
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
-                        <UserIcon className="w-5 h-5 text-white" />
+                      <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                        <EmailIcon className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Tên khách hàng</p>
-                        <p className="font-semibold text-gray-800 dark:text-white">{selectedOrder.customer_name}</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Email</p>
+                        <p className="font-semibold text-gray-800 dark:text-white">{selectedOrder.customer_email}</p>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                        <PhoneIcon className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Số điện thoại</p>
-                        <p className="font-semibold text-gray-800 dark:text-white">{selectedOrder.customer_phone}</p>
-                      </div>
+                  )}
+                  <div className="flex items-start space-x-3 md:col-span-2">
+                    <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
+                      <LocationIcon className="w-5 h-5 text-white" />
                     </div>
-                    {selectedOrder.customer_email && (
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                          <EmailIcon className="w-5 h-5 text-white" />
-                        </div>
-                        <div>
-                          <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Email</p>
-                          <p className="font-semibold text-gray-800 dark:text-white">{selectedOrder.customer_email}</p>
-                        </div>
-                      </div>
-                    )}
+                    <div>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Địa chỉ giao hàng</p>
+                      <p className="font-semibold text-gray-800 dark:text-white">{selectedOrder.customer_address}</p>
+                    </div>
+                  </div>
+                  {selectedOrder.note && (
                     <div className="flex items-start space-x-3 md:col-span-2">
-                      <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
-                        <LocationIcon className="w-5 h-5 text-white" />
+                      <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center">
+                        <FileTextIcon className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Địa chỉ giao hàng</p>
-                        <p className="font-semibold text-gray-800 dark:text-white">{selectedOrder.customer_address}</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Ghi chú</p>
+                        <p className="font-semibold text-gray-800 dark:text-white">{selectedOrder.note}</p>
                       </div>
                     </div>
-                    {selectedOrder.note && (
-                      <div className="flex items-start space-x-3 md:col-span-2">
-                        <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center">
-                          <FileTextIcon className="w-5 h-5 text-white" />
+                  )}
+                </div>
+              </div>
+
+              {/* Order Items */}
+              <div className="mb-6">
+                <h3 className="font-bold text-gray-800 dark:text-white mb-4 flex items-center text-lg">
+                  <PackageIcon className="w-5 h-5 text-amber-600 mr-2" />
+                  Sản phẩm đặt hàng
+                </h3>
+                <div className="space-y-3">
+                  {selectedOrder.items.map((item, index) => (
+                    <div 
+                      key={index}
+                      className="flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600"
+                    >
+                      <div className="flex items-center space-x-4">
+                        <div className="w-12 h-12 bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg flex items-center justify-center">
+                          <PackageIcon className="w-6 h-6 text-white" />
                         </div>
                         <div>
-                          <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Ghi chú</p>
-                          <p className="font-semibold text-gray-800 dark:text-white">{selectedOrder.note}</p>
+                          <p className="font-semibold text-gray-800 dark:text-white">{item.product_name}</p>
+                          {item.selected_size && (
+                            <p className="text-sm text-amber-600 dark:text-amber-400 font-medium">Size: {item.selected_size}</p>
+                          )}
+                          <p className="text-sm text-gray-600 dark:text-gray-400">Số lượng: {item.quantity}</p>
                         </div>
                       </div>
-                    )}
-                  </div>
+                      <p className="font-bold text-lg text-amber-800 dark:text-amber-400">{item.price}</p>
+                    </div>
+                  ))}
                 </div>
+              </div>
 
-                {/* Order Items */}
-                <div className="mb-6">
-                  <h3 className="font-bold text-gray-800 dark:text-white mb-4 flex items-center text-lg">
-                    <PackageIcon className="w-5 h-5 text-amber-600 mr-2" />
-                    Sản phẩm đặt hàng
-                  </h3>
-                  <div className="space-y-3">
-                    {selectedOrder.items.map((item, index) => (
-                      <motion.div 
-                        key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        className="flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600"
-                      >
-                        <div className="flex items-center space-x-4">
-                          <div className="w-12 h-12 bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg flex items-center justify-center">
-                            <PackageIcon className="w-6 h-6 text-white" />
-                          </div>
-                          <div>
-                            <p className="font-semibold text-gray-800 dark:text-white">{item.product_name}</p>
-                            {item.selected_size && (
-                              <p className="text-sm text-amber-600 dark:text-amber-400 font-medium">Size: {item.selected_size}</p>
-                            )}
-                            <p className="text-sm text-gray-600 dark:text-gray-400">Số lượng: {item.quantity}</p>
-                          </div>
-                        </div>
-                        <p className="font-bold text-lg text-amber-800 dark:text-amber-400">{item.price}</p>
-                      </motion.div>
-                    ))}
+              {/* Order Summary */}
+              <div className="mb-6 p-6 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-gray-700 dark:to-gray-600 rounded-xl border border-green-200 dark:border-gray-600">
+                <h3 className="font-bold text-gray-800 dark:text-white mb-4 text-lg">Tóm tắt đơn hàng</h3>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 dark:text-gray-400">Tạm tính:</span>
+                    <span className="font-semibold text-gray-800 dark:text-white">{formatPrice(selectedOrder.total_price)}</span>
                   </div>
-                </div>
-
-                {/* Order Summary */}
-                <div className="mb-6 p-6 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-gray-700 dark:to-gray-600 rounded-xl border border-green-200 dark:border-gray-600">
-                  <h3 className="font-bold text-gray-800 dark:text-white mb-4 text-lg">Tóm tắt đơn hàng</h3>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 dark:text-gray-400">Tạm tính:</span>
-                      <span className="font-semibold text-gray-800 dark:text-white">{formatPrice(selectedOrder.total_price)}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 dark:text-gray-400">Phí vận chuyển:</span>
-                      <span className="font-semibold text-gray-800 dark:text-white">
-                        {selectedOrder.shipping_fee === 0 ? 'Miễn phí' : formatPrice(selectedOrder.shipping_fee)}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center text-xl font-bold border-t border-green-200 dark:border-gray-600 pt-3">
-                      <span className="text-gray-800 dark:text-white">Tổng cộng:</span>
-                      <span className="text-green-700 dark:text-green-400">
-                        {formatPrice(selectedOrder.total_price + selectedOrder.shipping_fee)}
-                      </span>
-                    </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 dark:text-gray-400">Phí vận chuyển:</span>
+                    <span className="font-semibold text-gray-800 dark:text-white">
+                      {selectedOrder.shipping_fee === 0 ? 'Miễn phí' : formatPrice(selectedOrder.shipping_fee)}
+                    </span>
                   </div>
-                </div>
-
-                {/* Status Update */}
-                <div className="mb-6">
-                  <h3 className="font-bold text-gray-800 dark:text-white mb-4 flex items-center text-lg">
-                    <EditIcon className="w-5 h-5 text-amber-600 mr-2" />
-                    Cập nhật trạng thái
-                  </h3>
-                  <div className="flex flex-wrap gap-3">
-                    {['pending', 'confirmed', 'shipping', 'delivered', 'cancelled'].map((status) => (
-                      <motion.button
-                        key={status}
-                        whileHover={{ scale: (selectedOrder.status === status || isUpdatingStatus) ? 1 : 1.05 }}
-                        whileTap={{ scale: (selectedOrder.status === status || isUpdatingStatus) ? 1 : 0.95 }}
-                        onClick={() => updateOrderStatus(selectedOrder.id, status)}
-                        disabled={selectedOrder.status === status || isUpdatingStatus}
-                        className={`px-6 py-3 rounded-xl font-semibold transition-all shadow-md flex items-center space-x-2 ${
-                          selectedOrder.status === status
-                            ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                            : isUpdatingStatus
-                            ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                            : 'bg-white text-gray-800 hover:bg-gray-50 border-2 border-gray-200 hover:border-amber-300 hover:text-amber-700 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600'
-                        }`}
-                      >
-                        {isUpdatingStatus ? (
-                          <>
-                            <motion.div
-                              animate={{ rotate: 360 }}
-                              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                              className="w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full"
-                            />
-                            <span>Đang cập nhật...</span>
-                          </>
-                        ) : (
-                          <span>{getStatusText(status)}</span>
-                        )}
-                      </motion.button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-4 rounded-xl">
-                  <div className="flex items-center space-x-4">
-                    <div className="flex items-center space-x-2">
-                      <CalendarIcon className="w-4 h-4" />
-                      <span>Ngày tạo: {new Date(selectedOrder.created_at).toLocaleString('vi-VN')}</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <EditIcon className="w-4 h-4" />
-                      <span>Cập nhật cuối: {new Date(selectedOrder.updated_at).toLocaleString('vi-VN')}</span>
-                    </div>
+                  <div className="flex justify-between items-center text-xl font-bold border-t border-green-200 dark:border-gray-600 pt-3">
+                    <span className="text-gray-800 dark:text-white">Tổng cộng:</span>
+                    <span className="text-green-700 dark:text-green-400">
+                      {formatPrice(selectedOrder.total_price + selectedOrder.shipping_fee)}
+                    </span>
                   </div>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+
+              {/* Status Update */}
+              <div className="mb-6">
+                <h3 className="font-bold text-gray-800 dark:text-white mb-4 flex items-center text-lg">
+                  <EditIcon className="w-5 h-5 text-amber-600 mr-2" />
+                  Cập nhật trạng thái
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {['pending', 'confirmed', 'shipping', 'delivered', 'cancelled'].map((status) => (
+                    <button
+                      key={status}
+                      onClick={() => updateOrderStatus(selectedOrder.id, status)}
+                      disabled={selectedOrder.status === status || isUpdatingStatus}
+                      className={`px-6 py-3 rounded-xl font-semibold transition-all shadow-md flex items-center space-x-2 ${
+                        selectedOrder.status === status
+                          ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                          : isUpdatingStatus
+                          ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                          : 'bg-white text-gray-800 hover:bg-gray-50 border-2 border-gray-200 hover:border-amber-300 hover:text-amber-700 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600'
+                      }`}
+                    >
+                      {isUpdatingStatus ? (
+                        <>
+                          <div className="w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
+                          <span>Đang cập nhật...</span>
+                        </>
+                      ) : (
+                        <span>{getStatusText(status)}</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-4 rounded-xl">
+                <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-2">
+                    <CalendarIcon className="w-4 h-4" />
+                    <span>Ngày tạo: {new Date(selectedOrder.created_at).toLocaleString('vi-VN')}</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <EditIcon className="w-4 h-4" />
+                    <span>Cập nhật cuối: {new Date(selectedOrder.updated_at).toLocaleString('vi-VN')}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
