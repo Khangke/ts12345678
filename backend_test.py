@@ -613,6 +613,9 @@ def run_tests():
     # Test API response formats for modern UI
     test_response_format_for_modern_ui()
     
+    # Test backward compatibility
+    test_backward_compatibility(token)
+    
     # Print summary
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
     print(f"{Colors.HEADER}TEST SUMMARY{Colors.ENDC}")
