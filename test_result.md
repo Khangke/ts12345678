@@ -186,7 +186,7 @@ backend:
     file: "backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
@@ -194,6 +194,9 @@ backend:
       - working: true
         agent: "main"
         comment: "Đã tạo và chạy thành công seed-products endpoint với 3 products: vòng tay (5 sizes), tinh dầu (3 sizes), cảnh trầm (3 sizes) với giá khác nhau theo size"
+      - working: true
+        agent: "testing"
+        comment: "Đã test lại seed-products endpoint sau frontend dropdown fix và xác nhận hoạt động đúng. Endpoint tạo thành công 3 sản phẩm mẫu với size-based pricing. Đã kiểm tra dữ liệu sản phẩm và xác nhận size_prices và sizes được lưu trữ đúng."
 
   - task: "Update OrderItem model for size-specific pricing"
     implemented: true
