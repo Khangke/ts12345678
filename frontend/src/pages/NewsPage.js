@@ -359,7 +359,7 @@ const NewsPage = () => {
                 isNewsVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
-              onClick={() => setSelectedNews(news)}
+              onClick={() => navigate(`/news/${news.id}`)}
             >
               {/* Image */}
               <div className="relative overflow-hidden h-48">
