@@ -913,7 +913,7 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
               </div>
               
               <h1 className="text-3xl font-bold text-gray-800 mb-4">{product.name}</h1>
-              <p className="text-gray-600 mb-6">{product.detailDescription}</p>
+              <p className="text-gray-600 mb-6">{product.detail_description}</p>
               
               <div className="mb-6">
                 <div className="flex items-center space-x-2 mb-2">
