@@ -238,13 +238,78 @@ frontend:
         agent: "testing"
         comment: "Đã kiểm tra và xác nhận các icons liên hệ hiển thị đúng trong ContactSection và Footer: PhoneIcon, EmailIcon, LocationIcon, ClockIcon đều hiển thị rõ ràng và đúng vị trí"
 
-backend:
+  - task: "Tạo admin authentication system"
+    implemented: false
+    working: "NA"
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Tạo simple admin login system với JWT token"
 
-metadata:
-  created_by: "main_agent"
-  version: "1.0"
-  test_sequence: 0
-  run_ui: false
+  - task: "Tạo admin product management"
+    implemented: false
+    working: "NA"
+    file: "frontend/src/admin/"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "CRUD operations cho products: thêm, sửa, xóa sản phẩm với form upload"
+
+  - task: "Tạo admin order management"
+    implemented: false
+    working: "NA"
+    file: "frontend/src/admin/"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Quản lý đơn hàng: xem danh sách, cập nhật trạng thái, chi tiết đơn hàng"
+
+  - task: "Tạo admin dashboard và routes"
+    implemented: false
+    working: "NA"
+    file: "frontend/src/admin/"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Admin panel với dashboard, routing /admin và protected routes"
+
+backend:
+  - task: "Tạo database models cho products và orders"
+    implemented: false
+    working: "NA"
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "MongoDB models cho products, orders, admin users"
+
+  - task: "Tạo admin API endpoints"
+    implemented: false
+    working: "NA"
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "API endpoints cho CRUD products, orders management, admin auth"
 
 test_plan:
   current_focus:
