@@ -1012,26 +1012,6 @@ const ProductManagement = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Click outside handlers */}
-      {showCategoryDropdown && (
-        <div 
-          className="fixed inset-0 z-20" 
-          onClick={() => {
-            setShowCategoryDropdown(false);
-            setCategoryInput(formData.category); // Reset to current value
-          }}
-        />
-      )}
-      {showMaterialDropdown && (
-        <div 
-          className="fixed inset-0 z-20" 
-          onClick={() => {
-            setShowMaterialDropdown(false);
-            setMaterialInput(formData.material); // Reset to current value
-          }}
-        />
-      )}
     </motion.div>
   );
 };
