@@ -960,13 +960,31 @@ const ProductManagement = () => {
 
                   <div className="flex space-x-4 pt-6 border-t border-gray-200 dark:border-gray-700">
                     <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                      whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                       type="submit"
-                      className="flex-1 bg-gradient-to-r from-amber-600 to-orange-600 text-white py-3 rounded-xl hover:from-amber-700 hover:to-orange-700 transition-all font-semibold flex items-center justify-center space-x-2 shadow-lg"
+                      disabled={isSubmitting}
+                      className={`flex-1 bg-gradient-to-r from-amber-600 to-orange-600 text-white py-3 rounded-xl transition-all font-semibold flex items-center justify-center space-x-2 shadow-lg ${
+                        isSubmitting 
+                          ? 'opacity-75 cursor-not-allowed' 
+                          : 'hover:from-amber-700 hover:to-orange-700'
+                      }`}
                     >
-                      <Save className="w-5 h-5" />
-                      <span>{editingProduct ? 'Cập nhật sản phẩm' : 'Thêm sản phẩm'}</span>
+                      {isSubmitting ? (
+                        <>
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                            className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+                          />
+                          <span>Đang xử lý...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Save className="w-5 h-5" />
+                          <span>{editingProduct ? 'Cập nhật sản phẩm' : 'Thêm sản phẩm'}</span>
+                        </>
+                      )}
                     </motion.button>
                     <motion.button
                       whileHover={{ scale: 1.02 }}
