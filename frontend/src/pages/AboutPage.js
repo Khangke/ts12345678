@@ -3,7 +3,7 @@ import { AboutSection } from '../Components';
 
 const AboutPage = () => {
   return (
-    <div>
+    <div className="pt-20">
       <AboutSection />
     </div>
   );
