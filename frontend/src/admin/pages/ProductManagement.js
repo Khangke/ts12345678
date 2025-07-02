@@ -15,7 +15,7 @@ const ProductManagement = () => {
     description: '',
     detail_description: '',
     price: '',
-    image: '',
+    images: [],
     category: '',
     material: '',
     sizes: []
