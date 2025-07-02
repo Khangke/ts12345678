@@ -144,9 +144,9 @@ function App() {
     <div className="App">
       <Header cartCount={cartCount} onCartClick={() => setShowCart(true)} />
       <HeroSection />
+      <ProductsSection onProductClick={setSelectedProduct} />
       <FeaturesSection />
       <AboutSection />
-      <ProductsSection onProductClick={setSelectedProduct} />
       <ContactSection />
       <Footer />
       
