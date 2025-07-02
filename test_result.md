@@ -539,12 +539,12 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Test admin login functionality"
-    - "Test admin dashboard stats"
-    - "Test product management CRUD"
-    - "Test order management system"
-    - "Test admin panel navigation"
-    - "Test responsive admin UI"
+    - "Test size-based pricing functionality"
+    - "Test product loading from backend"
+    - "Test product detail modal with size selection"
+    - "Test add to cart with size-specific pricing"
+    - "Test order creation with size-based pricing"
+    - "Test complete purchase flow"
   stuck_tasks: []
   test_all: true
   test_priority: "high_first"
