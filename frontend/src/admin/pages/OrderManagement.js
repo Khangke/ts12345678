@@ -30,7 +30,7 @@ const OrderManagement = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedOrder, setSelectedOrder] = useState(null);
-  const [activeTab, setActiveTab] = useState('pending'); // 'pending' or 'processed'
+  const [activeTab, setActiveTab] = useState('pending'); // 'pending', 'processed', or 'delivered'
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const [isUpdatingStatus, setIsUpdatingStatus] = useState(false);
