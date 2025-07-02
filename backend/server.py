@@ -68,7 +68,8 @@ class Product(BaseModel):
     name: str
     description: str
     detail_description: str
-    price: str
+    price: str  # base price (for backward compatibility)
+    size_prices: dict = {}  # dictionary mapping size to price, e.g. {"10mm": "1500000", "12mm": "1800000"}
     images: List[str] = []  # array of base64 encoded images (max 10)
     category: str
     material: str
