@@ -1099,4 +1099,3 @@ export const ToastNotification = ({ message, onClose }) => {
     </div>
   );
 };
-};
