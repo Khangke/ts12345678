@@ -130,11 +130,12 @@ const ProductManagement = () => {
       description: product.description,
       detail_description: product.detail_description,
       price: product.price,
+      images: product.images || [product.image].filter(Boolean),
       image: product.image,
       category: product.category,
       material: product.material,
-      sizes: product.sizes,
-      sizesText: product.sizes.join(', ')
+      sizes: product.sizes || [],
+      size_prices: product.size_prices || {}
     });
     setShowModal(true);
   };
