@@ -362,8 +362,10 @@ export const ProductsSection = () => {
                 <p className="text-gray-600 text-sm mb-4">{product.description}</p>
                 
                 <div className="flex items-center space-x-2 mb-3">
-                  <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-                  <span className="text-sm text-gray-600">{product.instructor}</span>
+                  <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
+                    <span className="text-amber-800 text-xs">✓</span>
+                  </div>
+                  <span className="text-sm text-gray-600">{product.material}</span>
                 </div>
                 
                 <div className="flex items-center justify-between mb-4">
@@ -371,7 +373,7 @@ export const ProductsSection = () => {
                     <span className="text-yellow-400">★</span>
                     <span className="text-sm text-gray-600">{product.rating}</span>
                   </div>
-                  <span className="text-sm text-gray-500">{product.duration}</span>
+                  <span className="text-sm text-amber-600 font-medium">Chất lượng cao</span>
                 </div>
                 
                 <div className="flex items-center justify-between">
