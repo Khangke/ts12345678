@@ -700,7 +700,7 @@ const ProductManagement = () => {
                       </div>
 
                       {/* Material with Tags */}
-                      <div className="relative">
+                      <div className="relative" ref={materialRef}>
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                           <Hash className="w-4 h-4 inline mr-1" />
                           Chất liệu *
