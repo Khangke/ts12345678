@@ -42,6 +42,10 @@ const ProductManagement = () => {
   const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
   const [showMaterialDropdown, setShowMaterialDropdown] = useState(false);
   
+  // Refs for click outside detection
+  const categoryRef = useRef(null);
+  const materialRef = useRef(null);
+  
   const { BACKEND_URL, getAuthHeader } = useAuth();
 
   const [formData, setFormData] = useState({
