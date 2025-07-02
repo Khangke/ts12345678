@@ -622,13 +622,16 @@ export const Footer = () => {
 };
 
 // Product Detail Modal Component
-export const ProductDetailModal = ({ product, onClose, onAddToCart }) => {
+export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) => {
   const [selectedSize, setSelectedSize] = useState(product.sizes?.[0] || null);
   const [quantity, setQuantity] = useState(1);
 
   const handleAddToCart = () => {
     onAddToCart(product, quantity, selectedSize);
-    alert('Đã thêm sản phẩm vào giỏ hàng!');
+  };
+
+  const handleBuyNow = () => {
+    onBuyNow(product, quantity, selectedSize);
   };
 
   return (
@@ -724,7 +727,10 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart }) => {
                   >
                     Thêm vào giỏ hàng
                   </button>
-                  <button className="flex-1 bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors font-semibold">
+                  <button 
+                    onClick={handleBuyNow}
+                    className="flex-1 bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors font-semibold"
+                  >
                     Mua ngay
                   </button>
                 </div>
