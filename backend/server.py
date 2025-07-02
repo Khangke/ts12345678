@@ -282,6 +282,91 @@ async def get_public_products():
     products = await db.products.find().to_list(1000)
     return [Product(**product) for product in products]
 
+@api_router.post("/admin/seed-products")
+async def seed_products(current_admin = Depends(get_current_admin)):
+    """Seed database with sample products that have size-based pricing"""
+    
+    sample_products = [
+        {
+            "id": str(uuid.uuid4()),
+            "name": "Vòng tay trầm hương cao cấp",
+            "description": "Vòng tay trầm hương nguyên chất, thơm nhẹ và bền màu, phù hợp đeo hàng ngày.",
+            "detail_description": "Vòng tay trầm hương được chế tác từ gỗ trầm hương tự nhiên, mang lại cảm giác thư thái và may mắn cho người đeo.",
+            "price": "1.500.000đ",  # base price for smallest size
+            "size_prices": {
+                "10mm": "1.500.000đ",
+                "12mm": "1.800.000đ", 
+                "14mm": "2.200.000đ",
+                "16mm": "2.800.000đ",
+                "18mm": "3.500.000đ"
+            },
+            "images": [],
+            "category": "Vòng tay trầm",
+            "material": "Gỗ trầm hương tự nhiên",
+            "rating": 4.8,
+            "sizes": ["10mm", "12mm", "14mm", "16mm", "18mm"],
+            "reviews": [
+                {"name": "Nguyễn Văn A", "rating": 5, "comment": "Sản phẩm chất lượng, thơm tự nhiên"},
+                {"name": "Trần Thị B", "rating": 4, "comment": "Đẹp, đóng gói cẩn thận"}
+            ],
+            "created_at": datetime.utcnow(),
+            "updated_at": datetime.utcnow()
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "name": "Tinh dầu trầm hương nguyên chất",
+            "description": "Tinh dầu trầm hương 100% nguyên chất, chiết xuất từ gỗ trầm hương cao cấp.",
+            "detail_description": "Tinh dầu trầm hương được chưng cất từ gỗ trầm hương cao cấp, có tác dụng thư giãn tinh thần, giảm stress.",
+            "price": "800.000đ",  # base price for smallest size
+            "size_prices": {
+                "5ml": "800.000đ",
+                "10ml": "1.400.000đ",
+                "20ml": "2.500.000đ"
+            },
+            "images": [],
+            "category": "Tinh dầu trầm",
+            "material": "Tinh dầu nguyên chất",
+            "rating": 4.7,
+            "sizes": ["5ml", "10ml", "20ml"],
+            "reviews": [
+                {"name": "Vũ Thị F", "rating": 5, "comment": "Tinh dầu thật 100%, rất thơm"}
+            ],
+            "created_at": datetime.utcnow(),
+            "updated_at": datetime.utcnow()
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "name": "Cảnh trầm hương phong thủy",
+            "description": "Tác phẩm nghệ thuật từ trầm hương tự nhiên, dùng trang trí và phong thủy, mang lại may mắn.",
+            "detail_description": "Cảnh trầm hương được chế tác thủ công từ gỗ trầm hương tự nhiên, mang ý nghĩa phong thủy tốt lành.",
+            "price": "8.000.000đ",  # base price for smallest size
+            "size_prices": {
+                "Size S (10-15cm)": "8.000.000đ",
+                "Size M (15-20cm)": "15.000.000đ",
+                "Size L (20-30cm)": "25.000.000đ"
+            },
+            "images": [],
+            "category": "Cảnh trầm",
+            "material": "Gỗ trầm hương nguyên khối",
+            "rating": 4.8,
+            "sizes": ["Size S (10-15cm)", "Size M (15-20cm)", "Size L (20-30cm)"],
+            "reviews": [
+                {"name": "Đỗ Văn G", "rating": 5, "comment": "Cảnh trầm đẹp, thích hợp trang trí"}
+            ],
+            "created_at": datetime.utcnow(),
+            "updated_at": datetime.utcnow()
+        }
+    ]
+    
+    # Clear existing products first
+    await db.products.delete_many({})
+    
+    # Insert new products
+    for product_data in sample_products:
+        await db.products.insert_one(product_data)
+    
+    return {"message": f"Successfully seeded {len(sample_products)} products with size-based pricing"}
+
 # ===== ORDER MANAGEMENT ENDPOINTS =====
 @api_router.post("/orders", response_model=Order)
 async def create_order(order_data: OrderCreate):
