@@ -159,11 +159,12 @@ const ProductManagement = () => {
       description: '',
       detail_description: '',
       price: '',
+      images: [],
       image: '',
       category: '',
       material: '',
       sizes: [],
-      sizesText: ''
+      size_prices: {}
     });
     setEditingProduct(null);
   };
