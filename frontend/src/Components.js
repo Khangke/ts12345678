@@ -84,30 +84,34 @@ export const Header = ({ cartCount, onCartClick }) => {
             </Link>
           </nav>
 
-          {/* Contact Info & Cart */}
+          {/* Contact Info, Dark Mode Toggle & Cart */}
           <div className="hidden lg:flex items-center space-x-4">
             <div className="text-sm animate-fade-in-right">
-              <div className="text-gray-600 flex items-center space-x-1">
-                <PhoneIcon className="w-4 h-4 text-amber-800" />
+              <div className="text-gray-600 dark:text-gray-400 flex items-center space-x-1">
+                <PhoneIcon className="w-4 h-4 text-amber-800 dark:text-amber-400" />
                 <span>0762 222 448</span>
               </div>
-              <div className="text-gray-600 flex items-center space-x-1">
-                <EmailIcon className="w-4 h-4 text-amber-800" />
+              <div className="text-gray-600 dark:text-gray-400 flex items-center space-x-1">
+                <EmailIcon className="w-4 h-4 text-amber-800 dark:text-amber-400" />
                 <span>sonmochuong@gmail.com</span>
               </div>
             </div>
+            
+            {/* Dark Mode Toggle */}
+            <DarkModeToggle />
+            
             <button 
               onClick={onCartClick}
-              className="relative bg-gray-100 p-2 rounded-full hover:bg-amber-50 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md group"
+              className="relative bg-gray-100 dark:bg-gray-800 p-2 rounded-full hover:bg-amber-50 dark:hover:bg-amber-900 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md group"
             >
-              <ShoppingCartIcon className="w-6 h-6 text-amber-800 group-hover:animate-bounce" />
+              <ShoppingCartIcon className="w-6 h-6 text-amber-800 dark:text-amber-400 group-hover:animate-bounce" />
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center cart-badge animate-scale-in">
+                <span className="absolute -top-2 -right-2 bg-amber-800 dark:bg-amber-600 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center cart-badge animate-scale-in">
                   {cartCount}
                 </span>
               )}
             </button>
-            <button className="bg-gradient-to-r from-amber-800 to-amber-900 text-white px-6 py-2 rounded-full hover:from-amber-900 hover:to-amber-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform hover:-translate-y-0.5">
+            <button className="bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white px-6 py-2 rounded-full hover:from-amber-900 hover:to-amber-800 dark:hover:from-amber-700 dark:hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform hover:-translate-y-0.5">
               Mua ngay
             </button>
           </div>
