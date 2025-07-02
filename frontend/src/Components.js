@@ -459,15 +459,61 @@ export const AboutSection = () => {
 
 // Products Section Component
 export const ProductsSection = ({ onProductClick }) => {
-  const products = [
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
+      const response = await fetch(`${BACKEND_URL}/api/products`);
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+      // Fallback to static products if API fails
+      setProducts(getStaticProducts());
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const getStaticProducts = () => [
     {
-      id: 1,
+      id: '1',
       name: 'Vòng tay trầm hương tự nhiên',
       description: 'Vòng tay trầm hương nguyên chất, mang lại sự bình an và may mắn, kết nối tinh thần và tăng cường năng lượng tích cực.',
       price: '1.500.000đ',
       image: 'https://images.pexels.com/photos/2297252/pexels-photo-2297252.jpeg',
       category: 'Vòng tay trầm',
       material: 'Trầm hương tự nhiên',
+      rating: 4.9,
+      sizes: ['16mm', '18mm', '20mm'],
+      reviews: [
+        { name: 'Nguyễn Văn A', rating: 5, comment: 'Sản phẩm rất đẹp, hương thơm tự nhiên' },
+        { name: 'Trần Thị B', rating: 5, comment: 'Chất lượng tốt, đúng như mô tả' }
+      ],
+      detail_description: 'Vòng tay trầm hương tự nhiên được chế tác từ gỗ trầm hương Việt Nam cao cấp. Sản phẩm có hương thơm nhẹ nhàng, mang lại cảm giác thư giãn và bình an cho người đeo.'
+    },
+    {
+      id: '2',
+      name: 'Nhang nụ trầm hương',
+      description: 'Nhang nụ trầm hương cao cấp, cháy lâu và tỏa hương đều, tạo không gian thư giãn và thanh tịnh.',
+      price: '280.000đ',
+      image: 'https://images.pexels.com/photos/8484055/pexels-photo-8484055.jpeg',
+      category: 'Nhang nụ trầm',
+      material: 'Trầm hương nguyên chất',
+      rating: 4.9,
+      sizes: ['Hộp 50 nụ', 'Hộp 100 nụ'],
+      reviews: [
+        { name: 'Hoàng Văn E', rating: 5, comment: 'Nhang nụ chất lượng, hương thơm tự nhiên' }
+      ],
+      detail_description: 'Nhang nụ trầm hương được làm từ bột trầm hương nguyên chất, không chất phụ gia, tạo khói nhẹ và hương thơm dễ chịu.'
+    }
+  ];
       rating: 4.9,
       sizes: ['16mm', '18mm', '20mm'],
       reviews: [
