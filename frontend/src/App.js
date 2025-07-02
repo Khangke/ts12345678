@@ -11,7 +11,8 @@ import {
   ProductDetailModal,
   CartModal,
   CheckoutModal,
-  ToastNotification
+  ToastNotification,
+  SuccessPage
 } from './Components';
 
 function App() {
@@ -19,8 +20,10 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const [showToast, setShowToast] = useState(false);
+  const [orderInfo, setOrderInfo] = useState(null);
 
   const showToastMessage = (message) => {
     setToastMessage(message);
@@ -99,7 +102,43 @@ function App() {
     return total >= 300000 ? 0 : 30000;
   };
 
+  const handleOrderComplete = (customerInfo) => {
+    // Tạo order info để hiển thị trên trang success
+    const newOrderInfo = {
+      orderId: 'DH' + Date.now().toString().slice(-6),
+      items: [...cartItems],
+      customer: customerInfo,
+      totalPrice: getTotalPrice(),
+      shippingFee: getShippingFee(),
+      orderDate: new Date().toLocaleDateString('vi-VN')
+    };
+    
+    setOrderInfo(newOrderInfo);
+    setCartItems([]);
+    setShowCheckout(false);
+    setShowSuccess(true);
+  };
+
+  const continueShopping = () => {
+    setShowSuccess(false);
+    setOrderInfo(null);
+    // Scroll to products section
+    setTimeout(() => {
+      document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+  // Show success page if order completed
+  if (showSuccess && orderInfo) {
+    return (
+      <SuccessPage 
+        orderInfo={orderInfo}
+        onContinueShopping={continueShopping}
+      />
+    );
+  }
 
   return (
     <div className="App">
@@ -141,11 +180,7 @@ function App() {
           onClose={() => setShowCheckout(false)}
           totalPrice={getTotalPrice()}
           shippingFee={getShippingFee()}
-          onOrderComplete={() => {
-            setCartItems([]);
-            setShowCheckout(false);
-            showToastMessage('Đặt hàng thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất.');
-          }}
+          onOrderComplete={handleOrderComplete}
         />
       )}
 
