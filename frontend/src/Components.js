@@ -132,7 +132,7 @@ export const Header = ({ cartCount, onCartClick }) => {
             {/* Mobile Cart Button */}
             <button 
               onClick={onCartClick}
-              className="relative bg-gray-100 dark:bg-gray-800 p-2 rounded-full hover:bg-amber-50 dark:hover:bg-amber-900/50 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md group"
+              className="relative bg-gray-100 dark:bg-gray-800 p-2 rounded-full hover:bg-amber-50 dark:hover:bg-amber-900/50 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md group focus:outline-none"
             >
               <ShoppingCartIcon className="w-6 h-6 text-amber-800 dark:text-amber-400 group-hover:animate-bounce" />
               {cartCount > 0 && (
