@@ -452,7 +452,7 @@ const OrderManagement = () => {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
