@@ -1016,7 +1016,20 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
 
               {/* Price & Actions */}
               <div className="mb-6">
-                <div className="text-3xl font-bold text-amber-800 mb-4">{product.price}</div>
+                <div className="text-3xl font-bold text-amber-800 mb-2">
+                  {currentPrice}
+                  {selectedSize && product.size_prices && product.size_prices[selectedSize] && (
+                    <span className="text-sm text-gray-600 ml-2 font-normal">
+                      (Size: {selectedSize})
+                    </span>
+                  )}
+                </div>
+                {/* Show price comparison if size pricing is available */}
+                {product.size_prices && Object.keys(product.size_prices).length > 1 && (
+                  <div className="text-sm text-gray-600 mb-4">
+                    Giá thay đổi theo kích cỡ đã chọn
+                  </div>
+                )}
                 <div className="flex space-x-4">
                   <button 
                     onClick={handleAddToCart}
