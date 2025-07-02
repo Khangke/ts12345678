@@ -310,7 +310,7 @@ const OrderManagement = () => {
                   Trạng thái
                 </th>
                 <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  <Calendar className="w-4 h-4 inline mr-2" />
+                  <CalendarIcon className="w-4 h-4 inline mr-2" />
                   Ngày tạo
                 </th>
                 <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
