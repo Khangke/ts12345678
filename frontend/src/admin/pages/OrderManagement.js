@@ -315,61 +315,54 @@ const OrderManagement = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200 dark:divide-gray-600">
-              <AnimatePresence>
-                {filteredOrders.length > 0 ? (
-                  filteredOrders.map((order, index) => (
-                    <motion.tr 
-                      key={order.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ delay: index * 0.05 }}
-                      className="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors"
-                    >
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-bold text-amber-800 dark:text-amber-400">{order.order_id}</div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-10 h-10 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full flex items-center justify-center">
-                            <UserIcon className="w-5 h-5 text-white" />
-                          </div>
-                          <div>
-                            <div className="text-sm font-medium text-gray-900 dark:text-white">{order.customer_name}</div>
-                            <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center">
-                              <PhoneIcon className="w-3 h-3 mr-1" />
-                              {order.customer_phone}
-                            </div>
+              {filteredOrders.length > 0 ? (
+                filteredOrders.map((order, index) => (
+                  <tr 
+                    key={order.id}
+                    className="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="text-sm font-bold text-amber-800 dark:text-amber-400">{order.order_id}</div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full flex items-center justify-center">
+                          <UserIcon className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-gray-900 dark:text-white">{order.customer_name}</div>
+                          <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center">
+                            <PhoneIcon className="w-3 h-3 mr-1" />
+                            {order.customer_phone}
                           </div>
                         </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-bold text-gray-900 dark:text-white">
-                          {formatPrice(order.total_price + order.shipping_fee)}
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusColor(order.status)}`}>
-                          {getStatusText(order.status)}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                        {new Date(order.created_at).toLocaleDateString('vi-VN')}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm space-x-2">
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          onClick={() => setSelectedOrder(order)}
-                          className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-lg flex items-center space-x-1"
-                        >
-                          <EyeIcon className="w-4 h-4" />
-                          <span>Chi tiết</span>
-                        </motion.button>
-                      </td>
-                    </motion.tr>
-                  ))
-                ) : (
+                      </div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="text-sm font-bold text-gray-900 dark:text-white">
+                        {formatPrice(order.total_price + order.shipping_fee)}
+                      </div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusColor(order.status)}`}>
+                        {getStatusText(order.status)}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+                      {new Date(order.created_at).toLocaleDateString('vi-VN')}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm space-x-2">
+                      <button
+                        onClick={() => setSelectedOrder(order)}
+                        className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-lg flex items-center space-x-1"
+                      >
+                        <EyeIcon className="w-4 h-4" />
+                        <span>Chi tiết</span>
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
                   <tr>
                     <td colSpan="6" className="px-6 py-12 text-center">
                       <div className="text-gray-500 dark:text-gray-400">
