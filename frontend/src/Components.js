@@ -70,7 +70,7 @@ export const Header = ({ cartCount, onCartClick }) => {
               onClick={onCartClick}
               className="relative bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors"
             >
-              🛒
+              <ShoppingCartIcon className="w-6 h-6 text-amber-800" />
               {cartCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center cart-badge">
                   {cartCount}
