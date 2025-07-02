@@ -7,7 +7,7 @@ const NewsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [newsRef, isNewsVisible] = useScrollAnimation(0.1);
   const [searchTerm, setSearchTerm] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false); // Changed to false to skip loading
   const [visibleCards, setVisibleCards] = useState(new Set());
   const navigate = useNavigate();
   const heroRef = useRef(null);
