@@ -134,7 +134,7 @@ def test_admin_me(token: str):
         log_test("Admin Me - No Token", False, error=str(e))
 
 def test_admin_products(token: str):
-    """Test admin products endpoints"""
+    """Test admin products endpoints with size-based pricing"""
     # Test GET all products
     try:
         response = requests.get(
@@ -143,29 +143,42 @@ def test_admin_products(token: str):
         )
         
         if response.status_code == 200 and isinstance(response.json(), list):
-            log_test("Admin Products - GET All", True, response)
             products = response.json()
-            print(f"  Found {len(products)} products")
+            
+            # Check if products have size_prices field
+            has_size_prices = all('size_prices' in product for product in products)
+            
+            if has_size_prices:
+                log_test("Admin Products - GET All with Size-Based Pricing", True, response)
+                print(f"  Found {len(products)} products with size_prices field")
+            else:
+                log_test("Admin Products - GET All with Size-Based Pricing", False, response, 
+                        "Some products missing size_prices field")
         else:
-            log_test("Admin Products - GET All", False, response, 
+            log_test("Admin Products - GET All with Size-Based Pricing", False, response, 
                     f"Expected status 200 with array, got {response.status_code}")
             products = []
     except Exception as e:
-        log_test("Admin Products - GET All", False, error=str(e))
+        log_test("Admin Products - GET All with Size-Based Pricing", False, error=str(e))
         products = []
     
-    # Test POST new product
+    # Test POST new product with size_prices
     new_product_id = None
     try:
         new_product = {
-            "name": "Test Agarwood Bracelet",
-            "description": "A beautiful test bracelet",
-            "detail_description": "This is a detailed description for testing",
-            "price": "999.000",
-            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "name": "Test Agarwood Bracelet with Size Pricing",
+            "description": "A beautiful test bracelet with different sizes",
+            "detail_description": "This is a detailed description for testing size-based pricing",
+            "price": "999.000đ",  # base price
+            "size_prices": {
+                "8mm": "999.000đ",
+                "10mm": "1.299.000đ",
+                "12mm": "1.599.000đ"
+            },
+            "images": ["data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="],
             "category": "Bracelet",
             "material": "Agarwood",
-            "sizes": ["S", "M", "L"]
+            "sizes": ["8mm", "10mm", "12mm"]
         }
         
         response = requests.post(
@@ -176,14 +189,21 @@ def test_admin_products(token: str):
         
         if response.status_code == 200 and "id" in response.json():
             new_product_id = response.json()["id"]
-            log_test("Admin Products - POST Create", True, response)
+            
+            # Verify size_prices was saved correctly
+            if (response.json().get("size_prices") == new_product["size_prices"] and
+                response.json().get("sizes") == new_product["sizes"]):
+                log_test("Admin Products - POST Create with Size Pricing", True, response)
+            else:
+                log_test("Admin Products - POST Create with Size Pricing", False, response,
+                        "Size pricing data not saved correctly")
         else:
-            log_test("Admin Products - POST Create", False, response, 
+            log_test("Admin Products - POST Create with Size Pricing", False, response, 
                     f"Expected status 200 with id, got {response.status_code}")
     except Exception as e:
-        log_test("Admin Products - POST Create", False, error=str(e))
+        log_test("Admin Products - POST Create with Size Pricing", False, error=str(e))
     
-    # Test GET specific product
+    # Test GET specific product with size_prices
     if new_product_id:
         try:
             response = requests.get(
@@ -191,20 +211,29 @@ def test_admin_products(token: str):
                 headers={"Authorization": f"Bearer {token}"}
             )
             
-            if response.status_code == 200 and response.json()["id"] == new_product_id:
-                log_test("Admin Products - GET Specific", True, response)
+            if (response.status_code == 200 and 
+                response.json()["id"] == new_product_id and
+                "size_prices" in response.json() and
+                "sizes" in response.json()):
+                log_test("Admin Products - GET Specific with Size Pricing", True, response)
             else:
-                log_test("Admin Products - GET Specific", False, response, 
-                        f"Expected status 200 with matching id, got {response.status_code}")
+                log_test("Admin Products - GET Specific with Size Pricing", False, response, 
+                        f"Expected status 200 with size_prices, got {response.status_code}")
         except Exception as e:
-            log_test("Admin Products - GET Specific", False, error=str(e))
+            log_test("Admin Products - GET Specific with Size Pricing", False, error=str(e))
     
-    # Test PUT update product
+    # Test PUT update product with size_prices
     if new_product_id:
         try:
             update_data = {
                 "name": "Updated Test Bracelet",
-                "price": "1.200.000"
+                "size_prices": {
+                    "8mm": "899.000đ",  # reduced price
+                    "10mm": "1.299.000đ",  # same price
+                    "12mm": "1.699.000đ",  # increased price
+                    "14mm": "1.999.000đ"   # new size
+                },
+                "sizes": ["8mm", "10mm", "12mm", "14mm"]  # added new size
             }
             
             response = requests.put(
@@ -215,13 +244,15 @@ def test_admin_products(token: str):
             
             if (response.status_code == 200 and 
                 response.json()["id"] == new_product_id and 
-                response.json()["name"] == update_data["name"]):
-                log_test("Admin Products - PUT Update", True, response)
+                response.json()["name"] == update_data["name"] and
+                response.json()["size_prices"] == update_data["size_prices"] and
+                response.json()["sizes"] == update_data["sizes"]):
+                log_test("Admin Products - PUT Update with Size Pricing", True, response)
             else:
-                log_test("Admin Products - PUT Update", False, response, 
-                        f"Expected status 200 with updated data, got {response.status_code}")
+                log_test("Admin Products - PUT Update with Size Pricing", False, response, 
+                        f"Expected status 200 with updated size pricing data, got {response.status_code}")
         except Exception as e:
-            log_test("Admin Products - PUT Update", False, error=str(e))
+            log_test("Admin Products - PUT Update with Size Pricing", False, error=str(e))
     
     # Test DELETE product
     if new_product_id:
