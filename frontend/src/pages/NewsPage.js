@@ -73,8 +73,6 @@ const NewsPage = () => {
          item.excerpt.toLowerCase().includes(searchTerm.toLowerCase()))
       );
 
-  console.log('Filtered news:', filteredNews.length, 'articles');
-
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('vi-VN', {
       year: 'numeric',
