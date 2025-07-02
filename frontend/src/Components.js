@@ -190,56 +190,89 @@ export const Header = ({ cartCount, onCartClick }) => {
 
 // Hero Section Component
 export const HeroSection = () => {
+  const [heroRef, isHeroVisible] = useScrollAnimation(0.2);
+  const [statsRef, isStatsVisible] = useScrollAnimation(0.3);
+
   return (
-    <section id="home" className="bg-gradient-to-br from-amber-50 to-orange-100 pt-20">
+    <section id="home" className="bg-gradient-to-br from-amber-50 via-orange-50 to-orange-100 pt-20 overflow-hidden">
       <div className="container mx-auto px-4 py-8 md:py-16">
         <div className="flex flex-col lg:flex-row items-center justify-between">
-          <div className="lg:w-1/2 mb-8 lg:mb-0">
+          <div 
+            ref={heroRef}
+            className={`lg:w-1/2 mb-8 lg:mb-0 transition-all duration-1000 ${
+              isHeroVisible ? 'animate-fade-in-left' : 'opacity-0 translate-x-[-50px]'
+            }`}
+          >
             <div className="text-left">
               <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-800 mb-4 md:mb-6 leading-tight">
-                Trầm Hương Thiên Nhiên
+                <span className="inline-block animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                  Trầm Hương Thiên Nhiên
+                </span>
                 <br />
-                <span className="text-amber-800">Chất lượng cao từ</span>
+                <span className="text-amber-800 inline-block animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                  Chất lượng cao từ
+                </span>
                 <br />
-                <span className="text-amber-800">đất Việt Nam</span>
+                <span className="text-amber-800 inline-block animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+                  đất Việt Nam
+                </span>
               </h1>
-              <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 max-w-md">
+              <p className={`text-base md:text-lg text-gray-600 mb-6 md:mb-8 max-w-md transition-all duration-800 ${
+                isHeroVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-[20px]'
+              }`} style={{ animationDelay: '0.8s' }}>
                 Sơn Mộc Hương - Địa chỉ uy tín chuyên cung cấp các sản phẩm trầm hương chất lượng cao, 
                 vòng tay trầm, nhang trầm và phụ kiện xông trầm đa dạng từ thiên nhiên Việt Nam.
               </p>
-              <button className="bg-amber-800 text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold hover:bg-amber-900 transition-colors shadow-lg">
-                Xem thêm
+              <button className={`bg-gradient-to-r from-amber-800 to-amber-900 text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold hover:from-amber-900 hover:to-amber-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 ${
+                isHeroVisible ? 'animate-bounce-in' : 'opacity-0 scale-50'
+              }`} style={{ animationDelay: '1s' }}>
+                <span className="relative z-10">Xem thêm</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-900 to-amber-800 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
               </button>
             </div>
 
-            <div className="flex space-x-6 md:space-x-8 mt-8 md:mt-12">
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-amber-800">100+</div>
-                <div className="text-sm md:text-base text-gray-600">Sản phẩm</div>
+            <div 
+              ref={statsRef}
+              className={`flex space-x-6 md:space-x-8 mt-8 md:mt-12 transition-all duration-800 ${
+                isStatsVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-[30px]'
+              }`}
+              style={{ animationDelay: '1.2s' }}
+            >
+              <div className="text-center group cursor-pointer">
+                <div className="text-2xl md:text-3xl font-bold text-amber-800 group-hover:animate-pulse transition-all duration-300 group-hover:scale-110">100+</div>
+                <div className="text-sm md:text-base text-gray-600 group-hover:text-amber-700 transition-colors">Sản phẩm</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-amber-800">1000+</div>
-                <div className="text-sm md:text-base text-gray-600">Khách hàng</div>
+              <div className="text-center group cursor-pointer">
+                <div className="text-2xl md:text-3xl font-bold text-amber-800 group-hover:animate-pulse transition-all duration-300 group-hover:scale-110">1000+</div>
+                <div className="text-sm md:text-base text-gray-600 group-hover:text-amber-700 transition-colors">Khách hàng</div>
               </div>
             </div>
           </div>
 
-          <div className="lg:w-1/2 flex justify-center">
+          <div className={`lg:w-1/2 flex justify-center transition-all duration-1000 ${
+            isHeroVisible ? 'animate-fade-in-right' : 'opacity-0 translate-x-[50px]'
+          }`} style={{ animationDelay: '0.5s' }}>
             <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl">
+              <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group">
                 <img 
                   src="https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg"
                   alt="Meditation Space"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-800/20 to-orange-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
-              <div className="absolute -top-2 -right-2 md:-top-4 md:-right-4 w-16 h-16 md:w-24 md:h-24 bg-white rounded-full shadow-lg flex items-center justify-center">
+              <div className="absolute -top-2 -right-2 md:-top-4 md:-right-4 w-16 h-16 md:w-24 md:h-24 bg-white rounded-full shadow-lg flex items-center justify-center animate-float hover:animate-pulse cursor-pointer group">
                 <img 
                   src="https://images.pexels.com/photos/2297252/pexels-photo-2297252.jpeg"
                   alt="Trầm hương"
-                  className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover"
+                  className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
+              
+              {/* Decorative elements */}
+              <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-amber-200 rounded-full animate-pulse opacity-60"></div>
+              <div className="absolute top-10 -left-6 w-4 h-4 bg-orange-300 rounded-full animate-bounce opacity-40" style={{ animationDelay: '0.5s' }}></div>
+              <div className="absolute -bottom-2 right-10 w-6 h-6 bg-amber-300 rounded-full animate-pulse opacity-50" style={{ animationDelay: '1s' }}></div>
             </div>
           </div>
         </div>
