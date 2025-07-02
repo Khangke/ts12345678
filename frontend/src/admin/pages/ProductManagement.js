@@ -716,7 +716,6 @@ const ProductManagement = () => {
                         {showMaterialDropdown && (
                           <div 
                             className="absolute top-full left-0 right-0 z-30 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl mt-1 shadow-lg max-h-60 overflow-y-auto"
-                            onClick={(e) => e.stopPropagation()}
                           >
                             {availableMaterials
                               .filter(mat => mat.toLowerCase().includes(materialInput.toLowerCase()))
