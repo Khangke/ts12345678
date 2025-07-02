@@ -1399,15 +1399,15 @@ export const CheckoutModal = ({
 // Toast Notification Component
 export const ToastNotification = ({ message, onClose }) => {
   return (
-    <div className="fixed top-4 right-4 bg-green-600 text-white px-6 py-4 rounded-lg shadow-lg z-[60] animate-slide-in-right">
+    <div className="fixed top-4 right-4 bg-green-600 dark:bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg dark:shadow-green-900/20 z-[60] animate-slide-in-right transition-all duration-300">
       <div className="flex items-center space-x-3">
-        <div className="bg-white bg-opacity-20 rounded-full p-1">
+        <div className="bg-white bg-opacity-20 dark:bg-white dark:bg-opacity-30 rounded-full p-1">
           <span className="text-lg">✓</span>
         </div>
         <span className="font-medium">{message}</span>
         <button 
           onClick={onClose}
-          className="text-white hover:text-gray-200 text-xl ml-2"
+          className="text-white hover:text-gray-200 dark:hover:text-gray-300 text-xl ml-2 transition-colors duration-300"
         >
           ×
         </button>
