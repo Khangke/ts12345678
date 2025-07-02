@@ -25,12 +25,12 @@ export const Header = ({ cartCount, onCartClick }) => {
   };
 
   return (
-    <header className="fixed top-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg z-50 transition-all duration-300">
+    <header className="fixed top-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg z-50 transition-all duration-500">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-amber-800 to-amber-900 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+            <div className="w-12 h-12 bg-gradient-to-br from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
               <span className="text-white font-bold text-xl group-hover:animate-pulse">SMH</span>
             </div>
             <span className="text-2xl font-bold text-amber-800 dark:text-amber-400 group-hover:text-amber-900 dark:group-hover:text-amber-300 transition-colors duration-300">Sơn Mộc Hương</span>
@@ -51,23 +51,23 @@ export const Header = ({ cartCount, onCartClick }) => {
             </Link>
             <Link 
               to="/about" 
-              className={`relative text-gray-700 hover:text-amber-800 transition-all duration-300 font-medium group ${
-                isActive('/about') ? 'text-amber-800 font-semibold' : ''
+              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium group ${
+                isActive('/about') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
               }`}
             >
               Giới thiệu
-              <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-amber-800 transition-all duration-300 group-hover:w-full ${
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-amber-800 dark:bg-amber-400 transition-all duration-300 group-hover:w-full ${
                 isActive('/about') ? 'w-full' : ''
               }`}></span>
             </Link>
             <Link 
               to="/products" 
-              className={`relative text-gray-700 hover:text-amber-800 transition-all duration-300 font-medium group ${
-                isActive('/products') ? 'text-amber-800 font-semibold' : ''
+              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium group ${
+                isActive('/products') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
               }`}
             >
               Sản phẩm
-              <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-amber-800 transition-all duration-300 group-hover:w-full ${
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-amber-800 dark:bg-amber-400 transition-all duration-300 group-hover:w-full ${
                 isActive('/products') ? 'w-full' : ''
               }`}></span>
             </Link>
@@ -113,7 +113,7 @@ export const Header = ({ cartCount, onCartClick }) => {
             
             <button 
               onClick={onCartClick}
-              className="relative bg-gray-100 dark:bg-gray-800 p-2 rounded-full hover:bg-amber-50 dark:hover:bg-amber-900 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md group"
+              className="relative bg-gray-100 dark:bg-gray-800 p-2 rounded-full hover:bg-amber-50 dark:hover:bg-amber-900/50 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md group"
             >
               <ShoppingCartIcon className="w-6 h-6 text-amber-800 dark:text-amber-400 group-hover:animate-bounce" />
               {cartCount > 0 && (
@@ -132,11 +132,11 @@ export const Header = ({ cartCount, onCartClick }) => {
             {/* Mobile Cart Button */}
             <button 
               onClick={onCartClick}
-              className="relative bg-gray-100 p-2 rounded-full hover:bg-amber-50 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md group"
+              className="relative bg-gray-100 dark:bg-gray-800 p-2 rounded-full hover:bg-amber-50 dark:hover:bg-amber-900/50 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md group"
             >
-              <ShoppingCartIcon className="w-6 h-6 text-amber-800 group-hover:animate-bounce" />
+              <ShoppingCartIcon className="w-6 h-6 text-amber-800 dark:text-amber-400 group-hover:animate-bounce" />
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center cart-badge animate-scale-in">
+                <span className="absolute -top-2 -right-2 bg-amber-800 dark:bg-amber-600 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center cart-badge animate-scale-in">
                   {cartCount}
                 </span>
               )}
@@ -144,13 +144,13 @@ export const Header = ({ cartCount, onCartClick }) => {
 
             {/* Mobile menu button */}
             <button 
-              className="p-2 hover:bg-gray-100 rounded-lg transition-all duration-300"
+              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <div className="w-6 h-6 flex flex-col justify-center">
-                <span className={`block h-0.5 w-6 bg-gray-600 transform transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
-                <span className={`block h-0.5 w-6 bg-gray-600 my-1 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-                <span className={`block h-0.5 w-6 bg-gray-600 transform transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+                <span className={`block h-0.5 w-6 bg-gray-600 dark:bg-gray-400 transform transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
+                <span className={`block h-0.5 w-6 bg-gray-600 dark:bg-gray-400 my-1 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`block h-0.5 w-6 bg-gray-600 dark:bg-gray-400 transform transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
               </div>
             </button>
           </div>
@@ -158,12 +158,12 @@ export const Header = ({ cartCount, onCartClick }) => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 animate-slide-in-top">
-            <nav className="flex flex-col space-y-3">
+          <div className="lg:hidden mt-4 pb-4 animate-slide-in-top bg-white/95 dark:bg-gray-900/95 rounded-lg backdrop-blur-md shadow-lg border dark:border-gray-700">
+            <nav className="flex flex-col space-y-3 p-4">
               <Link 
                 to="/" 
-                className={`text-gray-700 hover:text-amber-800 transition-all duration-300 hover:translate-x-2 hover:font-medium ${
-                  isActive('/') ? 'text-amber-800 font-semibold' : ''
+                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium ${
+                  isActive('/') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -171,8 +171,8 @@ export const Header = ({ cartCount, onCartClick }) => {
               </Link>
               <Link 
                 to="/about" 
-                className={`text-gray-700 hover:text-amber-800 transition-all duration-300 hover:translate-x-2 hover:font-medium ${
-                  isActive('/about') ? 'text-amber-800 font-semibold' : ''
+                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium ${
+                  isActive('/about') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -180,8 +180,8 @@ export const Header = ({ cartCount, onCartClick }) => {
               </Link>
               <Link 
                 to="/products" 
-                className={`text-gray-700 hover:text-amber-800 transition-all duration-300 hover:translate-x-2 hover:font-medium ${
-                  isActive('/products') ? 'text-amber-800 font-semibold' : ''
+                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium ${
+                  isActive('/products') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -205,6 +205,12 @@ export const Header = ({ cartCount, onCartClick }) => {
               >
                 Admin
               </Link>
+              
+              {/* Mobile Dark Mode Toggle */}
+              <div className="flex items-center space-x-3 pt-3 border-t dark:border-gray-700">
+                <span className="text-gray-700 dark:text-gray-300 text-sm">Dark Mode:</span>
+                <DarkModeToggle />
+              </div>
             </nav>
           </div>
         )}
