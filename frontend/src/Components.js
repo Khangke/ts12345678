@@ -462,15 +462,15 @@ export const ContactSection = () => {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <span className="text-amber-800">📍</span>
-                  <span className="text-gray-600">123 Đường ABC, Quận 1, TP.HCM</span>
+                  <span className="text-gray-600">3/29E đường 182, Phường Tăng Nhơn Phú A, TP. Thủ Đức, TPHCM</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <span className="text-amber-800">📞</span>
-                  <span className="text-gray-600">0909 123 456</span>
+                  <span className="text-gray-600">0762 222 448</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <span className="text-amber-800">✉️</span>
-                  <span className="text-gray-600">tramhuong@shop.com</span>
+                  <span className="text-gray-600">sonmochuong@gmail.com</span>
                 </div>
               </div>
             </div>
