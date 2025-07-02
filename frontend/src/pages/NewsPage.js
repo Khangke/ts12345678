@@ -349,8 +349,18 @@ const NewsPage = () => {
   const categories = ['all', 'Kiến thức', 'Sức khỏe', 'Hướng dẫn', 'Văn hóa', 'Đầu tư', 'Xu hướng'];
 
   const filteredNews = selectedCategory === 'all' 
-    ? newsData 
-    : newsData.filter(item => item.category === selectedCategory);
+    ? newsData.filter(item => 
+        searchTerm === '' || 
+        item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.category.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : newsData.filter(item => 
+        item.category === selectedCategory && 
+        (searchTerm === '' || 
+         item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+         item.excerpt.toLowerCase().includes(searchTerm.toLowerCase()))
+      );
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('vi-VN', {
