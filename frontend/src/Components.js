@@ -40,7 +40,7 @@ export const Header = ({ cartCount, onCartClick }) => {
           <nav className="hidden md:flex space-x-8">
             <Link 
               to="/" 
-              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium group ${
+              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium group focus:outline-none ${
                 isActive('/') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
               }`}
             >
@@ -51,7 +51,7 @@ export const Header = ({ cartCount, onCartClick }) => {
             </Link>
             <Link 
               to="/about" 
-              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium group ${
+              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium group focus:outline-none ${
                 isActive('/about') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
               }`}
             >
@@ -62,7 +62,7 @@ export const Header = ({ cartCount, onCartClick }) => {
             </Link>
             <Link 
               to="/products" 
-              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium group ${
+              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium group focus:outline-none ${
                 isActive('/products') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
               }`}
             >
@@ -73,7 +73,7 @@ export const Header = ({ cartCount, onCartClick }) => {
             </Link>
             <Link 
               to="/contact" 
-              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium group ${
+              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium group focus:outline-none ${
                 isActive('/contact') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
               }`}
             >
@@ -84,7 +84,7 @@ export const Header = ({ cartCount, onCartClick }) => {
             </Link>
             <Link 
               to="/admin" 
-              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium group ${
+              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium group focus:outline-none ${
                 isActive('/admin') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
               }`}
             >
