@@ -816,78 +816,78 @@ export const ContactSection = () => {
 // Footer Component
 export const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-12">
+    <footer className="bg-gray-800 dark:bg-gray-950 text-white py-12 transition-colors duration-500">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-12 h-12 bg-amber-800 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-amber-800 dark:bg-amber-600 rounded-full flex items-center justify-center transition-colors duration-300">
                 <span className="text-white font-bold text-xl">SMH</span>
               </div>
               <span className="text-2xl font-bold">Sơn Mộc Hương</span>
             </div>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-400 dark:text-gray-300 mb-4 transition-colors duration-300">
               Sơn Mộc Hương - Địa chỉ uy tín chuyên cung cấp các sản phẩm trầm hương chất lượng cao, 
               từ thiên nhiên Việt Nam.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-amber-800 transition-colors">Facebook</a>
-              <a href="#" className="text-gray-400 hover:text-amber-800 transition-colors">Instagram</a>
-              <a href="#" className="text-gray-400 hover:text-amber-800 transition-colors">YouTube</a>
+              <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-colors duration-300">Facebook</a>
+              <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-colors duration-300">Instagram</a>
+              <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-colors duration-300">YouTube</a>
             </div>
           </div>
 
           <div>
             <h4 className="text-lg font-semibold mb-4">Sản phẩm</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Vòng tay trầm hương</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Nhang trầm hương</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Nụ trầm hương</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Tinh dầu trầm</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cảnh trầm phong thủy</a></li>
+              <li><a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-amber-300 transition-colors duration-300">Vòng tay trầm hương</a></li>
+              <li><a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-amber-300 transition-colors duration-300">Nhang trầm hương</a></li>
+              <li><a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-amber-300 transition-colors duration-300">Nụ trầm hương</a></li>
+              <li><a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-amber-300 transition-colors duration-300">Tinh dầu trầm</a></li>
+              <li><a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-amber-300 transition-colors duration-300">Cảnh trầm phong thủy</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-lg font-semibold mb-4">Dịch vụ</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Tư vấn chọn sản phẩm</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Miễn phí ship từ 300k</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cam kết chất lượng</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Hỗ trợ 24/7</a></li>
+              <li><a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-amber-300 transition-colors duration-300">Tư vấn chọn sản phẩm</a></li>
+              <li><a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-amber-300 transition-colors duration-300">Miễn phí ship từ 300k</a></li>
+              <li><a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-amber-300 transition-colors duration-300">Cam kết chất lượng</a></li>
+              <li><a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-amber-300 transition-colors duration-300">Hỗ trợ 24/7</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-lg font-semibold mb-4">Liên hệ</h4>
             <div className="space-y-2">
-              <p className="text-gray-400 flex items-center space-x-2">
-                <LocationIcon className="w-4 h-4" />
+              <p className="text-gray-400 dark:text-gray-300 flex items-center space-x-2 transition-colors duration-300">
+                <LocationIcon className="w-4 h-4 text-amber-400" />
                 <span>3/29E đường 182, Phường Tăng Nhơn Phú A, TP. Thủ Đức, TPHCM</span>
               </p>
-              <p className="text-gray-400 flex items-center space-x-2">
-                <PhoneIcon className="w-4 h-4" />
+              <p className="text-gray-400 dark:text-gray-300 flex items-center space-x-2 transition-colors duration-300">
+                <PhoneIcon className="w-4 h-4 text-amber-400" />
                 <span>0762 222 448</span>
               </p>
-              <p className="text-gray-400 flex items-center space-x-2">
-                <EmailIcon className="w-4 h-4" />
+              <p className="text-gray-400 dark:text-gray-300 flex items-center space-x-2 transition-colors duration-300">
+                <EmailIcon className="w-4 h-4 text-amber-400" />
                 <span>sonmochuong@gmail.com</span>
               </p>
-              <p className="text-gray-400 flex items-center space-x-2">
-                <ClockIcon className="w-4 h-4" />
+              <p className="text-gray-400 dark:text-gray-300 flex items-center space-x-2 transition-colors duration-300">
+                <ClockIcon className="w-4 h-4 text-amber-400" />
                 <span>Thứ 2 - Chủ nhật: 8:00 - 20:00</span>
               </p>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-8 mt-8">
+        <div className="border-t border-gray-700 dark:border-gray-600 pt-8 mt-8 transition-colors duration-300">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400">© 2025 Sơn Mộc Hương. Tất cả quyền được bảo lưu.</p>
+            <p className="text-gray-400 dark:text-gray-300 transition-colors duration-300">© 2025 Sơn Mộc Hương. Tất cả quyền được bảo lưu.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Chính sách bảo mật</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Điều khoản sử dụng</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Liên hệ</a>
+              <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-amber-300 transition-colors duration-300">Chính sách bảo mật</a>
+              <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-amber-300 transition-colors duration-300">Điều khoản sử dụng</a>
+              <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-amber-300 transition-colors duration-300">Liên hệ</a>
             </div>
           </div>
         </div>
