@@ -509,10 +509,10 @@ export const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Sản phẩm</h4>
             <ul className="space-y-2">
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Vòng tay trầm hương</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Nhang trầm</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Nhang trầm hương</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Nụ trầm hương</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Tinh dầu trầm</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cảnh trầm</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cảnh trầm phong thủy</a></li>
             </ul>
           </div>
 
