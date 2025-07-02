@@ -642,10 +642,22 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Liên hệ</h4>
             <div className="space-y-2">
-              <p className="text-gray-400">📍 3/29E đường 182, Phường Tăng Nhơn Phú A, TP. Thủ Đức, TPHCM</p>
-              <p className="text-gray-400">📞 0762 222 448</p>
-              <p className="text-gray-400">✉️ sonmochuong@gmail.com</p>
-              <p className="text-gray-400">🕐 Thứ 2 - Chủ nhật: 8:00 - 20:00</p>
+              <p className="text-gray-400 flex items-center space-x-2">
+                <LocationIcon className="w-4 h-4" />
+                <span>3/29E đường 182, Phường Tăng Nhơn Phú A, TP. Thủ Đức, TPHCM</span>
+              </p>
+              <p className="text-gray-400 flex items-center space-x-2">
+                <PhoneIcon className="w-4 h-4" />
+                <span>0762 222 448</span>
+              </p>
+              <p className="text-gray-400 flex items-center space-x-2">
+                <EmailIcon className="w-4 h-4" />
+                <span>sonmochuong@gmail.com</span>
+              </p>
+              <p className="text-gray-400 flex items-center space-x-2">
+                <ClockIcon className="w-4 h-4" />
+                <span>Thứ 2 - Chủ nhật: 8:00 - 20:00</span>
+              </p>
             </div>
           </div>
         </div>
