@@ -69,7 +69,7 @@ const ProductManagement = () => {
     // Add thousand separators
     const formatted = numericValue.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     
-    return formatted + 'vnđ';
+    return formatted + ' VNĐ';
   };
 
   const unformatPrice = (value) => {
