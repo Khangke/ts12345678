@@ -499,7 +499,7 @@ const OrderManagement = () => {
                       >
                         <div className="flex items-center space-x-4">
                           <div className="w-12 h-12 bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg flex items-center justify-center">
-                            <Package className="w-6 h-6 text-white" />
+                            <PackageIcon className="w-6 h-6 text-white" />
                           </div>
                           <div>
                             <p className="font-semibold text-gray-800 dark:text-white">{item.product_name}</p>
