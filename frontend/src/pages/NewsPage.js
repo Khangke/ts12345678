@@ -317,14 +317,14 @@ const NewsPage = () => {
     <div className="pt-20 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/20 dark:from-gray-900 dark:via-amber-900/10 dark:to-orange-900/10 min-h-screen transition-colors duration-500">
       
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-r from-amber-800/10 to-orange-600/10 dark:from-amber-900/20 dark:to-orange-900/20">
+      <section className="py-16 bg-gradient-to-r from-amber-800/10 to-orange-600/10 dark:from-amber-500/20 dark:to-orange-500/20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4 animate-fade-in-up">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-amber-100 mb-4 animate-fade-in-up">
             Tin Tức
-            <span className="text-amber-800 dark:text-amber-400 block mt-2">Trầm Hương</span>
+            <span className="text-amber-800 dark:text-amber-300 block mt-2">Trầm Hương</span>
           </h1>
           <div className="w-32 h-1 bg-gradient-to-r from-amber-800 to-orange-600 dark:from-amber-400 dark:to-orange-400 mx-auto rounded-full mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}></div>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          <p className="text-lg text-gray-600 dark:text-amber-200 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             Khám phá thế giới trầm hương qua những bài viết chuyên sâu, từ kiến thức cơ bản đến xu hướng hiện đại. 
             Cập nhật thông tin mới nhất về văn hóa, sức khỏe và nghệ thuật sống với trầm hương.
           </p>
