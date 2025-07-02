@@ -131,7 +131,7 @@ frontend:
     file: "frontend/src/Components.js"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
@@ -139,6 +139,9 @@ frontend:
       - working: true
         agent: "main"
         comment: "Đã hoàn thành ProductDetailModal với size-based pricing: prices hiển thị trên từng size button, current price thay đổi khi chọn size, cart và buy now functions sử dụng size-specific price"
+      - working: true
+        agent: "testing"
+        comment: "Đã test backend API sau frontend size-based pricing implementation và xác nhận tất cả API endpoints vẫn hoạt động đúng. Backend hỗ trợ đầy đủ size-based pricing và backward compatibility."
 
   - task: "Load products from backend API"
     implemented: true
