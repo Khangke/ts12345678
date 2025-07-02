@@ -250,12 +250,10 @@ const OrderManagement = () => {
       </motion.div>
 
       {/* Tab Navigation */}
-      <motion.div variants={itemVariants} className="mb-6">
+      <div className="mb-6">
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 p-2">
           <div className="flex space-x-2">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            <button
               onClick={() => {
                 setActiveTab('pending');
                 setStatusFilter('all');
@@ -268,10 +266,8 @@ const OrderManagement = () => {
             >
               <ClockIcon className="w-5 h-5" />
               <span>Chờ xử lý ({pendingCount})</span>
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            </button>
+            <button
               onClick={() => {
                 setActiveTab('processed');
                 setStatusFilter('all');
@@ -284,10 +280,10 @@ const OrderManagement = () => {
             >
               <CheckCircleIcon className="w-5 h-5" />
               <span>Đã xử lý ({processedCount})</span>
-            </motion.button>
+            </button>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Orders Table */}
       <motion.div variants={itemVariants} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden">
