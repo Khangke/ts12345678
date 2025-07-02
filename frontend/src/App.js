@@ -12,7 +12,7 @@ import {
 } from './Components';
 import { MobileBottomNav, MobileQuickActions } from './components/MobileComponents';
 import { DarkModeProvider } from './contexts/DarkModeContext';
-import { HomePage, AboutPage, ProductsPage, ContactPage, NewsPage } from './pages';
+import { HomePage, AboutPage, ProductsPage, ContactPage, NewsPage, NewsDetailPage } from './pages';
 import AdminApp from './admin/AdminApp';
 
 function App() {
