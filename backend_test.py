@@ -915,24 +915,24 @@ def test_create_delivered_order():
         print(f"{Colors.FAIL}Cannot create order without products{Colors.ENDC}")
         return
     
-    # Step 3: Create new order with specific customer info
+    # Step 3: Create new order with specific customer info from the review request
     order_id = None
     try:
-        # Select a product with size-based pricing
-        product = products[0]  # Use the first product
+        # Select a product with size-based pricing (use a different product than previous tests)
+        product = products[1] if len(products) > 1 else products[0]  # Use the second product if available
         
-        # Get a size and its price
+        # Get a size and its price (use a different size than the first one if possible)
         if product.get("size_prices") and product.get("sizes"):
-            selected_size = product["sizes"][0]
+            selected_size = product["sizes"][1] if len(product["sizes"]) > 1 else product["sizes"][0]
             size_specific_price = product["size_prices"][selected_size]
             
-            # Create order with the specified customer info
+            # Create order with the specified customer info from the review request
             order_data = {
-                "customer_name": "Phạm Thị D",
-                "customer_phone": "0913456789",
-                "customer_email": "phamthid@example.com",
-                "customer_address": "321 Đường Pasteur, Quận 3, TP.HCM",
-                "note": "Đã nhận hàng và rất hài lòng",
+                "customer_name": "Hoàng Văn E",
+                "customer_phone": "0901234567",
+                "customer_email": "hoangvane@example.com",
+                "customer_address": "555 Đường Võ Văn Tần, Quận 3, TP.HCM",
+                "note": "Giao hàng nhanh, sản phẩm đẹp",
                 "items": [
                     {
                         "product_id": product["id"],
@@ -1007,6 +1007,10 @@ def test_create_delivered_order():
                 print(f"  Confirmed: Order {order_id} has status 'delivered'")
                 print(f"  Customer: {delivered_order['customer_name']}")
                 print(f"  Order items: {len(delivered_order['items'])}")
+                
+                # Count delivered orders to confirm increase
+                delivered_count = sum(1 for order in orders if order["status"] == "delivered")
+                print(f"  Total delivered orders: {delivered_count}")
             else:
                 log_test("Verify Order with Delivered Status", False, response, 
                         f"Order {order_id} not found or status is not 'delivered'")
