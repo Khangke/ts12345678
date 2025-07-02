@@ -441,7 +441,7 @@ const OrderManagement = () => {
                     </div>
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                        <Phone className="w-5 h-5 text-white" />
+                        <PhoneIcon className="w-5 h-5 text-white" />
                       </div>
                       <div>
                         <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Số điện thoại</p>
