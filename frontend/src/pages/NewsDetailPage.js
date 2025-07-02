@@ -254,41 +254,70 @@ const NewsDetailPage = () => {
         </div>
       </div>
 
-      {/* Article Header */}
-      <div className="container mx-auto px-4 pb-8">
+      {/* Enhanced Article Header */}
+      <div className="container mx-auto px-4 pb-12">
         <div className="max-w-4xl mx-auto">
           
           {/* Category Badge */}
-          <div className="mb-6">
-            <span className="bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+          <div className="mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <span className="inline-flex items-center bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white px-6 py-3 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+              </svg>
               {news.category}
             </span>
           </div>
 
-          {/* Title */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-amber-100 mb-6 leading-tight">
-            {news.title}
+          {/* Enhanced Title */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-amber-100 mb-8 leading-tight animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <span className="bg-gradient-to-r from-gray-800 via-amber-800 to-gray-800 dark:from-amber-100 dark:via-amber-300 dark:to-amber-100 bg-clip-text text-transparent animate-gradient-x">
+              {news.title}
+            </span>
           </h1>
 
-          {/* Meta Info */}
-          <div className="flex flex-wrap items-center space-x-6 text-gray-600 dark:text-amber-300/70 mb-8 text-sm">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-amber-100 dark:bg-amber-600/30 rounded-full flex items-center justify-center">
-                <span className="text-amber-800 dark:text-amber-300 font-bold text-sm">A</span>
+          {/* Enhanced Meta Info */}
+          <div className="flex flex-wrap items-center gap-6 text-gray-600 dark:text-amber-300/70 mb-10 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+            <div className="flex items-center space-x-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
+              <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 dark:from-amber-500 dark:to-amber-700 rounded-full flex items-center justify-center shadow-md">
+                <span className="text-white font-bold text-sm">
+                  {news.author.split(' ').pop().charAt(0)}
+                </span>
               </div>
-              <span className="dark:text-amber-200">✍️ {news.author}</span>
+              <div>
+                <p className="text-sm font-semibold text-gray-800 dark:text-amber-200">✍️ {news.author}</p>
+                <p className="text-xs text-gray-500 dark:text-amber-300/70">Tác giả</p>
+              </div>
             </div>
-            <span className="dark:text-amber-200">📅 {formatDate(news.date)}</span>
-            <span className="dark:text-amber-200">⏱️ {news.readTime}</span>
+            
+            <div className="flex items-center space-x-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
+              <svg className="w-5 h-5 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span className="text-sm font-medium dark:text-amber-200">{formatDate(news.date)}</span>
+            </div>
+            
+            <div className="flex items-center space-x-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
+              <svg className="w-5 h-5 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span className="text-sm font-medium dark:text-amber-200">{news.readTime}</span>
+            </div>
           </div>
 
-          {/* Featured Image */}
-          <div className="mb-12 rounded-2xl overflow-hidden shadow-2xl dark:shadow-amber-900/30">
-            <img 
-              src={news.image}
-              alt={news.title}
-              className="w-full h-64 md:h-96 object-cover"
-            />
+          {/* Enhanced Featured Image */}
+          <div className="mb-16 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+            <div className="relative group rounded-3xl overflow-hidden shadow-2xl dark:shadow-amber-900/30 transform hover:scale-105 transition-all duration-700">
+              <img 
+                src={news.image}
+                alt={news.title}
+                className="w-full h-72 md:h-96 lg:h-[500px] object-cover group-hover:scale-110 transition-transform duration-1000"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute bottom-6 left-6 right-6 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                <p className="text-lg font-semibold mb-2">{news.title}</p>
+                <p className="text-sm text-gray-200">{news.excerpt}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
