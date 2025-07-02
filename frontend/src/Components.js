@@ -170,24 +170,39 @@ export const HeroSection = () => {
 
 // Features Section Component
 export const FeaturesSection = () => {
+  const getFeatureIcon = (iconType) => {
+    switch(iconType) {
+      case 'trophy':
+        return <TrophyIcon className="w-16 h-16 text-amber-800" />;
+      case 'leaf':
+        return <LeafIcon className="w-16 h-16 text-green-600" />;
+      case 'truck':
+        return <TruckIcon className="w-16 h-16 text-blue-600" />;
+      case 'chat':
+        return <ChatIcon className="w-16 h-16 text-purple-600" />;
+      default:
+        return null;
+    }
+  };
+
   const features = [
     {
-      icon: '🏆',
+      iconType: 'trophy',
       title: 'Chất lượng cao',
       description: 'Sản phẩm trầm hương nguyên chất được chọn lọc kỹ lưỡng từ những vùng đất nổi tiếng về trầm hương tại Việt Nam.'
     },
     {
-      icon: '🌿',
+      iconType: 'leaf',
       title: 'Từ thiên nhiên',
       description: 'Tất cả sản phẩm đều từ nguyên liệu tự nhiên, mang lại hương thơm đặc trưng và lợi ích sức khỏe.'
     },
     {
-      icon: '🚚',
+      iconType: 'truck',
       title: 'Miễn phí ship',
       description: 'Miễn phí ship toàn quốc cho đơn hàng từ 300.000đ, giao hàng nhanh chóng và an toàn.'
     },
     {
-      icon: '💬',
+      iconType: 'chat',
       title: 'Tư vấn tận tâm',
       description: 'Đội ngũ chuyên gia tư vấn nhiệt tình, giúp bạn chọn lựa sản phẩm phù hợp nhất.'
     }
@@ -199,7 +214,9 @@ export const FeaturesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <div key={index} className="text-center p-6 hover:transform hover:scale-105 transition-all duration-300">
-              <div className="text-6xl mb-4">{feature.icon}</div>
+              <div className="flex justify-center mb-4">
+                {getFeatureIcon(feature.iconType)}
+              </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">{feature.title}</h3>
               <p className="text-gray-600 text-sm">{feature.description}</p>
             </div>
