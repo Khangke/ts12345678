@@ -375,7 +375,6 @@ const OrderManagement = () => {
                     </td>
                   </tr>
                 )}
-              </AnimatePresence>
             </tbody>
           </table>
         </div>
