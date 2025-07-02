@@ -113,6 +113,27 @@ const ProductManagement = () => {
     fetchProducts();
   }, []);
 
+  // Click outside handlers for dropdowns
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (categoryRef.current && !categoryRef.current.contains(event.target)) {
+        setShowCategoryDropdown(false);
+        setCategoryInput(formData.category); // Reset to current value
+      }
+      if (materialRef.current && !materialRef.current.contains(event.target)) {
+        setShowMaterialDropdown(false);
+        setMaterialInput(formData.material); // Reset to current value
+      }
+    };
+
+    if (showCategoryDropdown || showMaterialDropdown) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [showCategoryDropdown, showMaterialDropdown, formData.category, formData.material]);
+
   const fetchProducts = async () => {
     try {
       const response = await axios.get(`${BACKEND_URL}/api/admin/products`, {
