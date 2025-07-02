@@ -237,17 +237,21 @@ const NewsDetailPage = () => {
         </button>
       </div>
       
-      {/* Back Navigation */}
-      <div className="container mx-auto px-4 py-6">
-        <button 
-          onClick={() => navigate('/news')}
-          className="flex items-center space-x-2 text-amber-800 dark:text-amber-300 hover:text-amber-900 dark:hover:text-amber-200 transition-colors duration-300 group"
-        >
-          <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-          </svg>
-          <span className="font-medium">Quay lại tin tức</span>
-        </button>
+      {/* Enhanced Back Navigation */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="animate-fade-in-left">
+          <button 
+            onClick={() => navigate('/news')}
+            className="group flex items-center space-x-3 text-amber-800 dark:text-amber-300 hover:text-amber-900 dark:hover:text-amber-200 transition-all duration-500 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            <div className="w-8 h-8 bg-amber-100 dark:bg-amber-600/30 rounded-full flex items-center justify-center group-hover:bg-amber-200 dark:group-hover:bg-amber-500/50 transition-colors duration-300">
+              <svg className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
+              </svg>
+            </div>
+            <span className="font-semibold">Quay lại tin tức</span>
+          </button>
+        </div>
       </div>
 
       {/* Article Header */}
