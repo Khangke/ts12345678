@@ -314,7 +314,7 @@ const NewsPage = () => {
   };
 
   return (
-    <div className="pt-20 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/20 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen transition-colors duration-500">
+    <div className="pt-20 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/20 dark:from-gray-900 dark:via-amber-900/10 dark:to-orange-900/10 min-h-screen transition-colors duration-500">
       
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-r from-amber-800/10 to-orange-600/10 dark:from-amber-900/20 dark:to-orange-900/20">
