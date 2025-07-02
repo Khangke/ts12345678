@@ -610,6 +610,9 @@ def run_tests():
     # Test public products endpoint
     test_public_products()
     
+    # Test API response formats for modern UI
+    test_response_format_for_modern_ui()
+    
     # Print summary
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
     print(f"{Colors.HEADER}TEST SUMMARY{Colors.ENDC}")
