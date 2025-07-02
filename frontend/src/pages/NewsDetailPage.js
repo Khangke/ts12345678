@@ -322,14 +322,74 @@ const NewsDetailPage = () => {
         </div>
       </div>
 
-      {/* Article Content */}
-      <div className="container mx-auto px-4 pb-16">
+      {/* Enhanced Article Content */}
+      <div className="container mx-auto px-4 pb-20">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white dark:bg-gray-800/90 dark:backdrop-blur-sm rounded-2xl shadow-xl dark:shadow-amber-900/20 p-8 md:p-12 border border-gray-100 dark:border-amber-700/30">
+          <div className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl rounded-3xl shadow-2xl dark:shadow-amber-900/30 border border-gray-100 dark:border-amber-700/30 overflow-hidden animate-fade-in-up" style={{ animationDelay: '1s' }}>
             
-            {/* Excerpt */}
-            <div className="text-xl text-gray-600 dark:text-amber-200/90 mb-8 p-6 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-lg border-l-4 border-amber-600 dark:border-amber-400 italic leading-relaxed">
-              {news.excerpt}
+            {/* Enhanced Excerpt */}
+            <div className="relative">
+              <div className="text-xl text-gray-700 dark:text-amber-200 p-8 md:p-12 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-amber-900/30 dark:via-orange-900/30 dark:to-amber-900/30 leading-relaxed border-l-8 border-amber-600 dark:border-amber-400">
+                <div className="absolute top-4 left-4 text-6xl text-amber-300 dark:text-amber-600 opacity-50 font-serif">"</div>
+                <p className="italic text-lg md:text-xl pl-8">
+                  {news.excerpt}
+                </p>
+                <div className="absolute bottom-4 right-4 text-6xl text-amber-300 dark:text-amber-600 opacity-50 font-serif rotate-180">"</div>
+              </div>
+            </div>
+
+            {/* Article Content */}
+            <div className="p-8 md:p-12">
+              <div 
+                className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-amber-800 dark:prose-headings:text-amber-300 prose-a:text-amber-700 dark:prose-a:text-amber-400 prose-strong:text-amber-900 dark:prose-strong:text-amber-200"
+                dangerouslySetInnerHTML={{ __html: news.content }}
+              />
+            </div>
+
+            {/* Article Footer */}
+            <div className="border-t border-gray-200 dark:border-gray-700 p-8 md:p-12 bg-gradient-to-r from-gray-50 to-white dark:from-gray-800/50 dark:to-gray-800/50">
+              <div className="flex flex-wrap items-center justify-between gap-6">
+                <div className="flex items-center space-x-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-amber-600 dark:from-amber-500 dark:to-amber-700 rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-white font-bold text-xl">
+                      {news.author.split(' ').pop().charAt(0)}
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-800 dark:text-amber-100">{news.author}</h4>
+                    <p className="text-sm text-gray-600 dark:text-amber-300/70">Chuyên gia trầm hương</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-4">
+                  <button className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                    <span>Yêu thích</span>
+                  </button>
+                  <button className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
+                    </svg>
+                    <span>Chia sẻ</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Related Articles Suggestion */}
+          <div className="mt-16 text-center animate-fade-in-up" style={{ animationDelay: '1.2s' }}>
+            <button 
+              onClick={() => navigate('/news')}
+              className="bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 hover:from-amber-900 hover:to-amber-800 dark:hover:from-amber-700 dark:hover:to-amber-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 text-lg"
+            >
+              Đọc thêm bài viết khác →
+            </button>
+          </div>
+        </div>
+      </div>
             </div>
 
             {/* Main Content */}
