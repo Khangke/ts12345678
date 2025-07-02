@@ -201,8 +201,9 @@ function App() {
         
         {/* Add bottom padding for mobile navigation */}
         <div className="h-16 lg:hidden"></div>
-      </div>
-    </Router>
+        </div>
+      </Router>
+    </DarkModeProvider>
   );
 }
 
