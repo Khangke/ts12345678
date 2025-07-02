@@ -26,9 +26,9 @@ const Settings = () => {
       website: 'https://sonmochuong.com'
     },
     shipping: {
-      freeShippingThreshold: 300000,
-      standardShippingFee: 30000,
-      expressShippingFee: 50000
+      freeShippingThreshold: '300.000 VNĐ',
+      standardShippingFee: '30.000 VNĐ',
+      expressShippingFee: '50.000 VNĐ'
     },
     notifications: {
       emailNotifications: true,
@@ -42,6 +42,37 @@ const Settings = () => {
       twoFactorAuth: false
     }
   });
+
+  // Price formatting functions (same as ProductManagement)
+  const formatPrice = (value) => {
+    // Remove all non-digits
+    const numericValue = value.replace(/\D/g, '');
+    
+    if (!numericValue) return '';
+    
+    // Add thousand separators
+    const formatted = numericValue.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    
+    return formatted + ' VNĐ';
+  };
+
+  const unformatPrice = (value) => {
+    // Remove formatting to get raw number
+    return value.replace(/[^\d]/g, '');
+  };
+
+  const handlePriceChange = (field, value) => {
+    const rawValue = unformatPrice(value);
+    const formattedValue = formatPrice(rawValue);
+    
+    setSettings(prev => ({
+      ...prev,
+      shipping: {
+        ...prev.shipping,
+        [field]: formattedValue
+      }
+    }));
+  };
 
   const handleSave = () => {
     // In a real app, this would save to backend
