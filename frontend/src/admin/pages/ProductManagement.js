@@ -177,12 +177,7 @@ const ProductManagement = () => {
     });
   };
 
-  const handleSizePriceChange = (size, price) => {
-    setFormData({ 
-      ...formData, 
-      size_prices: { ...formData.size_prices, [size]: price }
-    });
-  };
+
 
   // Category management
   const handleCategorySelect = (category) => {
