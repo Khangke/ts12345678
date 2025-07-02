@@ -488,6 +488,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test thành công GET /api/admin/products và nhận được danh sách 3 sản phẩm mẫu. Đã test POST /api/admin/products để tạo sản phẩm mới. Đã test PUT /api/admin/products/{id} để cập nhật sản phẩm. Đã test DELETE /api/admin/products/{id} để xóa sản phẩm. Tất cả các operations đều hoạt động đúng."
+      - working: true
+        agent: "testing"
+        comment: "Đã test lại admin product management API và xác nhận hoạt động đúng. Đã seed 3 sản phẩm mẫu với size-based pricing thành công. Đã test CRUD operations đầy đủ: GET all products, POST new product với size_prices, GET specific product, PUT update product (thêm size mới và thay đổi giá), DELETE product. Tất cả endpoints đều trả về dữ liệu đúng định dạng và status code phù hợp."
   
   - task: "Test admin order management API"
     implemented: true
