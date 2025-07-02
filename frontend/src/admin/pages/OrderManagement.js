@@ -266,7 +266,7 @@ const OrderManagement = () => {
                   : 'text-gray-600 dark:text-gray-400 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/20'
               }`}
             >
-              <Clock className="w-5 h-5" />
+              <ClockIcon className="w-5 h-5" />
               <span>Chờ xử lý ({pendingCount})</span>
             </motion.button>
             <motion.button
