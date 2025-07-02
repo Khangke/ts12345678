@@ -10,6 +10,7 @@ import {
   ToastNotification,
   SuccessPage
 } from './Components';
+import { MobileBottomNav, MobileQuickActions } from './components/MobileComponents';
 import { HomePage, AboutPage, ProductsPage, ContactPage } from './pages';
 
 function App() {
