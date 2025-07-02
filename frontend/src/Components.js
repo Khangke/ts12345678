@@ -620,3 +620,456 @@ export const Footer = () => {
     </footer>
   );
 };
+
+// Product Detail Modal Component
+export const ProductDetailModal = ({ product, onClose, onAddToCart }) => {
+  const [selectedSize, setSelectedSize] = useState(product.sizes?.[0] || null);
+  const [quantity, setQuantity] = useState(1);
+
+  const handleAddToCart = () => {
+    onAddToCart(product, quantity, selectedSize);
+    alert('Đã thêm sản phẩm vào giỏ hàng!');
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="flex justify-between items-center p-6 border-b">
+          <h2 className="text-2xl font-bold text-gray-800">Chi tiết sản phẩm</h2>
+          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 text-2xl">
+            ×
+          </button>
+        </div>
+
+        <div className="p-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Product Image */}
+            <div>
+              <img 
+                src={product.image} 
+                alt={product.name}
+                className="w-full h-96 object-cover rounded-lg"
+              />
+            </div>
+
+            {/* Product Info */}
+            <div>
+              <div className="mb-4">
+                <span className="bg-amber-800 text-white px-3 py-1 rounded-full text-sm">
+                  {product.category}
+                </span>
+              </div>
+              
+              <h1 className="text-3xl font-bold text-gray-800 mb-4">{product.name}</h1>
+              <p className="text-gray-600 mb-6">{product.detailDescription}</p>
+              
+              <div className="mb-6">
+                <div className="flex items-center space-x-2 mb-2">
+                  <span className="text-yellow-400 text-xl">★</span>
+                  <span className="text-lg font-semibold">{product.rating}</span>
+                  <span className="text-gray-600">({product.reviews?.length || 0} đánh giá)</span>
+                </div>
+                <p className="text-gray-600">Chất liệu: {product.material}</p>
+              </div>
+
+              {/* Size Selection */}
+              {product.sizes && (
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold mb-3">Chọn kích cỡ:</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {product.sizes.map((size) => (
+                      <button
+                        key={size}
+                        onClick={() => setSelectedSize(size)}
+                        className={`px-4 py-2 border rounded-lg ${
+                          selectedSize === size 
+                            ? 'border-amber-800 bg-amber-800 text-white' 
+                            : 'border-gray-300 hover:border-amber-800'
+                        }`}
+                      >
+                        {size}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Quantity */}
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold mb-3">Số lượng:</h3>
+                <div className="flex items-center space-x-3">
+                  <button 
+                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                    className="w-10 h-10 border border-gray-300 rounded-lg flex items-center justify-center hover:bg-gray-100"
+                  >
+                    -
+                  </button>
+                  <span className="text-lg font-semibold min-w-[3rem] text-center">{quantity}</span>
+                  <button 
+                    onClick={() => setQuantity(quantity + 1)}
+                    className="w-10 h-10 border border-gray-300 rounded-lg flex items-center justify-center hover:bg-gray-100"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              {/* Price & Actions */}
+              <div className="mb-6">
+                <div className="text-3xl font-bold text-amber-800 mb-4">{product.price}</div>
+                <div className="flex space-x-4">
+                  <button 
+                    onClick={handleAddToCart}
+                    className="flex-1 bg-amber-800 text-white py-3 rounded-lg hover:bg-amber-900 transition-colors font-semibold"
+                  >
+                    Thêm vào giỏ hàng
+                  </button>
+                  <button className="flex-1 bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors font-semibold">
+                    Mua ngay
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Reviews Section */}
+          {product.reviews && product.reviews.length > 0 && (
+            <div className="mt-8 pt-8 border-t">
+              <h3 className="text-2xl font-bold mb-6">Đánh giá khách hàng</h3>
+              <div className="space-y-4">
+                {product.reviews.map((review, index) => (
+                  <div key={index} className="bg-gray-50 p-4 rounded-lg">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <span className="font-semibold">{review.name}</span>
+                      <div className="flex">
+                        {[...Array(review.rating)].map((_, i) => (
+                          <span key={i} className="text-yellow-400">★</span>
+                        ))}
+                      </div>
+                    </div>
+                    <p className="text-gray-600">{review.comment}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Cart Modal Component
+export const CartModal = ({ 
+  cartItems, 
+  onClose, 
+  onUpdateQuantity, 
+  onRemoveItem, 
+  onCheckout, 
+  totalPrice, 
+  shippingFee 
+}) => {
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('vi-VN').format(price) + 'đ';
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="flex justify-between items-center p-6 border-b">
+          <h2 className="text-2xl font-bold text-gray-800">Giỏ hàng</h2>
+          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 text-2xl">
+            ×
+          </button>
+        </div>
+
+        <div className="p-6">
+          {cartItems.length === 0 ? (
+            <div className="text-center py-8">
+              <p className="text-gray-500 text-lg">Giỏ hàng trống</p>
+              <button 
+                onClick={onClose}
+                className="mt-4 bg-amber-800 text-white px-6 py-2 rounded-lg hover:bg-amber-900 transition-colors"
+              >
+                Tiếp tục mua sắm
+              </button>
+            </div>
+          ) : (
+            <>
+              {/* Cart Items */}
+              <div className="space-y-4 mb-6">
+                {cartItems.map((item) => (
+                  <div key={item.cartId} className="flex items-center space-x-4 p-4 border rounded-lg">
+                    <img 
+                      src={item.image} 
+                      alt={item.name}
+                      className="w-16 h-16 object-cover rounded-lg"
+                    />
+                    <div className="flex-1">
+                      <h3 className="font-semibold">{item.name}</h3>
+                      {item.selectedSize && (
+                        <p className="text-sm text-gray-600">Size: {item.selectedSize}</p>
+                      )}
+                      <p className="text-amber-800 font-bold">{item.price}</p>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <button 
+                        onClick={() => onUpdateQuantity(item.cartId, item.quantity - 1)}
+                        className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center hover:bg-gray-100"
+                      >
+                        -
+                      </button>
+                      <span className="min-w-[2rem] text-center">{item.quantity}</span>
+                      <button 
+                        onClick={() => onUpdateQuantity(item.cartId, item.quantity + 1)}
+                        className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center hover:bg-gray-100"
+                      >
+                        +
+                      </button>
+                    </div>
+                    <button 
+                      onClick={() => onRemoveItem(item.cartId)}
+                      className="text-red-500 hover:text-red-700 p-2"
+                    >
+                      🗑️
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              {/* Order Summary */}
+              <div className="border-t pt-4">
+                <div className="space-y-2 mb-4">
+                  <div className="flex justify-between">
+                    <span>Tạm tính:</span>
+                    <span>{formatPrice(totalPrice)}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Phí vận chuyển:</span>
+                    <span className={shippingFee === 0 ? 'text-green-600' : ''}>
+                      {shippingFee === 0 ? 'Miễn phí' : formatPrice(shippingFee)}
+                    </span>
+                  </div>
+                  {totalPrice < 300000 && (
+                    <div className="text-sm text-amber-600">
+                      Mua thêm {formatPrice(300000 - totalPrice)} để được miễn phí ship
+                    </div>
+                  )}
+                  <div className="flex justify-between text-lg font-bold border-t pt-2">
+                    <span>Tổng cộng:</span>
+                    <span className="text-amber-800">{formatPrice(totalPrice + shippingFee)}</span>
+                  </div>
+                </div>
+
+                <button 
+                  onClick={onCheckout}
+                  className="w-full bg-amber-800 text-white py-3 rounded-lg hover:bg-amber-900 transition-colors font-semibold"
+                >
+                  Tiến hành thanh toán
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Checkout Modal Component
+export const CheckoutModal = ({ 
+  cartItems, 
+  onClose, 
+  totalPrice, 
+  shippingFee, 
+  onOrderComplete 
+}) => {
+  const [customerInfo, setCustomerInfo] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    address: '',
+    note: ''
+  });
+  const [paymentMethod, setPaymentMethod] = useState('cod');
+
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('vi-VN').format(price) + 'đ';
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!customerInfo.name || !customerInfo.phone || !customerInfo.address) {
+      alert('Vui lòng điền đầy đủ thông tin bắt buộc!');
+      return;
+    }
+    onOrderComplete();
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="flex justify-between items-center p-6 border-b">
+          <h2 className="text-2xl font-bold text-gray-800">Thanh toán</h2>
+          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 text-2xl">
+            ×
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmit} className="p-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Customer Information */}
+            <div>
+              <h3 className="text-xl font-bold mb-4">Thông tin giao hàng</h3>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Họ và tên *</label>
+                  <input
+                    type="text"
+                    required
+                    value={customerInfo.name}
+                    onChange={(e) => setCustomerInfo({...customerInfo, name: e.target.value})}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Số điện thoại *</label>
+                  <input
+                    type="tel"
+                    required
+                    value={customerInfo.phone}
+                    onChange={(e) => setCustomerInfo({...customerInfo, phone: e.target.value})}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Email</label>
+                  <input
+                    type="email"
+                    value={customerInfo.email}
+                    onChange={(e) => setCustomerInfo({...customerInfo, email: e.target.value})}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Địa chỉ giao hàng *</label>
+                  <textarea
+                    required
+                    rows="3"
+                    value={customerInfo.address}
+                    onChange={(e) => setCustomerInfo({...customerInfo, address: e.target.value})}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800"
+                  ></textarea>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Ghi chú</label>
+                  <textarea
+                    rows="2"
+                    value={customerInfo.note}
+                    onChange={(e) => setCustomerInfo({...customerInfo, note: e.target.value})}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800"
+                    placeholder="Ghi chú thêm cho đơn hàng..."
+                  ></textarea>
+                </div>
+              </div>
+
+              {/* Payment Method */}
+              <div className="mt-6">
+                <h3 className="text-xl font-bold mb-4">Phương thức thanh toán</h3>
+                <div className="space-y-3">
+                  <label className="flex items-center space-x-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                    <input
+                      type="radio"
+                      name="payment"
+                      value="cod"
+                      checked={paymentMethod === 'cod'}
+                      onChange={(e) => setPaymentMethod(e.target.value)}
+                      className="text-amber-800"
+                    />
+                    <div>
+                      <div className="font-medium">Thanh toán khi nhận hàng (COD)</div>
+                      <div className="text-sm text-gray-600">Thanh toán bằng tiền mặt khi nhận hàng</div>
+                    </div>
+                  </label>
+                  <label className="flex items-center space-x-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                    <input
+                      type="radio"
+                      name="payment"
+                      value="bank"
+                      checked={paymentMethod === 'bank'}
+                      onChange={(e) => setPaymentMethod(e.target.value)}
+                      className="text-amber-800"
+                    />
+                    <div>
+                      <div className="font-medium">Chuyển khoản ngân hàng</div>
+                      <div className="text-sm text-gray-600">Chuyển khoản trước khi giao hàng</div>
+                    </div>
+                  </label>
+                </div>
+
+                {paymentMethod === 'bank' && (
+                  <div className="mt-4 p-4 bg-amber-50 rounded-lg">
+                    <h4 className="font-bold mb-2">Thông tin chuyển khoản:</h4>
+                    <div className="text-sm space-y-1">
+                      <p><strong>Ngân hàng:</strong> Vietcombank</p>
+                      <p><strong>Số tài khoản:</strong> 1234567890</p>
+                      <p><strong>Chủ tài khoản:</strong> Sơn Mộc Hương</p>
+                      <p><strong>Nội dung:</strong> [Tên khách hàng] - [Số điện thoại]</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Order Summary */}
+            <div>
+              <h3 className="text-xl font-bold mb-4">Đơn hàng của bạn</h3>
+              <div className="bg-gray-50 rounded-lg p-4">
+                <div className="space-y-3 mb-4">
+                  {cartItems.map((item) => (
+                    <div key={item.cartId} className="flex justify-between">
+                      <div>
+                        <div className="font-medium">{item.name}</div>
+                        <div className="text-sm text-gray-600">
+                          {item.selectedSize && `Size: ${item.selectedSize} - `}
+                          Số lượng: {item.quantity}
+                        </div>
+                      </div>
+                      <div className="font-medium">
+                        {formatPrice(parseInt(item.price.replace(/[.,đ]/g, '')) * item.quantity)}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="border-t pt-3 space-y-2">
+                  <div className="flex justify-between">
+                    <span>Tạm tính:</span>
+                    <span>{formatPrice(totalPrice)}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Phí vận chuyển:</span>
+                    <span className={shippingFee === 0 ? 'text-green-600' : ''}>
+                      {shippingFee === 0 ? 'Miễn phí' : formatPrice(shippingFee)}
+                    </span>
+                  </div>
+                  <div className="flex justify-between text-lg font-bold border-t pt-2">
+                    <span>Tổng cộng:</span>
+                    <span className="text-amber-800">{formatPrice(totalPrice + shippingFee)}</span>
+                  </div>
+                </div>
+              </div>
+
+              <button 
+                type="submit"
+                className="w-full mt-6 bg-amber-800 text-white py-3 rounded-lg hover:bg-amber-900 transition-colors font-semibold"
+              >
+                Đặt hàng
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
