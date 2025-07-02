@@ -5,6 +5,27 @@ import { ArrowLeftIcon } from '../Icons';
 const NewsDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [readProgress, setReadProgress] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Smooth entrance animation
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Reading progress tracking
+  useEffect(() => {
+    const handleScroll = () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      setReadProgress(scrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const newsData = [
     {
