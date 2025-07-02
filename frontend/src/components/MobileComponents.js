@@ -45,8 +45,8 @@ export const MobileBottomNav = ({ cartCount, onCartClick }) => {
     <div className={`fixed bottom-0 left-0 right-0 z-50 lg:hidden transition-transform duration-300 ${
       isVisible ? 'translate-y-0' : 'translate-y-full'
     }`}>
-      {/* Glass effect background */}
-      <div className="bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-lg">
+      {/* Glass effect background with dark mode */}
+      <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700 shadow-lg dark:shadow-amber-900/20 transition-all duration-500">
         <div className="grid grid-cols-5 h-16">
           {navItems.map((item, index) => (
             <Link
