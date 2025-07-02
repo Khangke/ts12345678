@@ -764,6 +764,21 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test thành công toàn bộ flow tạo sample orders: (1) Tạo admin user thành công với endpoint /api/admin/create, (2) Login với admin/admin123 thành công và nhận được JWT token, (3) Seed 3 sample products với size-based pricing thành công, (4) Tạo 3 test orders với size-specific pricing và thông tin khách hàng khác nhau, (5) Cập nhật trạng thái của các orders thành 'confirmed', 'shipping', và giữ 1 order ở trạng thái 'pending', (6) Xác nhận tất cả orders tồn tại trong database với các trạng thái khác nhau. Tất cả API endpoints hoạt động đúng và dữ liệu được lưu trữ chính xác."
+      
+  - task: "Create order with delivered status"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Bắt đầu test tạo đơn hàng với trạng thái 'delivered' theo yêu cầu"
+      - working: true
+        agent: "testing"
+        comment: "Đã test thành công toàn bộ flow tạo đơn hàng với trạng thái 'delivered': (1) Login với admin/admin123 thành công và nhận được JWT token, (2) Lấy danh sách sản phẩm thành công, (3) Tạo đơn hàng mới với thông tin khách hàng 'Phạm Thị D' và sản phẩm có size-based pricing, (4) Cập nhật trạng thái đơn hàng thành 'delivered', (5) Xác nhận đơn hàng tồn tại với trạng thái 'delivered' trong database. Tất cả API endpoints hoạt động đúng và dữ liệu được lưu trữ chính xác."
 
 agent_communication:
   - agent: "main"
