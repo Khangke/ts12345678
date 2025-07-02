@@ -580,7 +580,7 @@ const OrderManagement = () => {
                 <div className="text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-4 rounded-xl">
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center space-x-2">
-                      <Calendar className="w-4 h-4" />
+                      <CalendarIcon className="w-4 h-4" />
                       <span>Ngày tạo: {new Date(selectedOrder.created_at).toLocaleString('vi-VN')}</span>
                     </div>
                     <div className="flex items-center space-x-2">
