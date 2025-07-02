@@ -194,6 +194,17 @@ const ProductManagement = () => {
     setShowCategoryDropdown(false);
   };
 
+  const handleCategoryDelete = (categoryToDelete) => {
+    const updatedCategories = availableCategories.filter(cat => cat !== categoryToDelete);
+    setAvailableCategories(updatedCategories);
+    
+    // If the deleted category was selected, clear it
+    if (formData.category === categoryToDelete) {
+      setFormData({ ...formData, category: '' });
+      setCategoryInput('');
+    }
+  };
+
   // Material management
   const handleMaterialSelect = (material) => {
     setFormData({ ...formData, material });
@@ -207,6 +218,17 @@ const ProductManagement = () => {
     }
     setFormData({ ...formData, material: materialInput });
     setShowMaterialDropdown(false);
+  };
+
+  const handleMaterialDelete = (materialToDelete) => {
+    const updatedMaterials = availableMaterials.filter(mat => mat !== materialToDelete);
+    setAvailableMaterials(updatedMaterials);
+    
+    // If the deleted material was selected, clear it
+    if (formData.material === materialToDelete) {
+      setFormData({ ...formData, material: '' });
+      setMaterialInput('');
+    }
   };
 
   const handleSubmit = async (e) => {
