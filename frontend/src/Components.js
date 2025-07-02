@@ -824,9 +824,34 @@ export const ProductsSection = ({ onProductClick }) => {
               </div>
             ))}
           </div>
+        ) : filteredProducts.length === 0 ? (
+          // No products found
+          <div className="text-center py-16">
+            <div className="mb-4">
+              <svg className="w-16 h-16 text-gray-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.291.94-5.709 2.291M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">Không tìm thấy sản phẩm</h3>
+            <p className="text-gray-600 dark:text-gray-400 mb-4">
+              {searchTerm 
+                ? `Không có sản phẩm nào phù hợp với từ khóa "${searchTerm}"`
+                : 'Không có sản phẩm nào trong danh mục này'
+              }
+            </p>
+            <button
+              onClick={() => {
+                setSearchTerm('');
+                setSelectedCategory('all');
+              }}
+              className="bg-amber-800 dark:bg-amber-600 text-white px-6 py-2 rounded-full hover:bg-amber-900 dark:hover:bg-amber-700 transition-all duration-300"
+            >
+              Xem tất cả sản phẩm
+            </button>
+          </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {products.map((product, index) => (
+            {filteredProducts.map((product, index) => (
               <div 
                 key={product.id} 
                 ref={setRef(index)}
