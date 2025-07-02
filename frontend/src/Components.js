@@ -490,12 +490,13 @@ export const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-12 h-12 bg-amber-800 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">TH</span>
+                <span className="text-white font-bold text-xl">SMH</span>
               </div>
-              <span className="text-2xl font-bold">Trầm Hương Shop</span>
+              <span className="text-2xl font-bold">Sơn Mộc Hương</span>
             </div>
             <p className="text-gray-400 mb-4">
-              Mang đến cho bạn những sản phẩm trầm hương cao cấp, giúp tạo không gian thư giãn và bình an.
+              Sơn Mộc Hương - Địa chỉ uy tín chuyên cung cấp các sản phẩm trầm hương chất lượng cao, 
+              từ thiên nhiên Việt Nam.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-amber-800 transition-colors">Facebook</a>
