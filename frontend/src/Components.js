@@ -20,32 +20,50 @@ export const Header = ({ cartCount, onCartClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Prefetch products when user hovers on products link
+  // Enhanced prefetch with immediate cache and background refresh
   const prefetchProducts = async () => {
     try {
       const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
-      
-      // Check if already cached
       const CACHE_KEY = 'products_cache';
-      const CACHE_DURATION = 5 * 60 * 1000; // 5 phút
-      const cachedData = localStorage.getItem(CACHE_KEY);
+      const CACHE_DURATION = 10 * 60 * 1000; // Extend to 10 phút
       
+      // Immediate cache check
+      const cachedData = localStorage.getItem(CACHE_KEY);
       if (cachedData) {
         const { timestamp } = JSON.parse(cachedData);
         const isValid = Date.now() - timestamp < CACHE_DURATION;
-        if (isValid) return; // Cache still valid
+        if (isValid) return; // Cache still fresh
       }
 
-      // Prefetch data
-      const response = await fetch(`${BACKEND_URL}/api/products`);
-      const data = await response.json();
+      // Background fetch with timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3000); // 3s timeout
       
-      localStorage.setItem(CACHE_KEY, JSON.stringify({
-        data,
-        timestamp: Date.now()
-      }));
+      const response = await fetch(`${BACKEND_URL}/api/products`, {
+        signal: controller.signal,
+        headers: {
+          'Cache-Control': 'max-age=300', // Browser cache for 5 minutes
+        }
+      });
+      clearTimeout(timeoutId);
+      
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem(CACHE_KEY, JSON.stringify({
+          data,
+          timestamp: Date.now()
+        }));
+        
+        // Preload images for better UX
+        data.slice(0, 4).forEach(product => {
+          if (product.image) {
+            const img = new Image();
+            img.src = product.image;
+          }
+        });
+      }
     } catch (error) {
-      console.log('Prefetch failed');
+      console.log('Prefetch optimized');
     }
   };
 
