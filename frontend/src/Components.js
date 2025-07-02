@@ -549,7 +549,7 @@ export const ProductsSection = ({ onProductClick }) => {
 
   const fetchProducts = async () => {
     try {
-      // Kiểm tra cache trước
+      // Priority 1: Check cache first for instant load
       const cachedData = localStorage.getItem(CACHE_KEY);
       if (cachedData) {
         const { data, timestamp } = JSON.parse(cachedData);
@@ -557,27 +557,43 @@ export const ProductsSection = ({ onProductClick }) => {
         
         if (isValid) {
           setProducts(data);
+          setFilteredProducts(data);
           setLoading(false);
-          return; // Dùng cache, không cần fetch API
+          return; // Instant load từ cache
         }
       }
 
-      // Nếu không có cache hoặc cache hết hạn, fetch từ API
+      // Priority 2: Fast API call with race condition handling
+      setLoading(true);
       const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
-      const response = await fetch(`${BACKEND_URL}/api/products`);
-      const data = await response.json();
       
-      // Lưu vào cache
-      localStorage.setItem(CACHE_KEY, JSON.stringify({
-        data,
-        timestamp: Date.now()
-      }));
+      // Race between API call and fallback timeout
+      const apiCall = fetch(`${BACKEND_URL}/api/products`);
+      const timeout = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('timeout')), 2000)
+      );
       
-      setProducts(data);
-      setFilteredProducts(data);
+      try {
+        const response = await Promise.race([apiCall, timeout]);
+        const data = await response.json();
+        
+        // Update cache
+        localStorage.setItem(CACHE_KEY, JSON.stringify({
+          data,
+          timestamp: Date.now()
+        }));
+        
+        setProducts(data);
+        setFilteredProducts(data);
+      } catch (error) {
+        // Fallback to static products for instant display
+        console.log('Using fallback products for speed');
+        const staticProducts = getStaticProducts();
+        setProducts(staticProducts);
+        setFilteredProducts(staticProducts);
+      }
     } catch (error) {
       console.error('Error fetching products:', error);
-      // Fallback to static products if API fails
       const staticProducts = getStaticProducts();
       setProducts(staticProducts);
       setFilteredProducts(staticProducts);
