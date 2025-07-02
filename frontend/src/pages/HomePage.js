@@ -3,7 +3,7 @@ import { HeroSection, FeaturesSection } from '../Components';
 
 const HomePage = () => {
   return (
-    <div className="pt-20">
+    <div>
       <HeroSection />
       <FeaturesSection />
     </div>
