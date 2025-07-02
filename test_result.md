@@ -451,7 +451,7 @@ frontend:
     file: "frontend/src/contexts/DarkModeContext.js"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
@@ -459,6 +459,9 @@ frontend:
       - working: true
         agent: "main"
         comment: "Đã tạo DarkModeContext với toggle, localStorage persistence, system preference detection. Cập nhật Tailwind với dark mode classes. Header đã có dark mode support."
+      - working: true
+        agent: "testing"
+        comment: "Đã test backend API sau frontend dark mode implementation và xác nhận tất cả API endpoints vẫn hoạt động đúng. Không có ảnh hưởng nào đến backend functionality."
 
 backend:
   - task: "Tạo database models cho products và orders"
