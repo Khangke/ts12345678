@@ -10,7 +10,8 @@ import {
   Footer,
   ProductDetailModal,
   CartModal,
-  CheckoutModal
+  CheckoutModal,
+  ToastNotification
 } from './Components';
 
 function App() {
@@ -18,6 +19,16 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const [showToast, setShowToast] = useState(false);
+
+  const showToastMessage = (message) => {
+    setToastMessage(message);
+    setShowToast(true);
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000);
+  };
 
   const addToCart = (product, quantity = 1, selectedSize = null) => {
     const existingItem = cartItems.find(item => 
@@ -30,6 +41,7 @@ function App() {
           ? { ...item, quantity: item.quantity + quantity }
           : item
       ));
+      showToastMessage(`Đã cập nhật ${product.name} trong giỏ hàng!`);
     } else {
       setCartItems([...cartItems, { 
         ...product, 
@@ -37,11 +49,32 @@ function App() {
         selectedSize,
         cartId: Date.now() + Math.random()
       }]);
+      showToastMessage(`Đã thêm ${product.name} vào giỏ hàng!`);
     }
+  };
+
+  const buyNow = (product, quantity = 1, selectedSize = null) => {
+    // Thêm sản phẩm vào giỏ hàng trước
+    const newItem = { 
+      ...product, 
+      quantity, 
+      selectedSize,
+      cartId: Date.now() + Math.random()
+    };
+    
+    // Clear giỏ hàng hiện tại và chỉ giữ sản phẩm mua ngay
+    setCartItems([newItem]);
+    
+    // Đóng modal sản phẩm và chuyển thẳng đến checkout
+    setSelectedProduct(null);
+    setShowCheckout(true);
+    
+    showToastMessage(`Tiến hành thanh toán cho ${product.name}`);
   };
 
   const removeFromCart = (cartId) => {
     setCartItems(cartItems.filter(item => item.cartId !== cartId));
+    showToastMessage('Đã xóa sản phẩm khỏi giỏ hàng!');
   };
 
   const updateCartQuantity = (cartId, newQuantity) => {
@@ -83,6 +116,7 @@ function App() {
           product={selectedProduct}
           onClose={() => setSelectedProduct(null)}
           onAddToCart={addToCart}
+          onBuyNow={buyNow}
         />
       )}
       
@@ -110,8 +144,15 @@ function App() {
           onOrderComplete={() => {
             setCartItems([]);
             setShowCheckout(false);
-            alert('Đặt hàng thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất.');
+            showToastMessage('Đặt hàng thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất.');
           }}
+        />
+      )}
+
+      {showToast && (
+        <ToastNotification
+          message={toastMessage}
+          onClose={() => setShowToast(false)}
         />
       )}
     </div>
