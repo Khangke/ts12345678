@@ -426,7 +426,7 @@ const OrderManagement = () => {
                 {/* Customer Info */}
                 <div className="mb-6 p-6 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-gray-700 dark:to-gray-600 rounded-xl border border-amber-200 dark:border-gray-600">
                   <h3 className="font-bold text-gray-800 dark:text-white mb-4 flex items-center text-lg">
-                    <User className="w-5 h-5 text-amber-600 mr-2" />
+                    <UserIcon className="w-5 h-5 text-amber-600 mr-2" />
                     Thông tin khách hàng
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
