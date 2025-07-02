@@ -933,15 +933,15 @@ const ProductManagement = () => {
                               type="text"
                               value={newSize.name}
                               onChange={(e) => setNewSize({ ...newSize, name: e.target.value })}
-                              placeholder="Tên size (vd: 16mm)"
-                              className="px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white text-base font-medium placeholder-gray-500 dark:placeholder-gray-400"
+                              placeholder="Tên size (ví dụ: 16mm)"
+                              className="px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white text-base font-medium placeholder-gray-400 dark:placeholder-gray-500"
                             />
                             <input
                               type="text"
                               value={newSize.price}
                               onChange={(e) => handleNewSizePriceChange(e.target.value)}
-                              placeholder="Giá (vd: 10.000 VNĐ)"
-                              className="px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white text-base font-medium placeholder-gray-500 dark:placeholder-gray-400"
+                              placeholder="Giá (ví dụ: 10.000 VNĐ)"
+                              className="px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white text-base font-medium placeholder-gray-400 dark:placeholder-gray-500"
                             />
                             <motion.button
                               whileHover={{ scale: 1.02 }}
