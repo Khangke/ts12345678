@@ -138,56 +138,61 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Header cartCount={cartCount} onCartClick={() => setShowCart(true)} />
-      <HeroSection />
-      <ProductsSection onProductClick={setSelectedProduct} />
-      <FeaturesSection />
-      <AboutSection />
-      <ContactSection />
-      <Footer />
-      
-      {selectedProduct && (
-        <ProductDetailModal
-          product={selectedProduct}
-          onClose={() => setSelectedProduct(null)}
-          onAddToCart={addToCart}
-          onBuyNow={buyNow}
-        />
-      )}
-      
-      {showCart && (
-        <CartModal
-          cartItems={cartItems}
-          onClose={() => setShowCart(false)}
-          onUpdateQuantity={updateCartQuantity}
-          onRemoveItem={removeFromCart}
-          onCheckout={() => {
-            setShowCart(false);
-            setShowCheckout(true);
-          }}
-          totalPrice={getTotalPrice()}
-          shippingFee={getShippingFee()}
-        />
-      )}
-      
-      {showCheckout && (
-        <CheckoutModal
-          cartItems={cartItems}
-          onClose={() => setShowCheckout(false)}
-          totalPrice={getTotalPrice()}
-          shippingFee={getShippingFee()}
-          onOrderComplete={handleOrderComplete}
-        />
-      )}
+    <Router>
+      <div className="App">
+        <Header cartCount={cartCount} onCartClick={() => setShowCart(true)} />
+        
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/products" element={<ProductsPage onProductClick={setSelectedProduct} />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+        
+        <Footer />
+        
+        {selectedProduct && (
+          <ProductDetailModal
+            product={selectedProduct}
+            onClose={() => setSelectedProduct(null)}
+            onAddToCart={addToCart}
+            onBuyNow={buyNow}
+          />
+        )}
+        
+        {showCart && (
+          <CartModal
+            cartItems={cartItems}
+            onClose={() => setShowCart(false)}
+            onUpdateQuantity={updateCartQuantity}
+            onRemoveItem={removeFromCart}
+            onCheckout={() => {
+              setShowCart(false);
+              setShowCheckout(true);
+            }}
+            totalPrice={getTotalPrice()}
+            shippingFee={getShippingFee()}
+          />
+        )}
+        
+        {showCheckout && (
+          <CheckoutModal
+            cartItems={cartItems}
+            onClose={() => setShowCheckout(false)}
+            totalPrice={getTotalPrice()}
+            shippingFee={getShippingFee()}
+            onOrderComplete={handleOrderComplete}
+          />
+        )}
 
-      {showToast && (
-        <ToastNotification
-          message={toastMessage}
-          onClose={() => setShowToast(false)}
-        />
-      )}
-    </div>
+        {showToast && (
+          <ToastNotification
+            message={toastMessage}
+            onClose={() => setShowToast(false)}
+          />
+        )}
+      </div>
+    </Router>
   );
 }
 
