@@ -572,7 +572,7 @@ export const ProductsSection = ({ onProductClick }) => {
       reviews: [
         { name: 'Bùi Thị H', rating: 4, comment: 'Nhang tăm dễ sử dụng, hương nhẹ nhàng' }
       ],
-      detailDescription: 'Nhang tăm trầm hương được làm từ bột trầm hương pha trộn với chất liệu tự nhiên, tạo hương thơm dễ chịu.'
+      detail_description: 'Nhang tăm trầm hương được làm từ bột trầm hương pha trộn với chất liệu tự nhiên, tạo hương thơm dễ chịu.'
     },
     {
       id: 7,
