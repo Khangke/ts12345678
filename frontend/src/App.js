@@ -201,6 +201,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/products" element={<ProductsPage onProductClick={setSelectedProduct} />} />
           <Route path="/news" element={<NewsPage />} />
+          <Route path="/news/:id" element={<NewsDetailPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/admin/*" element={<AdminApp />} />
         </Routes>
