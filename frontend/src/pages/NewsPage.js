@@ -371,20 +371,80 @@ const NewsPage = () => {
   };
 
   return (
-    <div className="pt-20 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/20 dark:from-gray-900 dark:via-amber-900/10 dark:to-orange-900/10 min-h-screen transition-colors duration-500">
+    <div className="pt-20 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/20 dark:from-gray-900 dark:via-amber-900/10 dark:to-orange-900/10 min-h-screen transition-colors duration-500 overflow-hidden">
       
-      {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-r from-amber-800/10 to-orange-600/10 dark:from-amber-500/20 dark:to-orange-500/20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-amber-100 mb-4 animate-fade-in-up">
-            Tin Tức
-            <span className="text-amber-800 dark:text-amber-300 block mt-2">Trầm Hương</span>
-          </h1>
-          <div className="w-32 h-1 bg-gradient-to-r from-amber-800 to-orange-600 dark:from-amber-400 dark:to-orange-400 mx-auto rounded-full mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}></div>
-          <p className="text-lg text-gray-600 dark:text-amber-200 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+      {/* Enhanced Hero Section with Parallax */}
+      <section className="relative py-20 bg-gradient-to-r from-amber-800/10 to-orange-600/10 dark:from-amber-500/20 dark:to-orange-500/20 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div ref={heroRef} className="absolute inset-0 opacity-10 dark:opacity-5">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-amber-300 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-32 right-20 w-24 h-24 bg-orange-300 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-20 left-1/3 w-40 h-40 bg-amber-200 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="animate-fade-in-up">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 dark:text-amber-100 mb-6 leading-tight">
+              <span className="bg-gradient-to-r from-amber-800 to-orange-600 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent animate-gradient-x">
+                Tin Tức
+              </span>
+              <br />
+              <span className="text-amber-800 dark:text-amber-300 block mt-2 text-4xl md:text-5xl">Trầm Hương</span>
+            </h1>
+          </div>
+          
+          <div className="w-40 h-1.5 bg-gradient-to-r from-amber-800 via-orange-600 to-amber-800 dark:from-amber-400 dark:via-orange-400 dark:to-amber-400 mx-auto rounded-full mb-8 animate-fade-in-up animate-shimmer" style={{ animationDelay: '0.3s' }}></div>
+          
+          <p className="text-xl text-gray-600 dark:text-amber-200 max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
             Khám phá thế giới trầm hương qua những bài viết chuyên sâu, từ kiến thức cơ bản đến xu hướng hiện đại. 
-            Cập nhật thông tin mới nhất về văn hóa, sức khỏe và nghệ thuật sống với trầm hương.
+            <br className="hidden md:block" />
+            <span className="text-amber-700 dark:text-amber-300 font-medium">Cập nhật thông tin mới nhất về văn hóa, sức khỏe và nghệ thuật sống với trầm hương.</span>
           </p>
+
+          {/* Enhanced Search Bar */}
+          <div className="max-w-2xl mx-auto mt-12 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
+            <div className="relative group">
+              <input
+                type="text"
+                placeholder="Tìm kiếm bài viết, chủ đề..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full px-8 py-5 pl-16 pr-12 text-lg border-2 border-amber-200 dark:border-amber-600/30 rounded-2xl focus:outline-none focus:border-amber-600 dark:focus:border-amber-400 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-500 shadow-xl focus:shadow-2xl group-hover:shadow-xl transform focus:scale-105"
+              />
+              <div className="absolute left-6 top-1/2 transform -translate-y-1/2">
+                <svg className="w-6 h-6 text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm('')}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-all duration-300 hover:scale-110 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-200/20 to-orange-200/20 dark:from-amber-600/10 dark:to-orange-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-amber-400 dark:bg-amber-300 rounded-full opacity-20 animate-float"
+              style={{
+                left: `${20 + i * 15}%`,
+                top: `${30 + (i % 3) * 20}%`,
+                animationDelay: `${i * 0.8}s`,
+                animationDuration: `${4 + i * 0.5}s`
+              }}
+            />
+          ))}
         </div>
       </section>
 
