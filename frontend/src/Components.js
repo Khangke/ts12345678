@@ -556,13 +556,58 @@ export const ProductsSection = ({ onProductClick }) => {
       }));
       
       setProducts(data);
+      setFilteredProducts(data);
     } catch (error) {
       console.error('Error fetching products:', error);
       // Fallback to static products if API fails
-      setProducts(getStaticProducts());
+      const staticProducts = getStaticProducts();
+      setProducts(staticProducts);
+      setFilteredProducts(staticProducts);
     } finally {
       setLoading(false);
     }
+  };
+
+  // Filter products based on category and search term
+  useEffect(() => {
+    let filtered = products;
+
+    // Filter by category
+    if (selectedCategory !== 'all') {
+      filtered = filtered.filter(product => 
+        product.category.toLowerCase().includes(selectedCategory.toLowerCase())
+      );
+    }
+
+    // Filter by search term
+    if (searchTerm) {
+      filtered = filtered.filter(product =>
+        product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.description.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    setFilteredProducts(filtered);
+  }, [products, selectedCategory, searchTerm]);
+
+  // Get unique categories from products
+  const getCategories = () => {
+    const categories = products.map(product => product.category);
+    return ['all', ...new Set(categories)];
+  };
+
+  const getCategoryDisplayName = (category) => {
+    const categoryNames = {
+      'all': 'Tất cả',
+      'Vòng tay trầm': 'Vòng tay trầm',
+      'Nhang nụ trầm': 'Nhang nụ',
+      'Vòng tay cao cấp': 'Vòng tay cao cấp',
+      'Tinh dầu trầm': 'Tinh dầu',
+      'Cảnh trầm': 'Cảnh trầm',
+      'Nhang tăm': 'Nhang tăm',
+      'Phụ kiện xông trầm': 'Phụ kiện xông trầm'
+    };
+    return categoryNames[category] || category;
   };
 
   const getStaticProducts = () => [
