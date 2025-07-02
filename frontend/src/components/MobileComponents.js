@@ -39,10 +39,10 @@ export const MobileBottomNav = ({ cartCount, onCartClick }) => {
   }, [lastScrollY]);
 
   const navItems = [
-    { path: '/', label: 'Trang chủ', icon: '🏠' },
-    { path: '/about', label: 'Giới thiệu', icon: '📖' },
-    { path: '/products', label: 'Sản phẩm', icon: '🛍️' },
-    { path: '/contact', label: 'Liên hệ', icon: '📞' },
+    { path: '/', label: 'Trang chủ', icon: <HomeIcon className="w-5 h-5" /> },
+    { path: '/about', label: 'Giới thiệu', icon: <BookIcon className="w-5 h-5" /> },
+    { path: '/products', label: 'Sản phẩm', icon: <ShoppingBagIcon className="w-5 h-5" /> },
+    { path: '/contact', label: 'Liên hệ', icon: <PhoneIcon className="w-5 h-5" /> },
   ];
 
   return (
