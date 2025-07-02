@@ -428,51 +428,6 @@ test_plan:
   test_all: true
   test_priority: "high_first"
 
-  - task: "Thêm animations/transitions đẹp hơn"
-    implemented: true
-    working: true
-    file: "frontend/src/Components.js"
-    stuck_count: 0
-    priority: "high"
-    needs_retesting: true
-    status_history:
-      - working: "NA"
-        agent: "main"
-        comment: "Bắt đầu thêm smooth animations, scroll effects, hover transitions nâng cao"
-      - working: true
-        agent: "main"
-        comment: "Đã thêm scroll animations, stagger effects, parallax, hover transitions đẹp cho Header, Hero, Features, Products. Cập nhật Tailwind config với keyframes tùy chỉnh."
-
-  - task: "Cải tiến UI/UX cho mobile"
-    implemented: true
-    working: true
-    file: "frontend/src/components/MobileComponents.js"
-    stuck_count: 0
-    priority: "high"
-    needs_retesting: true
-    status_history:
-      - working: "NA"
-        agent: "main"
-        comment: "Tối ưu mobile navigation, touch interactions, spacing và typography"
-      - working: true
-        agent: "main"
-        comment: "Đã tạo MobileBottomNav với sticky navigation, MobileQuickActions floating buttons, cải tiến touch interactions và responsive design"
-
-  - task: "Thêm dark mode"
-    implemented: true
-    working: true
-    file: "frontend/src/contexts/DarkModeContext.js"
-    stuck_count: 0
-    priority: "medium"
-    needs_retesting: true
-    status_history:
-      - working: "NA"
-        agent: "main"
-        comment: "Tạo dark mode context, theme toggle, persistence với localStorage"
-      - working: true
-        agent: "main"
-        comment: "Đã tạo DarkModeContext với toggle, localStorage persistence, system preference detection. Cập nhật Tailwind với dark mode classes. Header đã có dark mode support."
-
 agent_communication:
   - agent: "main"
     message: "Bắt đầu dự án chuyển từ single page application thành multi-page với navigation menu thực sự."
