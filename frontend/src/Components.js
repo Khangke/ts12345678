@@ -732,77 +732,77 @@ export const ProductsSection = ({ onProductClick }) => {
 // Contact Section Component
 export const ContactSection = () => {
   return (
-    <section id="contact" className="py-20 bg-gray-900">
+    <section id="contact" className="py-20 bg-gray-900 dark:bg-gray-950 transition-colors duration-500">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <h2 className="text-4xl font-bold text-white mb-6">
               Liên hệ với
               <br />
-              Sơn Mộc Hương
+              <span className="text-amber-400">Sơn Mộc Hương</span>
             </h2>
-            <p className="text-gray-300 mb-8">
+            <p className="text-gray-300 dark:text-gray-200 mb-8 transition-colors duration-300">
               Liên hệ với chúng tôi để được tư vấn về các sản phẩm trầm hương chất lượng cao. 
               Đội ngũ chuyên gia sẽ giúp bạn chọn lựa sản phẩm phù hợp nhất.
             </p>
-            <button className="bg-amber-800 text-white px-8 py-3 rounded-full hover:bg-amber-900 transition-colors">
+            <button className="bg-amber-800 dark:bg-amber-600 text-white px-8 py-3 rounded-full hover:bg-amber-900 dark:hover:bg-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1">
               Liên hệ ngay
             </button>
           </div>
 
-          <div className="bg-white rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Liên hệ với chúng tôi</h3>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg dark:shadow-amber-900/10 transition-all duration-500">
+            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 transition-colors duration-300">Liên hệ với chúng tôi</h3>
             
             <form className="space-y-4">
               <div>
                 <input 
                   type="text" 
                   placeholder="Họ và tên"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-amber-800 dark:focus:border-amber-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-300"
                 />
               </div>
               <div>
                 <input 
                   type="email" 
                   placeholder="Email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-amber-800 dark:focus:border-amber-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-300"
                 />
               </div>
               <div>
                 <input 
                   type="tel" 
                   placeholder="Số điện thoại"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-amber-800 dark:focus:border-amber-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-300"
                 />
               </div>
               <div>
                 <textarea 
                   placeholder="Tin nhắn của bạn"
                   rows="4"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-amber-800 dark:focus:border-amber-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-300"
                 ></textarea>
               </div>
               <button 
                 type="submit"
-                className="w-full bg-amber-800 text-white py-3 rounded-lg hover:bg-amber-900 transition-colors font-semibold"
+                className="w-full bg-amber-800 dark:bg-amber-600 text-white py-3 rounded-lg hover:bg-amber-900 dark:hover:bg-amber-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 Gửi tin nhắn
               </button>
             </form>
 
-            <div className="mt-8 pt-8 border-t border-gray-200">
+            <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
-                  <LocationIcon className="w-5 h-5 text-amber-800" />
-                  <span className="text-gray-600">3/29E đường 182, Phường Tăng Nhơn Phú A, TP. Thủ Đức, TPHCM</span>
+                  <LocationIcon className="w-5 h-5 text-amber-800 dark:text-amber-400" />
+                  <span className="text-gray-600 dark:text-gray-300 transition-colors duration-300">3/29E đường 182, Phường Tăng Nhơn Phú A, TP. Thủ Đức, TPHCM</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <PhoneIcon className="w-5 h-5 text-amber-800" />
-                  <span className="text-gray-600">0762 222 448</span>
+                  <PhoneIcon className="w-5 h-5 text-amber-800 dark:text-amber-400" />
+                  <span className="text-gray-600 dark:text-gray-300 transition-colors duration-300">0762 222 448</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <EmailIcon className="w-5 h-5 text-amber-800" />
-                  <span className="text-gray-600">sonmochuong@gmail.com</span>
+                  <EmailIcon className="w-5 h-5 text-amber-800 dark:text-amber-400" />
+                  <span className="text-gray-600 dark:text-gray-300 transition-colors duration-300">sonmochuong@gmail.com</span>
                 </div>
               </div>
             </div>
