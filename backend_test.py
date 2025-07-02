@@ -394,6 +394,88 @@ def test_admin_stats(token: str):
                     f"Expected status 200 with stats data, got {response.status_code}")
     except Exception as e:
         log_test("Admin Stats", False, error=str(e))
+def test_backward_compatibility(token: str):
+    """Test backward compatibility with products without size_prices"""
+    # Create a product without size_prices
+    new_product_id = None
+    try:
+        new_product = {
+            "name": "Legacy Agarwood Product",
+            "description": "A product without size-based pricing",
+            "detail_description": "This product tests backward compatibility",
+            "price": "500.000đ",
+            "images": ["data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="],
+            "category": "Incense",
+            "material": "Agarwood",
+            "sizes": []  # No sizes
+            # Intentionally omitting size_prices
+        }
+        
+        response = requests.post(
+            f"{API_URL}/admin/products",
+            headers={"Authorization": f"Bearer {token}"},
+            json=new_product
+        )
+        
+        if response.status_code == 200 and "id" in response.json():
+            new_product_id = response.json()["id"]
+            log_test("Backward Compatibility - Create Product Without Size Pricing", True, response)
+        else:
+            log_test("Backward Compatibility - Create Product Without Size Pricing", False, response, 
+                    f"Expected status 200 with id, got {response.status_code}")
+    except Exception as e:
+        log_test("Backward Compatibility - Create Product Without Size Pricing", False, error=str(e))
+    
+    # Create an order with the legacy product
+    if new_product_id:
+        try:
+            # Create an order with the legacy product
+            order_data = {
+                "customer_name": "Legacy Customer",
+                "customer_phone": "0987654321",
+                "customer_email": "legacy@example.com",
+                "customer_address": "456 Legacy Street",
+                "note": "This is a legacy order without size-specific pricing",
+                "items": [
+                    {
+                        "product_id": new_product_id,
+                        "product_name": new_product["name"],
+                        "price": new_product["price"],
+                        "quantity": 1
+                        # Intentionally omitting selected_size and size_specific_price
+                    }
+                ],
+                "total_price": int(new_product["price"].replace(".", "").replace("đ", "")),
+                "shipping_fee": 30000
+            }
+            
+            order_response = requests.post(
+                f"{API_URL}/orders",
+                json=order_data
+            )
+            
+            if order_response.status_code == 200 and "id" in order_response.json():
+                log_test("Backward Compatibility - Create Order Without Size Pricing", True, order_response)
+            else:
+                log_test("Backward Compatibility - Create Order Without Size Pricing", False, order_response,
+                        f"Failed to create legacy order: {order_response.status_code}")
+        except Exception as e:
+            log_test("Backward Compatibility - Create Order Without Size Pricing", False, error=str(e))
+        
+        # Clean up - delete the test product
+        try:
+            delete_response = requests.delete(
+                f"{API_URL}/admin/products/{new_product_id}",
+                headers={"Authorization": f"Bearer {token}"}
+            )
+            
+            if delete_response.status_code == 200:
+                print(f"  Cleaned up test product: {new_product_id}")
+            else:
+                print(f"  Failed to clean up test product: {delete_response.status_code}")
+        except Exception as e:
+            print(f"  Error cleaning up test product: {str(e)}")
+
 
 def test_public_products():
     """Test public products endpoint with size-based pricing"""
