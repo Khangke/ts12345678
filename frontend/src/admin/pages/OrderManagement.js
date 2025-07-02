@@ -548,17 +548,30 @@ const OrderManagement = () => {
                     {['pending', 'confirmed', 'shipping', 'delivered', 'cancelled'].map((status) => (
                       <motion.button
                         key={status}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: (selectedOrder.status === status || isUpdatingStatus) ? 1 : 1.05 }}
+                        whileTap={{ scale: (selectedOrder.status === status || isUpdatingStatus) ? 1 : 0.95 }}
                         onClick={() => updateOrderStatus(selectedOrder.id, status)}
-                        disabled={selectedOrder.status === status}
-                        className={`px-6 py-3 rounded-xl font-semibold transition-all shadow-md ${
+                        disabled={selectedOrder.status === status || isUpdatingStatus}
+                        className={`px-6 py-3 rounded-xl font-semibold transition-all shadow-md flex items-center space-x-2 ${
                           selectedOrder.status === status
                             ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                            : isUpdatingStatus
+                            ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                             : 'bg-white text-gray-800 hover:bg-gray-50 border-2 border-gray-200 hover:border-amber-300 hover:text-amber-700 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600'
                         }`}
                       >
-                        {getStatusText(status)}
+                        {isUpdatingStatus ? (
+                          <>
+                            <motion.div
+                              animate={{ rotate: 360 }}
+                              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                              className="w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full"
+                            />
+                            <span>Đang cập nhật...</span>
+                          </>
+                        ) : (
+                          <span>{getStatusText(status)}</span>
+                        )}
                       </motion.button>
                     ))}
                   </div>
