@@ -603,13 +603,13 @@ const ProductManagement = () => {
                             type="text"
                             value={formData.price}
                             onChange={(e) => handlePriceChange(e.target.value)}
-                            placeholder="99.999vnđ"
+                            placeholder="10.000 VNĐ"
                             className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
                             required
                           />
                         </div>
                         <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                          Nhập số, ví dụ: 99999 → 99.999vnđ
+                          Nhập số, ví dụ: 10000 → 10.000 VNĐ
                         </p>
                       </div>
 
