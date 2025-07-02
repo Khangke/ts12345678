@@ -98,11 +98,10 @@ const ProductManagement = () => {
     e.preventDefault();
     
     try {
-      const sizesArray = formData.sizes.length > 0 ? formData.sizes : formData.sizesText?.split(',').map(s => s.trim()).filter(s => s) || [];
-      
       const productData = {
         ...formData,
-        sizes: sizesArray
+        image: formData.images[0] || formData.image, // Backwards compatibility
+        images: formData.images.length > 0 ? formData.images : [formData.image].filter(Boolean)
       };
 
       if (editingProduct) {
