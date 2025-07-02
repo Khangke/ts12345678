@@ -557,7 +557,7 @@ export const ProductsSection = ({ onProductClick }) => {
       reviews: [
         { name: 'Đỗ Văn G', rating: 5, comment: 'Cảnh trầm đẹp, thích hợp trang trí' }
       ],
-      detailDescription: 'Cảnh trầm hương được chế tác thủ công từ gỗ trầm hương tự nhiên, mang ý nghĩa phong thủy tốt lành.'
+      detail_description: 'Cảnh trầm hương được chế tác thủ công từ gỗ trầm hương tự nhiên, mang ý nghĩa phong thủy tốt lành.'
     },
     {
       id: 6,
