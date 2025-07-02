@@ -18,7 +18,8 @@ const ProductManagement = () => {
     images: [],
     category: '',
     material: '',
-    sizes: []
+    sizes: [],
+    size_prices: {}
   });
 
   useEffect(() => {
