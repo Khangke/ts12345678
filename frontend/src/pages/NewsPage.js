@@ -56,7 +56,7 @@ const NewsPage = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const categories = ['all', 'Kiến thức', 'Sức khỏe', 'Hướng dẫn', 'Văn hóa', 'Đầu tư', 'Xu hướng', 'Phong thủy', 'Y học', 'Lịch sử', 'Kỹ thuật', 'Kinh nghiệm', 'Spa & Wellness', 'Tâm linh', 'Thị trường', 'Bảo dưỡng', 'Liệu pháp', 'An toàn', 'Kiến trúc', 'Môi trường', 'Công nghệ', 'Nghệ thuật', 'Ẩm thực', 'Pháp lý', 'Nghiên cứu', 'Tương lai'];
+  const categories = ['all', 'Kiến thức', 'Sức khỏe', 'Hướng dẫn', 'Văn hóa', 'Đầu tư', 'Xu hướng', 'Phong thủy', 'Y học', 'Lịch sử', 'Kỹ thuật', 'Kinh nghiệm', 'Spa & Wellness', 'Tâm linh', 'Thị trường', 'Bảo dưỡng', 'Liệu pháp', 'An toàn', 'Kiến trúc', 'Môi trường', 'Công nghệ', 'Nghệ thuật', 'Ẩm thực', 'Pháp lý', 'Nghiên cứu', 'Tương lai', 'Cộng đồng'];
 
   const filteredNews = selectedCategory === 'all' 
     ? newsData.filter(item => 
