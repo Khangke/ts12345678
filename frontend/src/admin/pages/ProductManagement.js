@@ -894,14 +894,14 @@ const ProductManagement = () => {
                               value={newSize.name}
                               onChange={(e) => setNewSize({ ...newSize, name: e.target.value })}
                               placeholder="Tên size (vd: 16mm)"
-                              className="px-3 py-2 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                              className="px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white text-base font-medium placeholder-gray-500 dark:placeholder-gray-400"
                             />
                             <input
                               type="text"
                               value={newSize.price}
                               onChange={(e) => handleNewSizePriceChange(e.target.value)}
-                              placeholder="10.000 VNĐ"
-                              className="px-3 py-2 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                              placeholder="Giá (vd: 10.000 VNĐ)"
+                              className="px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white text-base font-medium placeholder-gray-500 dark:placeholder-gray-400"
                             />
                             <motion.button
                               whileHover={{ scale: 1.02 }}
@@ -909,7 +909,7 @@ const ProductManagement = () => {
                               type="button"
                               onClick={handleAddSize}
                               disabled={!newSize.name || !newSize.price}
-                              className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-4 py-2 rounded-lg hover:from-amber-700 hover:to-orange-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                              className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-4 py-3 rounded-lg hover:from-amber-700 hover:to-orange-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center font-semibold text-base"
                             >
                               <Plus className="w-4 h-4 mr-1" />
                               Thêm
