@@ -131,10 +131,42 @@ export const Header = ({ cartCount, onCartClick }) => {
         {isMenuOpen && (
           <div className="lg:hidden mt-4 pb-4">
             <nav className="flex flex-col space-y-3">
-              <a href="#home" className="text-gray-700 hover:text-amber-800 transition-colors">Trang chủ</a>
-              <a href="#about" className="text-gray-700 hover:text-amber-800 transition-colors">Giới thiệu</a>
-              <a href="#products" className="text-gray-700 hover:text-amber-800 transition-colors">Sản phẩm</a>
-              <a href="#contact" className="text-gray-700 hover:text-amber-800 transition-colors">Liên hệ</a>
+              <Link 
+                to="/" 
+                className={`text-gray-700 hover:text-amber-800 transition-colors ${
+                  isActive('/') ? 'text-amber-800 font-semibold' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Trang chủ
+              </Link>
+              <Link 
+                to="/about" 
+                className={`text-gray-700 hover:text-amber-800 transition-colors ${
+                  isActive('/about') ? 'text-amber-800 font-semibold' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Giới thiệu
+              </Link>
+              <Link 
+                to="/products" 
+                className={`text-gray-700 hover:text-amber-800 transition-colors ${
+                  isActive('/products') ? 'text-amber-800 font-semibold' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Sản phẩm
+              </Link>
+              <Link 
+                to="/contact" 
+                className={`text-gray-700 hover:text-amber-800 transition-colors ${
+                  isActive('/contact') ? 'text-amber-800 font-semibold' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Liên hệ
+              </Link>
             </nav>
           </div>
         )}
