@@ -485,93 +485,164 @@ const NewsPage = () => {
           </p>
         </div>
 
-        {/* News Grid */}
-        <div ref={newsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredNews.map((news, index) => (
-            <article 
-              key={news.id}
-              className={`group bg-white dark:bg-gray-800/90 dark:backdrop-blur-sm rounded-2xl shadow-lg dark:shadow-amber-900/20 overflow-hidden hover:shadow-2xl dark:hover:shadow-amber-500/30 transition-all duration-500 hover:transform hover:scale-105 hover:-translate-y-2 cursor-pointer border border-gray-100 dark:border-amber-700/30 ${
-                isNewsVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'
-              }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-              onClick={() => navigate(`/news/${news.id}`)}
-            >
-              {/* Image */}
-              <div className="relative overflow-hidden h-48">
-                <img 
-                  src={news.image}
-                  alt={news.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-4 left-4">
-                  <span className="bg-amber-800 dark:bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">
-                    {news.category}
-                  </span>
-                </div>
-                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                    <span className="text-xs text-amber-800 dark:text-amber-400 font-medium">{news.readTime}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 dark:text-amber-100 mb-3 group-hover:text-amber-800 dark:group-hover:text-amber-300 transition-colors duration-300 line-clamp-2">
-                  {news.title}
-                </h3>
-                <p className="text-gray-600 dark:text-amber-200/80 text-sm mb-4 line-clamp-3 transition-colors duration-300">
-                  {news.excerpt}
-                </p>
-                
-                <div className="flex items-center justify-between text-xs text-gray-500 dark:text-amber-300/70 mb-4">
-                  <span className="flex items-center space-x-2">
-                    <div className="w-6 h-6 bg-amber-100 dark:bg-amber-600/30 rounded-full flex items-center justify-center">
-                      <span className="text-amber-800 dark:text-amber-300 font-bold text-xs">A</span>
+        {/* Enhanced News Grid with Staggered Animations */}
+        <div className="relative">
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[...Array(6)].map((_, index) => (
+                <div key={index} className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden animate-pulse">
+                  <div className="w-full h-56 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700"></div>
+                  <div className="p-8 space-y-4">
+                    <div className="h-4 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded w-3/4"></div>
+                    <div className="h-3 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded w-full"></div>
+                    <div className="h-3 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded w-2/3"></div>
+                    <div className="flex justify-between items-center">
+                      <div className="h-6 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded w-1/3"></div>
+                      <div className="h-8 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded w-24"></div>
                     </div>
-                    <span className="dark:text-amber-200">{news.author}</span>
-                  </span>
-                  <span className="dark:text-amber-200">{formatDate(news.date)}</span>
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <button 
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      navigate(`/news/${news.id}`);
-                    }}
-                    className="text-amber-800 dark:text-amber-300 font-medium text-sm hover:text-amber-900 dark:hover:text-amber-200 transition-colors duration-300 group-hover:underline"
-                  >
-                    Đọc thêm →
-                  </button>
-                  <div className="w-8 h-8 bg-amber-100 dark:bg-amber-600/30 rounded-full flex items-center justify-center group-hover:bg-amber-200 dark:group-hover:bg-amber-500/50 transition-colors duration-300">
-                    <span className="text-amber-800 dark:text-amber-300 text-xs">📖</span>
                   </div>
                 </div>
-
-                {/* Animated progress bar */}
-                <div className="mt-4 h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="h-full bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-400 dark:to-orange-400 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></div>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        {/* No results */}
-        {filteredNews.length === 0 && (
-          <div className="text-center py-16">
-            <div className="mb-4">
-              <svg className="w-16 h-16 text-gray-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-              </svg>
+              ))}
             </div>
-            <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">Chưa có bài viết</h3>
-            <p className="text-gray-600 dark:text-gray-400">Không có bài viết nào trong danh mục này</p>
-          </div>
-        )}
+          ) : filteredNews.length === 0 ? (
+            <div className="text-center py-20">
+              <div className="mb-8 animate-bounce">
+                <svg className="w-20 h-20 text-amber-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Không tìm thấy bài viết</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg">
+                {searchTerm 
+                  ? `Không có bài viết nào phù hợp với từ khóa "${searchTerm}"`
+                  : 'Không có bài viết nào trong danh mục này'
+                }
+              </p>
+              <button
+                onClick={() => {
+                  setSearchTerm('');
+                  setSelectedCategory('all');
+                }}
+                className="bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white px-8 py-4 rounded-2xl hover:from-amber-900 hover:to-amber-800 dark:hover:from-amber-700 dark:hover:to-amber-600 transition-all duration-500 font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105"
+              >
+                Xem tất cả bài viết
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredNews.map((news, index) => (
+                <article 
+                  key={news.id}
+                  data-index={index}
+                  className={`group bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-3xl shadow-xl dark:shadow-amber-900/20 overflow-hidden hover:shadow-2xl dark:hover:shadow-amber-500/30 transition-all duration-700 hover:transform hover:scale-105 hover:-translate-y-3 cursor-pointer border border-gray-100/50 dark:border-amber-700/30 ${
+                    visibleCards.has(index) ? 'animate-fade-in-up opacity-100' : 'opacity-0 translate-y-8'
+                  }`}
+                  style={{ 
+                    animationDelay: `${index * 0.15}s`,
+                    transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
+                  }}
+                  onClick={() => navigate(`/news/${news.id}`)}
+                >
+                  {/* Enhanced Image Section */}
+                  <div className="relative overflow-hidden h-56">
+                    <img 
+                      src={news.image}
+                      alt={news.title}
+                      className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-1000 ease-out"
+                      loading="lazy"
+                    />
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+                    
+                    {/* Category Badge */}
+                    <div className="absolute top-6 left-6 transform group-hover:scale-110 transition-transform duration-300">
+                      <span className="bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg backdrop-blur-sm">
+                        {news.category}
+                      </span>
+                    </div>
+                    
+                    {/* Read Time */}
+                    <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
+                      <div className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+                        <span className="text-sm text-amber-800 dark:text-amber-400 font-semibold flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          {news.readTime}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Floating Read Button */}
+                    <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                      <button className="bg-amber-600 hover:bg-amber-700 text-white p-3 rounded-full shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Enhanced Content Section */}
+                  <div className="p-8 relative">
+                    {/* Title */}
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-amber-100 mb-4 group-hover:text-amber-800 dark:group-hover:text-amber-300 transition-colors duration-500 line-clamp-2 leading-tight">
+                      {news.title}
+                    </h3>
+                    
+                    {/* Excerpt */}
+                    <p className="text-gray-600 dark:text-amber-200/80 text-sm mb-6 line-clamp-3 transition-colors duration-500 leading-relaxed">
+                      {news.excerpt}
+                    </p>
+                    
+                    {/* Author & Date */}
+                    <div className="flex items-center justify-between text-xs text-gray-500 dark:text-amber-300/70 mb-6">
+                      <span className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-gradient-to-br from-amber-400 to-amber-600 dark:from-amber-500 dark:to-amber-700 rounded-full flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-300">
+                          <span className="text-white font-bold text-sm">
+                            {news.author.split(' ').pop().charAt(0)}
+                          </span>
+                        </div>
+                        <span className="dark:text-amber-200 font-medium">{news.author}</span>
+                      </span>
+                      <span className="dark:text-amber-200 bg-gray-100 dark:bg-gray-700/50 px-3 py-1 rounded-full">
+                        {formatDate(news.date)}
+                      </span>
+                    </div>
+
+                    {/* Enhanced Action Button */}
+                    <div className="flex items-center justify-between">
+                      <button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/news/${news.id}`);
+                        }}
+                        className="group/btn text-amber-800 dark:text-amber-300 font-semibold text-sm hover:text-amber-900 dark:hover:text-amber-200 transition-all duration-300 flex items-center space-x-2"
+                      >
+                        <span>Đọc thêm</span>
+                        <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                      
+                      <div className="w-10 h-10 bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-600/30 dark:to-amber-500/30 rounded-full flex items-center justify-center group-hover:from-amber-200 group-hover:to-amber-300 dark:group-hover:from-amber-500/50 dark:group-hover:to-amber-400/50 transition-all duration-500 shadow-md group-hover:shadow-lg transform group-hover:rotate-12">
+                        <span className="text-amber-800 dark:text-amber-300 text-sm">📖</span>
+                      </div>
+                    </div>
+
+                    {/* Enhanced Progress Bar */}
+                    <div className="mt-6 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-all duration-500">
+                      <div className="h-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 dark:from-amber-400 dark:via-orange-400 dark:to-amber-500 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-out"></div>
+                    </div>
+
+                    {/* Decorative Elements */}
+                    <div className="absolute top-4 right-4 w-12 h-12 bg-gradient-to-br from-amber-400/10 to-orange-400/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
 
     </div>
