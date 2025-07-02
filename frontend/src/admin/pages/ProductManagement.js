@@ -1030,18 +1030,37 @@ const ProductManagement = () => {
                 </p>
                 <div className="flex space-x-4">
                   <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    whileHover={{ scale: isDeleting ? 1 : 1.02 }}
+                    whileTap={{ scale: isDeleting ? 1 : 0.98 }}
                     onClick={() => handleDelete(deleteConfirm.id)}
-                    className="flex-1 bg-red-600 text-white py-3 rounded-xl hover:bg-red-700 transition-colors font-semibold"
+                    disabled={isDeleting}
+                    className={`flex-1 bg-red-600 text-white py-3 rounded-xl transition-colors font-semibold flex items-center justify-center space-x-2 ${
+                      isDeleting 
+                        ? 'opacity-75 cursor-not-allowed' 
+                        : 'hover:bg-red-700'
+                    }`}
                   >
-                    Xóa sản phẩm
+                    {isDeleting ? (
+                      <>
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
+                        />
+                        <span>Đang xóa...</span>
+                      </>
+                    ) : (
+                      <span>Xóa sản phẩm</span>
+                    )}
                   </motion.button>
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setDeleteConfirm(null)}
-                    className="flex-1 bg-gray-500 text-white py-3 rounded-xl hover:bg-gray-600 transition-colors font-semibold"
+                    disabled={isDeleting}
+                    className={`flex-1 bg-gray-500 text-white py-3 rounded-xl transition-colors font-semibold ${
+                      isDeleting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-600'
+                    }`}
                   >
                     Hủy
                   </motion.button>
