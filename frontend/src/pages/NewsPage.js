@@ -448,22 +448,41 @@ const NewsPage = () => {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-12">
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((category) => (
+      <div className="container mx-auto px-4 py-16">
+        {/* Enhanced Category Filter */}
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {categories.map((category, index) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:shadow-lg transform hover:scale-105 ${
+              className={`group px-8 py-4 rounded-2xl text-sm font-semibold transition-all duration-500 hover:shadow-2xl transform hover:scale-110 hover:-translate-y-1 ${
                 selectedCategory === category
-                  ? 'bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white shadow-lg scale-105'
-                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:border-amber-300 dark:hover:border-amber-600'
+                  ? 'bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white shadow-2xl scale-110 -translate-y-1'
+                  : 'bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-700 dark:text-gray-300 border-2 border-gray-200 dark:border-gray-700 hover:bg-amber-50 dark:hover:bg-amber-900/30 hover:border-amber-400 dark:hover:border-amber-500'
               }`}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {category === 'all' ? 'Tất cả' : category}
+              <span className="relative z-10">
+                {category === 'all' ? 'Tất cả' : category}
+              </span>
+              <div className={`absolute inset-0 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                selectedCategory === category ? 'opacity-100' : ''
+              }`}></div>
             </button>
           ))}
+        </div>
+
+        {/* Results Info */}
+        <div className="text-center mb-12 animate-fade-in-up">
+          <p className="text-lg text-gray-600 dark:text-gray-400 transition-colors duration-300">
+            <span className="text-amber-800 dark:text-amber-400 font-bold text-xl">{filteredNews.length}</span> bài viết
+            {searchTerm && (
+              <span> cho "<span className="font-semibold text-amber-800 dark:text-amber-400">{searchTerm}</span>"</span>
+            )}
+            {selectedCategory !== 'all' && !searchTerm && (
+              <span> trong danh mục <span className="font-semibold text-amber-800 dark:text-amber-400">{selectedCategory}</span></span>
+            )}
+          </p>
         </div>
 
         {/* News Grid */}
