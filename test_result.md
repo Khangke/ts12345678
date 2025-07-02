@@ -374,3 +374,5 @@ agent_communication:
     message: "Bắt đầu giai đoạn 2: Cải tiến thiết kế nâng cao - animations/transitions, mobile UX và dark mode."
   - agent: "main"
     message: "Hoàn thành Phase 1 - Thiết kế nâng cao: ✅ Animations/transitions với scroll effects, stagger animations, parallax ✅ Mobile UX với bottom nav, quick actions, touch interactions ✅ Dark mode với context, toggle, persistence. Frontend compile thành công, sẵn sàng testing."
+  - agent: "main"
+    message: "Bắt đầu Phase 2 - Admin Panel: Tạo hệ thống quản lý sản phẩm, đơn hàng và admin dashboard riêng biệt tại /admin route."
