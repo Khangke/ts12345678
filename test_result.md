@@ -801,6 +801,8 @@ agent_communication:
     message: "Đã test thành công toàn bộ flow tạo sample orders theo yêu cầu: (1) Tạo admin user thành công với endpoint /api/admin/create, (2) Login với admin/admin123 thành công và nhận được JWT token, (3) Seed 3 sample products với size-based pricing thành công, (4) Tạo 3 test orders với size-specific pricing và thông tin khách hàng khác nhau, (5) Cập nhật trạng thái của các orders thành 'confirmed', 'shipping', và giữ 1 order ở trạng thái 'pending', (6) Xác nhận tất cả orders tồn tại trong database với các trạng thái khác nhau. Tất cả API endpoints hoạt động đúng và dữ liệu được lưu trữ chính xác."
   - agent: "testing"
     message: "Đã test chức năng clickable rows trong Order Management: ✅ Clicking trên các phần khác nhau của order row (ID, customer name) đều mở modal chi tiết đơn hàng ✅ Clicking trên status dropdown không trigger row click (stopPropagation hoạt động đúng) ✅ Nút 'Chi tiết' vẫn hoạt động bình thường ✅ Tab navigation giữa 'Chờ xử lý' và 'Đã xử lý' hoạt động tốt ✅ Không phát hiện lỗi console trong quá trình test"
+  - agent: "testing"
+    message: "Đã test thành công tạo đơn hàng với trạng thái 'delivered' theo yêu cầu: (1) Login admin thành công với admin/admin123, (2) Lấy danh sách sản phẩm, (3) Tạo đơn hàng mới với thông tin khách hàng 'Phạm Thị D' và sản phẩm có size-based pricing, (4) Cập nhật trạng thái đơn hàng thành 'delivered', (5) Xác nhận đơn hàng tồn tại với trạng thái 'delivered' trong database. Đơn hàng này sẽ hiển thị trong tab 'Đã xử lý' của OrderManagement."
   - task: "Fix font display issues in size and price sections"
     implemented: true
     working: true
