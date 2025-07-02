@@ -863,12 +863,172 @@ def test_sample_orders_flow():
     print(f"{Colors.HEADER}SAMPLE ORDERS FLOW COMPLETED{Colors.ENDC}")
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
 
+def test_create_delivered_order():
+    """Test creating an order with 'delivered' status as requested:
+    1. Login as admin to get token
+    2. Get products list
+    3. Create new order with specific customer info
+    4. Update status to 'delivered'
+    5. Verify order exists with 'delivered' status
+    """
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    print(f"{Colors.HEADER}TESTING CREATE DELIVERED ORDER FLOW{Colors.ENDC}")
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    
+    # Step 1: Admin login
+    token = None
+    try:
+        response = requests.post(
+            f"{API_URL}/admin/login",
+            json={"username": ADMIN_USERNAME, "password": ADMIN_PASSWORD}
+        )
+        
+        if response.status_code == 200 and "access_token" in response.json():
+            token = response.json()["access_token"]
+            log_test("Admin Login for Delivered Order", True, response)
+        else:
+            log_test("Admin Login for Delivered Order", False, response, 
+                    f"Expected status 200 with access_token, got {response.status_code}")
+    except Exception as e:
+        log_test("Admin Login for Delivered Order", False, error=str(e))
+    
+    if not token:
+        print(f"{Colors.FAIL}Cannot proceed without admin token{Colors.ENDC}")
+        return
+    
+    # Step 2: Get products
+    products = []
+    try:
+        response = requests.get(f"{API_URL}/products")
+        
+        if response.status_code == 200 and isinstance(response.json(), list):
+            products = response.json()
+            log_test("Get Products for Delivered Order", True)
+            print(f"  Found {len(products)} products")
+        else:
+            log_test("Get Products for Delivered Order", False, response, 
+                    f"Expected status 200 with array, got {response.status_code}")
+    except Exception as e:
+        log_test("Get Products for Delivered Order", False, error=str(e))
+    
+    if not products:
+        print(f"{Colors.FAIL}Cannot create order without products{Colors.ENDC}")
+        return
+    
+    # Step 3: Create new order with specific customer info
+    order_id = None
+    try:
+        # Select a product with size-based pricing
+        product = products[0]  # Use the first product
+        
+        # Get a size and its price
+        if product.get("size_prices") and product.get("sizes"):
+            selected_size = product["sizes"][0]
+            size_specific_price = product["size_prices"][selected_size]
+            
+            # Create order with the specified customer info
+            order_data = {
+                "customer_name": "Phạm Thị D",
+                "customer_phone": "0913456789",
+                "customer_email": "phamthid@example.com",
+                "customer_address": "321 Đường Pasteur, Quận 3, TP.HCM",
+                "note": "Đã nhận hàng và rất hài lòng",
+                "items": [
+                    {
+                        "product_id": product["id"],
+                        "product_name": product["name"],
+                        "price": size_specific_price,
+                        "quantity": 1,
+                        "selected_size": selected_size,
+                        "size_specific_price": size_specific_price
+                    }
+                ],
+                "total_price": int(size_specific_price.replace(".", "").replace("đ", "")),
+                "shipping_fee": 30000
+            }
+            
+            response = requests.post(
+                f"{API_URL}/orders",
+                json=order_data
+            )
+            
+            if response.status_code == 200 and "id" in response.json():
+                order_id = response.json()["id"]
+                log_test("Create New Order for Delivered Status", True, response)
+                print(f"  Created order with ID: {order_id}")
+                print(f"  Customer: {order_data['customer_name']}")
+                print(f"  Product: {product['name']} (Size: {selected_size}, Price: {size_specific_price})")
+            else:
+                log_test("Create New Order for Delivered Status", False, response, 
+                        f"Expected status 200 with id, got {response.status_code}")
+        else:
+            log_test("Create New Order for Delivered Status", False, 
+                    error=f"Product {product['name']} doesn't have size-based pricing")
+    except Exception as e:
+        log_test("Create New Order for Delivered Status", False, error=str(e))
+    
+    if not order_id:
+        print(f"{Colors.FAIL}Cannot proceed without order ID{Colors.ENDC}")
+        return
+    
+    # Step 4: Update order status to "delivered"
+    try:
+        status_data = {"status": "delivered"}
+        
+        response = requests.put(
+            f"{API_URL}/admin/orders/{order_id}/status",
+            headers={"Authorization": f"Bearer {token}"},
+            json=status_data
+        )
+        
+        if response.status_code == 200 and response.json()["status"] == "delivered":
+            log_test("Update Order Status to Delivered", True, response)
+        else:
+            log_test("Update Order Status to Delivered", False, response, 
+                    f"Expected status 200 with status 'delivered', got {response.status_code}")
+    except Exception as e:
+        log_test("Update Order Status to Delivered", False, error=str(e))
+    
+    # Step 5: Verify order exists with "delivered" status
+    try:
+        response = requests.get(
+            f"{API_URL}/admin/orders",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+        
+        if response.status_code == 200 and isinstance(response.json(), list):
+            orders = response.json()
+            
+            # Find our specific order
+            delivered_order = next((order for order in orders if order["id"] == order_id), None)
+            
+            if delivered_order and delivered_order["status"] == "delivered":
+                log_test("Verify Order with Delivered Status", True, response)
+                print(f"  Confirmed: Order {order_id} has status 'delivered'")
+                print(f"  Customer: {delivered_order['customer_name']}")
+                print(f"  Order items: {len(delivered_order['items'])}")
+            else:
+                log_test("Verify Order with Delivered Status", False, response, 
+                        f"Order {order_id} not found or status is not 'delivered'")
+        else:
+            log_test("Verify Order with Delivered Status", False, response, 
+                    f"Expected status 200 with array, got {response.status_code}")
+    except Exception as e:
+        log_test("Verify Order with Delivered Status", False, error=str(e))
+    
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    print(f"{Colors.HEADER}CREATE DELIVERED ORDER FLOW COMPLETED{Colors.ENDC}")
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+
 def run_tests():
     """Run all tests"""
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
     print(f"{Colors.HEADER}TESTING ADMIN SYSTEM BACKEND APIs{Colors.ENDC}")
     print(f"{Colors.HEADER}Backend URL: {BACKEND_URL}{Colors.ENDC}")
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    
+    # Test creating an order with "delivered" status (new test)
+    test_create_delivered_order()
     
     # Test the sample orders flow specifically requested
     test_sample_orders_flow()
