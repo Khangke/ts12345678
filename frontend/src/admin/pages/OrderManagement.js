@@ -319,9 +319,20 @@ const OrderManagement = () => {
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusColor(order.status)}`}>
-                        {getStatusText(order.status)}
-                      </span>
+                      <select
+                        value={order.status}
+                        onChange={(e) => updateOrderStatus(order.id, e.target.value)}
+                        disabled={isUpdatingStatus}
+                        className={`px-3 py-2 rounded-lg text-xs font-semibold border-2 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all ${getStatusColor(order.status)} ${
+                          isUpdatingStatus ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:opacity-80'
+                        }`}
+                      >
+                        <option value="pending" className="bg-white text-gray-800">Chờ xác nhận</option>
+                        <option value="confirmed" className="bg-white text-gray-800">Đã xác nhận</option>
+                        <option value="shipping" className="bg-white text-gray-800">Đang giao</option>
+                        <option value="delivered" className="bg-white text-gray-800">Đã giao</option>
+                        <option value="cancelled" className="bg-white text-gray-800">Đã hủy</option>
+                      </select>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                       {new Date(order.created_at).toLocaleDateString('vi-VN')}
