@@ -240,17 +240,28 @@ const ProductManagement = () => {
 
   const handleEdit = (product) => {
     setEditingProduct(product);
+    
+    // Format prices when loading for edit
+    const formattedPrice = product.price.includes('vnđ') ? product.price : formatPrice(product.price.replace(/[^\d]/g, ''));
+    const formattedSizePrices = {};
+    
+    if (product.size_prices) {
+      Object.entries(product.size_prices).forEach(([size, price]) => {
+        formattedSizePrices[size] = price.includes('vnđ') ? price : formatPrice(price.replace(/[^\d]/g, ''));
+      });
+    }
+    
     setFormData({
       name: product.name,
       description: product.description,
       detail_description: product.detail_description,
-      price: product.price,
+      price: formattedPrice,
       images: product.images || [product.image].filter(Boolean),
       image: product.image,
       category: product.category,
       material: product.material,
       sizes: product.sizes || [],
-      size_prices: product.size_prices || {}
+      size_prices: formattedSizePrices
     });
     setCategoryInput(product.category);
     setMaterialInput(product.material);
