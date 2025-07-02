@@ -265,6 +265,10 @@ const ProductManagement = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    if (isSubmitting) return; // Prevent double submission
+    
+    setIsSubmitting(true);
+    
     try {
       // Prepare size prices for backend (keep formatted version)
       const processedSizePrices = {};
@@ -283,18 +287,23 @@ const ProductManagement = () => {
         await axios.put(`${BACKEND_URL}/api/admin/products/${editingProduct.id}`, productData, {
           headers: getAuthHeader()
         });
+        showSuccess('Cập nhật sản phẩm thành công!');
       } else {
         await axios.post(`${BACKEND_URL}/api/admin/products`, productData, {
           headers: getAuthHeader()
         });
+        showSuccess('Thêm sản phẩm mới thành công!');
       }
 
       fetchProducts();
       setShowModal(false);
       resetForm();
+      setEditingProduct(null);
     } catch (error) {
       console.error('Error saving product:', error);
-      alert('Có lỗi xảy ra khi lưu sản phẩm');
+      showError('Có lỗi xảy ra khi lưu sản phẩm. Vui lòng thử lại!');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
