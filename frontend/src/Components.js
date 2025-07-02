@@ -1096,11 +1096,11 @@ export const CartModal = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="flex justify-between items-center p-6 border-b">
-          <h2 className="text-2xl font-bold text-gray-800">Giỏ hàng</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 text-2xl">
+    <div className="fixed inset-0 bg-black/60 dark:bg-black/80 flex items-center justify-center z-50 p-4 transition-colors duration-300">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl dark:shadow-amber-900/20 transition-all duration-500">
+        <div className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white transition-colors duration-300">Giỏ hàng</h2>
+          <button onClick={onClose} className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-2xl transition-colors duration-300">
             ×
           </button>
         </div>
@@ -1108,10 +1108,10 @@ export const CartModal = ({
         <div className="p-6">
           {cartItems.length === 0 ? (
             <div className="text-center py-8">
-              <p className="text-gray-500 text-lg">Giỏ hàng trống</p>
+              <p className="text-gray-500 dark:text-gray-400 text-lg transition-colors duration-300">Giỏ hàng trống</p>
               <button 
                 onClick={onClose}
-                className="mt-4 bg-amber-800 text-white px-6 py-2 rounded-lg hover:bg-amber-900 transition-colors"
+                className="mt-4 bg-amber-800 dark:bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-900 dark:hover:bg-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 Tiếp tục mua sắm
               </button>
@@ -1121,37 +1121,37 @@ export const CartModal = ({
               {/* Cart Items */}
               <div className="space-y-4 mb-6">
                 {cartItems.map((item) => (
-                  <div key={item.cartId} className="flex items-center space-x-4 p-4 border rounded-lg">
+                  <div key={item.cartId} className="flex items-center space-x-4 p-4 border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700 rounded-lg transition-colors duration-300">
                     <img 
                       src={item.image} 
                       alt={item.name}
                       className="w-16 h-16 object-cover rounded-lg"
                     />
                     <div className="flex-1">
-                      <h3 className="font-semibold">{item.name}</h3>
+                      <h3 className="font-semibold text-gray-800 dark:text-white transition-colors duration-300">{item.name}</h3>
                       {item.selectedSize && (
-                        <p className="text-sm text-gray-600">Size: {item.selectedSize}</p>
+                        <p className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Size: {item.selectedSize}</p>
                       )}
-                      <p className="text-amber-800 font-bold">{item.price}</p>
+                      <p className="text-amber-800 dark:text-amber-400 font-bold transition-colors duration-300">{item.price}</p>
                     </div>
                     <div className="flex items-center space-x-2">
                       <button 
                         onClick={() => onUpdateQuantity(item.cartId, item.quantity - 1)}
-                        className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center hover:bg-gray-100"
+                        className="w-8 h-8 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-500 transition-all duration-300"
                       >
                         -
                       </button>
-                      <span className="min-w-[2rem] text-center">{item.quantity}</span>
+                      <span className="min-w-[2rem] text-center text-gray-800 dark:text-white transition-colors duration-300">{item.quantity}</span>
                       <button 
                         onClick={() => onUpdateQuantity(item.cartId, item.quantity + 1)}
-                        className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center hover:bg-gray-100"
+                        className="w-8 h-8 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-500 transition-all duration-300"
                       >
                         +
                       </button>
                     </div>
                     <button 
                       onClick={() => onRemoveItem(item.cartId)}
-                      className="text-red-500 hover:text-red-700 p-2"
+                      className="text-red-500 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 p-2 transition-colors duration-300"
                     >
                       🗑️
                     </button>
@@ -1160,32 +1160,32 @@ export const CartModal = ({
               </div>
 
               {/* Order Summary */}
-              <div className="border-t pt-4">
+              <div className="border-t border-gray-200 dark:border-gray-700 pt-4 transition-colors duration-300">
                 <div className="space-y-2 mb-4">
-                  <div className="flex justify-between">
+                  <div className="flex justify-between text-gray-800 dark:text-white transition-colors duration-300">
                     <span>Tạm tính:</span>
                     <span>{formatPrice(totalPrice)}</span>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between text-gray-800 dark:text-white transition-colors duration-300">
                     <span>Phí vận chuyển:</span>
-                    <span className={shippingFee === 0 ? 'text-green-600' : ''}>
+                    <span className={shippingFee === 0 ? 'text-green-600 dark:text-green-400' : 'text-gray-800 dark:text-white'}>
                       {shippingFee === 0 ? 'Miễn phí' : formatPrice(shippingFee)}
                     </span>
                   </div>
                   {totalPrice < 300000 && (
-                    <div className="text-sm text-amber-600">
+                    <div className="text-sm text-amber-600 dark:text-amber-400 transition-colors duration-300">
                       Mua thêm {formatPrice(300000 - totalPrice)} để được miễn phí ship
                     </div>
                   )}
-                  <div className="flex justify-between text-lg font-bold border-t pt-2">
-                    <span>Tổng cộng:</span>
-                    <span className="text-amber-800">{formatPrice(totalPrice + shippingFee)}</span>
+                  <div className="flex justify-between text-lg font-bold border-t border-gray-200 dark:border-gray-700 pt-2 transition-colors duration-300">
+                    <span className="text-gray-800 dark:text-white">Tổng cộng:</span>
+                    <span className="text-amber-800 dark:text-amber-400">{formatPrice(totalPrice + shippingFee)}</span>
                   </div>
                 </div>
 
                 <button 
                   onClick={onCheckout}
-                  className="w-full bg-amber-800 text-white py-3 rounded-lg hover:bg-amber-900 transition-colors font-semibold"
+                  className="w-full bg-amber-800 dark:bg-amber-600 text-white py-3 rounded-lg hover:bg-amber-900 dark:hover:bg-amber-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
                   Tiến hành thanh toán
                 </button>
