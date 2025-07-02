@@ -367,7 +367,7 @@ const OrderManagement = () => {
                           onClick={() => setSelectedOrder(order)}
                           className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-lg flex items-center space-x-1"
                         >
-                          <Eye className="w-4 h-4" />
+                          <EyeIcon className="w-4 h-4" />
                           <span>Chi tiết</span>
                         </motion.button>
                       </td>
