@@ -432,7 +432,7 @@ const OrderManagement = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
-                        <User className="w-5 h-5 text-white" />
+                        <UserIcon className="w-5 h-5 text-white" />
                       </div>
                       <div>
                         <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Tên khách hàng</p>
