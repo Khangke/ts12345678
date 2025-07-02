@@ -595,6 +595,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test lại admin authentication API sau frontend dropdown fix và xác nhận hoạt động đúng. Đã tạo admin user thành công với endpoint /api/admin/create. Login với admin/admin123 trả về JWT token hợp lệ. Endpoint /api/admin/me trả về thông tin user đúng khi có token và lỗi 401 khi không có token."
+      - working: true
+        agent: "testing"
+        comment: "Đã test lại admin authentication API sau frontend toast notifications và loading states implementation và xác nhận hoạt động đúng. Login với admin/admin123 trả về JWT token hợp lệ. Endpoint /api/admin/me trả về thông tin user đúng khi có token và lỗi 401 khi không có token."
   
   - task: "Test admin product management API"
     implemented: true
