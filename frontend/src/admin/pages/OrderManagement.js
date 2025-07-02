@@ -336,7 +336,7 @@ const OrderManagement = () => {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center space-x-3">
                           <div className="w-10 h-10 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full flex items-center justify-center">
-                            <User className="w-5 h-5 text-white" />
+                            <UserIcon className="w-5 h-5 text-white" />
                           </div>
                           <div>
                             <div className="text-sm font-medium text-gray-900 dark:text-white">{order.customer_name}</div>
