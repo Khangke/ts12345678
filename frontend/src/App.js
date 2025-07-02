@@ -152,6 +152,10 @@ function App() {
         
         <Footer />
         
+        {/* Mobile-specific components */}
+        <MobileBottomNav cartCount={cartCount} onCartClick={() => setShowCart(true)} />
+        <MobileQuickActions />
+        
         {selectedProduct && (
           <ProductDetailModal
             product={selectedProduct}
@@ -192,6 +196,9 @@ function App() {
             onClose={() => setShowToast(false)}
           />
         )}
+        
+        {/* Add bottom padding for mobile navigation */}
+        <div className="h-16 lg:hidden"></div>
       </div>
     </Router>
   );
