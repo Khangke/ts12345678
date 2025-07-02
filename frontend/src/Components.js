@@ -317,13 +317,13 @@ export const FeaturesSection = () => {
   const getFeatureIcon = (iconType) => {
     switch(iconType) {
       case 'trophy':
-        return <TrophyIcon className="w-16 h-16 text-amber-800 group-hover:animate-bounce" />;
+        return <TrophyIcon className="w-16 h-16 text-amber-800 dark:text-amber-400 group-hover:animate-bounce" />;
       case 'leaf':
-        return <LeafIcon className="w-16 h-16 text-green-600 group-hover:animate-wiggle" />;
+        return <LeafIcon className="w-16 h-16 text-green-600 dark:text-green-400 group-hover:animate-wiggle" />;
       case 'truck':
-        return <TruckIcon className="w-16 h-16 text-blue-600 group-hover:animate-pulse" />;
+        return <TruckIcon className="w-16 h-16 text-blue-600 dark:text-blue-400 group-hover:animate-pulse" />;
       case 'chat':
-        return <ChatIcon className="w-16 h-16 text-purple-600 group-hover:animate-bounce" />;
+        return <ChatIcon className="w-16 h-16 text-purple-600 dark:text-purple-400 group-hover:animate-bounce" />;
       default:
         return null;
     }
@@ -334,42 +334,42 @@ export const FeaturesSection = () => {
       iconType: 'trophy',
       title: 'Chất lượng cao',
       description: 'Sản phẩm trầm hương nguyên chất được chọn lọc kỹ lưỡng từ những vùng đất nổi tiếng về trầm hương tại Việt Nam.',
-      bgColor: 'hover:bg-amber-50',
-      borderColor: 'hover:border-amber-200'
+      bgColor: 'hover:bg-amber-50 dark:hover:bg-amber-900/20',
+      borderColor: 'hover:border-amber-200 dark:hover:border-amber-700'
     },
     {
       iconType: 'leaf',
       title: 'Từ thiên nhiên',
       description: 'Tất cả sản phẩm đều từ nguyên liệu tự nhiên, mang lại hương thơm đặc trưng và lợi ích sức khỏe.',
-      bgColor: 'hover:bg-green-50',
-      borderColor: 'hover:border-green-200'
+      bgColor: 'hover:bg-green-50 dark:hover:bg-green-900/20',
+      borderColor: 'hover:border-green-200 dark:hover:border-green-700'
     },
     {
       iconType: 'truck',
       title: 'Miễn phí ship',
       description: 'Miễn phí ship toàn quốc cho đơn hàng từ 300.000đ, giao hàng nhanh chóng và an toàn.',
-      bgColor: 'hover:bg-blue-50',
-      borderColor: 'hover:border-blue-200'
+      bgColor: 'hover:bg-blue-50 dark:hover:bg-blue-900/20',
+      borderColor: 'hover:border-blue-200 dark:hover:border-blue-700'
     },
     {
       iconType: 'chat',
       title: 'Tư vấn tận tâm',
       description: 'Đội ngũ chuyên gia tư vấn nhiệt tình, giúp bạn chọn lựa sản phẩm phù hợp nhất.',
-      bgColor: 'hover:bg-purple-50',
-      borderColor: 'hover:border-purple-200'
+      bgColor: 'hover:bg-purple-50 dark:hover:bg-purple-900/20',
+      borderColor: 'hover:border-purple-200 dark:hover:border-purple-700'
     }
   ];
 
   const { visibleItems, setRef } = useStaggerAnimation(features, 150);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-500">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 animate-fade-in-up">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 animate-fade-in-up transition-colors duration-300">
             Tại sao chọn Sơn Mộc Hương?
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-amber-800 to-orange-600 mx-auto rounded-full animate-fade-in-up" style={{ animationDelay: '0.2s' }}></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-amber-800 to-orange-600 dark:from-amber-400 dark:to-orange-400 mx-auto rounded-full animate-fade-in-up" style={{ animationDelay: '0.2s' }}></div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -377,24 +377,24 @@ export const FeaturesSection = () => {
             <div 
               key={index} 
               ref={setRef(index)}
-              className={`text-center p-6 rounded-2xl border border-transparent transition-all duration-500 cursor-pointer group ${
+              className={`text-center p-6 rounded-2xl border border-transparent bg-white dark:bg-gray-800 transition-all duration-500 cursor-pointer group ${
                 feature.bgColor
-              } ${feature.borderColor} hover:shadow-xl hover:transform hover:scale-105 hover:-translate-y-2 ${
+              } ${feature.borderColor} hover:shadow-xl dark:hover:shadow-amber-900/10 hover:transform hover:scale-105 hover:-translate-y-2 ${
                 visibleItems.has(index) ? 'animate-fade-in-up opacity-100' : 'opacity-0'
               }`}
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="flex justify-center mb-6 transform transition-transform duration-300 group-hover:scale-110">
-                <div className="p-4 rounded-full bg-white shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                <div className="p-4 rounded-full bg-white dark:bg-gray-700 shadow-lg group-hover:shadow-xl dark:shadow-amber-900/20 transition-shadow duration-300">
                   {getFeatureIcon(feature.iconType)}
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-gray-900 transition-colors">{feature.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors">{feature.description}</p>
+              <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4 group-hover:text-gray-900 dark:group-hover:text-amber-300 transition-colors">{feature.title}</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">{feature.description}</p>
               
               {/* Hover indicator */}
               <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-8 h-0.5 bg-gradient-to-r from-amber-600 to-orange-600 mx-auto rounded-full"></div>
+                <div className="w-8 h-0.5 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-400 dark:to-orange-400 mx-auto rounded-full"></div>
               </div>
             </div>
           ))}
