@@ -376,13 +376,13 @@ const OrderManagement = () => {
               {/* Customer Info */}
               <div className="mb-6 p-6 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-gray-700 dark:to-gray-600 rounded-xl border border-amber-200 dark:border-gray-600">
                 <h3 className="font-bold text-gray-800 dark:text-white mb-4 flex items-center text-lg">
-                  <UserIcon className="w-5 h-5 text-amber-600 mr-2" />
+                  <UserCircleIcon className="w-5 h-5 text-amber-600 mr-2" />
                   Thông tin khách hàng
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
-                      <UserIcon className="w-5 h-5 text-white" />
+                    <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center">
+                      <UserCircleIcon className="w-5 h-5 text-white" />
                     </div>
                     <div>
                       <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Tên khách hàng</p>
@@ -390,7 +390,7 @@ const OrderManagement = () => {
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center">
                       <PhoneIcon className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -400,8 +400,8 @@ const OrderManagement = () => {
                   </div>
                   {selectedOrder.customer_email && (
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                        <EmailIcon className="w-5 h-5 text-white" />
+                      <div className="w-10 h-10 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex items-center justify-center">
+                        <MailIcon className="w-5 h-5 text-white" />
                       </div>
                       <div>
                         <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Email</p>
@@ -410,8 +410,8 @@ const OrderManagement = () => {
                     </div>
                   )}
                   <div className="flex items-start space-x-3 md:col-span-2">
-                    <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
-                      <LocationIcon className="w-5 h-5 text-white" />
+                    <div className="w-10 h-10 bg-gradient-to-r from-rose-500 to-pink-500 rounded-full flex items-center justify-center">
+                      <MapPinIcon className="w-5 h-5 text-white" />
                     </div>
                     <div>
                       <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Địa chỉ giao hàng</p>
@@ -420,8 +420,8 @@ const OrderManagement = () => {
                   </div>
                   {selectedOrder.note && (
                     <div className="flex items-start space-x-3 md:col-span-2">
-                      <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center">
-                        <FileTextIcon className="w-5 h-5 text-white" />
+                      <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center">
+                        <StickyNoteIcon className="w-5 h-5 text-white" />
                       </div>
                       <div>
                         <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Ghi chú</p>
