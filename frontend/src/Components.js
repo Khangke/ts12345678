@@ -673,76 +673,98 @@ export const ProductsSection = ({ onProductClick }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product, index) => (
-            <div 
-              key={product.id} 
-              ref={setRef(index)}
-              className={`bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-amber-900/10 overflow-hidden hover:shadow-2xl dark:hover:shadow-amber-900/20 cursor-pointer group transition-all duration-500 hover:transform hover:scale-105 hover:-translate-y-2 ${
-                visibleItems.has(index) ? 'animate-fade-in-up opacity-100' : 'opacity-0'
-              }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-              onClick={() => onProductClick(product)}
-            >
-              <div className="relative overflow-hidden">
-                <img 
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-800/0 to-amber-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-4 left-4">
-                  <span className="bg-amber-800 dark:bg-amber-600 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg animate-bounce-in">
-                    {product.category}
-                  </span>
-                </div>
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-2 rounded-full shadow-lg">
-                    <span className="text-amber-800 dark:text-amber-400 text-sm font-bold">HOT</span>
+        {/* Optimized Loading State */}
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[...Array(8)].map((_, index) => (
+              <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden animate-pulse">
+                <div className="w-full h-48 bg-gray-300 dark:bg-gray-600"></div>
+                <div className="p-6 space-y-3">
+                  <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-3/4"></div>
+                  <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded w-full"></div>
+                  <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded w-2/3"></div>
+                  <div className="flex justify-between items-center">
+                    <div className="h-6 bg-gray-300 dark:bg-gray-600 rounded w-1/3"></div>
+                    <div className="h-8 bg-gray-300 dark:bg-gray-600 rounded w-20"></div>
                   </div>
                 </div>
               </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors duration-300">{product.name}</h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2 transition-colors duration-300">{product.description}</p>
-                
-                <div className="flex items-center space-x-2 mb-3">
-                  <div className="w-8 h-8 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center group-hover:bg-amber-200 dark:group-hover:bg-amber-800/50 transition-colors duration-300">
-                    <span className="text-amber-800 dark:text-amber-400 text-xs">✓</span>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {products.map((product, index) => (
+              <div 
+                key={product.id} 
+                ref={setRef(index)}
+                className={`bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-amber-900/10 overflow-hidden hover:shadow-2xl dark:hover:shadow-amber-900/20 cursor-pointer group transition-all duration-500 hover:transform hover:scale-105 hover:-translate-y-2 ${
+                  visibleItems.has(index) ? 'animate-fade-in-up opacity-100' : 'opacity-0'
+                }`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+                onClick={() => onProductClick(product)}
+              >
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy" // Lazy loading cho hiệu suất tốt hơn
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-800/0 to-amber-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-amber-800 dark:bg-amber-600 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg animate-bounce-in">
+                      {product.category}
+                    </span>
                   </div>
-                  <span className="text-sm text-gray-600 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">{product.material}</span>
-                </div>
-                
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-1">
-                    <span className="text-yellow-400 group-hover:animate-pulse">★</span>
-                    <span className="text-sm text-gray-600 dark:text-gray-300">{product.rating}</span>
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-2 rounded-full shadow-lg">
+                      <span className="text-amber-800 dark:text-amber-400 text-sm font-bold">HOT</span>
+                    </div>
                   </div>
-                  <span className="text-sm text-amber-600 dark:text-amber-400 font-medium group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">Chất lượng cao</span>
                 </div>
                 
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-amber-800 dark:text-amber-400 group-hover:animate-pulse">{product.price}</span>
-                  <button 
-                    className="bg-amber-800 dark:bg-amber-600 text-white px-4 py-2 rounded-full hover:bg-amber-900 dark:hover:bg-amber-700 transition-all duration-300 text-sm shadow-lg hover:shadow-xl transform hover:scale-105 group-hover:animate-bounce"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onProductClick(product);
-                    }}
-                  >
-                    Mua ngay
-                  </button>
-                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors duration-300">{product.name}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2 transition-colors duration-300">{product.description}</p>
+                  
+                  <div className="flex items-center space-x-2 mb-3">
+                    <div className="w-8 h-8 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center group-hover:bg-amber-200 dark:group-hover:bg-amber-800/50 transition-colors duration-300">
+                      <span className="text-amber-800 dark:text-amber-400 text-xs">✓</span>
+                    </div>
+                    <span className="text-sm text-gray-600 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">{product.material}</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-1">
+                      <span className="text-yellow-400 group-hover:animate-pulse">★</span>
+                      <span className="text-sm text-gray-600 dark:text-gray-300">{product.rating}</span>
+                    </div>
+                    <span className="text-sm text-amber-600 dark:text-amber-400 font-medium group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">Chất lượng cao</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <span className="text-2xl font-bold text-amber-800 dark:text-amber-400 group-hover:animate-pulse">{product.price}</span>
+                    <button 
+                      className="bg-amber-800 dark:bg-amber-600 text-white px-4 py-2 rounded-full hover:bg-amber-900 dark:hover:bg-amber-700 transition-all duration-300 text-sm shadow-lg hover:shadow-xl transform hover:scale-105 group-hover:animate-bounce"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onProductClick(product);
+                      }}
+                    >
+                      Mua ngay
+                    </button>
+                  </div>
 
-                {/* Animated progress bar on hover */}
-                <div className="mt-4 h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="h-full bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-400 dark:to-orange-400 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></div>
+                  {/* Animated progress bar on hover */}
+                  <div className="mt-4 h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="h-full bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-400 dark:to-orange-400 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         <div className="text-center mt-12 animate-fade-in-up" style={{ animationDelay: '1s' }}>
           <button className="bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white px-8 py-3 rounded-full hover:from-amber-900 hover:to-amber-800 dark:hover:from-amber-700 dark:hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1">
