@@ -611,6 +611,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test API response format cho modern UI và xác nhận tất cả endpoints trả về dữ liệu với cấu trúc phù hợp. Products API trả về đầy đủ các trường cần thiết (id, name, description, price, image, images, category, material, rating, sizes, size_prices). Admin stats API trả về cấu trúc dữ liệu phù hợp cho dashboard với charts và cards (product_count, orders breakdown, total_revenue, recent_orders)."
+      - working: true
+        agent: "testing"
+        comment: "Đã test lại API response format cho modern UI sau frontend dropdown fix và xác nhận tất cả endpoints trả về dữ liệu với cấu trúc phù hợp. Products API trả về đầy đủ các trường cần thiết (id, name, description, price, image, images, category, material, rating, sizes, size_prices). Admin stats API trả về cấu trúc dữ liệu phù hợp cho dashboard với charts và cards (product_count, orders breakdown, total_revenue, recent_orders)."
 
 agent_communication:
   - agent: "main"
