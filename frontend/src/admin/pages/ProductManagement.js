@@ -40,14 +40,58 @@ const ProductManagement = () => {
   };
 
   const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setFormData({ ...formData, image: e.target.result });
-      };
-      reader.readAsDataURL(file);
+    const files = Array.from(e.target.files);
+    if (files.length > 10) {
+      alert('Tối đa 10 ảnh được phép tải lên');
+      return;
     }
+
+    const promises = files.map(file => {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target.result);
+        reader.readAsDataURL(file);
+      });
+    });
+
+    Promise.all(promises).then(images => {
+      setFormData({ ...formData, images: [...formData.images, ...images].slice(0, 10) });
+    });
+  };
+
+  const removeImage = (index) => {
+    const newImages = formData.images.filter((_, i) => i !== index);
+    setFormData({ ...formData, images: newImages });
+  };
+
+  const handleSizeAdd = () => {
+    const sizeName = prompt('Nhập tên kích cỡ (ví dụ: 16mm, 18mm):');
+    if (sizeName && !formData.sizes.includes(sizeName)) {
+      const newSizes = [...formData.sizes, sizeName];
+      setFormData({ 
+        ...formData, 
+        sizes: newSizes,
+        size_prices: { ...formData.size_prices, [sizeName]: '' }
+      });
+    }
+  };
+
+  const handleSizeRemove = (sizeToRemove) => {
+    const newSizes = formData.sizes.filter(size => size !== sizeToRemove);
+    const newSizePrices = { ...formData.size_prices };
+    delete newSizePrices[sizeToRemove];
+    setFormData({ 
+      ...formData, 
+      sizes: newSizes,
+      size_prices: newSizePrices
+    });
+  };
+
+  const handleSizePriceChange = (size, price) => {
+    setFormData({ 
+      ...formData, 
+      size_prices: { ...formData.size_prices, [size]: price }
+    });
   };
 
   const handleSubmit = async (e) => {
