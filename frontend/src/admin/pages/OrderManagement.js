@@ -377,7 +377,7 @@ const OrderManagement = () => {
                   <tr>
                     <td colSpan="6" className="px-6 py-12 text-center">
                       <div className="text-gray-500 dark:text-gray-400">
-                        <Package className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                        <PackageIcon className="w-12 h-12 mx-auto mb-4 opacity-50" />
                         <p className="text-lg font-medium mb-2">Không tìm thấy đơn hàng</p>
                         <p className="text-sm">
                           {searchTerm ? 'Thử tìm kiếm với từ khóa khác' : 'Chưa có đơn hàng nào trong mục này'}
