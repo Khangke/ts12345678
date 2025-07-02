@@ -105,9 +105,10 @@ class ProductUpdate(BaseModel):
 class OrderItem(BaseModel):
     product_id: str
     product_name: str
-    price: str
+    price: str  # This will be the size-specific price
     quantity: int
     selected_size: Optional[str] = None
+    size_specific_price: Optional[str] = None  # Additional field to store the size-specific price for clarity
 
 class Order(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
