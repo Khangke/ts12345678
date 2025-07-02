@@ -24,6 +24,7 @@ const AdminApp = () => {
                 <Route path="/products" element={<ProductManagement />} />
                 <Route path="/orders" element={<OrderManagement />} />
                 <Route path="/customers" element={<CustomerManagement />} />
+                <Route path="/settings" element={<Settings />} />
               </Routes>
             </AdminLayout>
           </ProtectedRoute>
