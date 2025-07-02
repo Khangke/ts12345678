@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../../components/Toast';
-import { motion, AnimatePresence } from 'framer-motion';
 import { 
   SearchIcon, 
   PackageIcon, 
