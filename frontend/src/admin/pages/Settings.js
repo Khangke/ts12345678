@@ -240,36 +240,57 @@ const Settings = () => {
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Miễn phí vận chuyển từ (VNĐ)
               </label>
-              <input
-                type="number"
-                value={settings.shipping.freeShippingThreshold}
-                onChange={(e) => handleInputChange('shipping', 'freeShippingThreshold', parseInt(e.target.value))}
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
-              />
+              <div className="relative">
+                <DollarSign className="absolute left-3 top-3.5 h-5 w-5 text-amber-600" />
+                <input
+                  type="text"
+                  value={settings.shipping.freeShippingThreshold}
+                  onChange={(e) => handlePriceChange('freeShippingThreshold', e.target.value)}
+                  placeholder="300.000 VNĐ"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                />
+              </div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                Nhập số, ví dụ: 300000 → 300.000 VNĐ
+              </p>
             </div>
             
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Phí vận chuyển tiêu chuẩn (VNĐ)
               </label>
-              <input
-                type="number"
-                value={settings.shipping.standardShippingFee}
-                onChange={(e) => handleInputChange('shipping', 'standardShippingFee', parseInt(e.target.value))}
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
-              />
+              <div className="relative">
+                <DollarSign className="absolute left-3 top-3.5 h-5 w-5 text-amber-600" />
+                <input
+                  type="text"
+                  value={settings.shipping.standardShippingFee}
+                  onChange={(e) => handlePriceChange('standardShippingFee', e.target.value)}
+                  placeholder="30.000 VNĐ"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                />
+              </div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                Nhập số, ví dụ: 30000 → 30.000 VNĐ
+              </p>
             </div>
             
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Phí vận chuyển nhanh (VNĐ)
               </label>
-              <input
-                type="number"
-                value={settings.shipping.expressShippingFee}
-                onChange={(e) => handleInputChange('shipping', 'expressShippingFee', parseInt(e.target.value))}
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
-              />
+              <div className="relative">
+                <DollarSign className="absolute left-3 top-3.5 h-5 w-5 text-amber-600" />
+                <input
+                  type="text"
+                  value={settings.shipping.expressShippingFee}
+                  onChange={(e) => handlePriceChange('expressShippingFee', e.target.value)}
+                  placeholder="50.000 VNĐ"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"
+                />
+              </div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                Nhập số, ví dụ: 50000 → 50.000 VNĐ
+              </p>
             </div>
           </div>
         </motion.div>
