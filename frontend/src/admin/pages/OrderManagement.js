@@ -410,7 +410,7 @@ const OrderManagement = () => {
               <div className="p-6">
                 <div className="flex justify-between items-center mb-6">
                   <h2 className="text-2xl font-bold text-gray-800 dark:text-white flex items-center">
-                    <Package className="w-6 h-6 text-amber-600 mr-2" />
+                    <PackageIcon className="w-6 h-6 text-amber-600 mr-2" />
                     Chi tiết đơn hàng {selectedOrder.order_id}
                   </h2>
                   <motion.button 
