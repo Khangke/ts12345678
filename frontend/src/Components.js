@@ -73,14 +73,15 @@ export const HeroSection = () => {
           <div className="lg:w-1/2 mb-12 lg:mb-0">
             <div className="text-left">
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight">
-                Trầm Hương và Thiền
+                Trầm Hương Thiên Nhiên
                 <br />
-                <span className="text-amber-800">có bán cho người</span>
+                <span className="text-amber-800">Chất lượng cao từ</span>
                 <br />
-                <span className="text-amber-800">mới bắt đầu</span>
+                <span className="text-amber-800">đất Việt Nam</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 max-w-md">
-                Khám phá bộ sưu tập trầm hương cao cấp - Vòng tay, nhang nụ, tinh dầu và các sản phẩm thiền định chất lượng cao.
+                Sơn Mộc Hương - Địa chỉ uy tín chuyên cung cấp các sản phẩm trầm hương chất lượng cao, 
+                vòng tay trầm, nhang trầm và phụ kiện xông trầm đa dạng từ thiên nhiên Việt Nam.
               </p>
               <button className="bg-amber-800 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-900 transition-colors shadow-lg">
                 Xem thêm
