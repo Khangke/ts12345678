@@ -676,6 +676,26 @@ const ProductManagement = () => {
                           className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white transition-all"
                           required
                         />
+                        
+                        {/* Selected Category Tag */}
+                        {formData.category && (
+                          <div className="mt-2">
+                            <div className="inline-flex items-center bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-400 px-3 py-2 rounded-lg text-sm font-medium">
+                              <Tag className="w-4 h-4 mr-1" />
+                              {formData.category}
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setFormData({ ...formData, category: '' });
+                                  setCategoryInput('');
+                                }}
+                                className="ml-2 text-amber-600 hover:text-amber-800 dark:text-amber-300 dark:hover:text-amber-100 transition-colors"
+                              >
+                                <X className="w-4 h-4" />
+                              </button>
+                            </div>
+                          </div>
+                        )}
                         {showCategoryDropdown && (
                           <div 
                             className="absolute top-full left-0 right-0 z-30 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl mt-1 shadow-lg max-h-60 overflow-y-auto"
