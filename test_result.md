@@ -749,6 +749,21 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test lại API response format cho modern UI sau frontend toast notifications và loading states implementation và xác nhận tất cả endpoints trả về dữ liệu với cấu trúc phù hợp. Products API trả về đầy đủ các trường cần thiết (id, name, description, price, image, images, category, material, rating, sizes, size_prices). Admin stats API trả về cấu trúc dữ liệu phù hợp cho dashboard với charts và cards (product_count, orders breakdown, total_revenue, recent_orders)."
+      
+  - task: "Test sample orders flow for testing"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Bắt đầu test sample orders flow theo yêu cầu: create admin user, admin login, seed products, create test orders, verify orders exist"
+      - working: true
+        agent: "testing"
+        comment: "Đã test thành công toàn bộ flow tạo sample orders: (1) Tạo admin user thành công với endpoint /api/admin/create, (2) Login với admin/admin123 thành công và nhận được JWT token, (3) Seed 3 sample products với size-based pricing thành công, (4) Tạo 3 test orders với size-specific pricing và thông tin khách hàng khác nhau, (5) Cập nhật trạng thái của các orders thành 'confirmed', 'shipping', và giữ 1 order ở trạng thái 'pending', (6) Xác nhận tất cả orders tồn tại trong database với các trạng thái khác nhau. Tất cả API endpoints hoạt động đúng và dữ liệu được lưu trữ chính xác."
 
 agent_communication:
   - agent: "main"
