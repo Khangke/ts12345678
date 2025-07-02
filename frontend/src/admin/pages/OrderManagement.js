@@ -15,7 +15,14 @@ import {
   LocationIcon,
   CalendarIcon,
   FileTextIcon,
-  FilterIcon
+  FilterIcon,
+  CreditCardIcon,
+  MessageCircleIcon,
+  MapPinIcon,
+  MailIcon,
+  UserCircleIcon,
+  StickyNoteIcon,
+  ShoppingBagIcon
 } from '../../Icons';
 import axios from 'axios';
 
