@@ -524,6 +524,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test thành công GET /api/admin/stats và nhận được dữ liệu thống kê đúng định dạng bao gồm product_count, orders stats và total_revenue."
+      - working: true
+        agent: "testing"
+        comment: "Đã test lại admin dashboard stats API và xác nhận hoạt động đúng. API trả về đầy đủ các trường cần thiết cho modern UI: product_count, orders (với breakdown theo trạng thái), total_revenue và recent_orders. Cấu trúc dữ liệu phù hợp cho việc hiển thị trên dashboard với charts và cards."
   
   - task: "Test public products API"
     implemented: true
