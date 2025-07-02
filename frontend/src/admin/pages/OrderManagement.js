@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import { useToast } from '../../components/Toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   SearchIcon, 
@@ -26,7 +27,9 @@ const OrderManagement = () => {
   const [activeTab, setActiveTab] = useState('pending'); // 'pending' or 'processed'
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
+  const [isUpdatingStatus, setIsUpdatingStatus] = useState(false);
   const { BACKEND_URL, getAuthHeader } = useAuth();
+  const { showSuccess, showError } = useToast();
 
   useEffect(() => {
     fetchOrders();
