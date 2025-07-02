@@ -1229,11 +1229,11 @@ export const CheckoutModal = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="flex justify-between items-center p-6 border-b">
-          <h2 className="text-2xl font-bold text-gray-800">Thanh toán</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 text-2xl">
+    <div className="fixed inset-0 bg-black/60 dark:bg-black/80 flex items-center justify-center z-50 p-4 transition-colors duration-300">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl dark:shadow-amber-900/20 transition-all duration-500">
+        <div className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white transition-colors duration-300">Thanh toán</h2>
+          <button onClick={onClose} className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-2xl transition-colors duration-300">
             ×
           </button>
         </div>
@@ -1242,54 +1242,54 @@ export const CheckoutModal = ({
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Customer Information */}
             <div>
-              <h3 className="text-xl font-bold mb-4">Thông tin giao hàng</h3>
+              <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-white transition-colors duration-300">Thông tin giao hàng</h3>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Họ và tên *</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300 transition-colors duration-300">Họ và tên *</label>
                   <input
                     type="text"
                     required
                     value={customerInfo.name}
                     onChange={(e) => setCustomerInfo({...customerInfo, name: e.target.value})}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800"
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-amber-800 dark:focus:border-amber-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Số điện thoại *</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300 transition-colors duration-300">Số điện thoại *</label>
                   <input
                     type="tel"
                     required
                     value={customerInfo.phone}
                     onChange={(e) => setCustomerInfo({...customerInfo, phone: e.target.value})}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800"
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-amber-800 dark:focus:border-amber-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300 transition-colors duration-300">Email</label>
                   <input
                     type="email"
                     value={customerInfo.email}
                     onChange={(e) => setCustomerInfo({...customerInfo, email: e.target.value})}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800"
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-amber-800 dark:focus:border-amber-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Địa chỉ giao hàng *</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300 transition-colors duration-300">Địa chỉ giao hàng *</label>
                   <textarea
                     required
                     rows="3"
                     value={customerInfo.address}
                     onChange={(e) => setCustomerInfo({...customerInfo, address: e.target.value})}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800"
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-amber-800 dark:focus:border-amber-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300"
                   ></textarea>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Ghi chú</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300 transition-colors duration-300">Ghi chú</label>
                   <textarea
                     rows="2"
                     value={customerInfo.note}
                     onChange={(e) => setCustomerInfo({...customerInfo, note: e.target.value})}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800"
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-amber-800 dark:focus:border-amber-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-300"
                     placeholder="Ghi chú thêm cho đơn hàng..."
                   ></textarea>
                 </div>
@@ -1297,42 +1297,42 @@ export const CheckoutModal = ({
 
               {/* Payment Method */}
               <div className="mt-6">
-                <h3 className="text-xl font-bold mb-4">Phương thức thanh toán</h3>
+                <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-white transition-colors duration-300">Phương thức thanh toán</h3>
                 <div className="space-y-3">
-                  <label className="flex items-center space-x-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                  <label className="flex items-center space-x-3 p-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600 transition-all duration-300">
                     <input
                       type="radio"
                       name="payment"
                       value="cod"
                       checked={paymentMethod === 'cod'}
                       onChange={(e) => setPaymentMethod(e.target.value)}
-                      className="text-amber-800"
+                      className="text-amber-800 dark:text-amber-400"
                     />
                     <div>
-                      <div className="font-medium">Thanh toán khi nhận hàng (COD)</div>
-                      <div className="text-sm text-gray-600">Thanh toán bằng tiền mặt khi nhận hàng</div>
+                      <div className="font-medium text-gray-800 dark:text-white transition-colors duration-300">Thanh toán khi nhận hàng (COD)</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Thanh toán bằng tiền mặt khi nhận hàng</div>
                     </div>
                   </label>
-                  <label className="flex items-center space-x-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                  <label className="flex items-center space-x-3 p-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600 transition-all duration-300">
                     <input
                       type="radio"
                       name="payment"
                       value="bank"
                       checked={paymentMethod === 'bank'}
                       onChange={(e) => setPaymentMethod(e.target.value)}
-                      className="text-amber-800"
+                      className="text-amber-800 dark:text-amber-400"
                     />
                     <div>
-                      <div className="font-medium">Chuyển khoản ngân hàng</div>
-                      <div className="text-sm text-gray-600">Chuyển khoản trước khi giao hàng</div>
+                      <div className="font-medium text-gray-800 dark:text-white transition-colors duration-300">Chuyển khoản ngân hàng</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Chuyển khoản trước khi giao hàng</div>
                     </div>
                   </label>
                 </div>
 
                 {paymentMethod === 'bank' && (
-                  <div className="mt-4 p-4 bg-amber-50 rounded-lg">
-                    <h4 className="font-bold mb-2">Thông tin chuyển khoản:</h4>
-                    <div className="text-sm space-y-1">
+                  <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg transition-colors duration-300">
+                    <h4 className="font-bold mb-2 text-amber-800 dark:text-amber-400">Thông tin chuyển khoản:</h4>
+                    <div className="text-sm space-y-1 text-gray-700 dark:text-gray-300">
                       <p><strong>Ngân hàng:</strong> Vietcombank</p>
                       <p><strong>Số tài khoản:</strong> 1234567890</p>
                       <p><strong>Chủ tài khoản:</strong> Sơn Mộc Hương</p>
@@ -1345,46 +1345,46 @@ export const CheckoutModal = ({
 
             {/* Order Summary */}
             <div>
-              <h3 className="text-xl font-bold mb-4">Đơn hàng của bạn</h3>
-              <div className="bg-gray-50 rounded-lg p-4">
+              <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-white transition-colors duration-300">Đơn hàng của bạn</h3>
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 transition-colors duration-300">
                 <div className="space-y-3 mb-4">
                   {cartItems.map((item) => (
                     <div key={item.cartId} className="flex justify-between">
                       <div>
-                        <div className="font-medium">{item.name}</div>
-                        <div className="text-sm text-gray-600">
+                        <div className="font-medium text-gray-800 dark:text-white transition-colors duration-300">{item.name}</div>
+                        <div className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
                           {item.selectedSize && `Size: ${item.selectedSize} - `}
                           Số lượng: {item.quantity}
                         </div>
                       </div>
-                      <div className="font-medium">
+                      <div className="font-medium text-gray-800 dark:text-white transition-colors duration-300">
                         {formatPrice(parseInt(item.price.replace(/[.,đ]/g, '')) * item.quantity)}
                       </div>
                     </div>
                   ))}
                 </div>
                 
-                <div className="border-t pt-3 space-y-2">
-                  <div className="flex justify-between">
+                <div className="border-t border-gray-200 dark:border-gray-600 pt-3 space-y-2 transition-colors duration-300">
+                  <div className="flex justify-between text-gray-800 dark:text-white transition-colors duration-300">
                     <span>Tạm tính:</span>
                     <span>{formatPrice(totalPrice)}</span>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between text-gray-800 dark:text-white transition-colors duration-300">
                     <span>Phí vận chuyển:</span>
-                    <span className={shippingFee === 0 ? 'text-green-600' : ''}>
+                    <span className={shippingFee === 0 ? 'text-green-600 dark:text-green-400' : 'text-gray-800 dark:text-white'}>
                       {shippingFee === 0 ? 'Miễn phí' : formatPrice(shippingFee)}
                     </span>
                   </div>
-                  <div className="flex justify-between text-lg font-bold border-t pt-2">
-                    <span>Tổng cộng:</span>
-                    <span className="text-amber-800">{formatPrice(totalPrice + shippingFee)}</span>
+                  <div className="flex justify-between text-lg font-bold border-t border-gray-200 dark:border-gray-600 pt-2 transition-colors duration-300">
+                    <span className="text-gray-800 dark:text-white">Tổng cộng:</span>
+                    <span className="text-amber-800 dark:text-amber-400">{formatPrice(totalPrice + shippingFee)}</span>
                   </div>
                 </div>
               </div>
 
               <button 
                 type="submit"
-                className="w-full mt-6 bg-amber-800 text-white py-3 rounded-lg hover:bg-amber-900 transition-colors font-semibold"
+                className="w-full mt-6 bg-amber-800 dark:bg-amber-600 text-white py-3 rounded-lg hover:bg-amber-900 dark:hover:bg-amber-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 Đặt hàng
               </button>
