@@ -140,9 +140,10 @@ function App() {
   }
 
   return (
-    <Router>
-      <div className="App">
-        <Header cartCount={cartCount} onCartClick={() => setShowCart(true)} />
+    <DarkModeProvider>
+      <Router>
+        <div className="App bg-white dark:bg-gray-900 transition-colors duration-300">
+          <Header cartCount={cartCount} onCartClick={() => setShowCart(true)} />
         
         <Routes>
           <Route path="/" element={<HomePage />} />
