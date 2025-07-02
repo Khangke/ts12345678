@@ -8,7 +8,8 @@ import {
   PhoneIcon, 
   EmailIcon, 
   LocationIcon,
-  ClockIcon
+  ClockIcon,
+  ShoppingBagIcon
 } from './Icons';
 
 // Header Component
