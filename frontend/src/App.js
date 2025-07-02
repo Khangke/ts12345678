@@ -197,11 +197,11 @@ function App() {
           <Header cartCount={cartCount} onCartClick={() => setShowCart(true)} />
         
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage onProductClick={setSelectedProduct} />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/products" element={<ProductsPage onProductClick={setSelectedProduct} />} />
+          <Route path="/news" element={<NewsPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/admin" element={<AdminApp />} />
           <Route path="/admin/*" element={<AdminApp />} />
         </Routes>
         
