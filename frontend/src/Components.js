@@ -574,15 +574,15 @@ export const ContactSection = () => {
             <div className="mt-8 pt-8 border-t border-gray-200">
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
-                  <span className="text-amber-800">📍</span>
+                  <LocationIcon className="w-5 h-5 text-amber-800" />
                   <span className="text-gray-600">3/29E đường 182, Phường Tăng Nhơn Phú A, TP. Thủ Đức, TPHCM</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <span className="text-amber-800">📞</span>
+                  <PhoneIcon className="w-5 h-5 text-amber-800" />
                   <span className="text-gray-600">0762 222 448</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <span className="text-amber-800">✉️</span>
+                  <EmailIcon className="w-5 h-5 text-amber-800" />
                   <span className="text-gray-600">sonmochuong@gmail.com</span>
                 </div>
               </div>
