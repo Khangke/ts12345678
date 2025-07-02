@@ -36,7 +36,7 @@ export const Header = ({ cartCount, onCartClick }) => {
             >
               🛒
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">
+                <span className="absolute -top-2 -right-2 bg-amber-800 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center cart-badge">
                   {cartCount}
                 </span>
               )}
