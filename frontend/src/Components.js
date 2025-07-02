@@ -735,7 +735,7 @@ export const ProductsSection = ({ onProductClick }) => {
     }
   ];
 
-  const { visibleItems, setRef } = useStaggerAnimation(products, 100);
+  const { visibleItems, setRef } = useStaggerAnimation(filteredProducts, 100);
 
   return (
     <section id="products" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-500">
