@@ -204,7 +204,7 @@ backend:
     file: "backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
@@ -212,6 +212,9 @@ backend:
       - working: true
         agent: "main"
         comment: "Đã cập nhật OrderItem với size_specific_price field để track giá theo size trong orders"
+      - working: true
+        agent: "testing"
+        comment: "Đã test lại OrderItem model sau frontend dropdown fix và xác nhận hoạt động đúng. Model hỗ trợ đầy đủ selected_size và size_specific_price fields. Đã test tạo order với size-specific pricing và xác nhận dữ liệu được lưu trữ đúng. Đã test backward compatibility với order không có size-specific pricing và xác nhận hoạt động đúng."
 
 frontend:
   - task: "Cài đặt React Router"
