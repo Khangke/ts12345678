@@ -779,6 +779,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test thành công toàn bộ flow tạo đơn hàng với trạng thái 'delivered': (1) Login với admin/admin123 thành công và nhận được JWT token, (2) Lấy danh sách sản phẩm thành công, (3) Tạo đơn hàng mới với thông tin khách hàng 'Phạm Thị D' và sản phẩm có size-based pricing, (4) Cập nhật trạng thái đơn hàng thành 'delivered', (5) Xác nhận đơn hàng tồn tại với trạng thái 'delivered' trong database. Tất cả API endpoints hoạt động đúng và dữ liệu được lưu trữ chính xác."
+      - working: true
+        agent: "testing"
+        comment: "Đã test thành công tạo đơn hàng mới với trạng thái 'delivered' theo yêu cầu: (1) Login admin thành công với admin/admin123, (2) Lấy danh sách sản phẩm, (3) Tạo đơn hàng mới với thông tin khách hàng 'Hoàng Văn E' (SĐT: 0901234567, Email: hoangvane@example.com, Địa chỉ: 555 Đường Võ Văn Tần, Quận 3, TP.HCM) và sản phẩm Tinh dầu trầm hương nguyên chất size 10ml, (4) Cập nhật trạng thái đơn hàng thành 'delivered', (5) Xác nhận đơn hàng tồn tại với trạng thái 'delivered' trong database. Đơn hàng này sẽ hiển thị trong tab 'Đã xử lý' của OrderManagement. Tổng số đơn hàng 'delivered' hiện tại là 2."
 
 agent_communication:
   - agent: "main"
