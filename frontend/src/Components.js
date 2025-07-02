@@ -407,7 +407,7 @@ export const FeaturesSection = () => {
 // About Section Component
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-orange-50 to-amber-50">
+    <section id="about" className="py-20 bg-gradient-to-br from-orange-50 to-amber-50 dark:from-gray-800 dark:to-gray-900 transition-colors duration-500">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 mb-12 lg:mb-0">
@@ -415,66 +415,66 @@ export const AboutSection = () => {
               <img 
                 src="https://images.unsplash.com/photo-1509726360306-3f44543aea4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85"
                 alt="Nhang trầm"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
+                className="w-full h-48 object-cover rounded-lg shadow-lg dark:shadow-amber-900/20"
               />
               <img 
                 src="https://images.unsplash.com/photo-1581669808238-7f73311e2031?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHx3b29kZW4lMjBiZWFkc3xlbnwwfHx8fDE3NTE0Mjk4OTR8MA&ixlib=rb-4.1.0&q=85"
                 alt="Vòng tay trầm hương"
-                className="w-full h-48 object-cover rounded-lg shadow-lg mt-8"
+                className="w-full h-48 object-cover rounded-lg shadow-lg dark:shadow-amber-900/20 mt-8"
               />
               <img 
                 src="https://images.unsplash.com/photo-1541795083-1b160cf4f3d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwYnVybmluZ3xlbnwwfHx8fDE3NTE0Mjk4ODl8MA&ixlib=rb-4.1.0&q=85"
                 alt="Khói nhang"
-                className="w-full h-32 object-cover rounded-lg shadow-lg -mt-4"
+                className="w-full h-32 object-cover rounded-lg shadow-lg dark:shadow-amber-900/20 -mt-4"
               />
               <img 
                 src="https://images.unsplash.com/photo-1742474561321-10e657e125f4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxhZ2Fyd29vZCUyMG9pbHxlbnwwfHx8fDE3NTE0Mjk4NzN8MA&ixlib=rb-4.1.0&q=85"
                 alt="Gỗ trầm hương"
-                className="w-full h-32 object-cover rounded-lg shadow-lg mt-4"
+                className="w-full h-32 object-cover rounded-lg shadow-lg dark:shadow-amber-900/20 mt-4"
               />
             </div>
           </div>
 
           <div className="lg:w-1/2 lg:pl-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-6 transition-colors duration-300">
               Sơn Mộc Hương
               <br />
-              <span className="text-amber-800">Trầm hương chất lượng cao</span>
+              <span className="text-amber-800 dark:text-amber-400">Trầm hương chất lượng cao</span>
             </h2>
-            <p className="text-gray-600 mb-8 text-lg">
+            <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg transition-colors duration-300">
               Sơn Mộc Hương tự hào mang đến cho khách hàng những sản phẩm trầm hương từ thiên nhiên, 
               với nguyên liệu trầm hương nguyên chất được chọn lọc kỹ lưỡng từ những vùng đất nổi tiếng về trầm hương tại Việt Nam.
             </p>
 
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <div className="w-6 h-6 bg-amber-800 rounded-full flex items-center justify-center">
+                <div className="w-6 h-6 bg-amber-800 dark:bg-amber-600 rounded-full flex items-center justify-center">
                   <span className="text-white text-xs">✓</span>
                 </div>
-                <span className="text-gray-700">Trầm hương nguyên chất 100%</span>
+                <span className="text-gray-700 dark:text-gray-300">Trầm hương nguyên chất 100%</span>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-6 h-6 bg-amber-800 rounded-full flex items-center justify-center">
+                <div className="w-6 h-6 bg-amber-800 dark:bg-amber-600 rounded-full flex items-center justify-center">
                   <span className="text-white text-xs">✓</span>
                 </div>
-                <span className="text-gray-700">Cam kết chất lượng với giá trị thực</span>
+                <span className="text-gray-700 dark:text-gray-300">Cam kết chất lượng với giá trị thực</span>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-6 h-6 bg-amber-800 rounded-full flex items-center justify-center">
+                <div className="w-6 h-6 bg-amber-800 dark:bg-amber-600 rounded-full flex items-center justify-center">
                   <span className="text-white text-xs">✓</span>
                 </div>
-                <span className="text-gray-700">Dịch vụ tận tâm, uy tín</span>
+                <span className="text-gray-700 dark:text-gray-300">Dịch vụ tận tâm, uy tín</span>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-6 h-6 bg-amber-800 rounded-full flex items-center justify-center">
+                <div className="w-6 h-6 bg-amber-800 dark:bg-amber-600 rounded-full flex items-center justify-center">
                   <span className="text-white text-xs">✓</span>
                 </div>
-                <span className="text-gray-700">Miễn phí ship từ 300.000đ</span>
+                <span className="text-gray-700 dark:text-gray-300">Miễn phí ship từ 300.000đ</span>
               </div>
             </div>
 
-            <button className="mt-8 bg-amber-800 text-white px-8 py-3 rounded-full hover:bg-amber-900 transition-colors">
-              Xem ngay
+            <button className="mt-8 bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white px-8 py-3 rounded-full hover:from-amber-900 hover:to-amber-800 dark:hover:from-amber-700 dark:hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1">
+              Tìm hiểu thêm
             </button>
           </div>
         </div>
