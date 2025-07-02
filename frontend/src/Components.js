@@ -73,13 +73,24 @@ export const Header = ({ cartCount, onCartClick }) => {
             </Link>
             <Link 
               to="/contact" 
-              className={`relative text-gray-700 hover:text-amber-800 transition-all duration-300 font-medium group ${
-                isActive('/contact') ? 'text-amber-800 font-semibold' : ''
+              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium group ${
+                isActive('/contact') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
               }`}
             >
               Liên hệ
-              <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-amber-800 transition-all duration-300 group-hover:w-full ${
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-amber-800 dark:bg-amber-400 transition-all duration-300 group-hover:w-full ${
                 isActive('/contact') ? 'w-full' : ''
+              }`}></span>
+            </Link>
+            <Link 
+              to="/admin" 
+              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium group ${
+                isActive('/admin') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
+              }`}
+            >
+              Admin
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-amber-800 dark:bg-amber-400 transition-all duration-300 group-hover:w-full ${
+                isActive('/admin') ? 'w-full' : ''
               }`}></span>
             </Link>
           </nav>
