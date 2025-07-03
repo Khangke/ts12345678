@@ -1828,7 +1828,7 @@ export const Footer = () => {
   );
 };
 
-// Product Detail Modal Component - Compact Layout
+// Product Detail Modal Component - Ultra Compact Layout
 export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) => {
   const [selectedSize, setSelectedSize] = useState(product.sizes?.[0] || null);
   const [quantity, setQuantity] = useState(1);
@@ -1862,200 +1862,192 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
 
   return (
     <div className="fixed inset-0 bg-black/60 dark:bg-black/80 flex items-center justify-center z-50 p-4 transition-all duration-300 backdrop-blur-sm">
-      <div className="bg-white dark:bg-gray-900 rounded-2xl w-full max-w-4xl max-h-[85vh] overflow-hidden shadow-2xl border border-gray-200/20 dark:border-gray-700/30 transition-all duration-500">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl w-full max-w-4xl h-[80vh] overflow-hidden shadow-2xl border border-gray-200/20 dark:border-gray-700/30 transition-all duration-500 flex flex-col">
         
-        {/* Compact Header */}
-        <div className="flex justify-between items-center p-4 border-b border-gray-200/50 dark:border-gray-700/50 bg-gradient-to-r from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
-          <h2 className="text-lg font-bold text-gray-800 dark:text-white">Chi tiết sản phẩm</h2>
+        {/* Ultra Compact Header */}
+        <div className="flex justify-between items-center p-3 border-b border-gray-200/50 dark:border-gray-700/50 bg-gradient-to-r from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 flex-shrink-0">
+          <h2 className="text-base font-bold text-gray-800 dark:text-white">Chi tiết sản phẩm</h2>
           <button 
             onClick={onClose} 
-            className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
+            className="w-7 h-7 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
           >
             <CloseIcon className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="overflow-y-auto max-h-[calc(85vh-64px)]">
-          <div className="p-4">
-            
-            {/* Main Content Grid - All Info Visible */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              
-              {/* Left Column - Image + Basic Info */}
-              <div className="space-y-4">
-                {/* Product Image */}
-                <div className="aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 shadow-lg">
-                  <img 
-                    src={product.image || 'https://images.unsplash.com/photo-1509726360306-3f44543aea4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85'} 
-                    alt={product.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+        {/* Main Content - No Scroll Needed */}
+        <div className="flex-1 p-3 grid grid-cols-1 lg:grid-cols-2 gap-4 min-h-0">
+          
+          {/* Left Column - Image + Minimal Info */}
+          <div className="space-y-3">
+            {/* Compact Product Image */}
+            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 shadow-md">
+              <img 
+                src={product.image || 'https://images.unsplash.com/photo-1509726360306-3f44543aea4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85'} 
+                alt={product.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-                {/* Product Basic Info */}
-                <div className="space-y-3">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 px-3 py-1 rounded-full text-sm font-semibold">
-                      {product.category}
-                    </span>
-                    <div className="flex items-center space-x-1 bg-yellow-50 dark:bg-yellow-900/20 px-2 py-1 rounded-full">
-                      <span className="text-yellow-500">★</span>
-                      <span className="text-sm font-bold text-gray-800 dark:text-gray-200">{product.rating || 4.5}</span>
-                    </div>
-                  </div>
-                  
-                  <h1 className="text-xl font-bold text-gray-900 dark:text-white leading-tight">
-                    {product.name}
-                  </h1>
-                  
-                  <div className="text-sm text-gray-600 dark:text-gray-400">
-                    <span className="font-medium">Chất liệu:</span>
-                    <span className="ml-2 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs">
-                      {product.material}
-                    </span>
-                  </div>
-
-                  {/* Description */}
-                  {product.detail_description && (
-                    <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                      <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed line-clamp-3">
-                        {product.detail_description}
-                      </p>
-                    </div>
-                  )}
+            {/* Ultra Compact Product Info */}
+            <div className="space-y-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 px-2 py-1 rounded-full text-xs font-semibold">
+                  {product.category}
+                </span>
+                <div className="flex items-center space-x-1 bg-yellow-50 dark:bg-yellow-900/20 px-2 py-1 rounded-full">
+                  <span className="text-yellow-500 text-sm">★</span>
+                  <span className="text-xs font-bold text-gray-800 dark:text-gray-200">{product.rating || 4.5}</span>
                 </div>
               </div>
+              
+              <h1 className="text-lg font-bold text-gray-900 dark:text-white leading-tight line-clamp-2">
+                {product.name}
+              </h1>
+              
+              <div className="text-xs text-gray-600 dark:text-gray-400">
+                <span className="font-medium">Chất liệu:</span> {product.material}
+              </div>
 
-              {/* Right Column - Size, Price, Actions */}
-              <div className="space-y-4">
-                
-                {/* Current Price Display */}
-                <div className="text-center p-4 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl border border-amber-200/30 dark:border-amber-700/30">
-                  <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Giá bán</div>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
-                    {currentPrice}
-                  </div>
-                  {selectedSize && (
-                    <div className="text-xs text-amber-600 dark:text-amber-400 mt-1">
-                      Kích cỡ: {selectedSize}
-                    </div>
-                  )}
+              {/* Compact Description */}
+              {product.detail_description && (
+                <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                  <p className="text-xs text-gray-700 dark:text-gray-300 leading-tight line-clamp-2">
+                    {product.detail_description}
+                  </p>
                 </div>
+              )}
+            </div>
+          </div>
 
-                {/* Size Selection - Compact Grid */}
-                {product.sizes && (
-                  <div>
-                    <h3 className="text-sm font-bold mb-3 text-gray-800 dark:text-white flex items-center space-x-2">
-                      <span className="w-4 h-4 bg-amber-500 rounded-full flex items-center justify-center">
-                        <span className="text-white text-xs">S</span>
-                      </span>
-                      <span>Chọn kích cỡ</span>
-                    </h3>
-                    <div className="grid grid-cols-2 gap-2">
-                      {product.sizes.map((size) => (
-                        <button
-                          key={size}
-                          onClick={() => setSelectedSize(size)}
-                          className={`relative p-3 border-2 rounded-lg transition-all duration-200 text-center ${
-                            selectedSize === size 
-                              ? 'border-amber-500 bg-amber-500 text-white shadow-lg' 
-                              : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-amber-400'
-                          }`}
-                        >
-                          <div className={`text-sm font-bold ${
-                            selectedSize === size ? 'text-white' : 'text-gray-800 dark:text-gray-200'
-                          }`}>
-                            {size}
-                          </div>
-                          {product.size_prices && product.size_prices[size] && (
-                            <div className={`text-xs mt-1 ${
-                              selectedSize === size ? 'text-white' : 'text-amber-600 dark:text-amber-400'
-                            }`}>
-                              {product.size_prices[size]}
-                            </div>
-                          )}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
+          {/* Right Column - Price, Size, Actions */}
+          <div className="space-y-3 flex flex-col min-h-0">
+            
+            {/* Compact Price Display */}
+            <div className="text-center p-3 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-lg border border-amber-200/30 dark:border-amber-700/30 flex-shrink-0">
+              <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">Giá bán</div>
+              <div className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+                {currentPrice}
+              </div>
+              {selectedSize && (
+                <div className="text-xs text-amber-600 dark:text-amber-400">
+                  Kích cỡ: {selectedSize}
+                </div>
+              )}
+            </div>
 
-                {/* Quantity Selector - Inline */}
-                <div>
-                  <h3 className="text-sm font-bold mb-3 text-gray-800 dark:text-white">Số lượng</h3>
-                  <div className="flex items-center justify-center space-x-3">
-                    <button 
-                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="w-10 h-10 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center text-lg font-bold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200"
+            {/* Compact Size Selection */}
+            {product.sizes && (
+              <div className="flex-shrink-0">
+                <h3 className="text-sm font-bold mb-2 text-gray-800 dark:text-white flex items-center space-x-1">
+                  <span className="w-3 h-3 bg-amber-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xs">S</span>
+                  </span>
+                  <span>Chọn kích cỡ</span>
+                </h3>
+                <div className="grid grid-cols-2 gap-2">
+                  {product.sizes.map((size) => (
+                    <button
+                      key={size}
+                      onClick={() => setSelectedSize(size)}
+                      className={`relative p-2 border-2 rounded-lg transition-all duration-200 text-center ${
+                        selectedSize === size 
+                          ? 'border-amber-500 bg-amber-500 text-white shadow-md' 
+                          : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-amber-400'
+                      }`}
                     >
-                      −
-                    </button>
-                    <span className="text-xl font-bold min-w-[2.5rem] text-center text-gray-800 dark:text-white bg-gray-50 dark:bg-gray-800 px-3 py-2 rounded-lg">
-                      {quantity}
-                    </span>
-                    <button 
-                      onClick={() => setQuantity(quantity + 1)}
-                      className="w-10 h-10 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center text-lg font-bold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-
-                {/* Info Tip */}
-                {product.size_prices && Object.keys(product.size_prices).length > 1 && (
-                  <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200/50 dark:border-blue-700/50">
-                    <div className="flex items-center space-x-2">
-                      <span className="text-lg">💡</span>
-                      <p className="text-xs text-blue-800 dark:text-blue-300">Giá thay đổi theo kích cỡ</p>
-                    </div>
-                  </div>
-                )}
-
-                {/* Action Buttons */}
-                <div className="grid grid-cols-2 gap-3">
-                  <button 
-                    onClick={handleAddToCart}
-                    className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white py-3 px-4 rounded-xl font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2"
-                  >
-                    <ShoppingCartIcon className="w-4 h-4" />
-                    <span>Thêm giỏ</span>
-                  </button>
-                  <button 
-                    onClick={handleBuyNow}
-                    className="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white py-3 px-4 rounded-xl font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2"
-                  >
-                    <span>⚡</span>
-                    <span>Mua ngay</span>
-                  </button>
-                </div>
-
-                {/* Reviews Section - Compact */}
-                {product.reviews && product.reviews.length > 0 && (
-                  <div className="pt-3 border-t border-gray-200/50 dark:border-gray-700/50">
-                    <h3 className="text-sm font-bold mb-3 text-gray-800 dark:text-white flex items-center space-x-2">
-                      <span className="text-yellow-500">★</span>
-                      <span>Đánh giá ({product.reviews.length})</span>
-                    </h3>
-                    <div className="space-y-2 max-h-32 overflow-y-auto">
-                      {product.reviews.slice(0, 2).map((review, index) => (
-                        <div key={index} className="p-2 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                          <div className="flex items-center justify-between mb-1">
-                            <span className="text-xs font-medium text-gray-800 dark:text-white">{review.name}</span>
-                            <div className="flex text-xs">
-                              {[...Array(review.rating)].map((_, i) => (
-                                <span key={i} className="text-yellow-400">★</span>
-                              ))}
-                            </div>
-                          </div>
-                          <p className="text-xs text-gray-600 dark:text-gray-300 line-clamp-2">{review.comment}</p>
+                      <div className={`text-xs font-bold ${
+                        selectedSize === size ? 'text-white' : 'text-gray-800 dark:text-gray-200'
+                      }`}>
+                        {size}
+                      </div>
+                      {product.size_prices && product.size_prices[size] && (
+                        <div className={`text-xs mt-1 ${
+                          selectedSize === size ? 'text-white' : 'text-amber-600 dark:text-amber-400'
+                        }`}>
+                          {product.size_prices[size]}
                         </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Compact Quantity Selector */}
+            <div className="flex-shrink-0">
+              <h3 className="text-sm font-bold mb-2 text-gray-800 dark:text-white">Số lượng</h3>
+              <div className="flex items-center justify-center space-x-2">
+                <button 
+                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  className="w-8 h-8 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center text-sm font-bold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200"
+                >
+                  −
+                </button>
+                <span className="text-lg font-bold min-w-[2rem] text-center text-gray-800 dark:text-white bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded-lg">
+                  {quantity}
+                </span>
+                <button 
+                  onClick={() => setQuantity(quantity + 1)}
+                  className="w-8 h-8 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center text-sm font-bold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200"
+                >
+                  +
+                </button>
               </div>
             </div>
+
+            {/* Compact Info Tip */}
+            {product.size_prices && Object.keys(product.size_prices).length > 1 && (
+              <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200/50 dark:border-blue-700/50 flex-shrink-0">
+                <div className="flex items-center space-x-2">
+                  <span className="text-sm">💡</span>
+                  <p className="text-xs text-blue-800 dark:text-blue-300">Giá thay đổi theo kích cỡ</p>
+                </div>
+              </div>
+            )}
+
+            {/* Compact Action Buttons */}
+            <div className="grid grid-cols-2 gap-2 flex-shrink-0">
+              <button 
+                onClick={handleAddToCart}
+                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white py-2.5 px-3 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-1"
+              >
+                <ShoppingCartIcon className="w-4 h-4" />
+                <span>Thêm giỏ</span>
+              </button>
+              <button 
+                onClick={handleBuyNow}
+                className="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white py-2.5 px-3 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-1"
+              >
+                <span>⚡</span>
+                <span>Mua ngay</span>
+              </button>
+            </div>
+
+            {/* Compact Reviews Section */}
+            {product.reviews && product.reviews.length > 0 && (
+              <div className="pt-2 border-t border-gray-200/50 dark:border-gray-700/50 flex-1 min-h-0">
+                <h3 className="text-sm font-bold mb-2 text-gray-800 dark:text-white flex items-center space-x-1">
+                  <span className="text-yellow-500 text-sm">★</span>
+                  <span>Đánh giá ({product.reviews.length})</span>
+                </h3>
+                <div className="space-y-1 max-h-20 overflow-y-auto">
+                  {product.reviews.slice(0, 2).map((review, index) => (
+                    <div key={index} className="p-2 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-xs font-medium text-gray-800 dark:text-white">{review.name}</span>
+                        <div className="flex text-xs">
+                          {[...Array(review.rating)].map((_, i) => (
+                            <span key={i} className="text-yellow-400">★</span>
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-xs text-gray-600 dark:text-gray-300 line-clamp-1">{review.comment}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
