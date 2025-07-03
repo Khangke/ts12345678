@@ -1024,16 +1024,126 @@ def test_create_delivered_order():
     print(f"{Colors.HEADER}CREATE DELIVERED ORDER FLOW COMPLETED{Colors.ENDC}")
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
 
+def test_products_api_for_featured_section():
+    """Test the GET /api/products endpoint specifically for featured products section"""
+    print(f"{Colors.HEADER}Testing GET /api/products for Featured Products Section{Colors.ENDC}")
+    
+    try:
+        response = requests.get(f"{API_URL}/products")
+        
+        if response.status_code == 200:
+            products = response.json()
+            
+            # Check if we have products
+            if len(products) > 0:
+                log_test("GET /api/products - Products Available", True, response)
+                print(f"  Found {len(products)} products")
+                
+                # Print details of the first few products
+                for i, product in enumerate(products[:3]):
+                    print(f"\n  Product {i+1}:")
+                    print(f"    ID: {product.get('id')}")
+                    print(f"    Name: {product.get('name')}")
+                    print(f"    Price: {product.get('price')}")
+                    print(f"    Category: {product.get('category')}")
+                    print(f"    Has Image: {'Yes' if product.get('image') else 'No'}")
+                    print(f"    Size Prices: {product.get('size_prices', {})}")
+                    print(f"    Sizes: {product.get('sizes', [])}")
+            else:
+                log_test("GET /api/products - Products Available", False, response, 
+                        "No products found in the response")
+                
+                # If no products, check if we need to seed the database
+                print("  No products found. Attempting to seed the database...")
+                
+                # Get admin token
+                try:
+                    token = get_admin_token()
+                    
+                    # Call seed-products endpoint
+                    seed_response = requests.post(
+                        f"{API_URL}/admin/seed-products",
+                        headers={"Authorization": f"Bearer {token}"}
+                    )
+                    
+                    if seed_response.status_code == 200:
+                        print("  Successfully seeded the database with sample products")
+                        
+                        # Try getting products again
+                        retry_response = requests.get(f"{API_URL}/products")
+                        if retry_response.status_code == 200 and len(retry_response.json()) > 0:
+                            log_test("GET /api/products - After Seeding", True, retry_response)
+                            print(f"  Found {len(retry_response.json())} products after seeding")
+                        else:
+                            log_test("GET /api/products - After Seeding", False, retry_response,
+                                    "Still no products after seeding")
+                    else:
+                        log_test("Seed Products", False, seed_response,
+                                f"Failed to seed products: {seed_response.status_code}")
+                except Exception as e:
+                    log_test("Seed Products", False, error=str(e))
+        else:
+            log_test("GET /api/products - Status Code", False, response,
+                    f"Expected status 200, got {response.status_code}")
+    except Exception as e:
+        log_test("GET /api/products", False, error=str(e))
+    
+    # Check CORS headers
+    try:
+        response = requests.options(f"{API_URL}/products")
+        
+        cors_headers = [
+            'Access-Control-Allow-Origin',
+            'Access-Control-Allow-Methods',
+            'Access-Control-Allow-Headers'
+        ]
+        
+        has_cors_headers = all(header in response.headers for header in cors_headers)
+        
+        if has_cors_headers:
+            log_test("CORS Headers for /api/products", True, response)
+            print("  CORS headers found:")
+            for header in cors_headers:
+                if header in response.headers:
+                    print(f"    {header}: {response.headers[header]}")
+        else:
+            log_test("CORS Headers for /api/products", False, response,
+                    "Missing required CORS headers")
+            print("  Available headers:")
+            for header, value in response.headers.items():
+                print(f"    {header}: {value}")
+    except Exception as e:
+        log_test("CORS Headers for /api/products", False, error=str(e))
+
+def check_mongodb_connection():
+    """Check if MongoDB is running and accessible"""
+    print(f"{Colors.HEADER}Checking MongoDB Connection{Colors.ENDC}")
+    
+    try:
+        # Use the backend to check MongoDB connection
+        response = requests.get(f"{API_URL}/status")
+        
+        if response.status_code == 200:
+            log_test("MongoDB Connection via API", True, response)
+        else:
+            log_test("MongoDB Connection via API", False, response,
+                    f"Expected status 200, got {response.status_code}")
+    except Exception as e:
+        log_test("MongoDB Connection via API", False, error=str(e))
+
 def run_tests():
     """Run specific tests as requested in the review"""
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
-    print(f"{Colors.HEADER}TESTING BACKEND APIs AFTER ADDING FEATURED PRODUCTS SECTION{Colors.ENDC}")
+    print(f"{Colors.HEADER}TESTING BACKEND APIs FOR FEATURED PRODUCTS ISSUE{Colors.ENDC}")
     print(f"{Colors.HEADER}Backend URL: {BACKEND_URL}{Colors.ENDC}")
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
     
+    # Check MongoDB connection
+    check_mongodb_connection()
+    
     # Test the specific endpoints mentioned in the review request
-    print(f"{Colors.HEADER}1. Testing GET /api/products endpoint{Colors.ENDC}")
-    test_public_products()
+    print(f"{Colors.HEADER}1. Testing GET /api/products endpoint for featured products{Colors.ENDC}")
+    test_products_api_for_featured_section()
     
     # Get admin token for authenticated tests
     token = get_admin_token()
@@ -1045,6 +1155,22 @@ def run_tests():
     # Test creating an order
     print(f"{Colors.HEADER}3. Testing POST /api/orders endpoint{Colors.ENDC}")
     test_create_order_with_size_pricing()
+    
+    # Test seeding products if needed
+    print(f"{Colors.HEADER}4. Testing /api/admin/seed-products endpoint{Colors.ENDC}")
+    try:
+        response = requests.post(
+            f"{API_URL}/admin/seed-products",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+        
+        if response.status_code == 200 and "message" in response.json():
+            log_test("Seed Products", True, response)
+        else:
+            log_test("Seed Products", False, response, 
+                    f"Expected status 200 with message, got {response.status_code}")
+    except Exception as e:
+        log_test("Seed Products", False, error=str(e))
     
     # Print summary
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
@@ -1060,10 +1186,16 @@ def run_tests():
         for test in test_results['tests']:
             if not test['passed']:
                 print(f"- {test['name']}: {test['error']}")
+        
+        print(f"\n{Colors.WARNING}Recommendations:{Colors.ENDC}")
+        print("1. Check if MongoDB is running and accessible")
+        print("2. Verify that products have been seeded in the database")
+        print("3. Check for any errors in the backend logs")
+        print("4. Ensure CORS is properly configured for frontend access")
     else:
         print(f"\n{Colors.OKGREEN}All backend API tests passed successfully!{Colors.ENDC}")
         print(f"{Colors.OKGREEN}Backend health check complete - all endpoints returning status 200 with proper data format.{Colors.ENDC}")
-        print(f"{Colors.OKGREEN}Backend is not affected by the addition of FeaturedProductsSection component in frontend.{Colors.ENDC}")
+        print(f"{Colors.OKGREEN}If products are not showing in the frontend, the issue is likely in the frontend code, not the backend API.{Colors.ENDC}")
 
 if __name__ == "__main__":
     run_tests()
