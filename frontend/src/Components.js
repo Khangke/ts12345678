@@ -1171,34 +1171,34 @@ export const ProductsSection = ({ onProductClick }) => {
           </p>
         </div>
 
-        {/* Optimized Loading State */}
+        {/* Mobile Optimized Loading State */}
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-8">
             {[...Array(8)].map((_, index) => (
               <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden animate-pulse">
-                <div className="w-full h-48 bg-gray-300 dark:bg-gray-600"></div>
-                <div className="p-6 space-y-3">
-                  <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-3/4"></div>
-                  <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded w-full"></div>
-                  <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded w-2/3"></div>
+                <div className="w-full h-32 lg:h-48 bg-gray-300 dark:bg-gray-600"></div>
+                <div className="p-3 lg:p-6 space-y-2 lg:space-y-3">
+                  <div className="h-3 lg:h-4 bg-gray-300 dark:bg-gray-600 rounded w-3/4"></div>
+                  <div className="h-2 lg:h-3 bg-gray-300 dark:bg-gray-600 rounded w-full"></div>
+                  <div className="h-2 lg:h-3 bg-gray-300 dark:bg-gray-600 rounded w-2/3"></div>
                   <div className="flex justify-between items-center">
-                    <div className="h-6 bg-gray-300 dark:bg-gray-600 rounded w-1/3"></div>
-                    <div className="h-8 bg-gray-300 dark:bg-gray-600 rounded w-20"></div>
+                    <div className="h-4 lg:h-6 bg-gray-300 dark:bg-gray-600 rounded w-1/3"></div>
+                    <div className="h-6 lg:h-8 bg-gray-300 dark:bg-gray-600 rounded w-16 lg:w-20"></div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         ) : filteredProducts.length === 0 ? (
-          // No products found
-          <div className="text-center py-16">
-            <div className="mb-4">
-              <svg className="w-16 h-16 text-gray-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          // Mobile Optimized No products found
+          <div className="text-center py-8 lg:py-16">
+            <div className="mb-3 lg:mb-4">
+              <svg className="w-12 h-12 lg:w-16 lg:h-16 text-gray-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.291.94-5.709 2.291M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">Không tìm thấy sản phẩm</h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
+            <h3 className="text-lg lg:text-xl font-semibold text-gray-800 dark:text-white mb-2">Không tìm thấy sản phẩm</h3>
+            <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400 mb-4 px-4">
               {searchTerm 
                 ? `Không có sản phẩm nào phù hợp với từ khóa "${searchTerm}"`
                 : 'Không có sản phẩm nào trong danh mục này'
@@ -1209,56 +1209,98 @@ export const ProductsSection = ({ onProductClick }) => {
                 setSearchTerm('');
                 setSelectedCategory('all');
               }}
-              className="bg-amber-800 dark:bg-amber-600 text-white px-6 py-2 rounded-full hover:bg-amber-900 dark:hover:bg-amber-700 transition-all duration-300"
+              className="bg-amber-800 dark:bg-amber-600 text-white px-4 lg:px-6 py-2 rounded-full hover:bg-amber-900 dark:hover:bg-amber-700 transition-all duration-300 text-sm lg:text-base"
             >
               Xem tất cả sản phẩm
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          /* Mobile First Product Grid - 2 columns on mobile, 4 on desktop */
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-8">
             {filteredProducts.map((product, index) => (
               <div 
                 key={product.id} 
                 ref={setRef(index)}
-                className={`bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-amber-900/10 overflow-hidden hover:shadow-2xl dark:hover:shadow-amber-900/20 cursor-pointer group transition-all duration-500 hover:transform hover:scale-105 hover:-translate-y-2 ${
+                className={`bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-2xl shadow-lg dark:shadow-amber-900/10 overflow-hidden hover:shadow-2xl dark:hover:shadow-amber-900/20 cursor-pointer group transition-all duration-500 hover:transform hover:scale-102 lg:hover:scale-105 hover:-translate-y-1 lg:hover:-translate-y-2 ${
                   visibleItems.has(index) ? 'animate-fade-in-up opacity-100' : 'opacity-0'
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => onProductClick(product)}
               >
+                {/* Mobile Optimized Image Container */}
                 <div className="relative overflow-hidden">
                   <img 
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
-                    loading="lazy" // Lazy loading cho hiệu suất tốt hơn
+                    className="w-full h-32 lg:h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
                     decoding="async"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-800/0 to-amber-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-amber-800 dark:bg-amber-600 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg animate-bounce-in">
-                      {product.category}
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/0 to-black/30 lg:from-amber-800/0 lg:to-amber-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  {/* Compact Category Badge */}
+                  <div className="absolute top-1.5 lg:top-4 left-1.5 lg:left-4">
+                    <span className="bg-amber-600/90 dark:bg-amber-500/90 text-white px-1.5 lg:px-3 py-0.5 lg:py-1 rounded-lg lg:rounded-full text-xs font-medium shadow-lg backdrop-blur-sm">
+                      {product.category.length > 10 ? product.category.substring(0, 10) + '...' : product.category}
                     </span>
                   </div>
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-2 rounded-full shadow-lg">
-                      <span className="text-amber-800 dark:text-amber-400 text-sm font-bold">HOT</span>
+                  
+                  {/* Mobile Rating Badge */}
+                  <div className="absolute top-1.5 lg:top-4 right-1.5 lg:right-4">
+                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-1.5 lg:px-2 py-0.5 lg:py-1 rounded-lg lg:rounded-full shadow-sm flex items-center space-x-1">
+                      <span className="text-yellow-500 text-xs">★</span>
+                      <span className="text-xs font-medium text-gray-800 dark:text-white">{product.rating}</span>
+                    </div>
+                  </div>
+                  
+                  {/* Mobile Price Overlay */}
+                  <div className="absolute bottom-1.5 lg:bottom-4 left-1.5 lg:left-4 right-1.5 lg:right-4">
+                    <div className="bg-black/60 backdrop-blur-sm text-white px-2 lg:px-3 py-1 lg:py-1.5 rounded-lg">
+                      <div className="flex justify-between items-center">
+                        <span className="text-xs lg:text-sm font-bold">{product.price}</span>
+                        {product.sizes && (
+                          <span className="text-xs opacity-80">{product.sizes.length} size</span>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
                 
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors duration-300">{product.name}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2 transition-colors duration-300">{product.description}</p>
+                {/* Mobile Optimized Content */}
+                <div className="p-2.5 lg:p-6">
+                  <h3 className="text-sm lg:text-xl font-semibold lg:font-bold text-gray-800 dark:text-white mb-1 lg:mb-2 line-clamp-1 lg:line-clamp-2 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors duration-300">
+                    {product.name}
+                  </h3>
                   
-                  <div className="flex items-center space-x-2 mb-3">
+                  {/* Mobile Only: Compact Description */}
+                  <p className="text-xs text-gray-600 dark:text-gray-300 mb-2 line-clamp-1 lg:hidden transition-colors duration-300">
+                    {product.description}
+                  </p>
+                  
+                  {/* Desktop Only: Full Description */}
+                  <p className="hidden lg:block text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2 transition-colors duration-300">
+                    {product.description}
+                  </p>
+                  
+                  {/* Mobile Material Info */}
+                  <div className="flex items-center justify-between text-xs lg:hidden mb-2">
+                    <span className="text-gray-500 dark:text-gray-400 truncate flex-1">
+                      {product.material.length > 15 ? product.material.substring(0, 15) + '...' : product.material}
+                    </span>
+                    <button className="bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 px-2 py-1 rounded-full font-medium hover:bg-amber-200 dark:hover:bg-amber-900/50 transition-colors ml-2">
+                      Xem
+                    </button>
+                  </div>
+                  
+                  {/* Desktop Full Info */}
+                  <div className="hidden lg:flex items-center space-x-2 mb-3">
                     <div className="w-8 h-8 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center group-hover:bg-amber-200 dark:group-hover:bg-amber-800/50 transition-colors duration-300">
                       <span className="text-amber-800 dark:text-amber-400 text-xs">✓</span>
                     </div>
                     <span className="text-sm text-gray-600 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">{product.material}</span>
                   </div>
                   
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="hidden lg:flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-1">
                       <span className="text-yellow-400 group-hover:animate-pulse">★</span>
                       <span className="text-sm text-gray-600 dark:text-gray-300">{product.rating}</span>
@@ -1266,7 +1308,7 @@ export const ProductsSection = ({ onProductClick }) => {
                     <span className="text-sm text-amber-600 dark:text-amber-400 font-medium group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">Chất lượng cao</span>
                   </div>
                   
-                  <div className="flex items-center justify-between">
+                  <div className="hidden lg:flex items-center justify-between">
                     <span className="text-2xl font-bold text-amber-800 dark:text-amber-400 group-hover:animate-pulse">{product.price}</span>
                     <button 
                       className="bg-amber-800 dark:bg-amber-600 text-white px-4 py-2 rounded-full hover:bg-amber-900 dark:hover:bg-amber-700 transition-all duration-300 text-sm shadow-lg hover:shadow-xl transform hover:scale-105 group-hover:animate-bounce"
