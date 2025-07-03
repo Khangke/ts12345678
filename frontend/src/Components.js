@@ -2003,11 +2003,11 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
   return (
     <>
       <div 
-        className="fixed inset-0 bg-black/60 dark:bg-black/80 flex items-center justify-center z-50 p-4 transition-all duration-300 backdrop-blur-sm"
+        className="fixed inset-0 bg-black/40 dark:bg-black/60 flex items-center justify-center z-50 p-4 transition-all duration-300 backdrop-blur-md"
         onClick={handleBackdropClick}
       >
         <div 
-          className="bg-white dark:bg-gray-900 rounded-2xl w-full max-w-4xl h-[80vh] overflow-hidden shadow-2xl border border-gray-200/20 dark:border-gray-700/30 transition-all duration-500 flex flex-col"
+          className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-3xl w-full max-w-5xl h-[85vh] overflow-hidden shadow-xl border border-white/20 dark:border-gray-700/20 transition-all duration-500 flex flex-col"
           onClick={(e) => e.stopPropagation()} // Prevent modal close when clicking inside
         >
           
