@@ -692,15 +692,15 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
 
         {/* View All Products Button */}
         <div className="text-center mt-12">
-          <a 
-            href="/products"
+          <Link 
+            to="/products"
             className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
           >
             <span>Xem tất cả sản phẩm</span>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
