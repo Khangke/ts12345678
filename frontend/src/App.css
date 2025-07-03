@@ -191,28 +191,87 @@ section {
     }
 }
 
-/* Responsive Design Helpers */
+/* Responsive Design Helpers - Mobile First */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem !important; /* 24px */
+    line-height: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.25rem !important; /* 20px */
+    line-height: 1.75rem !important;
+  }
+  
+  h3 {
+    font-size: 1.125rem !important; /* 18px */
+    line-height: 1.625rem !important;
+  }
+  
+  /* Mobile Product Cards */
+  .product-card-mobile {
+    padding: 0.5rem;
+    border-radius: 1rem;
+  }
+  
+  /* Mobile Navigation */
+  .mobile-nav {
+    height: 3.5rem; /* 56px instead of 64px */
+  }
+  
+  /* Mobile Toast */
+  .toast-mobile {
+    left: 0.5rem;
+    right: 0.5rem;
+    top: 0.5rem;
+    width: auto;
+    font-size: 0.875rem;
+  }
+  
+  /* Mobile Form Elements */
+  .form-input-mobile {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .form-button-mobile {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    min-height: 2.75rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  h1 {
+    font-size: 2rem !important; /* 32px */
+  }
+  
+  h2 {
+    font-size: 1.5rem !important; /* 24px */
+  }
+}
+
 @media (max-width: 768px) {
-    .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    
-    h1 {
-        font-size: 2.5rem !important;
-    }
-    
-    h2 {
-        font-size: 2rem !important;
-    }
-    
-    /* Mobile Toast */
-    .toast-mobile {
-        left: 1rem;
-        right: 1rem;
-        top: 1rem;
-        width: auto;
-    }
+  /* Mobile specific adjustments */
+  .hero-mobile {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .section-mobile {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
 
 /* Success Toast */
