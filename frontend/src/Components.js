@@ -645,7 +645,7 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
                 style={{ transitionDelay: `${index * 150}ms` }}
                 onClick={() => handleProductClick(product)}
               >
-                <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg lg:rounded-2xl p-1.5 sm:p-2 lg:p-4 shadow-lg hover:shadow-xl dark:shadow-amber-900/20 transition-all duration-500 transform hover:scale-[1.02] lg:hover:scale-105 hover:-translate-y-0.5 lg:hover:-translate-y-2 border border-white/20 dark:border-gray-700/50 relative overflow-hidden">
+                <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg lg:rounded-2xl p-2 sm:p-3 lg:p-4 shadow-lg hover:shadow-xl dark:shadow-amber-900/20 transition-all duration-500 transform hover:scale-[1.02] lg:hover:scale-105 hover:-translate-y-0.5 lg:hover:-translate-y-2 border border-white/20 dark:border-gray-700/50 relative overflow-hidden">
                   {/* Card Background Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-amber-50/30 dark:from-gray-800/50 dark:to-amber-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
