@@ -255,6 +255,17 @@ function App() {
     }, 100);
   };
 
+  // Helper function to clear cart
+  const clearCart = () => {
+    try {
+      setCartItems([]);
+      localStorage.removeItem('cart_items');
+      showToastMessage('Đã xóa tất cả sản phẩm khỏi giỏ hàng!');
+    } catch (error) {
+      console.error('Error clearing cart:', error);
+    }
+  };
+
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   // Show success page if order completed
