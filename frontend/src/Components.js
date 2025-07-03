@@ -678,7 +678,7 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
 
                   {/* Enhanced Product Info */}
                   <div className="space-y-2 lg:space-y-4 relative">
-                    <h3 className="font-bold text-lg text-gray-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300 leading-tight" 
+                    <h3 className="font-bold text-sm lg:text-lg text-gray-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300 leading-tight line-clamp-2" 
                         style={{
                           display: '-webkit-box',
                           WebkitLineClamp: 2,
