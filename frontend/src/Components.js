@@ -513,6 +513,7 @@ export const FeaturesSection = () => {
 export const FeaturedProductsSection = ({ onProductClick }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
   
   // Animation hook
   const [featuredRef, isFeaturedVisible] = useScrollAnimation(0.2);
@@ -527,15 +528,16 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
 
   const fetchFeaturedProducts = async () => {
     try {
-      // Check cache first
+      // Priority 1: Check cache first for instant load
       const cachedData = localStorage.getItem(CACHE_KEY);
       if (cachedData) {
         const { data, timestamp } = JSON.parse(cachedData);
         const isValid = Date.now() - timestamp < CACHE_DURATION;
         
-        if (isValid) {
+        if (isValid && data && data.length > 0) {
           setProducts(data.slice(0, 4)); // Chỉ lấy 4 sản phẩm đầu
           setLoading(false);
+          setIsInitialLoad(false);
           
           // Refresh cache in background
           fetchFromAPI(true);
@@ -543,11 +545,46 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
         }
       }
 
-      // Fetch from API
-      await fetchFromAPI(false);
+      // Priority 2: Fast API call with timeout and fallback
+      setLoading(true);
+      const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
+      
+      // Race between API call and fallback timeout
+      const apiCall = fetch(`${BACKEND_URL}/api/products`);
+      const timeout = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('timeout')), 3000) // 3s timeout
+      );
+      
+      try {
+        const response = await Promise.race([apiCall, timeout]);
+        
+        if (response.ok) {
+          const data = await response.json();
+          
+          // Cache the data
+          localStorage.setItem(CACHE_KEY, JSON.stringify({
+            data,
+            timestamp: Date.now()
+          }));
+          
+          setProducts(data.slice(0, 4)); // Chỉ lấy 4 sản phẩm nổi bật
+        } else {
+          throw new Error('API response not ok');
+        }
+      } catch (error) {
+        // Fallback to static featured products for instant display
+        console.log('Using fallback featured products for better UX');
+        const staticProducts = getStaticFeaturedProducts();
+        setProducts(staticProducts);
+      }
     } catch (error) {
       console.error('Error fetching featured products:', error);
+      // Final fallback
+      const staticProducts = getStaticFeaturedProducts();
+      setProducts(staticProducts);
+    } finally {
       setLoading(false);
+      setIsInitialLoad(false);
     }
   };
 
@@ -555,25 +592,93 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
     try {
       const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
       const response = await fetch(`${BACKEND_URL}/api/products`);
-      const data = await response.json();
       
-      // Cache the data
-      localStorage.setItem(CACHE_KEY, JSON.stringify({
-        data,
-        timestamp: Date.now()
-      }));
-      
-      if (!isBackground) {
-        setProducts(data.slice(0, 4)); // Chỉ lấy 4 sản phẩm nổi bật
-        setLoading(false);
+      if (response.ok) {
+        const data = await response.json();
+        
+        // Cache the data
+        localStorage.setItem(CACHE_KEY, JSON.stringify({
+          data,
+          timestamp: Date.now()
+        }));
+        
+        // Only update UI if not background refresh
+        if (!isBackground && data && data.length > 0) {
+          setProducts(data.slice(0, 4));
+        }
       }
     } catch (error) {
-      console.error('Error fetching from API:', error);
-      if (!isBackground) {
-        setLoading(false);
-      }
+      console.error('Background fetch failed:', error);
+      // Don't show error for background fetches
     }
   };
+
+  // Fallback static featured products when API fails
+  const getStaticFeaturedProducts = () => [
+    {
+      id: '1',
+      name: 'Vòng tay trầm hương tự nhiên',
+      description: 'Vòng tay trầm hương nguyên chất, mang lại sự bình an và may mắn.',
+      price: '1.500.000đ',
+      image: 'https://images.pexels.com/photos/2297252/pexels-photo-2297252.jpeg',
+      category: 'Vòng tay trầm',
+      material: 'Trầm hương tự nhiên',
+      rating: 4.9,
+      sizes: ['16mm', '18mm', '20mm'],
+      size_prices: {
+        '16mm': '1200000',
+        '18mm': '1500000', 
+        '20mm': '1800000'
+      }
+    },
+    {
+      id: '2',
+      name: 'Nhang nụ trầm hương',
+      description: 'Nhang nụ trầm hương cao cấp, cháy lâu và tỏa hương đều.',
+      price: '280.000đ',
+      image: 'https://images.pexels.com/photos/8484055/pexels-photo-8484055.jpeg',
+      category: 'Nhang nụ trầm',
+      material: 'Trầm hương nguyên chất',
+      rating: 4.9,
+      sizes: ['Hộp 50 nụ', 'Hộp 100 nụ'],
+      size_prices: {
+        'Hộp 50 nụ': '280000',
+        'Hộp 100 nụ': '550000'
+      }
+    },
+    {
+      id: '3',
+      name: 'Vòng tay trầm hương chìm nước',
+      description: 'Vòng tay trầm hương chìm nước cao cấp, hương thơm đặc trưng.',
+      price: '12.000.000đ',
+      image: 'https://images.unsplash.com/photo-1581669808238-7f73311e2031?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHx3b29kZW4lMjBiZWFkc3xlbnwwfHx8fDE3NTE0Mjk4OTR8MA&ixlib=rb-4.1.0&q=85',
+      category: 'Vòng tay cao cấp',
+      material: 'Trầm hương chìm nước',
+      rating: 4.8,
+      sizes: ['16mm', '18mm', '20mm'],
+      size_prices: {
+        '16mm': '10000000',
+        '18mm': '12000000',
+        '20mm': '15000000'
+      }
+    },
+    {
+      id: '4',
+      name: 'Tinh dầu trầm hương',
+      description: 'Tinh dầu trầm hương nguyên chất 100%, dùng cho liệu pháp thư giãn.',
+      price: '5.500.000đ',
+      image: 'https://images.unsplash.com/photo-1742474561321-10e657e125f4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxhZ2Fyd29vZCUyMG9pbHxlbnwwfHx8fDE3NTE0Mjk4NzN8MA&ixlib=rb-4.1.0&q=85',
+      category: 'Tinh dầu trầm',
+      material: 'Tinh dầu nguyên chất',
+      rating: 4.7,
+      sizes: ['5ml', '10ml', '20ml'],
+      size_prices: {
+        '5ml': '3500000',
+        '10ml': '5500000',
+        '20ml': '9500000'
+      }
+    }
+  ];
 
   const formatPrice = (price) => {
     if (typeof price === 'string') return price;
