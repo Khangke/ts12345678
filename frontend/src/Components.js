@@ -1833,6 +1833,34 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
   const [selectedSize, setSelectedSize] = useState(product.sizes?.[0] || null);
   const [quantity, setQuantity] = useState(1);
 
+  // Lock body scroll when modal opens
+  useEffect(() => {
+    // Store original overflow style
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    
+    // Lock body scroll
+    document.body.style.overflow = 'hidden';
+    
+    // Cleanup function to restore scroll when modal closes
+    return () => {
+      document.body.style.overflow = originalStyle;
+    };
+  }, []);
+
+  // Handle escape key to close modal
+  useEffect(() => {
+    const handleEscapeKey = (event) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleEscapeKey);
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+    };
+  }, [onClose]);
+
   // Utility function to get price based on selected size
   const getPriceForSize = (size) => {
     if (product.size_prices && product.size_prices[size]) {
@@ -1860,9 +1888,22 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
     onBuyNow(productWithCurrentPrice, quantity, selectedSize);
   };
 
+  // Handle backdrop click to close modal
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <div className="fixed inset-0 bg-black/60 dark:bg-black/80 flex items-center justify-center z-50 p-4 transition-all duration-300 backdrop-blur-sm">
-      <div className="bg-white dark:bg-gray-900 rounded-2xl w-full max-w-4xl h-[80vh] overflow-hidden shadow-2xl border border-gray-200/20 dark:border-gray-700/30 transition-all duration-500 flex flex-col">
+    <div 
+      className="fixed inset-0 bg-black/60 dark:bg-black/80 flex items-center justify-center z-50 p-4 transition-all duration-300 backdrop-blur-sm"
+      onClick={handleBackdropClick}
+    >
+      <div 
+        className="bg-white dark:bg-gray-900 rounded-2xl w-full max-w-4xl h-[80vh] overflow-hidden shadow-2xl border border-gray-200/20 dark:border-gray-700/30 transition-all duration-500 flex flex-col"
+        onClick={(e) => e.stopPropagation()} // Prevent modal close when clicking inside
+      >
         
         {/* Ultra Compact Header */}
         <div className="flex justify-between items-center p-3 border-b border-gray-200/50 dark:border-gray-700/50 bg-gradient-to-r from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 flex-shrink-0">
@@ -1875,8 +1916,8 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
           </button>
         </div>
 
-        {/* Main Content - No Scroll Needed */}
-        <div className="flex-1 p-3 grid grid-cols-1 lg:grid-cols-2 gap-4 min-h-0">
+        {/* Main Content - Fixed Height with Internal Scroll if Needed */}
+        <div className="flex-1 p-3 grid grid-cols-1 lg:grid-cols-2 gap-4 min-h-0 overflow-y-auto">
           
           {/* Left Column - Image + Minimal Info */}
           <div className="space-y-3">
