@@ -1168,17 +1168,17 @@ export const ProductsSection = ({ onProductClick }) => {
 
         {/* Mobile Optimized Loading State */}
         {loading ? (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-8">
             {[...Array(8)].map((_, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden animate-pulse">
-                <div className="w-full h-32 lg:h-48 bg-gray-300 dark:bg-gray-600"></div>
-                <div className="p-3 lg:p-6 space-y-2 lg:space-y-3">
-                  <div className="h-3 lg:h-4 bg-gray-300 dark:bg-gray-600 rounded w-3/4"></div>
+              <div key={index} className="bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl shadow-lg overflow-hidden animate-pulse">
+                <div className="w-full h-28 lg:h-48 bg-gray-300 dark:bg-gray-600"></div>
+                <div className="p-2 lg:p-6 space-y-1.5 lg:space-y-3">
+                  <div className="h-2.5 lg:h-4 bg-gray-300 dark:bg-gray-600 rounded w-3/4"></div>
                   <div className="h-2 lg:h-3 bg-gray-300 dark:bg-gray-600 rounded w-full"></div>
                   <div className="h-2 lg:h-3 bg-gray-300 dark:bg-gray-600 rounded w-2/3"></div>
                   <div className="flex justify-between items-center">
-                    <div className="h-4 lg:h-6 bg-gray-300 dark:bg-gray-600 rounded w-1/3"></div>
-                    <div className="h-6 lg:h-8 bg-gray-300 dark:bg-gray-600 rounded w-16 lg:w-20"></div>
+                    <div className="h-3 lg:h-6 bg-gray-300 dark:bg-gray-600 rounded w-1/3"></div>
+                    <div className="h-4 lg:h-8 bg-gray-300 dark:bg-gray-600 rounded w-12 lg:w-20"></div>
                   </div>
                 </div>
               </div>
