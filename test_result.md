@@ -927,6 +927,21 @@ agent_communication:
         agent: "main"
         comment: "✅ Enhanced product page loading performance: Extended cache duration to 10 minutes, added timeout handling (3s), implemented race condition between API and fallback, added preload for first 4 product images, enhanced background refresh with abort controller ✅ Improved ProductsSection with instant cache check and fast fallback to static products ✅ Better error handling and graceful degradation for optimal user experience"
 
+  - task: "Fix cart persistence and state management issues"
+    implemented: true
+    working: true
+    file: "frontend/src/App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "User reported cart visibility issue: 'tôi thấy phần giỏ hàng bị lỗi. lúc hiện lúc không' - cart appearing and disappearing randomly"
+      - working: true
+        agent: "main"
+        comment: "✅ Added localStorage persistence with useEffect hooks for loading/saving cart data ✅ Enhanced cart functions (addToCart, removeFromCart, updateCartQuantity) with error handling and try/catch blocks ✅ Improved getTotalPrice with size-based pricing support and NaN protection ✅ Fixed cart clearing in handleOrderComplete and buyNow functions ✅ Added debug logging for development environment ✅ Cart now maintains state consistently across page refreshes and navigation"
+
   - task: "Fix contact form dropdown visibility issue"
     implemented: true
     working: true
