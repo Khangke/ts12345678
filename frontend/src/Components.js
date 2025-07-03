@@ -118,7 +118,7 @@ export const Header = ({ cartCount, onCartClick }) => {
               scrolled ? 'w-6 h-6' : 'w-8 h-8'
             }`}>
               <span className={`text-white font-bold transition-all duration-300 group-hover:animate-pulse ${
-                scrolled ? 'text-sm' : 'text-lg'
+                scrolled ? 'text-xs' : 'text-sm'
               }`}>SMH</span>
               
               {/* Subtle glow effect */}
