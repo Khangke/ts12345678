@@ -744,7 +744,7 @@ test_plan:
   test_priority: "high_first"
 
 backend:
-  - task: "Test API endpoints after contact section update"
+  - task: "Test API endpoints after contact form CSS fix"
     implemented: true
     working: true
     file: "backend/server.py"
@@ -754,10 +754,10 @@ backend:
     status_history:
       - working: "NA"
         agent: "testing"
-        comment: "Bắt đầu test API endpoints sau khi cập nhật phần liên hệ"
+        comment: "Bắt đầu test API endpoints sau khi cập nhật CSS cho phần contact form"
       - working: true
         agent: "testing"
-        comment: "✅ GET /api/products endpoint trả về status 200 và danh sách 3 sản phẩm với đầy đủ thông tin size-based pricing ✅ GET /api/admin/stats endpoint trả về status 200 và thống kê chính xác về sản phẩm, đơn hàng và doanh thu ✅ POST /api/orders endpoint hoạt động tốt, có thể tạo đơn hàng mới với size-specific pricing. Tất cả API endpoints đều trả về status code 200 và dữ liệu đúng định dạng. Backend hoạt động ổn định và không bị ảnh hưởng bởi thay đổi frontend."
+        comment: "✅ GET /api/products endpoint trả về status 200 và danh sách 3 sản phẩm với đầy đủ thông tin size-based pricing ✅ GET /api/admin/stats endpoint trả về status 200 và thống kê chính xác về sản phẩm, đơn hàng và doanh thu ✅ POST /api/orders endpoint hoạt động tốt, có thể tạo đơn hàng mới với size-specific pricing. Tất cả API endpoints đều trả về status code 200 và dữ liệu đúng định dạng. Backend hoạt động ổn định và không bị ảnh hưởng bởi thay đổi CSS cho phần contact form."
 
   - task: "Test API response format for modern UI"
     implemented: true
