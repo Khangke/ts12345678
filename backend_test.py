@@ -1043,7 +1043,7 @@ def run_tests():
     test_admin_stats(token)
     
     # Test creating an order
-    print(f"{Colors.HEADER}3. Testing additional endpoint: POST /api/orders{Colors.ENDC}")
+    print(f"{Colors.HEADER}3. Testing POST /api/orders endpoint{Colors.ENDC}")
     test_create_order_with_size_pricing()
     
     # Print summary
