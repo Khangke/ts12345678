@@ -2088,13 +2088,13 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
                   </div>
                 </div>
 
-                {/* Thumbnail Navigation - 30% smaller */}
+                {/* Thumbnail Navigation - Smaller for minimal space */}
                 <div className="flex space-x-1 mt-2 overflow-x-auto pb-1">
                   {productImages.map((image, index) => (
                     <button
                       key={index}
                       onClick={() => goToImage(index)}
-                      className={`flex-shrink-0 w-8 h-8 rounded-md overflow-hidden border-2 transition-all duration-200 ${
+                      className={`flex-shrink-0 w-6 h-6 rounded-md overflow-hidden border-2 transition-all duration-200 ${
                         currentImageIndex === index 
                           ? 'border-amber-500 shadow-md ring-2 ring-amber-500/50' 
                           : 'border-gray-200 dark:border-gray-600 hover:border-amber-300'
