@@ -10,7 +10,7 @@ import {
   ToastNotification,
   SuccessPage
 } from './Components';
-import { MobileBottomNav, MobileQuickActions } from './components/MobileComponents';
+import { MobileBottomNav, MobileQuickActions, MobileHeader } from './components/MobileComponents';
 import { DarkModeProvider } from './contexts/DarkModeContext';
 import { HomePage, AboutPage, ProductsPage, ContactPage, NewsPage, NewsDetailPage } from './pages';
 import AdminApp from './admin/AdminApp';
@@ -24,6 +24,7 @@ function App() {
   const [toastMessage, setToastMessage] = useState('');
   const [showToast, setShowToast] = useState(false);
   const [orderInfo, setOrderInfo] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Load cart from localStorage on component mount
   useEffect(() => {
@@ -307,7 +308,20 @@ function App() {
     <DarkModeProvider>
       <Router>
         <div className="App bg-white dark:bg-gray-900 transition-colors duration-300">
-          <Header cartCount={cartCount} onCartClick={() => setShowCart(true)} />
+          {/* Desktop Header */}
+          <div className="hidden lg:block">
+            <Header cartCount={cartCount} onCartClick={() => setShowCart(true)} />
+          </div>
+          
+          {/* Mobile Header */}
+          <div className="lg:hidden">
+            <MobileHeader 
+              cartCount={cartCount} 
+              onCartClick={() => setShowCart(true)}
+              isMenuOpen={isMenuOpen}
+              setIsMenuOpen={setIsMenuOpen}
+            />
+          </div>
         
         <Routes>
           <Route path="/" element={<HomePage onProductClick={setSelectedProduct} />} />
@@ -365,9 +379,6 @@ function App() {
             onClose={() => setShowToast(false)}
           />
         )}
-        
-        {/* Add bottom padding for mobile navigation */}
-        <div className="h-16 lg:hidden"></div>
         </div>
       </Router>
     </DarkModeProvider>
