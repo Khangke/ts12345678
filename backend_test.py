@@ -1134,7 +1134,7 @@ def check_mongodb_connection():
 def run_tests():
     """Run specific tests as requested in the review"""
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
-    print(f"{Colors.HEADER}TESTING BACKEND APIs AFTER CTA BUTTON AND TRUST INDICATORS OPTIMIZATION{Colors.ENDC}")
+    print(f"{Colors.HEADER}TESTING BACKEND APIs AFTER MOBILE UI OPTIMIZATION{Colors.ENDC}")
     print(f"{Colors.HEADER}Backend URL: {BACKEND_URL}{Colors.ENDC}")
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
     
@@ -1179,7 +1179,7 @@ def run_tests():
     else:
         print(f"\n{Colors.OKGREEN}All backend API tests passed successfully!{Colors.ENDC}")
         print(f"{Colors.OKGREEN}Backend health check complete - all endpoints returning status 200 with proper data format.{Colors.ENDC}")
-        print(f"{Colors.OKGREEN}If products are not showing in the frontend, the issue is likely in the frontend code, not the backend API.{Colors.ENDC}")
+        print(f"{Colors.OKGREEN}The mobile UI optimization changes have not affected the backend API functionality.{Colors.ENDC}")
 
 if __name__ == "__main__":
     run_tests()
