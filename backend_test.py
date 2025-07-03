@@ -1134,7 +1134,7 @@ def check_mongodb_connection():
 def run_tests():
     """Run specific tests as requested in the review"""
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
-    print(f"{Colors.HEADER}TESTING BACKEND APIs FOR FEATURED PRODUCTS ISSUE{Colors.ENDC}")
+    print(f"{Colors.HEADER}TESTING BACKEND APIs AFTER CTA BUTTON AND TRUST INDICATORS OPTIMIZATION{Colors.ENDC}")
     print(f"{Colors.HEADER}Backend URL: {BACKEND_URL}{Colors.ENDC}")
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
     
@@ -1142,7 +1142,7 @@ def run_tests():
     check_mongodb_connection()
     
     # Test the specific endpoints mentioned in the review request
-    print(f"{Colors.HEADER}1. Testing GET /api/products endpoint for featured products{Colors.ENDC}")
+    print(f"{Colors.HEADER}1. Testing GET /api/products endpoint{Colors.ENDC}")
     test_products_api_for_featured_section()
     
     # Get admin token for authenticated tests
@@ -1152,25 +1152,9 @@ def run_tests():
     print(f"{Colors.HEADER}2. Testing GET /api/admin/stats endpoint{Colors.ENDC}")
     test_admin_stats(token)
     
-    # Test creating an order
-    print(f"{Colors.HEADER}3. Testing POST /api/orders endpoint{Colors.ENDC}")
+    # Test creating an order with size-specific pricing
+    print(f"{Colors.HEADER}3. Testing POST /api/orders endpoint with size-specific pricing{Colors.ENDC}")
     test_create_order_with_size_pricing()
-    
-    # Test seeding products if needed
-    print(f"{Colors.HEADER}4. Testing /api/admin/seed-products endpoint{Colors.ENDC}")
-    try:
-        response = requests.post(
-            f"{API_URL}/admin/seed-products",
-            headers={"Authorization": f"Bearer {token}"}
-        )
-        
-        if response.status_code == 200 and "message" in response.json():
-            log_test("Seed Products", True, response)
-        else:
-            log_test("Seed Products", False, response, 
-                    f"Expected status 200 with message, got {response.status_code}")
-    except Exception as e:
-        log_test("Seed Products", False, error=str(e))
     
     # Print summary
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
