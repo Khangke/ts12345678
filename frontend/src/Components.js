@@ -1097,15 +1097,15 @@ export const ProductsSection = ({ onProductClick }) => {
   const { visibleItems, setRef } = useStaggerAnimation(filteredProducts, 100);
 
   return (
-    <section id="products" className="py-8 lg:py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-500">
+    <section id="products" className="py-6 lg:py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-500">
       <div className="container mx-auto px-3 lg:px-4">
         {/* Compact Mobile Header */}
-        <div className="text-center mb-6 lg:mb-16">
-          <h2 className="text-2xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-2 lg:mb-4 animate-fade-in-up transition-colors duration-300">
+        <div className="text-center mb-4 lg:mb-16">
+          <h2 className="text-xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-2 lg:mb-4 animate-fade-in-up transition-colors duration-300">
             Tất cả sản phẩm
           </h2>
-          <div className="w-16 lg:w-32 h-1 bg-gradient-to-r from-amber-800 to-orange-600 dark:from-amber-400 dark:to-orange-400 mx-auto rounded-full mb-3 lg:mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}></div>
-          <p className="text-sm lg:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto animate-fade-in-up transition-colors duration-300 px-2" style={{ animationDelay: '0.4s' }}>
+          <div className="w-12 lg:w-32 h-1 bg-gradient-to-r from-amber-800 to-orange-600 dark:from-amber-400 dark:to-orange-400 mx-auto rounded-full mb-2 lg:mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}></div>
+          <p className="text-xs lg:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto animate-fade-in-up transition-colors duration-300 px-2 leading-relaxed" style={{ animationDelay: '0.4s' }}>
             Khám phá bộ sưu tập trầm hương đa dạng từ Sơn Mộc Hương - từ vòng tay trầm hương đến nhang nụ, 
             tất cả đều được chọn lọc kỹ lưỡng để mang đến cho bạn chất lượng tốt nhất.
           </p>
