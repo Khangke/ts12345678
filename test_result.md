@@ -872,6 +872,21 @@ backend:
       - working: true
         agent: "testing"
         comment: "✅ Verified navigation to Products page works correctly ✅ Page title is 'Tất cả sản phẩm' as expected ✅ Search functionality works for 'vòng tay' and 'trầm' ✅ Clear search button works ✅ Empty state displays correctly when searching for non-existent products ✅ Product counter shows correct number of products ✅ Mobile layout displays correctly"
+  - task: "Mobile optimization: Remove Trust Indicators and enhance product display"
+    implemented: true
+    working: true
+    file: "frontend/src/Components.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "User requested mobile optimization: remove Trust Indicators section, fix product name truncation, add action buttons to featured products"
+      - working: true
+        agent: "main"
+        comment: "✅ Removed Trust Indicators section completely to save space on mobile ✅ Fixed product name truncation: changed from line-clamp-2 to line-clamp-3 and removed mobile-specific truncation ✅ Display full category names instead of truncated first word ✅ Added 'Xem chi tiết' button to each featured product card ✅ Optimized layout to show more information in limited mobile space ✅ Removed description on mobile for featured products to save space ✅ Better mobile-desktop responsive design with improved information hierarchy"
+
   - task: "Optimize CTA button and Trust Indicators section"
     implemented: true
     working: true
