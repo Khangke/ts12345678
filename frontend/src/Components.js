@@ -1015,6 +1015,7 @@ export const ContactSection = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -1029,7 +1030,10 @@ export const ContactSection = () => {
     setIsSubmitting(true);
     
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    // Show success notification
+    setShowSuccess(true);
     
     // Reset form
     setFormData({
@@ -1041,8 +1045,49 @@ export const ContactSection = () => {
     });
     setIsSubmitting(false);
     
-    alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.');
+    // Hide success message after 5 seconds
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 5000);
   };
+
+  // Success notification component
+  const SuccessNotification = () => (
+    <div className={`fixed top-20 right-4 z-50 transition-all duration-500 transform ${
+      showSuccess ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+    }`}>
+      <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-6 rounded-xl shadow-2xl max-w-md border border-green-400/30">
+        <div className="flex items-start space-x-4">
+          <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+            <CheckCircleIcon className="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <h4 className="font-bold text-lg mb-1">Gửi thành công!</h4>
+            <p className="text-green-100 leading-relaxed">
+              Cảm ơn bạn đã liên hệ với <strong>Sơn Mộc Hương</strong>. 
+              Chúng tôi đã nhận được yêu cầu của bạn và sẽ phản hồi trong vòng 24 giờ.
+            </p>
+            <div className="mt-3 flex items-center space-x-4 text-sm text-green-100">
+              <div className="flex items-center space-x-1">
+                <ClockIcon className="w-4 h-4" />
+                <span>Phản hồi trong 24h</span>
+              </div>
+              <div className="flex items-center space-x-1">
+                <PhoneIcon className="w-4 h-4" />
+                <span>Hotline: 0762 222 448</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          onClick={() => setShowSuccess(false)}
+          className="absolute top-3 right-3 text-white/80 hover:text-white transition-colors duration-200"
+        >
+          <CloseIcon className="w-5 h-5" />
+        </button>
+      </div>
+    </div>
+  );
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 dark:from-gray-950 dark:via-gray-950 dark:to-gray-900 transition-colors duration-500">
