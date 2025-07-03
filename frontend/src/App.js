@@ -307,7 +307,7 @@ function App() {
   return (
     <DarkModeProvider>
       <Router>
-        <div className="App bg-white dark:bg-gray-900 transition-colors duration-300 min-h-screen">
+        <div className="App bg-white dark:bg-gray-900 transition-colors duration-300 min-h-screen m-0 p-0">
           {/* Desktop Header */}
           <div className="hidden lg:block">
             <Header cartCount={cartCount} onCartClick={() => setShowCart(true)} />
