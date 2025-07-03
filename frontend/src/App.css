@@ -5,15 +5,44 @@
     box-sizing: border-box;
 }
 
+/* Disable zoom on desktop and mobile */
+html {
+    scroll-behavior: smooth;
+    /* Disable zoom with mouse wheel */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* Disable pinch to zoom on touch devices */
+    touch-action: pan-x pan-y;
+}
+
+body {
+    /* Prevent zoom on mobile */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Disable touch zoom */
+    touch-action: manipulation;
+}
+
+/* Disable zoom keyboard shortcuts */
+html, body {
+    overscroll-behavior: none;
+}
+
 .App {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     color: #333;
-}
-
-/* Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
+    /* Disable zoom */
+    zoom: 1;
+    /* Prevent user from zooming */
+    -webkit-user-zoom: fixed;
+    -moz-user-zoom: fixed;
+    user-zoom: fixed;
 }
 
 /* Button Hover Effects */
