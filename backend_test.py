@@ -1181,5 +1181,75 @@ def run_tests():
         print(f"{Colors.OKGREEN}Backend health check complete - all endpoints returning status 200 with proper data format.{Colors.ENDC}")
         print(f"{Colors.OKGREEN}The mobile UI optimization changes have not affected the backend API functionality.{Colors.ENDC}")
 
+def run_comprehensive_tests():
+    """Run all tests to verify backend functionality after ProductDetailModal UI enhancements"""
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    print(f"{Colors.HEADER}COMPREHENSIVE BACKEND API TESTING AFTER PRODUCTDETAILMODAL UI ENHANCEMENTS{Colors.ENDC}")
+    print(f"{Colors.HEADER}Backend URL: {BACKEND_URL}{Colors.ENDC}")
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    
+    # Get admin token for authenticated tests
+    token = get_admin_token()
+    
+    # Test admin login
+    test_admin_login()
+    
+    # Test admin me endpoint
+    test_admin_me(token)
+    
+    # Test admin products endpoints with size-based pricing
+    test_admin_products(token)
+    
+    # Test admin orders endpoints with size-specific pricing
+    test_admin_orders(token)
+    
+    # Test admin stats endpoint
+    test_admin_stats(token)
+    
+    # Test public products endpoint with size-based pricing
+    test_public_products()
+    
+    # Test creating an order with size-specific pricing
+    test_create_order_with_size_pricing()
+    
+    # Test backward compatibility
+    test_backward_compatibility(token)
+    
+    # Test response format for modern UI
+    test_response_format_for_modern_ui()
+    
+    # Print summary
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    print(f"{Colors.HEADER}COMPREHENSIVE TEST SUMMARY{Colors.ENDC}")
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    print(f"Total Tests: {test_results['passed'] + test_results['failed']}")
+    print(f"Passed: {Colors.OKGREEN}{test_results['passed']}{Colors.ENDC}")
+    print(f"Failed: {Colors.FAIL}{test_results['failed']}{Colors.ENDC}")
+    
+    # List failed tests if any
+    if test_results['failed'] > 0:
+        print(f"\n{Colors.FAIL}Failed Tests:{Colors.ENDC}")
+        for test in test_results['tests']:
+            if not test['passed']:
+                print(f"- {test['name']}: {test['error']}")
+        
+        print(f"\n{Colors.WARNING}Recommendations:{Colors.ENDC}")
+        print("1. Check if MongoDB is running and accessible")
+        print("2. Verify that products have been seeded in the database")
+        print("3. Check for any errors in the backend logs")
+        print("4. Ensure CORS is properly configured for frontend access")
+    else:
+        print(f"\n{Colors.OKGREEN}All backend API tests passed successfully!{Colors.ENDC}")
+        print(f"{Colors.OKGREEN}Backend health check complete - all endpoints returning status 200 with proper data format.{Colors.ENDC}")
+        print(f"{Colors.OKGREEN}The ProductDetailModal UI enhancements have not affected the backend API functionality.{Colors.ENDC}")
+
 if __name__ == "__main__":
-    run_tests()
+    # Reset test results
+    test_results = {
+        "passed": 0,
+        "failed": 0,
+        "tests": []
+    }
+    
+    # Run comprehensive tests
+    run_comprehensive_tests()
