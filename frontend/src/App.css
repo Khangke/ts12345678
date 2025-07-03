@@ -293,3 +293,30 @@ section {
 .toast-info {
     background: linear-gradient(135deg, #3b82f6, #2563eb);
 }
+
+/* Auto-slide Progress Animation */
+@keyframes progress {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Thumbnail scale animation */
+.thumbnail-active {
+    animation: thumbnailPulse 0.3s ease-out;
+}
+
+@keyframes thumbnailPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
