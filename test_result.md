@@ -925,6 +925,21 @@ agent_communication:
         agent: "main"
         comment: "✅ Enhanced product page loading performance: Extended cache duration to 10 minutes, added timeout handling (3s), implemented race condition between API and fallback, added preload for first 4 product images, enhanced background refresh with abort controller ✅ Improved ProductsSection with instant cache check and fast fallback to static products ✅ Better error handling and graceful degradation for optimal user experience"
 
+  - task: "Fix contact form dropdown visibility issue"
+    implemented: true
+    working: true
+    file: "frontend/src/Components.js, frontend/src/Icons.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "User reported dropdown CSS issue: 'cụ thể là lỗi css khi click chuột vào mới ra tag chữ còn không thì tróng' - dropdown 'Chọn chủ đề' appears empty until clicked"
+      - working: true
+        agent: "main"
+        comment: "✅ Fixed dropdown visibility with inline styles (color: white, backgroundColor: rgba(255,255,255,0.1)) ✅ Enhanced option styling with dark background (#1f2937) for cross-browser compatibility ✅ Added ChevronDownIcon component ✅ Improved dropdown UX with relative container, hover effects, cursor pointer, and colorScheme: dark ✅ Dropdown now shows 'Chọn chủ đề' text clearly when not selected"
+
   - task: "Create modern news page about agarwood"
     implemented: true
     working: true
