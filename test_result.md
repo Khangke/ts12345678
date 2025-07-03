@@ -908,26 +908,17 @@ backend:
       - working: true
         agent: "testing"
         comment: "✅ Verified navigation to Products page works correctly ✅ Page title is 'Tất cả sản phẩm' as expected ✅ Search functionality works for 'vòng tay' and 'trầm' ✅ Clear search button works ✅ Empty state displays correctly when searching for non-existent products ✅ Product counter shows correct number of products ✅ Mobile layout displays correctly"
-  - task: "Mobile optimization: Remove Trust Indicators and enhance product display"
-    implemented: true
-    working: true
+  - task: "Modern Footer Enhancement"
+    implemented: false
+    working: "NA"
     file: "frontend/src/Components.js"
     stuck_count: 0
     priority: "high"
     needs_retesting: false
     status_history:
       - working: "NA"
-        agent: "main"
-        comment: "User requested mobile optimization: remove Trust Indicators section, fix product name truncation, add action buttons to featured products"
-      - working: true
-        agent: "main"
-        comment: "✅ Removed Trust Indicators section completely to save space on mobile ✅ Fixed product name truncation: changed from line-clamp-2 to line-clamp-3 and removed mobile-specific truncation ✅ Display full category names instead of truncated first word ✅ Added 'Xem chi tiết' button to each featured product card ✅ Optimized layout to show more information in limited mobile space ✅ Removed description on mobile for featured products to save space ✅ Better mobile-desktop responsive design with improved information hierarchy"
-      - working: true
-        agent: "main"
-        comment: "✅ Enhanced sizing for better mobile display: Increased product card padding (p-2 to p-3), enlarged product images (h-28 to h-32 on mobile, h-48 on desktop), increased price font size (text-sm to text-base on mobile, text-2xl on desktop), enlarged 'Xem chi tiết' button (px-2 to px-3, py-1 to py-1.5), improved overall spacing for better visual hierarchy and easier mobile interaction"
-      - working: true
         agent: "testing"
-        comment: "✅ Tested backend API endpoints after mobile UI optimization: (1) GET /api/products returns 200 status code with 3 products including size-based pricing, (2) GET /api/admin/stats returns 200 status code with correct product count, order stats, and revenue data, (3) POST /api/orders successfully creates orders with size-specific pricing. All backend APIs are functioning properly with correct data formats and no errors. The mobile UI optimization changes have not affected the backend API functionality."
+        comment: "Đã thực hiện kiểm tra footer theo yêu cầu. Không thể tìm thấy phần tử footer trong DOM hoặc hiển thị trên trang. Mặc dù footer component đã được định nghĩa trong Components.js (dòng 2020-2259), nhưng có vẻ như nó không được hiển thị trên trang. Cần kiểm tra lại việc triển khai và hiển thị footer trong mã nguồn."
 
   - task: "Optimize CTA button and Trust Indicators section"
     implemented: true
