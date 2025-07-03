@@ -14,6 +14,7 @@ import {
   NewsIcon,
   CheckCircleIcon,
   CloseIcon,
+  ChevronDownIcon,
   // Social Media Icons
   FacebookIcon,
   InstagramIcon,
