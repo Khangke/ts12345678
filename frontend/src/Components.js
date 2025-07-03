@@ -1917,7 +1917,7 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
         </div>
 
         {/* Main Content - Fixed Height with Internal Scroll if Needed */}
-        <div className="flex-1 p-3 grid grid-cols-1 lg:grid-cols-2 gap-4 min-h-0 overflow-y-auto">
+        <div className="flex-1 p-2 grid grid-cols-1 lg:grid-cols-2 gap-3 min-h-0 overflow-y-auto">
           
           {/* Left Column - Image + Minimal Info */}
           <div className="space-y-2">
