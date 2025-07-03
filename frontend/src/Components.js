@@ -1092,7 +1092,9 @@ export const ContactSection = () => {
   );
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 dark:from-gray-950 dark:via-gray-950 dark:to-gray-900 transition-colors duration-500">
+    <>
+      <SuccessNotification />
+      <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 dark:from-gray-950 dark:via-gray-950 dark:to-gray-900 transition-colors duration-500">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
