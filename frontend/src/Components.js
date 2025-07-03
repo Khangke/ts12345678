@@ -12,6 +12,8 @@ import {
   ClockIcon,
   ShoppingBagIcon,
   NewsIcon,
+  CheckCircleIcon,
+  CloseIcon,
   // Social Media Icons
   FacebookIcon,
   InstagramIcon,
