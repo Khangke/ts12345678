@@ -2366,56 +2366,6 @@ export const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Bottom Section - Enhanced */}
-        <div className="relative mt-8 md:mt-12 pt-6 md:pt-8">
-          {/* Gradient divider */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent"></div>
-          
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            
-            {/* Copyright */}
-            <div className="text-center md:text-left">
-              <p className="text-sm text-gray-400 dark:text-gray-300 transition-colors duration-300">
-                © 2025 <span className="text-amber-400 font-medium">Sơn Mộc Hương</span>. Tất cả quyền được bảo lưu.
-              </p>
-            </div>
-            
-            {/* Policy Links */}
-            <div className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6">
-              {[
-                'Chính sách bảo mật',
-                'Điều khoản sử dụng', 
-                'Liên hệ'
-              ].map((item, index) => (
-                <a 
-                  key={index}
-                  href="#" 
-                  className="group text-sm text-gray-400 dark:text-gray-300 hover:text-amber-300 dark:hover:text-amber-300 transition-all duration-300 relative"
-                >
-                  {item}
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-400 group-hover:w-full transition-all duration-300"></div>
-                </a>
-              ))}
-            </div>
-          </div>
-          
-          {/* Back to top hint */}
-          <div className="text-center mt-6 md:mt-8">
-            <button 
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="group inline-flex items-center space-x-2 text-xs text-gray-500 dark:text-gray-400 hover:text-amber-400 dark:hover:text-amber-300 transition-all duration-300"
-            >
-              <div className="w-6 h-6 border border-gray-500 dark:border-gray-400 group-hover:border-amber-400 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110">
-                <svg className="w-3 h-3 transform group-hover:-translate-y-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" />
-                </svg>
-              </div>
-              <span>Về đầu trang</span>
-            </button>
-          </div>
-        </div>
       </div>
     </footer>
   );
