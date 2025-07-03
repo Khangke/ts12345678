@@ -602,10 +602,10 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
             </span>
           </h2>
           
-          <p className="text-[11px] sm:text-xs lg:text-lg xl:text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-light px-1 sm:px-2">
-            Khám phá những sản phẩm trầm hương được khách hàng yêu thích nhất
-            <br className="hidden sm:block" />
-            <span className="text-amber-700 dark:text-amber-300 font-medium block mt-1">
+          <p className="text-[10px] sm:text-xs lg:text-sm text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-light px-1 sm:px-2 text-center">
+            <span className="block">Khám phá những sản phẩm</span>
+            <span className="block">trầm hương được khách hàng yêu thích nhất</span>
+            <span className="text-amber-700 dark:text-amber-300 font-medium block mt-2">
               Chất lượng cao cấp, giá cả hợp lý
             </span>
           </p>
