@@ -2022,82 +2022,86 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
             </button>
           </div>
 
-          {/* Main Content - Fixed Height with Internal Scroll if Needed */}
-          <div className="flex-1 p-2 grid grid-cols-1 lg:grid-cols-2 gap-3 min-h-0 overflow-y-auto">
+          {/* Main Content - Modern Grid Layout */}
+          <div className="flex-1 p-6 grid grid-cols-1 lg:grid-cols-2 gap-8 min-h-0 overflow-y-auto">
             
-            {/* Left Column - Image Gallery + Minimal Info */}
-            <div className="space-y-2">
+            {/* Left Column - Image Gallery */}
+            <div className="space-y-4">
               {/* Image Gallery */}
               <div className="relative">
-                {/* Main Image Display */}
+                {/* Main Image Display - Modern Minimal */}
                 <div 
-                  className="aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 shadow-md cursor-pointer relative group"
+                  className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 shadow-lg cursor-pointer relative group transition-all duration-500 hover:shadow-xl"
                   onClick={() => setShowLightbox(true)}
                   onMouseEnter={() => setIsPaused(true)}
                   onMouseLeave={() => setIsPaused(false)}
                 >
-                  <div className="relative w-full h-full flex transition-transform duration-500 ease-in-out" 
+                  <div className="relative w-full h-full flex transition-transform duration-700 ease-out" 
                        style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}>
                     {productImages.map((image, index) => (
                       <img 
                         key={index}
                         src={image}
                         alt={`${product.name} - ${index + 1}`}
-                        className="w-full h-full object-cover flex-shrink-0"
+                        className="w-full h-full object-cover flex-shrink-0 transition-transform duration-700"
                       />
                     ))}
                   </div>
                   
-                  {/* Auto-slide control button */}
+                  {/* Minimal Control Button */}
                   <button 
                     onClick={(e) => { 
                       e.stopPropagation(); 
                       setIsAutoSliding(!isAutoSliding);
                       setIsPaused(false);
                     }}
-                    className="absolute top-2 left-2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-black/70"
+                    className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/30"
                     title={isAutoSliding ? 'Tạm dừng tự động' : 'Bật tự động'}
                   >
                     {isAutoSliding ? '⏸️' : '▶️'}
                   </button>
                   
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
-                      Click để xem lớn
+                  {/* Subtle Hover Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
+                    <span className="bg-white/90 backdrop-blur-sm text-gray-800 px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                      Nhấn để phóng to
                     </span>
                   </div>
 
-                  {/* Navigation arrows on main image */}
+                  {/* Minimal Navigation Arrows */}
                   <button 
                     onClick={(e) => { e.stopPropagation(); prevImage(); }}
-                    className="absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-black/70"
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/30"
                   >
-                    ←
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
                   </button>
                   <button 
                     onClick={(e) => { e.stopPropagation(); nextImage(); }}
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-black/70"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/30"
                   >
-                    →
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
                   </button>
 
-                  {/* Image counter */}
-                  <div className="absolute bottom-2 right-2 bg-black/60 text-white px-2 py-1 rounded-full text-xs">
-                    {currentImageIndex + 1}/{productImages.length}
+                  {/* Minimal Image Counter */}
+                  <div className="absolute bottom-4 right-4 bg-black/30 backdrop-blur-md text-white px-3 py-1.5 rounded-full text-xs font-medium">
+                    {currentImageIndex + 1} / {productImages.length}
                   </div>
                 </div>
 
-                {/* Thumbnail Navigation - Smaller for minimal space */}
-                <div className="flex space-x-1 mt-2 overflow-x-auto pb-1">
+                {/* Minimal Thumbnail Navigation */}
+                <div className="flex space-x-2 mt-4 overflow-x-auto pb-2 justify-center">
                   {productImages.map((image, index) => (
                     <button
                       key={index}
                       onClick={() => goToImage(index)}
-                      className={`flex-shrink-0 w-6 h-6 rounded-md overflow-hidden border-2 transition-all duration-200 ${
+                      className={`flex-shrink-0 w-6 h-6 rounded-lg overflow-hidden transition-all duration-300 ${
                         currentImageIndex === index 
-                          ? 'border-amber-500 shadow-md ring-2 ring-amber-500/50' 
-                          : 'border-gray-200 dark:border-gray-600 hover:border-amber-300'
+                          ? 'ring-2 ring-blue-500 ring-offset-2 ring-offset-white dark:ring-offset-gray-900 scale-110 shadow-lg' 
+                          : 'opacity-60 hover:opacity-100 hover:scale-105'
                       }`}
                       title={`Ảnh ${index + 1}`}
                     >
@@ -2109,37 +2113,6 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
                     </button>
                   ))}
                 </div>
-              </div>
-
-              {/* Ultra Compact Product Info */}
-              <div className="space-y-1.5">
-                <div className="flex flex-wrap items-center gap-1.5">
-                  <span className="bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 px-1.5 py-0.5 rounded-full text-xs font-semibold">
-                    {product.category}
-                  </span>
-                  <div className="flex items-center space-x-1 bg-yellow-50 dark:bg-yellow-900/20 px-1.5 py-0.5 rounded-full">
-                    <span className="text-yellow-500 text-xs">★</span>
-                    <span className="text-xs font-bold text-gray-800 dark:text-gray-200">{product.rating || 4.5}</span>
-                  </div>
-                </div>
-                
-                {/* Product name - 30% smaller */}
-                <h1 className="text-sm font-bold text-gray-900 dark:text-white leading-tight line-clamp-2">
-                  {product.name}
-                </h1>
-                
-                <div className="text-xs text-gray-600 dark:text-gray-400">
-                  <span className="font-medium">Chất liệu:</span> {product.material}
-                </div>
-
-                {/* Compact Description */}
-                {product.detail_description && (
-                  <div className="p-1.5 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                    <p className="text-xs text-gray-700 dark:text-gray-300 leading-tight line-clamp-2">
-                      {product.detail_description}
-                    </p>
-                  </div>
-                )}
               </div>
             </div>
 
