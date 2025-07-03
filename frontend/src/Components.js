@@ -2033,12 +2033,40 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
                 <div 
                   className="aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 shadow-md cursor-pointer relative group"
                   onClick={() => setShowLightbox(true)}
+                  onMouseEnter={() => setIsPaused(true)}
+                  onMouseLeave={() => setIsPaused(false)}
                 >
                   <img 
                     src={productImages[currentImageIndex]}
                     alt={`${product.name} - ${currentImageIndex + 1}`}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
+                  
+                  {/* Auto-slide progress indicator */}
+                  {isAutoSliding && !isPaused && (
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-200/50">
+                      <div 
+                        className="h-full bg-amber-500 transition-all duration-75 ease-linear"
+                        style={{ 
+                          width: '0%',
+                          animation: 'progress 3s linear infinite'
+                        }}
+                      />
+                    </div>
+                  )}
+                  
+                  {/* Auto-slide control button */}
+                  <button 
+                    onClick={(e) => { 
+                      e.stopPropagation(); 
+                      setIsAutoSliding(!isAutoSliding);
+                      setIsPaused(false);
+                    }}
+                    className="absolute top-2 left-2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-black/70"
+                    title={isAutoSliding ? 'Tạm dừng tự động' : 'Bật tự động'}
+                  >
+                    {isAutoSliding ? '⏸️' : '▶️'}
+                  </button>
                   
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
