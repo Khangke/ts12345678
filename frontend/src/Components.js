@@ -286,10 +286,11 @@ export const Header = ({ cartCount, onCartClick }) => {
   );
 };
 
-// Hero Section Component - Ultra Modern, Cinematic & Luxurious
+// Hero Section Component - Samsung-Inspired Modern & Sophisticated
 export const HeroSection = () => {
   const [heroRef, isHeroVisible] = useScrollAnimation(0.2);
-  const [statsRef, isStatsVisible] = useScrollAnimation(0.3);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const totalSlides = 3;
 
   return (
     <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-amber-950 to-orange-900 dark:from-black dark:via-amber-950 dark:to-orange-950 overflow-hidden">
