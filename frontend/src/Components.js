@@ -11,7 +11,23 @@ import {
   LocationIcon,
   ClockIcon,
   ShoppingBagIcon,
-  NewsIcon
+  NewsIcon,
+  // Social Media Icons
+  FacebookIcon,
+  InstagramIcon,
+  YouTubeIcon,
+  TikTokIcon,
+  ZaloIcon,
+  WhatsAppIcon,
+  TelegramIcon,
+  TwitterIcon,
+  LinkedInIcon,
+  // Maps and Support Icons
+  MapsIcon,
+  ContactSupportIcon,
+  SupportAgentIcon,
+  LiveHelpIcon,
+  ShieldIcon
 } from './Icons';
 import { useScrollAnimation, useStaggerAnimation } from './hooks/useScrollAnimation';
 import { DarkModeToggle } from './contexts/DarkModeContext';
