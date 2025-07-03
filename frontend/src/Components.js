@@ -711,7 +711,7 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
           <div className="inline-flex items-center space-x-1 sm:space-x-2 bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 px-2 sm:px-4 lg:px-6 py-1 sm:py-2 lg:py-3 rounded-full mb-2 sm:mb-3 lg:mb-6 border border-amber-200/50 dark:border-amber-800/50">
             <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full animate-pulse"></span>
             <span className="text-[10px] sm:text-xs lg:text-sm font-semibold text-amber-800 dark:text-amber-200 uppercase tracking-wide">
-              Sản phẩm nổi bật
+              {loading || isInitialLoad ? 'Đang tải...' : 'Sản phẩm nổi bật'}
             </span>
           </div>
 
@@ -723,11 +723,17 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
           </h2>
           
           <p className="text-[11px] sm:text-xs lg:text-lg xl:text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-light px-1 sm:px-2">
-            Khám phá những sản phẩm trầm hương được khách hàng yêu thích nhất
-            <br className="hidden sm:block" />
-            <span className="text-amber-700 dark:text-amber-300 font-medium block mt-1">
-              Chất lượng cao cấp, giá cả hợp lý
-            </span>
+            {loading || isInitialLoad ? (
+              <>Đang tải những sản phẩm trầm hương tốt nhất cho bạn...</>
+            ) : (
+              <>
+                Khám phá những sản phẩm trầm hương được khách hàng yêu thích nhất
+                <br className="hidden sm:block" />
+                <span className="text-amber-700 dark:text-amber-300 font-medium block mt-1">
+                  Chất lượng cao cấp, giá cả hợp lý
+                </span>
+              </>
+            )}
           </p>
 
           {/* Decorative Line - Smaller on mobile */}
