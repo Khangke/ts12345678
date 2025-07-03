@@ -1834,6 +1834,8 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
   const [quantity, setQuantity] = useState(1);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showLightbox, setShowLightbox] = useState(false);
+  const [isAutoSliding, setIsAutoSliding] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Create array of 10 images (use product images + fallback images)
   const productImages = [
