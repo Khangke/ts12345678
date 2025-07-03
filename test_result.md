@@ -104,7 +104,7 @@
 
 user_problem_statement: "sửa hoàn thành các đoạn còn dang dở. và thêm tính năng, nếu chọn size thì giá nhảy theo size. lưu ý code trong phần đăng đơn hàng luôn"
 
-recent_issue: "HOÀN THÀNH TASK - ProductDetailModal được tối ưu lại với design tinh tế, đơn giản, hiện đại và mượt mà: ✅ Clean modern layout với backdrop blur và glass morphism ✅ Improved spacing và typography với font-light elegant ✅ Smoother animations với cubic-bezier transitions ✅ Minimal color scheme với subtle shadows và borders ✅ Enhanced UX với better visual hierarchy ✅ Modern rounded corners và backdrop blur effects ✅ Simplified UI elements với clean aesthetics"
+recent_issue: "HOÀN THÀNH TASK - FeaturedProductsSection Loading Issue Fix: ✅ Fixed 'lúc ẩn lúc hiện' problem with improved loading state management ✅ Enhanced loading skeleton animation với shimmer effects và progress indicators ✅ Added fallback mechanism like ProductsSection với static products và timeout handling ✅ Ensured clear loading indicators với loading badges và descriptive text ✅ Improved cache management với better error handling ✅ Added proper API timeout và race condition handling ✅ Enhanced UX với loading states in header và CTA button ✅ Consistent display behavior - no more disappearing products"
 
 frontend:
   - task: "Fix và hoàn thiện featured products section"
