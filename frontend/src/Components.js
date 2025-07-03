@@ -618,7 +618,7 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
           </div>
         </div>
 
-        {/* Enhanced Products Grid - Optimized for mobile */}
+        {/* Enhanced Products Grid - Ultra compact for mobile */}
         {loading ? (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-8">
             {[...Array(4)].map((_, index) => (
