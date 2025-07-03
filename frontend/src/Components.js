@@ -1920,9 +1920,9 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
         <div className="flex-1 p-3 grid grid-cols-1 lg:grid-cols-2 gap-4 min-h-0 overflow-y-auto">
           
           {/* Left Column - Image + Minimal Info */}
-          <div className="space-y-3">
-            {/* Compact Product Image */}
-            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 shadow-md">
+          <div className="space-y-2">
+            {/* Ultra Compact Product Image - 30% smaller */}
+            <div className="aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 shadow-md">
               <img 
                 src={product.image || 'https://images.unsplash.com/photo-1509726360306-3f44543aea4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85'} 
                 alt={product.name}
@@ -1931,18 +1931,19 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
             </div>
 
             {/* Ultra Compact Product Info */}
-            <div className="space-y-2">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 px-2 py-1 rounded-full text-xs font-semibold">
+            <div className="space-y-1.5">
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 px-1.5 py-0.5 rounded-full text-xs font-semibold">
                   {product.category}
                 </span>
-                <div className="flex items-center space-x-1 bg-yellow-50 dark:bg-yellow-900/20 px-2 py-1 rounded-full">
-                  <span className="text-yellow-500 text-sm">★</span>
+                <div className="flex items-center space-x-1 bg-yellow-50 dark:bg-yellow-900/20 px-1.5 py-0.5 rounded-full">
+                  <span className="text-yellow-500 text-xs">★</span>
                   <span className="text-xs font-bold text-gray-800 dark:text-gray-200">{product.rating || 4.5}</span>
                 </div>
               </div>
               
-              <h1 className="text-lg font-bold text-gray-900 dark:text-white leading-tight line-clamp-2">
+              {/* Product name - 30% smaller */}
+              <h1 className="text-sm font-bold text-gray-900 dark:text-white leading-tight line-clamp-2">
                 {product.name}
               </h1>
               
@@ -1952,7 +1953,7 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
 
               {/* Compact Description */}
               {product.detail_description && (
-                <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <div className="p-1.5 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                   <p className="text-xs text-gray-700 dark:text-gray-300 leading-tight line-clamp-2">
                     {product.detail_description}
                   </p>
