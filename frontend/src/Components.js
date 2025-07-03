@@ -1297,14 +1297,18 @@ export const ContactSection = () => {
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-amber-400 focus:bg-white/20 text-white transition-all duration-300"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-amber-400 focus:bg-white/20 text-white transition-all duration-300 appearance-none"
+                      style={{
+                        color: 'white',
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)'
+                      }}
                     >
-                      <option value="">Chọn chủ đề</option>
-                      <option value="product-inquiry">Tư vấn sản phẩm</option>
-                      <option value="order-support">Hỗ trợ đặt hàng</option>
-                      <option value="wholesale">Mua sỉ</option>
-                      <option value="partnership">Hợp tác kinh doanh</option>
-                      <option value="other">Khác</option>
+                      <option value="" style={{ backgroundColor: '#1f2937', color: 'white' }}>Chọn chủ đề</option>
+                      <option value="product-inquiry" style={{ backgroundColor: '#1f2937', color: 'white' }}>Tư vấn sản phẩm</option>
+                      <option value="order-support" style={{ backgroundColor: '#1f2937', color: 'white' }}>Hỗ trợ đặt hàng</option>
+                      <option value="wholesale" style={{ backgroundColor: '#1f2937', color: 'white' }}>Mua sỉ</option>
+                      <option value="partnership" style={{ backgroundColor: '#1f2937', color: 'white' }}>Hợp tác kinh doanh</option>
+                      <option value="other" style={{ backgroundColor: '#1f2937', color: 'white' }}>Khác</option>
                     </select>
                   </div>
                 </div>
