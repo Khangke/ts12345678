@@ -1102,40 +1102,41 @@ export const ProductsSection = ({ onProductClick }) => {
   const { visibleItems, setRef } = useStaggerAnimation(filteredProducts, 100);
 
   return (
-    <section id="products" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-500">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4 animate-fade-in-up transition-colors duration-300">
+    <section id="products" className="py-8 lg:py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-500">
+      <div className="container mx-auto px-3 lg:px-4">
+        {/* Compact Mobile Header */}
+        <div className="text-center mb-6 lg:mb-16">
+          <h2 className="text-2xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-2 lg:mb-4 animate-fade-in-up transition-colors duration-300">
             Tất cả sản phẩm
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-amber-800 to-orange-600 dark:from-amber-400 dark:to-orange-400 mx-auto rounded-full mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}></div>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto animate-fade-in-up transition-colors duration-300" style={{ animationDelay: '0.4s' }}>
+          <div className="w-16 lg:w-32 h-1 bg-gradient-to-r from-amber-800 to-orange-600 dark:from-amber-400 dark:to-orange-400 mx-auto rounded-full mb-3 lg:mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}></div>
+          <p className="text-sm lg:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto animate-fade-in-up transition-colors duration-300 px-2" style={{ animationDelay: '0.4s' }}>
             Khám phá bộ sưu tập trầm hương đa dạng từ Sơn Mộc Hương - từ vòng tay trầm hương đến nhang nụ, 
             tất cả đều được chọn lọc kỹ lưỡng để mang đến cho bạn chất lượng tốt nhất.
           </p>
         </div>
 
-        {/* Search Bar */}
-        <div className="max-w-2xl mx-auto mb-8">
+        {/* Compact Search Bar */}
+        <div className="max-w-2xl mx-auto mb-4 lg:mb-8">
           <div className="relative">
             <input
               type="text"
               placeholder="Tìm kiếm sản phẩm theo tên..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-6 py-4 pl-12 border border-gray-300 dark:border-gray-600 rounded-full focus:outline-none focus:border-amber-800 dark:focus:border-amber-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-300 shadow-lg focus:shadow-xl"
+              className="w-full px-4 lg:px-6 py-3 lg:py-4 pl-10 lg:pl-12 border border-gray-300 dark:border-gray-600 rounded-full focus:outline-none focus:border-amber-800 dark:focus:border-amber-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-300 shadow-lg focus:shadow-xl text-sm lg:text-base"
             />
-            <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
-              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="absolute left-3 lg:left-4 top-1/2 transform -translate-y-1/2">
+              <svg className="w-4 h-4 lg:w-5 lg:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </div>
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm('')}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+                className="absolute right-3 lg:right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 lg:w-5 lg:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
@@ -1143,13 +1144,13 @@ export const ProductsSection = ({ onProductClick }) => {
           </div>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        {/* Compact Category Filter */}
+        <div className="flex flex-wrap justify-center gap-2 lg:gap-3 mb-6 lg:mb-12">
           {getCategories().map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-3 lg:px-6 py-1.5 lg:py-3 rounded-full text-xs lg:text-sm font-medium transition-all duration-300 ${
                 selectedCategory === category
                   ? 'bg-amber-800 dark:bg-amber-600 text-white shadow-lg transform scale-105'
                   : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:border-amber-300 dark:hover:border-amber-600 hover:shadow-md'
@@ -1160,9 +1161,9 @@ export const ProductsSection = ({ onProductClick }) => {
           ))}
         </div>
 
-        {/* Products Count */}
-        <div className="text-center mb-8">
-          <p className="text-gray-600 dark:text-gray-400 transition-colors duration-300">
+        {/* Compact Products Count */}
+        <div className="text-center mb-4 lg:mb-8">
+          <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
             Hiển thị <span className="font-semibold text-amber-800 dark:text-amber-400">{filteredProducts.length}</span> sản phẩm
             {searchTerm && (
               <span> cho từ khóa "<span className="font-semibold text-amber-800 dark:text-amber-400">{searchTerm}</span>"</span>
