@@ -742,32 +742,6 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
             </svg>
           </Link>
         </div>
-
-        {/* Optimized Trust Indicators - Super compact */}
-        <div className="mt-2 sm:mt-3 lg:mt-6 text-center">
-          <div className="inline-flex items-center justify-center space-x-1.5 sm:space-x-2 lg:space-x-3 bg-white/40 dark:bg-gray-800/40 backdrop-blur-sm rounded-full px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 border border-amber-200/20 dark:border-amber-700/20">
-            <div className="flex items-center space-x-0.5">
-              <svg className="w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span className="text-[7px] sm:text-[8px] lg:text-xs font-medium text-green-600 dark:text-green-400">Chất lượng</span>
-            </div>
-            <div className="w-px h-2 sm:h-2.5 lg:h-3 bg-gray-300 dark:bg-gray-600"></div>
-            <div className="flex items-center space-x-0.5">
-              <svg className="w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-              </svg>
-              <span className="text-[7px] sm:text-[8px] lg:text-xs font-medium text-blue-600 dark:text-blue-400">Miễn phí ship</span>
-            </div>
-            <div className="w-px h-2 sm:h-2.5 lg:h-3 bg-gray-300 dark:bg-gray-600"></div>
-            <div className="flex items-center space-x-0.5">
-              <svg className="w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3 text-purple-600 dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd" />
-              </svg>
-              <span className="text-[7px] sm:text-[8px] lg:text-xs font-medium text-purple-600 dark:text-purple-400">Tư vấn 24/7</span>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
