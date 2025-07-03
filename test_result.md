@@ -820,6 +820,36 @@ test_plan:
   test_priority: "high_first"
 
 backend:
+  - task: "Test Admin Dashboard Stats"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Testing admin dashboard stats API as per review request"
+      - working: true
+        agent: "testing"
+        comment: "✅ GET /api/admin/stats with valid token returns 200 status code ✅ Stats include product_count (3 products) ✅ Stats include orders breakdown by status (pending, confirmed, shipping, delivered, cancelled) ✅ Stats include total_revenue calculation ✅ Stats structure is correct for dashboard visualization ✅ Admin dashboard stats API is working correctly"
+
+  - task: "Test Order Management"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Testing order management APIs as per review request"
+      - working: true
+        agent: "testing"
+        comment: "✅ POST /api/orders successfully creates orders with customer information and items ✅ Created orders include size-specific pricing when applicable ✅ GET /api/admin/orders with valid token returns all orders ✅ PUT /api/admin/orders/{id}/status updates order status correctly ✅ Successfully created and verified orders with different statuses (pending, confirmed, delivered) ✅ Order management APIs are fully functional"
+
   - task: "Test Products API"
     implemented: true
     working: true
