@@ -820,6 +820,36 @@ test_plan:
   test_priority: "high_first"
 
 backend:
+  - task: "Test Products API"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Testing public products API as per review request"
+      - working: true
+        agent: "testing"
+        comment: "✅ GET /api/products returns 200 status code with 3 seeded products ✅ Products have all required fields: id, name, description, price, size_prices, category, material, rating, sizes ✅ GET /api/admin/products with valid token returns same 3 products ✅ Product CRUD operations (create, read, update, delete) all working correctly ✅ Products API is fully functional and returns correctly formatted data"
+
+  - task: "Test Size-based Pricing Verification"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Testing size-based pricing implementation as per review request"
+      - working: true
+        agent: "testing"
+        comment: "✅ Each product has size_prices dictionary with correct mapping of sizes to prices ✅ Sizes array matches size_prices keys exactly ✅ Different sizes have different prices as expected ✅ Created test orders with size-specific pricing successfully ✅ Size-based pricing is correctly implemented and working as expected"
+
   - task: "Test Admin Authentication Flow"
     implemented: true
     working: true
