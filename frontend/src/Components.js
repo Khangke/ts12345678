@@ -286,7 +286,7 @@ export const Header = ({ cartCount, onCartClick }) => {
   );
 };
 
-// Hero Section Component - Samsung-Inspired Modern & Sophisticated
+// Hero Section Component - Samsung-Inspired Modern & Sophisticated (Mobile Optimized)
 export const HeroSection = () => {
   const [heroRef, isHeroVisible] = useScrollAnimation(0.2);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -312,25 +312,25 @@ export const HeroSection = () => {
     {
       title: "Trầm Hương Cao Cấp",
       subtitle: "Membership",
-      description: "Khám phá bộ sưu tập trầm hương nguyên chất từ thiên nhiên Việt Nam với chất lượng đảm bảo và dịch vụ tận tâm.",
+      description: "Khám phá bộ sưu tập trầm hương nguyên chất từ thiên nhiên Việt Nam với chất lượng đảm bảo.",
       badge: "Premium Collection"
     },
     {
       title: "Đặc Quyền Khách Hàng",
       subtitle: "VIP Program", 
-      description: "Nhận ưu đãi đặc biệt, miễn phí vận chuyển và tư vấn chuyên sâu từ các chuyên gia trầm hương hàng đầu.",
+      description: "Nhận ưu đãi đặc biệt, miễn phí vận chuyển và tư vấn chuyên sâu từ các chuyên gia trầm hương.",
       badge: "VIP Benefits"
     },
     {
       title: "Chất Lượng Đỉnh Cao",
       subtitle: "Premium Quality",
-      description: "Sản phẩm trầm hương được tuyển chọn kỹ lưỡng từ những vùng đất nổi tiếng nhất, đảm bảo hương thơm đặc trưng và bền lâu.",
+      description: "Sản phẩm trầm hương được tuyển chọn kỹ lưỡng từ những vùng đất nổi tiếng nhất.",
       badge: "Quality Assured"
     }
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
+    <section id="home" className="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
       
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -344,146 +344,146 @@ export const HeroSection = () => {
         }}></div>
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[70vh]">
+      <div className="container mx-auto px-3 md:px-4 lg:px-8 relative z-10">
+        <div className="grid grid-cols-2 gap-4 md:gap-8 lg:gap-16 items-center min-h-[50vh] md:min-h-[60vh] lg:min-h-[70vh]">
           
-          {/* Left Section - Circular Badge */}
+          {/* Left Section - Circular Badge (Compact) */}
           <div 
             ref={heroRef}
-            className={`flex justify-center lg:justify-start transition-all duration-1000 ${
+            className={`flex justify-center transition-all duration-1000 ${
               isHeroVisible ? 'animate-fade-in-left' : 'opacity-0 translate-x-[-40px]'
             }`}
           >
             <div className="relative">
-              {/* Main Circular Badge */}
-              <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-gray-700 via-gray-600 to-gray-500 flex items-center justify-center shadow-2xl relative overflow-hidden group">
+              {/* Main Circular Badge - Smaller on mobile */}
+              <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full bg-gradient-to-br from-gray-700 via-gray-600 to-gray-500 flex items-center justify-center shadow-2xl relative overflow-hidden group">
                 
                 {/* Badge border */}
-                <div className="absolute inset-4 rounded-full border-2 border-gray-400/30"></div>
-                <div className="absolute inset-8 rounded-full border border-gray-300/20"></div>
+                <div className="absolute inset-2 sm:inset-3 md:inset-4 rounded-full border border-gray-400/30"></div>
+                <div className="absolute inset-4 sm:inset-6 md:inset-8 rounded-full border border-gray-300/20"></div>
                 
                 {/* Center icon/logo */}
                 <div className="relative z-10 text-center">
-                  <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 mx-auto mb-4 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full flex items-center justify-center shadow-xl">
-                    <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">SMH</span>
+                  <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 mx-auto mb-1 sm:mb-2 md:mb-4 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full flex items-center justify-center shadow-xl">
+                    <span className="text-sm sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white">SMH</span>
                   </div>
-                  <h3 className="text-sm md:text-base lg:text-lg font-semibold text-gray-300 mb-2">
+                  <h3 className="text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-semibold text-gray-300 mb-1 sm:mb-2">
                     {slides[currentSlide].badge}
                   </h3>
-                  <div className="w-8 h-0.5 bg-amber-500 mx-auto"></div>
+                  <div className="w-4 sm:w-6 md:w-8 h-0.5 bg-amber-500 mx-auto"></div>
                 </div>
 
                 {/* Hover effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-amber-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
               </div>
 
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-amber-500 rounded-full opacity-20 animate-pulse"></div>
-              <div className="absolute -bottom-6 -left-6 w-6 h-6 bg-amber-400 rounded-full opacity-30 animate-pulse" style={{ animationDelay: '1s' }}></div>
+              {/* Decorative elements - Smaller */}
+              <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 md:-top-4 md:-right-4 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-amber-500 rounded-full opacity-20 animate-pulse"></div>
+              <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 md:-bottom-6 md:-left-6 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 bg-amber-400 rounded-full opacity-30 animate-pulse" style={{ animationDelay: '1s' }}></div>
             </div>
           </div>
 
-          {/* Right Section - Content */}
+          {/* Right Section - Content (Compact) */}
           <div 
-            className={`space-y-6 lg:space-y-8 transition-all duration-1000 ${
+            className={`space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8 transition-all duration-1000 ${
               isHeroVisible ? 'animate-fade-in-right' : 'opacity-0 translate-x-[40px]'
             }`}
             style={{ animationDelay: '0.3s' }}
           >
-            {/* Badge */}
-            <div className="inline-flex items-center space-x-2 bg-amber-900/20 backdrop-blur-sm px-4 py-2 rounded-full border border-amber-600/30">
-              <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-amber-400 uppercase tracking-wide">
+            {/* Badge - Smaller */}
+            <div className="inline-flex items-center space-x-1 sm:space-x-2 bg-amber-900/20 backdrop-blur-sm px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full border border-amber-600/30">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-500 rounded-full animate-pulse"></div>
+              <span className="text-[10px] sm:text-xs md:text-sm font-medium text-amber-400 uppercase tracking-wide">
                 Sơn Mộc Hương
               </span>
             </div>
 
-            {/* Main Title */}
-            <div className="space-y-2">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-                <span className="block text-white mb-2">
+            {/* Main Title - Responsive sizes */}
+            <div className="space-y-1 sm:space-y-2">
+              <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                <span className="block text-white mb-1 sm:mb-2">
                   {slides[currentSlide].title}
                 </span>
-                <span className="block text-amber-400 font-light text-2xl md:text-3xl lg:text-4xl">
+                <span className="block text-amber-400 font-light text-sm sm:text-lg md:text-xl lg:text-3xl xl:text-4xl">
                   {slides[currentSlide].subtitle}
                 </span>
               </h1>
             </div>
 
-            {/* Description */}
-            <div className="max-w-xl">
-              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+            {/* Description - Compact */}
+            <div className="max-w-none sm:max-w-lg md:max-w-xl">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-300 leading-relaxed">
                 {slides[currentSlide].description}
               </p>
             </div>
 
-            {/* CTA Button */}
-            <div className="pt-4">
+            {/* CTA Button - Smaller */}
+            <div className="pt-2 sm:pt-3 md:pt-4">
               <Link 
                 to="/products"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-900 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-white/50 min-w-[160px]"
+                className="inline-flex items-center justify-center px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 bg-white text-gray-900 rounded-full text-sm sm:text-base md:text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-white/50 min-w-[120px] sm:min-w-[140px] md:min-w-[160px]"
               >
                 Khám phá ngay
               </Link>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="grid grid-cols-1 sm:flex sm:items-center sm:space-x-8 pt-6 text-sm text-gray-400 gap-4 sm:gap-0">
-              <div className="flex items-center space-x-2">
-                <CheckCircleIcon className="w-5 h-5 text-green-400 flex-shrink-0" />
+            {/* Trust Indicators - Compact */}
+            <div className="grid grid-cols-1 gap-2 pt-3 sm:pt-4 md:pt-6 text-[10px] sm:text-xs md:text-sm text-gray-400">
+              <div className="flex items-center space-x-1 sm:space-x-2">
+                <CheckCircleIcon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-green-400 flex-shrink-0" />
                 <span>Chất lượng đảm bảo</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <TruckIcon className="w-5 h-5 text-blue-400 flex-shrink-0" />
+              <div className="flex items-center space-x-1 sm:space-x-2">
+                <TruckIcon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-blue-400 flex-shrink-0" />
                 <span>Miễn phí ship</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <ShieldIcon className="w-5 h-5 text-amber-400 flex-shrink-0" />
+              <div className="flex items-center space-x-1 sm:space-x-2">
+                <ShieldIcon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-amber-400 flex-shrink-0" />
                 <span>Uy tín 10+ năm</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Navigation Arrows */}
+        {/* Navigation Arrows - Smaller */}
         <button 
           onClick={prevSlide}
-          className="absolute left-4 lg:left-8 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50"
+          className="absolute left-2 sm:left-4 lg:left-8 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
 
         <button 
           onClick={nextSlide}
-          className="absolute right-4 lg:right-8 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50"
+          className="absolute right-2 sm:right-4 lg:right-8 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
           </svg>
         </button>
 
-        {/* Progress Dots */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
+        {/* Progress Dots - Smaller */}
+        <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3">
           {[...Array(totalSlides)].map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none ${
+              className={`w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 focus:outline-none ${
                 index === currentSlide 
-                  ? 'bg-amber-500 w-8' 
+                  ? 'bg-amber-500 w-4 sm:w-6 md:w-8' 
                   : 'bg-white/30 hover:bg-white/50'
               }`}
             />
           ))}
         </div>
 
-        {/* Pause/Play Button */}
-        <div className="absolute bottom-8 right-8 hidden lg:block">
-          <button className="w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 focus:outline-none">
-            <div className="w-1 h-4 bg-white mx-0.5"></div>
-            <div className="w-1 h-4 bg-white mx-0.5"></div>
+        {/* Pause/Play Button - Hide on mobile */}
+        <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 right-4 sm:right-6 md:right-8 hidden md:block">
+          <button className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 focus:outline-none">
+            <div className="w-0.5 h-3 sm:w-1 sm:h-4 bg-white mx-0.5"></div>
+            <div className="w-0.5 h-3 sm:w-1 sm:h-4 bg-white mx-0.5"></div>
           </button>
         </div>
       </div>
