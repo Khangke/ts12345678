@@ -1865,6 +1865,17 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
     };
   }, []);
 
+  // Auto-slide functionality
+  useEffect(() => {
+    if (!isAutoSliding || isPaused) return;
+    
+    const autoSlideInterval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % productImages.length);
+    }, 3000); // Auto-slide every 3 seconds
+    
+    return () => clearInterval(autoSlideInterval);
+  }, [isAutoSliding, isPaused, productImages.length]);
+
   // Handle escape key to close modal
   useEffect(() => {
     const handleEscapeKey = (event) => {
