@@ -633,7 +633,7 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-1.5 sm:gap-2 lg:gap-6">
             {products.map((product, index) => (
               <div
                 key={product.id}
