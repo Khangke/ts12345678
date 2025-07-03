@@ -676,7 +676,7 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
                   </div>
 
                   {/* Enhanced Product Info - Mobile optimized with action button */}
-                  <div className="space-y-1 sm:space-y-1.5 lg:space-y-3 relative">
+                  <div className="space-y-1.5 sm:space-y-2 lg:space-y-3 relative">
                     <h3 className="font-bold text-[10px] sm:text-xs lg:text-base text-gray-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300 leading-tight" 
                         style={{
                           display: '-webkit-box',
