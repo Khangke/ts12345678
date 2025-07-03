@@ -12,6 +12,7 @@ import {
   CloseIcon,
   NewsIcon
 } from '../Icons';
+import { DarkModeToggle } from '../contexts/DarkModeContext';
 
 export const MobileBottomNav = ({ cartCount, onCartClick }) => {
   const location = useLocation();
@@ -363,6 +364,11 @@ export const MobileHeader = ({ cartCount, onCartClick, isMenuOpen, setIsMenuOpen
 
           {/* Action buttons */}
           <div className="flex items-center space-x-2">
+            {/* Dark Mode Toggle for Mobile */}
+            <div className="flex items-center">
+              <DarkModeToggle className="scale-75" />
+            </div>
+
             {/* Compact cart button */}
             <button 
               onClick={onCartClick}
