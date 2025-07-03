@@ -1631,6 +1631,7 @@ export const ContactSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [focusedField, setFocusedField] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -1668,27 +1669,27 @@ export const ContactSection = () => {
 
   // Success notification component
   const SuccessNotification = () => (
-    <div className={`fixed top-20 right-4 z-50 transition-all duration-500 transform ${
-      showSuccess ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+    <div className={`fixed top-20 right-4 left-4 sm:left-auto sm:right-4 z-50 transition-all duration-700 transform ${
+      showSuccess ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-full opacity-0 scale-95'
     }`}>
-      <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-6 rounded-xl shadow-2xl max-w-md border border-green-400/30">
-        <div className="flex items-start space-x-4">
-          <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-            <CheckCircleIcon className="w-5 h-5 text-white" />
+      <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-4 sm:p-6 rounded-2xl shadow-2xl max-w-md mx-auto border border-green-400/30 backdrop-blur-md">
+        <div className="flex items-start space-x-3 sm:space-x-4">
+          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+            <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
           </div>
-          <div>
-            <h4 className="font-bold text-lg mb-1">Gửi thành công!</h4>
-            <p className="text-green-100 leading-relaxed">
+          <div className="flex-1">
+            <h4 className="font-bold text-base sm:text-lg mb-1">Gửi thành công!</h4>
+            <p className="text-green-100 leading-relaxed text-sm sm:text-base">
               Cảm ơn bạn đã liên hệ với <strong>Sơn Mộc Hương</strong>. 
-              Chúng tôi đã nhận được yêu cầu của bạn và sẽ phản hồi trong vòng 24 giờ.
+              Chúng tôi sẽ phản hồi trong vòng 24 giờ.
             </p>
-            <div className="mt-3 flex items-center space-x-4 text-sm text-green-100">
+            <div className="mt-3 flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0 text-xs sm:text-sm text-green-100">
               <div className="flex items-center space-x-1">
-                <ClockIcon className="w-4 h-4" />
+                <ClockIcon className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span>Phản hồi trong 24h</span>
               </div>
               <div className="flex items-center space-x-1">
-                <PhoneIcon className="w-4 h-4" />
+                <PhoneIcon className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span>Hotline: 0762 222 448</span>
               </div>
             </div>
@@ -1696,9 +1697,9 @@ export const ContactSection = () => {
         </div>
         <button
           onClick={() => setShowSuccess(false)}
-          className="absolute top-3 right-3 text-white/80 hover:text-white transition-colors duration-200"
+          className="absolute top-2 right-2 sm:top-3 sm:right-3 text-white/80 hover:text-white transition-colors duration-200"
         >
-          <CloseIcon className="w-5 h-5" />
+          <CloseIcon className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
       </div>
     </div>
@@ -1707,325 +1708,392 @@ export const ContactSection = () => {
   return (
     <>
       <SuccessNotification />
-      <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 dark:from-gray-950 dark:via-gray-950 dark:to-gray-900 transition-colors duration-500">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-white mb-6">
-            Liên hệ với
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Sơn Mộc Hương</span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Chúng tôi luôn sẵn sàng hỗ trợ và tư vấn về các sản phẩm trầm hương chất lượng cao. 
-            Đội ngũ chuyên gia với hơn 10 năm kinh nghiệm sẽ giúp bạn chọn lựa sản phẩm phù hợp nhất.
-          </p>
+      <section id="contact" className="relative py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 dark:from-gray-950 dark:via-gray-950 dark:to-gray-900 transition-colors duration-500 overflow-hidden">
+        {/* Enhanced Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Animated gradient orbs */}
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-amber-600/20 to-orange-600/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-24 h-24 sm:w-36 sm:h-36 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-br from-blue-600/10 to-cyan-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }}></div>
+          
+          {/* Floating particles */}
+          <div className="absolute top-10 left-10 w-1 h-1 bg-amber-400/30 rounded-full animate-float"></div>
+          <div className="absolute top-20 right-20 w-1.5 h-1.5 bg-orange-400/30 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-20 left-1/3 w-0.5 h-0.5 bg-purple-400/30 rounded-full animate-float" style={{ animationDelay: '3s' }}></div>
+          
+          {/* Gradient mesh */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.4),transparent_70%)]"></div>
         </div>
 
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
-          {/* Contact Information Cards */}
-          <div className="xl:col-span-1 space-y-6">
-            {/* Quick Contact Card */}
-            <div className="bg-gradient-to-br from-amber-800/20 to-orange-900/20 backdrop-blur-sm border border-amber-700/30 rounded-2xl p-6">
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-                <ContactSupportIcon className="w-7 h-7 text-amber-400 mr-3" />
-                Liên hệ nhanh
-              </h3>
-              
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center">
-                    <PhoneIcon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Hotline</p>
-                    <p className="text-white font-semibold text-lg">0762 222 448</p>
-                    <p className="text-amber-400 text-sm">24/7 hỗ trợ khách hàng</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                    <EmailIcon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Email</p>
-                    <p className="text-white font-semibold">sonmochuong@gmail.com</p>
-                    <p className="text-blue-400 text-sm">Phản hồi trong 24h</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                    <WhatsAppIcon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">WhatsApp</p>
-                    <p className="text-white font-semibold">+84 762 222 448</p>
-                    <p className="text-green-400 text-sm">Chat trực tiếp</p>
-                  </div>
-                </div>
-              </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Enhanced Header */}
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <div className="inline-block mb-4 sm:mb-6 px-4 py-2 bg-gradient-to-r from-amber-600/20 to-orange-600/20 rounded-full border border-amber-500/30 backdrop-blur-sm">
+              <span className="text-amber-400 text-sm sm:text-base font-medium">✨ Liên hệ với chúng tôi</span>
             </div>
-
-            {/* Location Card */}
-            <div className="bg-gradient-to-br from-purple-800/20 to-pink-900/20 backdrop-blur-sm border border-purple-700/30 rounded-2xl p-6">
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-                <LocationIcon className="w-7 h-7 text-purple-400 mr-3" />
-                Địa chỉ cửa hàng
-              </h3>
-              
-              <div className="space-y-4">
-                <div className="flex items-start space-x-4 p-3 bg-white/5 rounded-lg">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <MapsIcon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold leading-relaxed">
-                      3/29E đường 182, Phường Tăng Nhơn Phú A, TP. Thủ Đức, TPHCM
-                    </p>
-                    <div className="flex items-center space-x-2 mt-2">
-                      <ClockIcon className="w-4 h-4 text-purple-400" />
-                      <p className="text-purple-400 text-sm">Thứ 2 - Chủ nhật: 8:00 - 20:00</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 rounded-lg transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center space-x-2">
-                  <MapsIcon className="w-5 h-5" />
-                  <span>Xem bản đồ</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Social Media Card */}
-            <div className="bg-gradient-to-br from-blue-800/20 to-indigo-900/20 backdrop-blur-sm border border-blue-700/30 rounded-2xl p-6">
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-                <SupportAgentIcon className="w-7 h-7 text-blue-400 mr-3" />
-                Mạng xã hội
-              </h3>
-              
-              <div className="grid grid-cols-3 gap-3">
-                <a href="#" className="group bg-blue-600 hover:bg-blue-700 p-3 rounded-lg transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
-                  <FacebookIcon className="w-6 h-6 text-white mx-auto" />
-                  <p className="text-white text-xs text-center mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Facebook</p>
-                </a>
-                
-                <a href="#" className="group bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 p-3 rounded-lg transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
-                  <InstagramIcon className="w-6 h-6 text-white mx-auto" />
-                  <p className="text-white text-xs text-center mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Instagram</p>
-                </a>
-                
-                <a href="#" className="group bg-red-600 hover:bg-red-700 p-3 rounded-lg transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
-                  <YouTubeIcon className="w-6 h-6 text-white mx-auto" />
-                  <p className="text-white text-xs text-center mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">YouTube</p>
-                </a>
-                
-                <a href="#" className="group bg-black hover:bg-gray-800 p-3 rounded-lg transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
-                  <TikTokIcon className="w-6 h-6 text-white mx-auto" />
-                  <p className="text-white text-xs text-center mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">TikTok</p>
-                </a>
-                
-                <a href="#" className="group bg-blue-500 hover:bg-blue-600 p-3 rounded-lg transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
-                  <ZaloIcon className="w-6 h-6 text-white mx-auto" />
-                  <p className="text-white text-xs text-center mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Zalo</p>
-                </a>
-                
-                <a href="#" className="group bg-blue-400 hover:bg-blue-500 p-3 rounded-lg transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
-                  <TelegramIcon className="w-6 h-6 text-white mx-auto" />
-                  <p className="text-white text-xs text-center mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Telegram</p>
-                </a>
-              </div>
-              
-              <div className="mt-4 pt-4 border-t border-blue-700/30">
-                <p className="text-center text-blue-300 text-sm">
-                  Theo dõi chúng tôi để cập nhật tin tức mới nhất về trầm hương
-                </p>
-              </div>
-            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-4 sm:mb-6 leading-tight">
+              Kết nối với
+              <br className="hidden sm:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600 animate-gradient">
+                Sơn Mộc Hương
+              </span>
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4">
+              Đội ngũ chuyên gia với <strong className="text-amber-400">hơn 10 năm kinh nghiệm</strong> sẵn sàng tư vấn 
+              và hỗ trợ bạn chọn lựa sản phẩm trầm hương chất lượng cao nhất.
+            </p>
           </div>
 
-          {/* Contact Form */}
-          <div className="xl:col-span-2">
-            <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 shadow-2xl">
-              <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
-                <LiveHelpIcon className="w-8 h-8 text-amber-400 mr-3" />
-                Gửi tin nhắn cho chúng tôi
-              </h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-white text-sm font-semibold mb-2">
-                      Họ và tên *
-                    </label>
-                    <input 
-                      type="text" 
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Nhập họ và tên của bạn"
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-amber-400 focus:bg-white/20 text-white placeholder-gray-300 transition-all duration-300"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-white text-sm font-semibold mb-2">
-                      Số điện thoại *
-                    </label>
-                    <input 
-                      type="tel" 
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Nhập số điện thoại"
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-amber-400 focus:bg-white/20 text-white placeholder-gray-300 transition-all duration-300"
-                    />
-                  </div>
+          {/* Modern Layout - Mobile First */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10">
+            {/* Contact Information - Mobile Optimized */}
+            <div className="lg:col-span-5 xl:col-span-4 space-y-4 sm:space-y-6">
+              {/* Quick Contact Card - Compact Mobile */}
+              <div className="group bg-gradient-to-br from-amber-900/20 via-orange-900/20 to-amber-800/20 backdrop-blur-md border border-amber-600/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:border-amber-500/50">
+                <div className="flex items-center justify-between mb-4 sm:mb-6">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white flex items-center">
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full flex items-center justify-center mr-2 sm:mr-3">
+                      <PhoneIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                    </div>
+                    Liên hệ nhanh
+                  </h3>
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                 </div>
+                
+                <div className="space-y-3 sm:space-y-4">
+                  <a href="tel:0762222448" className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-white/5 to-white/10 rounded-xl sm:rounded-2xl hover:from-white/10 hover:to-white/20 transition-all duration-300 group/item border border-white/5 hover:border-white/20">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg group-hover/item:shadow-2xl transition-all duration-300 group-hover/item:scale-110">
+                      <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-gray-400 text-xs sm:text-sm">Hotline</p>
+                      <p className="text-white font-bold text-sm sm:text-base lg:text-lg">0762 222 448</p>
+                      <p className="text-amber-400 text-xs sm:text-sm">24/7 hỗ trợ khách hàng</p>
+                    </div>
+                  </a>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-white text-sm font-semibold mb-2">
-                      Email *
-                    </label>
-                    <input 
-                      type="email" 
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Nhập email của bạn"
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-amber-400 focus:bg-white/20 text-white placeholder-gray-300 transition-all duration-300"
-                    />
+                  <a href="mailto:sonmochuong@gmail.com" className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-white/5 to-white/10 rounded-xl sm:rounded-2xl hover:from-white/10 hover:to-white/20 transition-all duration-300 group/item border border-white/5 hover:border-white/20">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center shadow-lg group-hover/item:shadow-2xl transition-all duration-300 group-hover/item:scale-110">
+                      <EmailIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-gray-400 text-xs sm:text-sm">Email</p>
+                      <p className="text-white font-bold text-sm sm:text-base break-all">sonmochuong@gmail.com</p>
+                      <p className="text-blue-400 text-xs sm:text-sm">Phản hồi trong 24h</p>
+                    </div>
+                  </a>
+
+                  <a href="https://wa.me/84762222448" className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-white/5 to-white/10 rounded-xl sm:rounded-2xl hover:from-white/10 hover:to-white/20 transition-all duration-300 group/item border border-white/5 hover:border-white/20">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg group-hover/item:shadow-2xl transition-all duration-300 group-hover/item:scale-110">
+                      <WhatsAppIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-gray-400 text-xs sm:text-sm">WhatsApp</p>
+                      <p className="text-white font-bold text-sm sm:text-base">+84 762 222 448</p>
+                      <p className="text-green-400 text-xs sm:text-sm">Chat trực tiếp</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              {/* Location Card - Compact */}
+              <div className="group bg-gradient-to-br from-purple-900/20 via-indigo-900/20 to-purple-800/20 backdrop-blur-md border border-purple-600/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:border-purple-500/50">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 sm:mb-6 flex items-center">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center mr-2 sm:mr-3">
+                    <LocationIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
-                  <div>
-                    <label className="block text-white text-sm font-semibold mb-2">
-                      Chủ đề
-                    </label>
-                    <div className="relative">
-                      <select 
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 pr-10 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-amber-400 focus:bg-white/20 text-white transition-all duration-300 appearance-none cursor-pointer hover:bg-white/15"
-                        style={{
-                          color: 'white',
-                          backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                          colorScheme: 'dark'
-                        }}
-                      >
-                        <option value="" style={{ backgroundColor: '#1f2937', color: 'white' }}>Chọn chủ đề</option>
-                        <option value="product-inquiry" style={{ backgroundColor: '#1f2937', color: 'white' }}>Tư vấn sản phẩm</option>
-                        <option value="order-support" style={{ backgroundColor: '#1f2937', color: 'white' }}>Hỗ trợ đặt hàng</option>
-                        <option value="wholesale" style={{ backgroundColor: '#1f2937', color: 'white' }}>Mua sỉ</option>
-                        <option value="partnership" style={{ backgroundColor: '#1f2937', color: 'white' }}>Hợp tác kinh doanh</option>
-                        <option value="other" style={{ backgroundColor: '#1f2937', color: 'white' }}>Khác</option>
-                      </select>
-                      <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                        <ChevronDownIcon className="w-5 h-5 text-gray-300" />
+                  Showroom
+                </h3>
+                
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-white/5 to-white/10 rounded-xl sm:rounded-2xl border border-white/5">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <MapsIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-white font-semibold text-sm sm:text-base leading-relaxed">
+                        3/29E đường 182, Phường Tăng Nhơn Phú A, TP. Thủ Đức, TPHCM
+                      </p>
+                      <div className="flex items-center space-x-2 mt-2">
+                        <ClockIcon className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400" />
+                        <p className="text-purple-400 text-xs sm:text-sm">Thứ 2 - Chủ nhật: 8:00 - 20:00</p>
                       </div>
                     </div>
                   </div>
+                  
+                  <button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 sm:py-4 rounded-xl sm:rounded-2xl transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] flex items-center justify-center space-x-2">
+                    <MapsIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span className="text-sm sm:text-base">Xem bản đồ</span>
+                  </button>
                 </div>
+              </div>
 
-                <div>
-                  <label className="block text-white text-sm font-semibold mb-2">
-                    Tin nhắn *
-                  </label>
-                  <textarea 
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    placeholder="Chia sẻ chi tiết về nhu cầu của bạn để chúng tôi có thể hỗ trợ tốt nhất..."
-                    rows="5"
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-amber-400 focus:bg-white/20 text-white placeholder-gray-300 transition-all duration-300 resize-none"
-                  ></textarea>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <input 
-                    type="checkbox" 
-                    id="privacy"
-                    required
-                    className="mt-1 w-4 h-4 text-amber-600 bg-white/10 border-white/20 rounded focus:ring-amber-400"
-                  />
-                  <label htmlFor="privacy" className="text-gray-300 text-sm">
-                    Tôi đồng ý với việc xử lý thông tin cá nhân theo 
-                    <a href="#" className="text-amber-400 hover:text-amber-300 ml-1">Chính sách bảo mật</a>
-                  </label>
-                </div>
-
-                <button 
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white py-4 rounded-lg transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      <span>Đang gửi...</span>
-                    </>
-                  ) : (
-                    <>
-                      <EmailIcon className="w-5 h-5" />
-                      <span>Gửi tin nhắn</span>
-                    </>
-                  )}
-                </button>
-              </form>
-
-              <div className="mt-8 pt-8 border-t border-white/20">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-                  <div className="flex items-center justify-center space-x-2">
-                    <ShieldIcon className="w-5 h-5 text-green-400" />
-                    <span className="text-gray-300 text-sm">Bảo mật thông tin</span>
+              {/* Social Media Card - Compact Grid */}
+              <div className="group bg-gradient-to-br from-slate-900/40 via-gray-900/40 to-slate-800/40 backdrop-blur-md border border-slate-600/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] hover:border-slate-500/50">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 sm:mb-6 flex items-center">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full flex items-center justify-center mr-2 sm:mr-3">
+                    <SupportAgentIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
-                  <div className="flex items-center justify-center space-x-2">
-                    <ClockIcon className="w-5 h-5 text-blue-400" />
-                    <span className="text-gray-300 text-sm">Phản hồi nhanh</span>
+                  Mạng xã hội
+                </h3>
+                
+                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-3 gap-2 sm:gap-3">
+                  <a href="#" className="group/social bg-blue-600 hover:bg-blue-700 p-2 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                    <FacebookIcon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white mx-auto" />
+                    <p className="text-white text-xs text-center mt-1 opacity-0 group-hover/social:opacity-100 transition-opacity duration-300 hidden sm:block">Facebook</p>
+                  </a>
+                  
+                  <a href="#" className="group/social bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 p-2 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                    <InstagramIcon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white mx-auto" />
+                    <p className="text-white text-xs text-center mt-1 opacity-0 group-hover/social:opacity-100 transition-opacity duration-300 hidden sm:block">Instagram</p>
+                  </a>
+                  
+                  <a href="#" className="group/social bg-red-600 hover:bg-red-700 p-2 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                    <YouTubeIcon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white mx-auto" />
+                    <p className="text-white text-xs text-center mt-1 opacity-0 group-hover/social:opacity-100 transition-opacity duration-300 hidden sm:block">YouTube</p>
+                  </a>
+                  
+                  <a href="#" className="group/social bg-blue-500 hover:bg-blue-600 p-2 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                    <ZaloIcon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white mx-auto" />
+                    <p className="text-white text-xs text-center mt-1 opacity-0 group-hover/social:opacity-100 transition-opacity duration-300 hidden sm:block">Zalo</p>
+                  </a>
+                  
+                  <a href="#" className="group/social bg-green-600 hover:bg-green-700 p-2 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                    <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white mx-auto" />
+                    <p className="text-white text-xs text-center mt-1 opacity-0 group-hover/social:opacity-100 transition-opacity duration-300 hidden sm:block">WhatsApp</p>
+                  </a>
+                  
+                  <a href="#" className="group/social bg-blue-400 hover:bg-blue-500 p-2 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                    <TelegramIcon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white mx-auto" />
+                    <p className="text-white text-xs text-center mt-1 opacity-0 group-hover/social:opacity-100 transition-opacity duration-300 hidden sm:block">Telegram</p>
+                  </a>
+                </div>
+                
+                <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-slate-600/30">
+                  <p className="text-center text-slate-300 text-xs sm:text-sm">
+                    Theo dõi để nhận tin tức mới nhất
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Form - Enhanced Mobile */}
+            <div className="lg:col-span-7 xl:col-span-8">
+              <div className="bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:border-white/30">
+                <div className="flex items-center justify-between mb-6 sm:mb-8">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white flex items-center">
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full flex items-center justify-center mr-2 sm:mr-3">
+                      <EmailIcon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
+                    </div>
+                    <span className="hidden sm:inline">Gửi tin nhắn cho chúng tôi</span>
+                    <span className="sm:hidden">Gửi tin nhắn</span>
+                  </h3>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <span className="text-green-400 text-xs sm:text-sm font-medium">Online</span>
                   </div>
-                  <div className="flex items-center justify-center space-x-2">
-                    <SupportAgentIcon className="w-5 h-5 text-purple-400" />
-                    <span className="text-gray-300 text-sm">Tư vấn chuyên nghiệp</span>
+                </div>
+                
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                    <div className="relative">
+                      <label className={`absolute left-3 transition-all duration-300 pointer-events-none ${
+                        focusedField === 'name' || formData.name 
+                          ? 'top-2 text-xs text-amber-400 bg-slate-800/80 px-2 rounded' 
+                          : 'top-3 text-sm text-gray-400'
+                      }`}>
+                        Họ và tên *
+                      </label>
+                      <input 
+                        type="text" 
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        onFocus={() => setFocusedField('name')}
+                        onBlur={() => setFocusedField(null)}
+                        required
+                        className="w-full px-3 py-3 sm:px-4 sm:py-4 bg-white/5 border border-white/20 rounded-xl sm:rounded-2xl focus:outline-none focus:border-amber-400 focus:bg-white/10 text-white transition-all duration-300 hover:bg-white/10"
+                      />
+                    </div>
+                    <div className="relative">
+                      <label className={`absolute left-3 transition-all duration-300 pointer-events-none ${
+                        focusedField === 'phone' || formData.phone 
+                          ? 'top-2 text-xs text-amber-400 bg-slate-800/80 px-2 rounded' 
+                          : 'top-3 text-sm text-gray-400'
+                      }`}>
+                        Số điện thoại *
+                      </label>
+                      <input 
+                        type="tel" 
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        onFocus={() => setFocusedField('phone')}
+                        onBlur={() => setFocusedField(null)}
+                        required
+                        className="w-full px-3 py-3 sm:px-4 sm:py-4 bg-white/5 border border-white/20 rounded-xl sm:rounded-2xl focus:outline-none focus:border-amber-400 focus:bg-white/10 text-white transition-all duration-300 hover:bg-white/10"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                    <div className="relative">
+                      <label className={`absolute left-3 transition-all duration-300 pointer-events-none ${
+                        focusedField === 'email' || formData.email 
+                          ? 'top-2 text-xs text-amber-400 bg-slate-800/80 px-2 rounded' 
+                          : 'top-3 text-sm text-gray-400'
+                      }`}>
+                        Email *
+                      </label>
+                      <input 
+                        type="email" 
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        onFocus={() => setFocusedField('email')}
+                        onBlur={() => setFocusedField(null)}
+                        required
+                        className="w-full px-3 py-3 sm:px-4 sm:py-4 bg-white/5 border border-white/20 rounded-xl sm:rounded-2xl focus:outline-none focus:border-amber-400 focus:bg-white/10 text-white transition-all duration-300 hover:bg-white/10"
+                      />
+                    </div>
+                    <div className="relative">
+                      <label className="block text-white text-sm font-semibold mb-2">
+                        Chủ đề
+                      </label>
+                      <div className="relative">
+                        <select 
+                          name="subject"
+                          value={formData.subject}
+                          onChange={handleInputChange}
+                          className="w-full px-3 py-3 sm:px-4 sm:py-4 pr-8 sm:pr-10 bg-white/5 border border-white/20 rounded-xl sm:rounded-2xl focus:outline-none focus:border-amber-400 focus:bg-white/10 text-white transition-all duration-300 appearance-none cursor-pointer hover:bg-white/10"
+                          style={{
+                            color: 'white',
+                            backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                            colorScheme: 'dark'
+                          }}
+                        >
+                          <option value="" style={{ backgroundColor: '#1f2937', color: 'white' }}>Chọn chủ đề</option>
+                          <option value="product-inquiry" style={{ backgroundColor: '#1f2937', color: 'white' }}>Tư vấn sản phẩm</option>
+                          <option value="order-support" style={{ backgroundColor: '#1f2937', color: 'white' }}>Hỗ trợ đặt hàng</option>
+                          <option value="wholesale" style={{ backgroundColor: '#1f2937', color: 'white' }}>Mua sỉ</option>
+                          <option value="partnership" style={{ backgroundColor: '#1f2937', color: 'white' }}>Hợp tác kinh doanh</option>
+                          <option value="other" style={{ backgroundColor: '#1f2937', color: 'white' }}>Khác</option>
+                        </select>
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                          <ChevronDownIcon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-300" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="relative">
+                    <label className={`absolute left-3 transition-all duration-300 pointer-events-none ${
+                      focusedField === 'message' || formData.message 
+                        ? 'top-2 text-xs text-amber-400 bg-slate-800/80 px-2 rounded' 
+                        : 'top-3 text-sm text-gray-400'
+                    }`}>
+                      Tin nhắn *
+                    </label>
+                    <textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      onFocus={() => setFocusedField('message')}
+                      onBlur={() => setFocusedField(null)}
+                      required
+                      rows="4"
+                      className="w-full px-3 py-3 sm:px-4 sm:py-4 bg-white/5 border border-white/20 rounded-xl sm:rounded-2xl focus:outline-none focus:border-amber-400 focus:bg-white/10 text-white transition-all duration-300 resize-none hover:bg-white/10"
+                    ></textarea>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <input 
+                      type="checkbox" 
+                      id="privacy"
+                      required
+                      className="mt-1 w-4 h-4 text-amber-600 bg-white/10 border-white/20 rounded focus:ring-amber-400 focus:ring-2"
+                    />
+                    <label htmlFor="privacy" className="text-gray-300 text-sm leading-relaxed">
+                      Tôi đồng ý với việc xử lý thông tin cá nhân theo 
+                      <a href="#" className="text-amber-400 hover:text-amber-300 ml-1 underline">Chính sách bảo mật</a>
+                    </label>
+                  </div>
+
+                  <button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white py-3 sm:py-4 rounded-xl sm:rounded-2xl transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <span className="text-sm sm:text-base">Đang gửi...</span>
+                      </>
+                    ) : (
+                      <>
+                        <EmailIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <span className="text-sm sm:text-base">Gửi tin nhắn</span>
+                      </>
+                    )}
+                  </button>
+                </form>
+
+                {/* Trust Indicators */}
+                <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/20">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-center">
+                    <div className="flex items-center justify-center space-x-2 p-2 sm:p-3 bg-white/5 rounded-xl">
+                      <ShieldIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
+                      <span className="text-gray-300 text-xs sm:text-sm">Bảo mật thông tin</span>
+                    </div>
+                    <div className="flex items-center justify-center space-x-2 p-2 sm:p-3 bg-white/5 rounded-xl">
+                      <ClockIcon className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+                      <span className="text-gray-300 text-xs sm:text-sm">Phản hồi nhanh</span>
+                    </div>
+                    <div className="flex items-center justify-center space-x-2 p-2 sm:p-3 bg-white/5 rounded-xl">
+                      <SupportAgentIcon className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
+                      <span className="text-gray-300 text-xs sm:text-sm">Tư vấn chuyên nghiệp</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-amber-600/20 to-orange-600/20 backdrop-blur-sm border border-amber-500/30 rounded-2xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold text-white mb-4">
-              Cần tư vấn ngay lập tức?
-            </h3>
-            <p className="text-gray-300 mb-6 text-lg">
-              Gọi hotline hoặc chat với chuyên gia của chúng tôi ngay bây giờ!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="tel:0762222448"
-                className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-semibold flex items-center justify-center space-x-2"
-              >
-                <PhoneIcon className="w-6 h-6" />
-                <span>Gọi ngay: 0762 222 448</span>
-              </a>
-              <a 
-                href="https://wa.me/84762222448"
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-semibold flex items-center justify-center space-x-2"
-              >
-                <WhatsAppIcon className="w-6 h-6" />
-                <span>Chat WhatsApp</span>
-              </a>
+          {/* Enhanced Call to Action - Mobile Optimized */}
+          <div className="mt-12 sm:mt-16 lg:mt-20 text-center">
+            <div className="bg-gradient-to-r from-amber-600/20 via-orange-600/20 to-amber-600/20 backdrop-blur-lg border border-amber-500/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 max-w-4xl mx-auto shadow-2xl">
+              <div className="mb-4 sm:mb-6">
+                <div className="inline-block px-3 py-1 bg-amber-500/20 rounded-full border border-amber-400/30 mb-3 sm:mb-4">
+                  <span className="text-amber-400 text-xs sm:text-sm font-medium">🚀 Hỗ trợ tức thì</span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-4">
+                  Cần tư vấn ngay lập tức?
+                </h3>
+                <p className="text-gray-300 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto">
+                  Kết nối với chuyên gia của chúng tôi để được tư vấn chi tiết về sản phẩm trầm hương!
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <a 
+                  href="tel:0762222448"
+                  className="group bg-gradient-to-r from-green-600 to-emerald-700 hover:from-green-700 hover:to-emerald-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] font-semibold flex items-center justify-center space-x-2"
+                >
+                  <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6 group-hover:animate-pulse" />
+                  <span className="text-sm sm:text-base">Gọi ngay: 0762 222 448</span>
+                </a>
+                <a 
+                  href="https://wa.me/84762222448"
+                  className="group bg-gradient-to-r from-blue-600 to-cyan-700 hover:from-blue-700 hover:to-cyan-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] font-semibold flex items-center justify-center space-x-2"
+                >
+                  <WhatsAppIcon className="w-5 h-5 sm:w-6 sm:h-6 group-hover:animate-pulse" />
+                  <span className="text-sm sm:text-base">Chat WhatsApp</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 };
