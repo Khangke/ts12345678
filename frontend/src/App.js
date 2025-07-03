@@ -25,6 +25,31 @@ function App() {
   const [showToast, setShowToast] = useState(false);
   const [orderInfo, setOrderInfo] = useState(null);
 
+  // Load cart from localStorage on component mount
+  useEffect(() => {
+    try {
+      const savedCart = localStorage.getItem('cart_items');
+      if (savedCart) {
+        const parsedCart = JSON.parse(savedCart);
+        if (Array.isArray(parsedCart)) {
+          setCartItems(parsedCart);
+        }
+      }
+    } catch (error) {
+      console.warn('Error loading cart from localStorage:', error);
+      localStorage.removeItem('cart_items'); // Clear corrupted data
+    }
+  }, []);
+
+  // Save cart to localStorage whenever cartItems changes
+  useEffect(() => {
+    try {
+      localStorage.setItem('cart_items', JSON.stringify(cartItems));
+    } catch (error) {
+      console.warn('Error saving cart to localStorage:', error);
+    }
+  }, [cartItems]);
+
   const showToastMessage = (message) => {
     setToastMessage(message);
     setShowToast(true);
