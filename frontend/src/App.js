@@ -294,6 +294,61 @@ function App() {
     }
   }, [cartItems]);
 
+  // Disable zoom functionality
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Disable Ctrl + Plus, Ctrl + Minus, Ctrl + 0 (reset zoom)
+      if (e.ctrlKey && (e.keyCode === 107 || e.keyCode === 109 || e.keyCode === 48 || e.keyCode === 187 || e.keyCode === 189)) {
+        e.preventDefault();
+        return false;
+      }
+      // Disable Ctrl + scroll wheel zoom
+      if (e.ctrlKey && (e.keyCode === 38 || e.keyCode === 40)) {
+        e.preventDefault();
+        return false;
+      }
+    };
+
+    const handleWheel = (e) => {
+      // Disable Ctrl + scroll wheel zoom
+      if (e.ctrlKey) {
+        e.preventDefault();
+        return false;
+      }
+    };
+
+    const handleGestureStart = (e) => {
+      e.preventDefault();
+      return false;
+    };
+
+    const handleGestureChange = (e) => {
+      e.preventDefault();
+      return false;
+    };
+
+    const handleGestureEnd = (e) => {
+      e.preventDefault();
+      return false;
+    };
+
+    // Add event listeners
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('wheel', handleWheel, { passive: false });
+    document.addEventListener('gesturestart', handleGestureStart);
+    document.addEventListener('gesturechange', handleGestureChange);
+    document.addEventListener('gestureend', handleGestureEnd);
+
+    // Cleanup
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('wheel', handleWheel);
+      document.removeEventListener('gesturestart', handleGestureStart);
+      document.removeEventListener('gesturechange', handleGestureChange);
+      document.removeEventListener('gestureend', handleGestureEnd);
+    };
+  }, []);
+
   // Show success page if order completed
   if (showSuccess && orderInfo) {
     return (
