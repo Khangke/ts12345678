@@ -1027,7 +1027,7 @@ def test_create_delivered_order():
 def run_tests():
     """Run specific tests as requested in the review"""
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
-    print(f"{Colors.HEADER}TESTING BACKEND APIs AFTER CART PERSISTENCE FIX{Colors.ENDC}")
+    print(f"{Colors.HEADER}TESTING BACKEND APIs AFTER ADDING FEATURED PRODUCTS SECTION{Colors.ENDC}")
     print(f"{Colors.HEADER}Backend URL: {BACKEND_URL}{Colors.ENDC}")
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
     
@@ -1063,7 +1063,7 @@ def run_tests():
     else:
         print(f"\n{Colors.OKGREEN}All backend API tests passed successfully!{Colors.ENDC}")
         print(f"{Colors.OKGREEN}Backend health check complete - all endpoints returning status 200 with proper data format.{Colors.ENDC}")
-        print(f"{Colors.OKGREEN}Backend is not affected by the cart persistence and state management fix in frontend.{Colors.ENDC}")
+        print(f"{Colors.OKGREEN}Backend is not affected by the addition of FeaturedProductsSection component in frontend.{Colors.ENDC}")
 
 if __name__ == "__main__":
     run_tests()
