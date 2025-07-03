@@ -763,6 +763,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Đã test lại admin dashboard stats API sau frontend toast notifications và loading states implementation và xác nhận hoạt động đúng. API trả về đầy đủ các trường cần thiết cho modern UI: product_count, orders (với breakdown theo trạng thái), total_revenue và recent_orders. Cấu trúc dữ liệu phù hợp cho việc hiển thị trên dashboard với charts và cards. Thống kê đơn hàng và sản phẩm được cập nhật chính xác sau khi tạo mới."
+      - working: true
+        agent: "testing"
+        comment: "✅ Tested again on July 3, 2025: GET /api/admin/stats returns 200 status code with correct data structure including product_count (3), orders breakdown by status (pending, confirmed, shipping, delivered, cancelled), total_revenue, and recent_orders. The API returns the correct data format for dashboard visualization with charts and cards. All fields required for modern UI components are present and correctly formatted."
   
   - task: "Test public products API"
     implemented: true
