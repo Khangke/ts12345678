@@ -736,11 +736,11 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
           </div>
         )}
 
-        {/* Enhanced View All Products Button */}
-        <div className="text-center mt-16">
-          <Link 
+        {/* Enhanced CTA Section - Compact for mobile */}
+        <div className="text-center mt-8 lg:mt-16">
+          <Link
             to="/products"
-            className="group inline-flex items-center space-x-3 bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 hover:from-amber-700 hover:via-orange-700 hover:to-yellow-700 text-white px-12 py-5 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 relative overflow-hidden"
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-500 dark:to-orange-500 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-full text-sm lg:text-lg font-semibold hover:from-amber-700 hover:to-orange-700 dark:hover:from-amber-600 dark:hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 group"
           >
             {/* Button Background Effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
