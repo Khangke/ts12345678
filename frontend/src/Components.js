@@ -1861,149 +1861,152 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 dark:bg-black/80 flex items-center justify-center z-50 p-4 transition-colors duration-300">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl dark:shadow-amber-900/20 transition-all duration-500">
-        <div className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white transition-colors duration-300">Chi tiết sản phẩm</h2>
-          <button onClick={onClose} className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-2xl transition-colors duration-300">
+    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 flex items-end sm:items-center justify-center z-50 p-0 sm:p-4 transition-colors duration-300">
+      <div className="bg-white dark:bg-gray-800 rounded-t-3xl sm:rounded-2xl w-full sm:max-w-2xl lg:max-w-3xl sm:max-h-[85vh] max-h-[92vh] overflow-y-auto shadow-2xl dark:shadow-amber-900/20 transition-all duration-500">
+        {/* Header - Compact */}
+        <div className="sticky top-0 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm flex justify-between items-center p-4 border-b border-gray-200/50 dark:border-gray-700/50 z-10">
+          <h2 className="text-base sm:text-lg font-bold text-gray-800 dark:text-white">Chi tiết sản phẩm</h2>
+          <button 
+            onClick={onClose} 
+            className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-200"
+          >
             ×
           </button>
         </div>
 
-        <div className="p-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Product Image */}
-            <div>
+        <div className="p-4 sm:p-6">
+          {/* Product Header Info */}
+          <div className="flex items-start space-x-4 mb-4">
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 flex-shrink-0">
               <img 
                 src={product.image} 
                 alt={product.name}
-                className="w-full h-96 object-cover rounded-lg shadow-lg dark:shadow-amber-900/20"
+                className="w-full h-full object-cover"
               />
             </div>
-
-            {/* Product Info */}
-            <div>
-              <div className="mb-4">
-                <span className="bg-amber-800 dark:bg-amber-600 text-white px-3 py-1 rounded-full text-sm transition-colors duration-300">
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center space-x-2 mb-2">
+                <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 px-2 py-1 rounded-full text-xs font-medium">
                   {product.category}
                 </span>
-              </div>
-              
-              <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300">{product.name}</h1>
-              <p className="text-gray-600 dark:text-gray-300 mb-6 transition-colors duration-300">{product.detail_description}</p>
-              
-              <div className="mb-6">
-                <div className="flex items-center space-x-2 mb-2">
-                  <span className="text-yellow-400 text-xl">★</span>
-                  <span className="text-lg font-semibold text-gray-800 dark:text-white transition-colors duration-300">{product.rating}</span>
-                  <span className="text-gray-600 dark:text-gray-400 transition-colors duration-300">({product.reviews?.length || 0} đánh giá)</span>
-                </div>
-                <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Chất liệu: {product.material}</p>
-              </div>
-
-              {/* Size Selection */}
-              {product.sizes && (
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold mb-3 text-gray-800 dark:text-white transition-colors duration-300">Chọn kích cỡ:</h3>
-                  <div className="flex flex-wrap gap-3">
-                    {product.sizes.map((size) => (
-                      <button
-                        key={size}
-                        onClick={() => setSelectedSize(size)}
-                        className={`px-4 py-3 border-2 rounded-lg transition-all duration-200 min-w-[100px] ${
-                          selectedSize === size 
-                            ? 'border-amber-800 dark:border-amber-600 bg-amber-800 dark:bg-amber-600 text-white shadow-lg' 
-                            : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:border-amber-800 dark:hover:border-amber-600 hover:shadow-md'
-                        }`}
-                      >
-                        <div className="text-center">
-                          <div className="font-semibold text-sm">{size}</div>
-                          {product.size_prices && product.size_prices[size] && (
-                            <div className={`text-sm mt-1 font-medium ${
-                              selectedSize === size ? 'text-white' : 'text-amber-800 dark:text-amber-400'
-                            }`}>
-                              {product.size_prices[size]}
-                            </div>
-                          )}
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Quantity */}
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold mb-3 text-gray-800 dark:text-white transition-colors duration-300">Số lượng:</h3>
-                <div className="flex items-center space-x-3">
-                  <button 
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="w-10 h-10 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300"
-                  >
-                    -
-                  </button>
-                  <span className="text-lg font-semibold min-w-[3rem] text-center text-gray-800 dark:text-white transition-colors duration-300">{quantity}</span>
-                  <button 
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="w-10 h-10 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300"
-                  >
-                    +
-                  </button>
+                <div className="flex items-center space-x-1">
+                  <span className="text-yellow-400 text-sm">★</span>
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{product.rating || 4.5}</span>
                 </div>
               </div>
-
-              {/* Price & Actions */}
-              <div className="mb-6">
-                <div className="mb-3">
-                  <span className="text-4xl font-bold text-amber-800 dark:text-amber-400 transition-colors duration-300">
-                    {currentPrice}
-                  </span>
-                  {selectedSize && product.size_prices && product.size_prices[selectedSize] && (
-                    <div className="text-base text-gray-600 dark:text-gray-400 mt-1 font-medium">
-                      Kích cỡ đã chọn: <span className="font-semibold text-amber-700 dark:text-amber-300">{selectedSize}</span>
-                    </div>
-                  )}
-                </div>
-                {/* Show price comparison if size pricing is available */}
-                {product.size_prices && Object.keys(product.size_prices).length > 1 && (
-                  <div className="text-sm text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-300 bg-amber-50 dark:bg-amber-900/20 p-3 rounded-lg border border-amber-200 dark:border-amber-700">
-                    <span className="font-medium">💡 Mẹo:</span> Giá sẽ thay đổi tương ứng với kích cỡ bạn chọn
-                  </div>
-                )}
-                <div className="flex space-x-4">
-                  <button 
-                    onClick={handleAddToCart}
-                    className="flex-1 bg-amber-800 dark:bg-amber-600 text-white py-3 rounded-lg hover:bg-amber-900 dark:hover:bg-amber-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
-                  >
-                    Thêm vào giỏ hàng
-                  </button>
-                  <button 
-                    onClick={handleBuyNow}
-                    className="flex-1 bg-red-600 dark:bg-red-500 text-white py-3 rounded-lg hover:bg-red-700 dark:hover:bg-red-600 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
-                  >
-                    Mua ngay
-                  </button>
-                </div>
-              </div>
+              <h1 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white mb-1 line-clamp-2">{product.name}</h1>
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Chất liệu: {product.material}</p>
             </div>
           </div>
 
-          {/* Reviews Section */}
+          {/* Description - Compact */}
+          {product.detail_description && (
+            <div className="mb-4 p-3 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
+              <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3">{product.detail_description}</p>
+            </div>
+          )}
+
+          {/* Size Selection - Compact */}
+          {product.sizes && (
+            <div className="mb-4">
+              <h3 className="text-sm font-semibold mb-2 text-gray-800 dark:text-white">Kích cỡ:</h3>
+              <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                {product.sizes.map((size) => (
+                  <button
+                    key={size}
+                    onClick={() => setSelectedSize(size)}
+                    className={`p-2 border rounded-lg transition-all duration-200 text-center ${
+                      selectedSize === size 
+                        ? 'border-amber-600 bg-amber-600 text-white shadow-md' 
+                        : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:border-amber-400'
+                    }`}
+                  >
+                    <div className="text-xs font-medium">{size}</div>
+                    {product.size_prices && product.size_prices[size] && (
+                      <div className={`text-xs mt-1 ${
+                        selectedSize === size ? 'text-white' : 'text-amber-600 dark:text-amber-400'
+                      }`}>
+                        {product.size_prices[size]}
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Quantity & Price Row */}
+          <div className="flex items-center justify-between mb-4 p-3 bg-amber-50 dark:bg-amber-900/20 rounded-xl">
+            <div>
+              <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">Số lượng:</div>
+              <div className="flex items-center space-x-2">
+                <button 
+                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  className="w-8 h-8 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 rounded-lg flex items-center justify-center text-sm hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-200"
+                >
+                  -
+                </button>
+                <span className="text-sm font-semibold min-w-[2rem] text-center text-gray-800 dark:text-white">{quantity}</span>
+                <button 
+                  onClick={() => setQuantity(quantity + 1)}
+                  className="w-8 h-8 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 rounded-lg flex items-center justify-center text-sm hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-200"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">Giá:</div>
+              <div className="text-xl sm:text-2xl font-bold text-amber-600 dark:text-amber-400">
+                {currentPrice}
+              </div>
+              {selectedSize && (
+                <div className="text-xs text-gray-500 dark:text-gray-400">
+                  {selectedSize}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Size Price Tip */}
+          {product.size_prices && Object.keys(product.size_prices).length > 1 && (
+            <div className="text-xs text-gray-600 dark:text-gray-400 mb-4 p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200/50 dark:border-blue-700/50">
+              💡 Giá thay đổi theo kích cỡ
+            </div>
+          )}
+
+          {/* Action Buttons - Compact */}
+          <div className="grid grid-cols-2 gap-3">
+            <button 
+              onClick={handleAddToCart}
+              className="bg-amber-600 dark:bg-amber-500 text-white py-3 rounded-xl hover:bg-amber-700 dark:hover:bg-amber-600 transition-all duration-200 font-medium text-sm shadow-lg hover:shadow-xl"
+            >
+              Thêm vào giỏ
+            </button>
+            <button 
+              onClick={handleBuyNow}
+              className="bg-red-600 dark:bg-red-500 text-white py-3 rounded-xl hover:bg-red-700 dark:hover:bg-red-600 transition-all duration-200 font-medium text-sm shadow-lg hover:shadow-xl"
+            >
+              Mua ngay
+            </button>
+          </div>
+
+          {/* Reviews Section - Compact */}
           {product.reviews && product.reviews.length > 0 && (
-            <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
-              <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white transition-colors duration-300">Đánh giá khách hàng</h3>
-              <div className="space-y-4">
-                {product.reviews.map((review, index) => (
-                  <div key={index} className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg transition-colors duration-300">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <span className="font-semibold text-gray-800 dark:text-white transition-colors duration-300">{review.name}</span>
-                      <div className="flex">
+            <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <h3 className="text-sm font-semibold mb-3 text-gray-800 dark:text-white">Đánh giá ({product.reviews.length})</h3>
+              <div className="space-y-3 max-h-32 overflow-y-auto">
+                {product.reviews.slice(0, 3).map((review, index) => (
+                  <div key={index} className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-sm font-medium text-gray-800 dark:text-white">{review.name}</span>
+                      <div className="flex text-xs">
                         {[...Array(review.rating)].map((_, i) => (
                           <span key={i} className="text-yellow-400">★</span>
                         ))}
                       </div>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{review.comment}</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-300 line-clamp-2">{review.comment}</p>
                   </div>
                 ))}
               </div>
