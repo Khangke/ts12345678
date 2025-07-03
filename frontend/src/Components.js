@@ -1112,14 +1112,14 @@ export const ProductsSection = ({ onProductClick }) => {
         </div>
 
         {/* Compact Search Bar */}
-        <div className="max-w-2xl mx-auto mb-4 lg:mb-8">
+        <div className="max-w-2xl mx-auto mb-3 lg:mb-8">
           <div className="relative">
             <input
               type="text"
               placeholder="Tìm kiếm sản phẩm theo tên..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 lg:px-6 py-3 lg:py-4 pl-10 lg:pl-12 border border-gray-300 dark:border-gray-600 rounded-full focus:outline-none focus:border-amber-800 dark:focus:border-amber-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-300 shadow-lg focus:shadow-xl text-sm lg:text-base"
+              className="w-full px-3 lg:px-6 py-2.5 lg:py-4 pl-9 lg:pl-12 border border-gray-300 dark:border-gray-600 rounded-full focus:outline-none focus:border-amber-800 dark:focus:border-amber-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-300 shadow-lg focus:shadow-xl text-sm lg:text-base"
             />
             <div className="absolute left-3 lg:left-4 top-1/2 transform -translate-y-1/2">
               <svg className="w-4 h-4 lg:w-5 lg:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
