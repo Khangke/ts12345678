@@ -789,6 +789,21 @@ test_plan:
   test_priority: "high_first"
 
 backend:
+  - task: "Test API endpoints after FeaturedProductsSection improvements"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Bắt đầu test API endpoints sau khi cải thiện FeaturedProductsSection"
+      - working: true
+        agent: "testing"
+        comment: "✅ GET /api/products endpoint trả về status 200 và danh sách 3 sản phẩm với đầy đủ thông tin size-based pricing (Vòng tay trầm hương cao cấp, Tinh dầu trầm hương nguyên chất, Cảnh trầm hương phong thủy) ✅ Mỗi sản phẩm có đầy đủ các trường cần thiết: id, name, description, price, category, material, rating, sizes, size_prices ✅ Size-based pricing hoạt động đúng với các giá khác nhau cho mỗi size ✅ POST /api/orders endpoint hoạt động tốt, có thể tạo đơn hàng mới với size-specific pricing ✅ GET /api/admin/stats endpoint trả về status 200 và thống kê chính xác về sản phẩm, đơn hàng và doanh thu. Tất cả API endpoints đều trả về dữ liệu đúng định dạng và không có lỗi. Backend hoạt động ổn định và không bị ảnh hưởng bởi các cải tiến FeaturedProductsSection."
+
   - task: "Test API endpoints after contact form CSS fix"
     implemented: true
     working: true
