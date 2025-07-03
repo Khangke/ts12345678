@@ -104,7 +104,7 @@
 
 user_problem_statement: "sửa hoàn thành các đoạn còn dang dở. và thêm tính năng, nếu chọn size thì giá nhảy theo size. lưu ý code trong phần đăng đơn hàng luôn"
 
-recent_issue: "HOÀN THÀNH TASK - Phần chi tiết sản phẩm đã được cải tiến với tính năng auto-slide và thumbnail thu nhỏ: ✅ Ảnh tự động chuyển sau mỗi 3s với progress indicator ✅ Thumbnail layer giảm 30% kích thước (từ 48px xuống 32px) ✅ Auto-slide tạm dừng khi hover hoặc user tương tác ✅ Nút play/pause để control auto-slide ✅ Auto-slide resume sau 5s khi user ngừng tương tác ✅ Enhanced UX với ring indicator cho active thumbnail"
+recent_issue: "HOÀN THÀNH TASK - ProductDetailModal cải tiến theo yêu cầu user: ✅ Bỏ progress bar indicator ✅ Thu nhỏ thumbnails xuống w-6 h-6 (24px) vừa đủ để lướt qua ✅ Thay đổi animation thành slide effect vuốt trái như người dùng swipe ✅ Giảm interval xuống 2s thay vì 3s ✅ Smooth slide transition với translateX animation ✅ All 10 images slide smoothly như effect swipe tự nhiên"
 
 frontend:
   - task: "Fix và hoàn thiện featured products section"
