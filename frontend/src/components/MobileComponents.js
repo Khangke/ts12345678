@@ -10,7 +10,9 @@ import {
   BookIcon,
   ShoppingBagIcon,
   CloseIcon,
-  NewsIcon
+  NewsIcon,
+  MoonIcon,
+  SunIcon
 } from '../Icons';
 import { DarkModeToggle, useDarkMode } from '../contexts/DarkModeContext';
 
