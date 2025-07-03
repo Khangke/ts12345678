@@ -1374,10 +1374,19 @@ export const Footer = () => {
               Sơn Mộc Hương - Địa chỉ uy tín chuyên cung cấp các sản phẩm trầm hương chất lượng cao, 
               từ thiên nhiên Việt Nam.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-colors duration-300">Facebook</a>
-              <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-colors duration-300">Instagram</a>
-              <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-colors duration-300">YouTube</a>
+            <div className="flex space-x-3">
+              <a href="#" className="group w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+                <FacebookIcon className="w-5 h-5 text-white" />
+              </a>
+              <a href="#" className="group w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+                <InstagramIcon className="w-5 h-5 text-white" />
+              </a>
+              <a href="#" className="group w-10 h-10 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+                <YouTubeIcon className="w-5 h-5 text-white" />
+              </a>
+              <a href="#" className="group w-10 h-10 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+                <ZaloIcon className="w-5 h-5 text-white" />
+              </a>
             </div>
           </div>
 
