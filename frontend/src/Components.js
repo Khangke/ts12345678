@@ -127,7 +127,7 @@ export const Header = ({ cartCount, onCartClick }) => {
             
             <div className="flex flex-col">
               <span className={`font-bold text-gray-800 dark:text-white transition-all duration-500 group-hover:text-amber-800 dark:group-hover:text-amber-400 ${
-                scrolled ? 'text-lg' : 'text-xl'
+                scrolled ? 'text-base' : 'text-lg'
               }`}>
                 Sơn Mộc Hương
               </span>
