@@ -620,14 +620,14 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
 
         {/* Enhanced Products Grid - Ultra compact for mobile */}
         {loading ? (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-1.5 sm:gap-2 lg:gap-6">
             {[...Array(4)].map((_, index) => (
               <div key={index} className="animate-pulse">
-                <div className="bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 h-40 lg:h-72 rounded-2xl lg:rounded-3xl mb-3 lg:mb-6 shadow-lg"></div>
-                <div className="space-y-2 lg:space-y-3">
-                  <div className="bg-gray-300 dark:bg-gray-700 h-3 lg:h-5 rounded-full"></div>
-                  <div className="bg-gray-300 dark:bg-gray-700 h-2 lg:h-4 rounded-full w-3/4"></div>
-                  <div className="bg-gray-300 dark:bg-gray-700 h-4 lg:h-6 rounded-full w-1/2"></div>
+                <div className="bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 h-24 sm:h-32 lg:h-56 rounded-lg lg:rounded-2xl mb-1.5 sm:mb-2 lg:mb-4 shadow-lg"></div>
+                <div className="space-y-1 sm:space-y-1.5 lg:space-y-3">
+                  <div className="bg-gray-300 dark:bg-gray-700 h-2 sm:h-2.5 lg:h-4 rounded-full"></div>
+                  <div className="bg-gray-300 dark:bg-gray-700 h-1.5 sm:h-2 lg:h-3 rounded-full w-3/4"></div>
+                  <div className="bg-gray-300 dark:bg-gray-700 h-2.5 sm:h-3 lg:h-5 rounded-full w-1/2"></div>
                 </div>
               </div>
             ))}
