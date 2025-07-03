@@ -351,7 +351,7 @@ export const MobileHeader = ({ cartCount, onCartClick, isMenuOpen, setIsMenuOpen
               scrolled ? 'w-6 h-6' : 'w-7 h-7'
             }`}>
               <span className={`text-white font-bold transition-all duration-300 group-hover:animate-pulse ${
-                scrolled ? 'text-sm' : 'text-base'
+                scrolled ? 'text-xs' : 'text-sm'
               }`}>SMH</span>
               
               {/* Subtle glow effect */}
