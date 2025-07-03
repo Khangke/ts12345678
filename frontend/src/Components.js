@@ -661,7 +661,7 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     
                     {/* Enhanced Badge */}
-                    <div className="absolute top-4 left-4">
+                    <div className="absolute top-1.5 lg:top-4 left-1.5 lg:left-4">
                       <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg backdrop-blur-sm border border-white/20 flex items-center space-x-1">
                         <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
                         <span>Nổi bật</span>
