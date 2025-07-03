@@ -2036,24 +2036,17 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
                   onMouseEnter={() => setIsPaused(true)}
                   onMouseLeave={() => setIsPaused(false)}
                 >
-                  <img 
-                    src={productImages[currentImageIndex]}
-                    alt={`${product.name} - ${currentImageIndex + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  
-                  {/* Auto-slide progress indicator */}
-                  {isAutoSliding && !isPaused && (
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-200/50">
-                      <div 
-                        className="h-full bg-amber-500 transition-all duration-75 ease-linear"
-                        style={{ 
-                          width: '0%',
-                          animation: 'progress 3s linear infinite'
-                        }}
+                  <div className="relative w-full h-full flex transition-transform duration-500 ease-in-out" 
+                       style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}>
+                    {productImages.map((image, index) => (
+                      <img 
+                        key={index}
+                        src={image}
+                        alt={`${product.name} - ${index + 1}`}
+                        className="w-full h-full object-cover flex-shrink-0"
                       />
-                    </div>
-                  )}
+                    ))}
+                  </div>
                   
                   {/* Auto-slide control button */}
                   <button 
