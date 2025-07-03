@@ -348,7 +348,7 @@ export const MobileHeader = ({ cartCount, onCartClick, isMenuOpen, setIsMenuOpen
           {/* Enhanced Mobile Logo */}
           <Link to="/" className="flex items-center space-x-2 group focus:outline-none focus:ring-2 focus:ring-amber-400/50 rounded-xl p-1">
             <div className={`bg-gradient-to-br from-amber-700 via-amber-800 to-amber-900 dark:from-amber-500 dark:via-amber-600 dark:to-amber-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:scale-105 ${
-              scrolled ? 'w-8 h-8' : 'w-9 h-9'
+              scrolled ? 'w-6 h-6' : 'w-7 h-7'
             }`}>
               <span className={`text-white font-bold transition-all duration-300 group-hover:animate-pulse ${
                 scrolled ? 'text-sm' : 'text-base'
