@@ -398,6 +398,11 @@ export const MobileHeader = ({ cartCount, onCartClick, isMenuOpen, setIsMenuOpen
 
           {/* Enhanced Mobile Actions */}
           <div className="flex items-center space-x-2">
+            {/* Mobile Dark Mode Toggle */}
+            <div className="flex items-center">
+              <DarkModeToggle className="shadow-md hover:shadow-lg" />
+            </div>
+
             {/* Enhanced Mobile Cart Button */}
             <button 
               onClick={onCartClick}
