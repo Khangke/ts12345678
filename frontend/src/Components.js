@@ -659,11 +659,11 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     
-                    {/* Enhanced Badge */}
-                    <div className="absolute top-1.5 lg:top-4 left-1.5 lg:left-4">
-                      <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 text-white text-[10px] lg:text-xs font-bold px-2 lg:px-4 py-1 lg:py-2 rounded-full shadow-lg backdrop-blur-sm border border-white/20 flex items-center space-x-1">
-                        <span className="w-1.5 lg:w-2 h-1.5 lg:h-2 bg-white rounded-full animate-pulse"></span>
-                        <span>Nổi bật</span>
+                    {/* Enhanced Badge - Ultra small on mobile */}
+                    <div className="absolute top-0.5 sm:top-1 lg:top-2 left-0.5 sm:left-1 lg:left-2">
+                      <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 text-white text-[8px] sm:text-[9px] lg:text-xs font-bold px-1 sm:px-1.5 lg:px-3 py-0.5 lg:py-1 rounded-full shadow-lg backdrop-blur-sm border border-white/20 flex items-center space-x-0.5 sm:space-x-1">
+                        <span className="w-1 sm:w-1.5 lg:w-2 h-1 sm:h-1.5 lg:h-2 bg-white rounded-full animate-pulse"></span>
+                        <span className="hidden sm:inline">Nổi bật</span>
                       </span>
                     </div>
 
