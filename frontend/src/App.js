@@ -59,25 +59,35 @@ function App() {
   };
 
   const addToCart = (product, quantity = 1, selectedSize = null) => {
-    const existingItem = cartItems.find(item => 
-      item.id === product.id && item.selectedSize === selectedSize
-    );
-
-    if (existingItem) {
-      setCartItems(cartItems.map(item =>
+    try {
+      const newCartId = Date.now() + Math.random();
+      const existingItem = cartItems.find(item => 
         item.id === product.id && item.selectedSize === selectedSize
-          ? { ...item, quantity: item.quantity + quantity }
-          : item
-      ));
-      showToastMessage(`Đã cập nhật ${product.name} trong giỏ hàng!`);
-    } else {
-      setCartItems([...cartItems, { 
-        ...product, 
-        quantity, 
-        selectedSize,
-        cartId: Date.now() + Math.random()
-      }]);
-      showToastMessage(`Đã thêm ${product.name} vào giỏ hàng!`);
+      );
+
+      if (existingItem) {
+        const updatedItems = cartItems.map(item =>
+          item.id === product.id && item.selectedSize === selectedSize
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        );
+        setCartItems(updatedItems);
+        showToastMessage(`Đã cập nhật ${product.name} trong giỏ hàng!`);
+      } else {
+        const newItem = { 
+          ...product, 
+          quantity, 
+          selectedSize,
+          cartId: newCartId,
+          addedAt: Date.now() // Add timestamp for debugging
+        };
+        const updatedItems = [...cartItems, newItem];
+        setCartItems(updatedItems);
+        showToastMessage(`Đã thêm ${product.name} vào giỏ hàng!`);
+      }
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+      showToastMessage('Có lỗi khi thêm sản phẩm vào giỏ hàng!');
     }
   };
 
