@@ -1211,7 +1211,7 @@ export const ProductsSection = ({ onProductClick }) => {
           </div>
         ) : (
           /* Mobile First Product Grid - 2 columns on mobile, 4 on desktop */
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-8">
             {filteredProducts.map((product, index) => (
               <div 
                 key={product.id} 
