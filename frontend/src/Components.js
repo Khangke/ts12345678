@@ -742,39 +742,34 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
             to="/products"
             className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-500 dark:to-orange-500 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-full text-sm lg:text-lg font-semibold hover:from-amber-700 hover:to-orange-700 dark:hover:from-amber-600 dark:hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 group"
           >
-            {/* Button Background Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            
-            <span className="relative z-10">Xem tất cả sản phẩm</span>
-            <svg className="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            <span>Xem tất cả sản phẩm</span>
+            <svg className="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
         </div>
 
-        {/* Trust Indicators */}
-        <div className="flex flex-wrap justify-center items-center gap-8 mt-16 pt-12 border-t border-gray-200/50 dark:border-gray-700/50">
-          <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
-            <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
-              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+        {/* Trust Indicators Section - More compact */}
+        <div className="mt-8 lg:mt-16 text-center">
+          <div className="inline-flex items-center justify-center space-x-4 lg:space-x-8 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full px-4 lg:px-8 py-3 lg:py-4 border border-amber-200/30 dark:border-amber-700/30">
+            <div className="flex items-center space-x-2 text-green-600 dark:text-green-400">
+              <svg className="w-4 h-4 lg:w-5 lg:h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
+              <span className="text-xs lg:text-sm font-medium">Chất lượng cao</span>
             </div>
-            <span className="text-sm font-medium">Chất lượng đảm bảo</span>
-          </div>
-          
-          <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
-              <TruckIcon className="w-4 h-4 text-white" />
+            <div className="flex items-center space-x-2 text-blue-600 dark:text-blue-400">
+              <svg className="w-4 h-4 lg:w-5 lg:h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
+              </svg>
+              <span className="text-xs lg:text-sm font-medium">Miễn phí ship</span>
             </div>
-            <span className="text-sm font-medium">Giao hàng miễn phí</span>
-          </div>
-          
-          <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
-            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-              <ChatIcon className="w-4 h-4 text-white" />
+            <div className="flex items-center space-x-2 text-purple-600 dark:text-purple-400">
+              <svg className="w-4 h-4 lg:w-5 lg:h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd" />
+              </svg>
+              <span className="text-xs lg:text-sm font-medium">Tư vấn 24/7</span>
             </div>
-            <span className="text-sm font-medium">Tư vấn 24/7</span>
           </div>
         </div>
       </div>
