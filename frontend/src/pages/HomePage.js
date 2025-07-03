@@ -5,8 +5,8 @@ const HomePage = ({ onProductClick }) => {
   return (
     <div className="bg-white dark:bg-gray-900 transition-colors duration-500">
       <HeroSection />
-      <FeaturesSection />
       <FeaturedProductsSection onProductClick={onProductClick} />
+      <FeaturesSection />
     </div>
   );
 };
