@@ -109,11 +109,11 @@ recent_issue: "check lại font chữ, tôi thấy hiển thị vẫn bị lỗi
 frontend:
   - task: "Fix và hoàn thiện featured products section"
     implemented: true
-    working: true
+    working: false
     file: "frontend/src/pages/HomePage.js, frontend/src/Components.js"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
@@ -124,6 +124,9 @@ frontend:
       - working: true
         agent: "testing"
         comment: "✅ Verified FeaturedProductsSection is correctly positioned as the 2nd section after Hero and before Features ✅ Confirmed visual enhancements: badge 'Sản phẩm nổi bật', decorative elements, gradient backgrounds, and trust indicators section ✅ Found 7 product cards displayed correctly ✅ 'Xem tất cả sản phẩm' button successfully navigates to /products page ✅ Responsive design works on mobile ✅ Dark mode support is implemented but toggle was not found in mobile view"
+      - working: false
+        agent: "testing"
+        comment: "❌ Mobile testing shows FeaturedProductsSection is present but not displaying correctly. ✅ Grid layout has correct mobile class (grid-cols-1) but only showing 3 products instead of expected 4. ✅ API calls to /api/products are successful (200 status). ✅ Products are being loaded from API and cached in localStorage. ❌ FeaturedProductsSection is not positioned as 2nd section on mobile - it's the 3rd section. ✅ 'Xem tất cả sản phẩm' button is visible and working."
 
   - task: "Complete icon replacement in mobile components"
     implemented: true
