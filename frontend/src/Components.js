@@ -1963,7 +1963,7 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
           </div>
 
           {/* Right Column - Price, Size, Actions */}
-          <div className="space-y-3 flex flex-col min-h-0">
+          <div className="space-y-2 flex flex-col min-h-0">
             
             {/* Ultra Compact Price Display - 30% smaller */}
             <div className="text-center p-2 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-lg border border-amber-200/30 dark:border-amber-700/30 flex-shrink-0">
