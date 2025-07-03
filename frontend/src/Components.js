@@ -637,7 +637,7 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
             {products.map((product, index) => (
               <div
                 key={product.id}
-                className={`group cursor-pointer transition-all duration-700 ${
+                className={`group cursor-pointer transition-all duration-700 h-full flex flex-col ${
                   isFeaturedVisible 
                     ? 'opacity-100 translate-y-0' 
                     : 'opacity-0 translate-y-10'
@@ -645,12 +645,12 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
                 style={{ transitionDelay: `${index * 150}ms` }}
                 onClick={() => handleProductClick(product)}
               >
-                <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg lg:rounded-2xl p-2 sm:p-3 lg:p-4 shadow-lg hover:shadow-xl dark:shadow-amber-900/20 transition-all duration-500 transform hover:scale-[1.02] lg:hover:scale-105 hover:-translate-y-0.5 lg:hover:-translate-y-2 border border-white/20 dark:border-gray-700/50 relative overflow-hidden">
+                <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg lg:rounded-2xl p-2 sm:p-3 lg:p-4 shadow-lg hover:shadow-xl dark:shadow-amber-900/20 transition-all duration-500 transform hover:scale-[1.02] lg:hover:scale-105 hover:-translate-y-0.5 lg:hover:-translate-y-2 border border-white/20 dark:border-gray-700/50 relative overflow-hidden h-full flex flex-col">
                   {/* Card Background Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-amber-50/30 dark:from-gray-800/50 dark:to-amber-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                   {/* Product Image - Larger for better display */}
-                  <div className="relative overflow-hidden rounded-md lg:rounded-xl mb-2 sm:mb-3 lg:mb-4 h-28 sm:h-32 lg:h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600">
+                  <div className="relative overflow-hidden rounded-md lg:rounded-xl mb-2 sm:mb-3 lg:mb-4 h-28 sm:h-32 lg:h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 flex-shrink-0">
                     <img 
                       src={product.image || `https://images.unsplash.com/photo-1509726360306-3f44543aea4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85`}
                       alt={product.name}
@@ -676,8 +676,8 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
                   </div>
 
                   {/* Enhanced Product Info - Mobile optimized with action button */}
-                  <div className="space-y-1.5 sm:space-y-2 lg:space-y-3 relative">
-                    <h3 className="font-bold text-[10px] sm:text-xs lg:text-base text-gray-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300 leading-tight" 
+                  <div className="space-y-1.5 sm:space-y-2 lg:space-y-3 relative flex-1 flex flex-col">
+                    <h3 className="font-bold text-[10px] sm:text-xs lg:text-base text-gray-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300 leading-tight flex-1" 
                         style={{
                           display: '-webkit-box',
                           WebkitLineClamp: 3,
@@ -711,7 +711,7 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
                     </div>
 
                     {/* Price and Action Button */}
-                    <div className="flex items-center justify-between pt-1.5 lg:pt-2">
+                    <div className="flex items-center justify-between pt-1.5 lg:pt-2 mt-auto">
                       <div>
                         <span className="text-sm sm:text-base lg:text-2xl font-bold text-amber-600 dark:text-amber-400">
                           {formatPrice(product.price)}
