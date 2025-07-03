@@ -340,7 +340,7 @@ export const MobileHeader = ({ cartCount, onCartClick, isMenuOpen, setIsMenuOpen
         ? 'bg-white/98 dark:bg-gray-900/98 backdrop-blur-xl shadow-xl border-b border-gray-100/20 dark:border-gray-800/20' 
         : 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg shadow-lg'
     }`}>
-      <div className="px-4">
+      <div className="px-2">
         <div className={`flex items-center justify-between transition-all duration-500 ${
           scrolled ? 'py-1' : 'py-1.5'
         }`}>
