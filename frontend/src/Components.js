@@ -290,9 +290,42 @@ export const Header = ({ cartCount, onCartClick }) => {
 export const HeroSection = () => {
   const [heroRef, isHeroVisible] = useScrollAnimation(0.2);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 3;
+  // Auto-slide functionality
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % totalSlides);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
-  return (
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const slides = [
+    {
+      title: "Trầm Hương Cao Cấp",
+      subtitle: "Membership",
+      description: "Khám phá bộ sưu tập trầm hương nguyên chất từ thiên nhiên Việt Nam với chất lượng đảm bảo và dịch vụ tận tâm.",
+      badge: "Premium Collection"
+    },
+    {
+      title: "Đặc Quyền Khách Hàng",
+      subtitle: "VIP Program", 
+      description: "Nhận ưu đãi đặc biệt, miễn phí vận chuyển và tư vấn chuyên sâu từ các chuyên gia trầm hương hàng đầu.",
+      badge: "VIP Benefits"
+    },
+    {
+      title: "Chất Lượng Đỉnh Cao",
+      subtitle: "Premium Quality",
+      description: "Sản phẩm trầm hương được tuyển chọn kỹ lưỡng từ những vùng đất nổi tiếng nhất, đảm bảo hương thơm đặc trưng và bền lâu.",
+      badge: "Quality Assured"
+    }
+  ];
     <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-amber-950 to-orange-900 dark:from-black dark:via-amber-950 dark:to-orange-950 overflow-hidden">
       
       {/* Ultra Modern Background Elements */}
