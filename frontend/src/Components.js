@@ -2046,23 +2046,23 @@ export const Footer = () => {
       <div className="relative z-10 container mx-auto px-4 py-8 md:py-12">
         
         {/* Top Section - Mobile optimized layout */}
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+        <div className="space-y-6">
           
-          {/* Brand Section - Enhanced - Hidden on mobile, visible on desktop */}
-          <div className="hidden lg:block md:col-span-2 lg:col-span-1">
-            <div className="group">
+          {/* Mobile: Brand Section - Always visible */}
+          <div className="lg:hidden">
+            <div className="group text-center">
               {/* Logo */}
-              <div className="flex items-center space-x-3 mb-4 md:mb-6">
+              <div className="flex items-center justify-center space-x-3 mb-4">
                 <div className="relative">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-amber-700 via-amber-800 to-amber-900 dark:from-amber-500 dark:via-amber-600 dark:to-amber-700 rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:rotate-3">
-                    <span className="text-white font-bold text-lg md:text-xl">SMH</span>
+                  <div className="w-10 h-10 bg-gradient-to-br from-amber-700 via-amber-800 to-amber-900 dark:from-amber-500 dark:via-amber-600 dark:to-amber-700 rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:rotate-3">
+                    <span className="text-white font-bold text-base">SMH</span>
                   </div>
                   {/* Glow effect */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                 </div>
                 
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-amber-300 transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-white group-hover:text-amber-300 transition-colors duration-300">
                     Sơn Mộc Hương
                   </h3>
                   <p className="text-xs text-gray-400 group-hover:text-amber-200 transition-colors duration-300">
@@ -2072,132 +2072,295 @@ export const Footer = () => {
               </div>
               
               {/* Description */}
-              <p className="text-sm md:text-base text-gray-300 dark:text-gray-200 mb-4 md:mb-6 leading-relaxed transition-colors duration-300">
+              <p className="text-sm text-gray-300 dark:text-gray-200 mb-4 leading-relaxed transition-colors duration-300 px-4">
+                Địa chỉ uy tín chuyên cung cấp các sản phẩm trầm hương chất lượng cao từ thiên nhiên Việt Nam.
+              </p>
+              
+              {/* Enhanced Social Media */}
+              <div className="flex justify-center gap-3 mb-6">
+                <a href="#" className="group relative w-9 h-9 bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                  <FacebookIcon className="w-4 h-4 text-white" />
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </a>
+                
+                <a href="#" className="group relative w-9 h-9 bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 hover:from-purple-400 hover:via-pink-400 hover:to-red-400 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                  <InstagramIcon className="w-4 h-4 text-white" />
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-pink-400/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </a>
+                
+                <a href="#" className="group relative w-9 h-9 bg-gradient-to-br from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                  <YouTubeIcon className="w-4 h-4 text-white" />
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-400/20 to-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </a>
+                
+                <a href="#" className="group relative w-9 h-9 bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                  <ZaloIcon className="w-4 h-4 text-white" />
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile: Products and Services - 2 columns */}
+          <div className="grid grid-cols-2 gap-4 lg:hidden">
+            {/* Products Section */}
+            <div className="group">
+              <div className="flex items-center space-x-2 mb-3">
+                <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center">
+                  <ShoppingBagIcon className="w-2.5 h-2.5 text-white" />
+                </div>
+                <h4 className="text-sm font-semibold text-white group-hover:text-amber-300 transition-colors duration-300">Sản phẩm</h4>
+              </div>
+              <ul className="space-y-1.5">
+                {[
+                  'Vòng tay trầm hương',
+                  'Nhang trầm hương', 
+                  'Nụ trầm hương',
+                  'Tinh dầu trầm',
+                  'Cảnh trầm phong thủy'
+                ].map((item, index) => (
+                  <li key={index}>
+                    <Link to="/products" className="group text-xs text-gray-300 dark:text-gray-200 hover:text-amber-300 dark:hover:text-amber-300 transition-all duration-300 flex items-center space-x-2 hover:translate-x-1">
+                      <div className="w-1 h-1 bg-amber-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <span>{item}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Services Section */}
+            <div className="group">
+              <div className="flex items-center space-x-2 mb-3">
+                <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                  <ShieldIcon className="w-2.5 h-2.5 text-white" />
+                </div>
+                <h4 className="text-sm font-semibold text-white group-hover:text-amber-300 transition-colors duration-300">Dịch vụ</h4>
+              </div>
+              <ul className="space-y-1.5">
+                {[
+                  'Tư vấn chọn sản phẩm',
+                  'Miễn phí ship từ 300k',
+                  'Cam kết chất lượng',
+                  'Hỗ trợ 24/7'
+                ].map((item, index) => (
+                  <li key={index}>
+                    <a href="#" className="group text-xs text-gray-300 dark:text-gray-200 hover:text-amber-300 dark:hover:text-amber-300 transition-all duration-300 flex items-center space-x-2 hover:translate-x-1">
+                      <div className="w-1 h-1 bg-amber-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <span>{item}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Mobile: Contact Section */}
+          <div className="lg:hidden">
+            <div className="group">
+              <div className="flex items-center justify-center space-x-2 mb-4">
+                <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center">
+                  <PhoneIcon className="w-2.5 h-2.5 text-white" />
+                </div>
+                <h4 className="text-sm font-semibold text-white group-hover:text-amber-300 transition-colors duration-300">Liên hệ</h4>
+              </div>
+              <div className="space-y-3">
+                
+                <div className="group/item bg-white/5 dark:bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/10 dark:hover:bg-white/15 transition-all duration-300 border border-white/10 hover:border-amber-400/30">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300">
+                      <LocationIcon className="w-3 h-3 text-white" />
+                    </div>
+                    <p className="text-xs text-gray-300 dark:text-gray-200 leading-relaxed group-hover/item:text-white transition-colors duration-300">
+                      3/29E đường 182, Phường Tăng Nhơn Phú A, TP. Thủ Đức, TPHCM
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 gap-2">
+                  <a href="tel:0762222448" className="group/item bg-white/5 dark:bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/10 dark:hover:bg-white/15 transition-all duration-300 border border-white/10 hover:border-amber-400/30">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300">
+                        <PhoneIcon className="w-3 h-3 text-white" />
+                      </div>
+                      <span className="text-xs text-gray-300 dark:text-gray-200 group-hover/item:text-white transition-colors duration-300 font-medium">0762 222 448</span>
+                    </div>
+                  </a>
+                  
+                  <a href="mailto:sonmochuong@gmail.com" className="group/item bg-white/5 dark:bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/10 dark:hover:bg-white/15 transition-all duration-300 border border-white/10 hover:border-amber-400/30">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-6 h-6 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300">
+                        <EmailIcon className="w-3 h-3 text-white" />
+                      </div>
+                      <span className="text-xs text-gray-300 dark:text-gray-200 group-hover/item:text-white transition-colors duration-300">sonmochuong@gmail.com</span>
+                    </div>
+                  </a>
+                  
+                  <div className="group/item bg-white/5 dark:bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/10 dark:hover:bg-white/15 transition-all duration-300 border border-white/10 hover:border-amber-400/30">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-6 h-6 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300">
+                        <ClockIcon className="w-3 h-3 text-white" />
+                      </div>
+                      <span className="text-xs text-gray-300 dark:text-gray-200 group-hover/item:text-white transition-colors duration-300">Thứ 2 - CN: 8:00 - 20:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Layout - 4 columns */}
+          <div className="hidden lg:grid lg:grid-cols-4 gap-8">
+            
+            {/* Brand Section - Desktop */}
+            <div className="group">
+              {/* Logo */}
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="relative">
+                  <div className="w-14 h-14 bg-gradient-to-br from-amber-700 via-amber-800 to-amber-900 dark:from-amber-500 dark:via-amber-600 dark:to-amber-700 rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:rotate-3">
+                    <span className="text-white font-bold text-xl">SMH</span>
+                  </div>
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                </div>
+                
+                <div>
+                  <h3 className="text-2xl font-bold text-white group-hover:text-amber-300 transition-colors duration-300">
+                    Sơn Mộc Hương
+                  </h3>
+                  <p className="text-xs text-gray-400 group-hover:text-amber-200 transition-colors duration-300">
+                    Trầm hương cao cấp
+                  </p>
+                </div>
+              </div>
+              
+              {/* Description */}
+              <p className="text-base text-gray-300 dark:text-gray-200 mb-6 leading-relaxed transition-colors duration-300">
                 Địa chỉ uy tín chuyên cung cấp các sản phẩm trầm hương chất lượng cao từ thiên nhiên Việt Nam.
               </p>
               
               {/* Enhanced Social Media */}
               <div className="flex flex-wrap gap-3">
-                <a href="#" className="group relative w-10 h-10 md:w-11 md:h-11 bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
-                  <FacebookIcon className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                <a href="#" className="group relative w-11 h-11 bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                  <FacebookIcon className="w-5 h-5 text-white" />
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
                 
-                <a href="#" className="group relative w-10 h-10 md:w-11 md:h-11 bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 hover:from-purple-400 hover:via-pink-400 hover:to-red-400 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
-                  <InstagramIcon className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                <a href="#" className="group relative w-11 h-11 bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 hover:from-purple-400 hover:via-pink-400 hover:to-red-400 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                  <InstagramIcon className="w-5 h-5 text-white" />
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-pink-400/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
                 
-                <a href="#" className="group relative w-10 h-10 md:w-11 md:h-11 bg-gradient-to-br from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
-                  <YouTubeIcon className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                <a href="#" className="group relative w-11 h-11 bg-gradient-to-br from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                  <YouTubeIcon className="w-5 h-5 text-white" />
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-400/20 to-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
                 
-                <a href="#" className="group relative w-10 h-10 md:w-11 md:h-11 bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
-                  <ZaloIcon className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                <a href="#" className="group relative w-11 h-11 bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                  <ZaloIcon className="w-5 h-5 text-white" />
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
               </div>
             </div>
-          </div>
 
-          {/* Products Section - Enhanced - Always visible */}
-          <div className="group">
-            <div className="flex items-center space-x-2 mb-3 md:mb-4 lg:mb-6">
-              <div className="w-5 h-5 md:w-6 md:h-6 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center">
-                <ShoppingBagIcon className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" />
-              </div>
-              <h4 className="text-sm md:text-lg font-semibold text-white group-hover:text-amber-300 transition-colors duration-300">Sản phẩm</h4>
-            </div>
-            <ul className="space-y-1.5 md:space-y-2 lg:space-y-3">
-              {[
-                'Vòng tay trầm hương',
-                'Nhang trầm hương', 
-                'Nụ trầm hương',
-                'Tinh dầu trầm',
-                'Cảnh trầm phong thủy'
-              ].map((item, index) => (
-                <li key={index}>
-                  <Link to="/products" className="group text-xs md:text-sm lg:text-base text-gray-300 dark:text-gray-200 hover:text-amber-300 dark:hover:text-amber-300 transition-all duration-300 flex items-center space-x-2 hover:translate-x-1">
-                    <div className="w-1 h-1 bg-amber-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <span>{item}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services Section - Enhanced - Always visible */}
-          <div className="group">
-            <div className="flex items-center space-x-2 mb-3 md:mb-4 lg:mb-6">
-              <div className="w-5 h-5 md:w-6 md:h-6 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
-                <ShieldIcon className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" />
-              </div>
-              <h4 className="text-sm md:text-lg font-semibold text-white group-hover:text-amber-300 transition-colors duration-300">Dịch vụ</h4>
-            </div>
-            <ul className="space-y-1.5 md:space-y-2 lg:space-y-3">
-              {[
-                'Tư vấn chọn sản phẩm',
-                'Miễn phí ship từ 300k',
-                'Cam kết chất lượng',
-                'Hỗ trợ 24/7'
-              ].map((item, index) => (
-                <li key={index}>
-                  <a href="#" className="group text-xs md:text-sm lg:text-base text-gray-300 dark:text-gray-200 hover:text-amber-300 dark:hover:text-amber-300 transition-all duration-300 flex items-center space-x-2 hover:translate-x-1">
-                    <div className="w-1 h-1 bg-amber-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <span>{item}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Section - Enhanced - Hidden on mobile, visible on desktop */}
-          <div className="hidden lg:block group">
-            <div className="flex items-center space-x-2 mb-4 md:mb-6">
-              <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center">
-                <PhoneIcon className="w-3 h-3 text-white" />
-              </div>
-              <h4 className="text-lg font-semibold text-white group-hover:text-amber-300 transition-colors duration-300">Liên hệ</h4>
-            </div>
-            <div className="space-y-3 md:space-y-4">
-              
-              <div className="group/item bg-white/5 dark:bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/10 dark:hover:bg-white/15 transition-all duration-300 border border-white/10 hover:border-amber-400/30">
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300">
-                    <LocationIcon className="w-4 h-4 text-white" />
-                  </div>
-                  <p className="text-sm text-gray-300 dark:text-gray-200 leading-relaxed group-hover/item:text-white transition-colors duration-300">
-                    3/29E đường 182, Phường Tăng Nhơn Phú A, TP. Thủ Đức, TPHCM
-                  </p>
+            {/* Products Section - Desktop */}
+            <div className="group">
+              <div className="flex items-center space-x-2 mb-6">
+                <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center">
+                  <ShoppingBagIcon className="w-3 h-3 text-white" />
                 </div>
+                <h4 className="text-lg font-semibold text-white group-hover:text-amber-300 transition-colors duration-300">Sản phẩm</h4>
               </div>
-              
-              <div className="grid grid-cols-1 gap-3">
-                <a href="tel:0762222448" className="group/item bg-white/5 dark:bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/10 dark:hover:bg-white/15 transition-all duration-300 border border-white/10 hover:border-amber-400/30">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300">
-                      <PhoneIcon className="w-4 h-4 text-white" />
-                    </div>
-                    <span className="text-sm text-gray-300 dark:text-gray-200 group-hover/item:text-white transition-colors duration-300 font-medium">0762 222 448</span>
-                  </div>
-                </a>
-                
-                <a href="mailto:sonmochuong@gmail.com" className="group/item bg-white/5 dark:bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/10 dark:hover:bg-white/15 transition-all duration-300 border border-white/10 hover:border-amber-400/30">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300">
-                      <EmailIcon className="w-4 h-4 text-white" />
-                    </div>
-                    <span className="text-sm text-gray-300 dark:text-gray-200 group-hover/item:text-white transition-colors duration-300">sonmochuong@gmail.com</span>
-                  </div>
-                </a>
+              <ul className="space-y-3">
+                {[
+                  'Vòng tay trầm hương',
+                  'Nhang trầm hương', 
+                  'Nụ trầm hương',
+                  'Tinh dầu trầm',
+                  'Cảnh trầm phong thủy'
+                ].map((item, index) => (
+                  <li key={index}>
+                    <Link to="/products" className="group text-base text-gray-300 dark:text-gray-200 hover:text-amber-300 dark:hover:text-amber-300 transition-all duration-300 flex items-center space-x-2 hover:translate-x-1">
+                      <div className="w-1 h-1 bg-amber-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <span>{item}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Services Section - Desktop */}
+            <div className="group">
+              <div className="flex items-center space-x-2 mb-6">
+                <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                  <ShieldIcon className="w-3 h-3 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold text-white group-hover:text-amber-300 transition-colors duration-300">Dịch vụ</h4>
+              </div>
+              <ul className="space-y-3">
+                {[
+                  'Tư vấn chọn sản phẩm',
+                  'Miễn phí ship từ 300k',
+                  'Cam kết chất lượng',
+                  'Hỗ trợ 24/7'
+                ].map((item, index) => (
+                  <li key={index}>
+                    <a href="#" className="group text-base text-gray-300 dark:text-gray-200 hover:text-amber-300 dark:hover:text-amber-300 transition-all duration-300 flex items-center space-x-2 hover:translate-x-1">
+                      <div className="w-1 h-1 bg-amber-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <span>{item}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact Section - Desktop */}
+            <div className="group">
+              <div className="flex items-center space-x-2 mb-6">
+                <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center">
+                  <PhoneIcon className="w-3 h-3 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold text-white group-hover:text-amber-300 transition-colors duration-300">Liên hệ</h4>
+              </div>
+              <div className="space-y-4">
                 
                 <div className="group/item bg-white/5 dark:bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/10 dark:hover:bg-white/15 transition-all duration-300 border border-white/10 hover:border-amber-400/30">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300">
-                      <ClockIcon className="w-4 h-4 text-white" />
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300">
+                      <LocationIcon className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-sm text-gray-300 dark:text-gray-200 group-hover/item:text-white transition-colors duration-300">Thứ 2 - CN: 8:00 - 20:00</span>
+                    <p className="text-sm text-gray-300 dark:text-gray-200 leading-relaxed group-hover/item:text-white transition-colors duration-300">
+                      3/29E đường 182, Phường Tăng Nhơn Phú A, TP. Thủ Đức, TPHCM
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 gap-3">
+                  <a href="tel:0762222448" className="group/item bg-white/5 dark:bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/10 dark:hover:bg-white/15 transition-all duration-300 border border-white/10 hover:border-amber-400/30">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300">
+                        <PhoneIcon className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-sm text-gray-300 dark:text-gray-200 group-hover/item:text-white transition-colors duration-300 font-medium">0762 222 448</span>
+                    </div>
+                  </a>
+                  
+                  <a href="mailto:sonmochuong@gmail.com" className="group/item bg-white/5 dark:bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/10 dark:hover:bg-white/15 transition-all duration-300 border border-white/10 hover:border-amber-400/30">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300">
+                        <EmailIcon className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-sm text-gray-300 dark:text-gray-200 group-hover/item:text-white transition-colors duration-300">sonmochuong@gmail.com</span>
+                    </div>
+                  </a>
+                  
+                  <div className="group/item bg-white/5 dark:bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/10 dark:hover:bg-white/15 transition-all duration-300 border border-white/10 hover:border-amber-400/30">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300">
+                        <ClockIcon className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-sm text-gray-300 dark:text-gray-200 group-hover/item:text-white transition-colors duration-300">Thứ 2 - CN: 8:00 - 20:00</span>
+                    </div>
                   </div>
                 </div>
               </div>
