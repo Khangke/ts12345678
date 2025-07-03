@@ -254,13 +254,13 @@ def main():
     # Test product images
     test_product_images()
     
-    # Update product images if needed
-    print("\nDo you want to update products with sample images? (y/n)")
-    choice = input().strip().lower()
-    if choice == 'y':
-        update_product_images()
-        # Verify the update
-        test_product_images()
+    # Update product images automatically
+    print_section("Updating Products with Sample Images")
+    update_product_images()
+    
+    # Verify the update
+    print_section("Verifying Product Images After Update")
+    test_product_images()
     
     print_header("TESTING COMPLETE")
     print("\nSummary:")
