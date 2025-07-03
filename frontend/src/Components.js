@@ -314,17 +314,17 @@ export const HeroSection = () => {
 
   return (
     <>
-    <section id="home" className="bg-gradient-to-br from-amber-50 via-orange-50 to-orange-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-20 overflow-hidden transition-colors duration-500">
-      <div className="container mx-auto px-4 py-8 md:py-16">
+    <section id="home" className="bg-gradient-to-br from-amber-50 via-orange-50 to-orange-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden transition-colors duration-500">
+      <div className="container mx-auto px-3 lg:px-4 py-6 lg:py-16">
         <div className="flex flex-col lg:flex-row items-center justify-between">
           <div 
             ref={heroRef}
-            className={`lg:w-1/2 mb-8 lg:mb-0 transition-all duration-1000 ${
+            className={`lg:w-1/2 mb-6 lg:mb-0 transition-all duration-1000 ${
               isHeroVisible ? 'animate-fade-in-left' : 'opacity-0 translate-x-[-50px]'
             }`}
           >
             <div className="text-left">
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight transition-colors duration-300">
+              <h1 className="text-2xl md:text-3xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-3 lg:mb-6 leading-tight transition-colors duration-300">
                 <span className="inline-block animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                   Trầm Hương Thiên Nhiên
                 </span>
@@ -337,13 +337,13 @@ export const HeroSection = () => {
                   đất Việt Nam
                 </span>
               </h1>
-              <p className={`text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 md:mb-8 max-w-md transition-all duration-800 ${
+              <p className={`text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 mb-4 lg:mb-8 max-w-md transition-all duration-800 ${
                 isHeroVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-[20px]'
               }`} style={{ animationDelay: '0.8s' }}>
                 Sơn Mộc Hương - Địa chỉ uy tín chuyên cung cấp các sản phẩm trầm hương chất lượng cao, 
                 vòng tay trầm, nhang trầm và phụ kiện xông trầm đa dạng từ thiên nhiên Việt Nam.
               </p>
-              <button className={`bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold hover:from-amber-900 hover:to-amber-800 dark:hover:from-amber-700 dark:hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 ${
+              <button className={`bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white px-5 md:px-6 lg:px-8 py-2.5 md:py-3 lg:py-4 rounded-full text-sm md:text-base lg:text-lg font-semibold hover:from-amber-900 hover:to-amber-800 dark:hover:from-amber-700 dark:hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 ${
                 isHeroVisible ? 'animate-bounce-in' : 'opacity-0 scale-50'
               }`} style={{ animationDelay: '1s' }}>
                 <span className="relative z-10">Xem thêm</span>
@@ -353,18 +353,18 @@ export const HeroSection = () => {
 
             <div 
               ref={statsRef}
-              className={`flex space-x-6 md:space-x-8 mt-8 md:mt-12 transition-all duration-800 ${
+              className={`flex space-x-4 md:space-x-6 lg:space-x-8 mt-6 lg:mt-12 transition-all duration-800 ${
                 isStatsVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-[30px]'
               }`}
               style={{ animationDelay: '1.2s' }}
             >
               <div className="text-center group cursor-pointer">
-                <div className="text-2xl md:text-3xl font-bold text-amber-800 dark:text-amber-400 group-hover:animate-pulse transition-all duration-300 group-hover:scale-110">100+</div>
-                <div className="text-sm md:text-base text-gray-600 dark:text-gray-300 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">Sản phẩm</div>
+                <div className="text-xl md:text-2xl lg:text-3xl font-bold text-amber-800 dark:text-amber-400 group-hover:animate-pulse transition-all duration-300 group-hover:scale-110">100+</div>
+                <div className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-300 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">Sản phẩm</div>
               </div>
               <div className="text-center group cursor-pointer">
-                <div className="text-2xl md:text-3xl font-bold text-amber-800 dark:text-amber-400 group-hover:animate-pulse transition-all duration-300 group-hover:scale-110">1000+</div>
-                <div className="text-sm md:text-base text-gray-600 dark:text-gray-300 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">Khách hàng</div>
+                <div className="text-xl md:text-2xl lg:text-3xl font-bold text-amber-800 dark:text-amber-400 group-hover:animate-pulse transition-all duration-300 group-hover:scale-110">1000+</div>
+                <div className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-300 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">Khách hàng</div>
               </div>
             </div>
           </div>
@@ -373,7 +373,7 @@ export const HeroSection = () => {
             isHeroVisible ? 'animate-fade-in-right' : 'opacity-0 translate-x-[50px]'
           }`} style={{ animationDelay: '0.5s' }}>
             <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl hover:shadow-3xl dark:shadow-amber-900/20 dark:hover:shadow-amber-800/30 transition-all duration-500 group">
+              <div className="w-48 h-48 md:w-64 md:h-64 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl hover:shadow-3xl dark:shadow-amber-900/20 dark:hover:shadow-amber-800/30 transition-all duration-500 group">
                 <img 
                   src="https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg"
                   alt="Meditation Space"
@@ -381,18 +381,18 @@ export const HeroSection = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-800/20 to-orange-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
-              <div className="absolute -top-2 -right-2 md:-top-4 md:-right-4 w-16 h-16 md:w-24 md:h-24 bg-white dark:bg-gray-800 rounded-full shadow-lg dark:shadow-amber-900/20 flex items-center justify-center animate-float hover:animate-pulse cursor-pointer group">
+              <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 lg:-top-4 lg:-right-4 w-12 h-12 md:w-16 md:h-16 lg:w-24 lg:h-24 bg-white dark:bg-gray-800 rounded-full shadow-lg dark:shadow-amber-900/20 flex items-center justify-center animate-float hover:animate-pulse cursor-pointer group">
                 <img 
                   src="https://images.pexels.com/photos/2297252/pexels-photo-2297252.jpeg"
                   alt="Trầm hương"
-                  className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-8 h-8 md:w-10 md:h-10 lg:w-16 lg:h-16 rounded-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
               
-              {/* Decorative elements */}
-              <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-amber-200 dark:bg-amber-600 rounded-full animate-pulse opacity-60"></div>
-              <div className="absolute top-10 -left-6 w-4 h-4 bg-orange-300 dark:bg-orange-500 rounded-full animate-bounce opacity-40" style={{ animationDelay: '0.5s' }}></div>
-              <div className="absolute -bottom-2 right-10 w-6 h-6 bg-amber-300 dark:bg-amber-500 rounded-full animate-pulse opacity-50" style={{ animationDelay: '1s' }}></div>
+              {/* Decorative elements - smaller on mobile */}
+              <div className="absolute -bottom-2 -left-2 lg:-bottom-4 lg:-left-4 w-6 h-6 lg:w-8 lg:h-8 bg-amber-200 dark:bg-amber-600 rounded-full animate-pulse opacity-60"></div>
+              <div className="absolute top-6 -left-3 lg:top-10 lg:-left-6 w-3 h-3 lg:w-4 lg:h-4 bg-orange-300 dark:bg-orange-500 rounded-full animate-bounce opacity-40" style={{ animationDelay: '0.5s' }}></div>
+              <div className="absolute -bottom-1 right-6 lg:-bottom-2 lg:right-10 w-4 h-4 lg:w-6 lg:h-6 bg-amber-300 dark:bg-amber-500 rounded-full animate-pulse opacity-50" style={{ animationDelay: '1s' }}></div>
             </div>
           </div>
         </div>
