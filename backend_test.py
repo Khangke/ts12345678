@@ -6,7 +6,7 @@ import sys
 from typing import Dict, Any, List, Optional
 
 # Backend URL from the review request
-BACKEND_URL = "https://910b4083-f5a3-4068-bb35-acd817bca407.preview.emergentagent.com"
+BACKEND_URL = "https://27838c1e-721b-49a4-85c4-228e2526b73a.preview.emergentagent.com"
 API_URL = f"{BACKEND_URL}/api"
 
 # Admin credentials
