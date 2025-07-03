@@ -799,13 +799,11 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Test size-based pricing functionality"
-    - "Test product loading from backend"
-    - "Test product detail modal with size selection"
-    - "Test add to cart with size-specific pricing"
-    - "Test order creation with size-based pricing"
-    - "Test complete purchase flow"
-    - "Modern Footer Enhancement"
+    - "Modern Footer Enhancement" 
+    - "Test footer display and mobile navigation spacing"
+    - "Verify pb-20 lg:pb-0 padding implementation"
+    - "Check footer visibility on all pages"
+    - "Test mobile bottom navigation overlay issues"
   stuck_tasks:
     - "Modern Footer Enhancement"
   test_all: false
