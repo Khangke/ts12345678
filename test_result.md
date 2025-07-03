@@ -294,6 +294,21 @@ backend:
         agent: "testing"
         comment: "Đã test lại Product model sau frontend dropdown fix và xác nhận hoạt động đúng. Model hỗ trợ đầy đủ size_prices dictionary và backward compatibility. Đã test tạo và cập nhật sản phẩm với size_prices và xác nhận dữ liệu được lưu trữ đúng."
 
+  - task: "Test API endpoints after CTA button and Trust Indicators optimization"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Bắt đầu test API endpoints sau khi frontend UI được tối ưu hóa với CTA button và Trust Indicators section"
+      - working: true
+        agent: "testing"
+        comment: "✅ Tested backend API endpoints after CTA button and Trust Indicators optimization: (1) GET /api/products returns 200 status code with 3 products including size-based pricing, (2) GET /api/admin/stats returns 200 status code with correct product count, order stats, and revenue data, (3) POST /api/orders successfully creates orders with size-specific pricing. All backend APIs are functioning properly with correct data formats and no errors."
+
   - task: "Create sample products with size-based pricing"
     implemented: true
     working: true
