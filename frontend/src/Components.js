@@ -942,17 +942,30 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
           </div>
         )}
 
-        {/* Optimized CTA Section - Larger button */}
-        <div className="text-center mt-3 sm:mt-4 lg:mt-8">
-          <Link
-            to="/products"
-            className="inline-flex items-center space-x-1.5 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-500 dark:to-orange-500 text-white px-4 sm:px-5 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full text-xs sm:text-sm lg:text-lg font-semibold hover:from-amber-700 hover:to-orange-700 dark:hover:from-amber-600 dark:hover:to-orange-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-102 group"
-          >
-            <span>Xem tất cả sản phẩm</span>
-            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-6 lg:h-6 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
+        {/* Enhanced CTA Section - Always visible with loading state */}
+        <div className="text-center mt-4 sm:mt-6 lg:mt-16">
+          {loading || isInitialLoad ? (
+            /* Loading CTA */
+            <div className="animate-pulse">
+              <div className="inline-flex items-center space-x-2 bg-gray-300 dark:bg-gray-700 px-4 sm:px-5 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full">
+                <div className="w-4 h-4 border-2 border-amber-400 border-t-amber-600 rounded-full animate-spin"></div>
+                <span className="text-xs sm:text-sm lg:text-lg font-semibold text-gray-600 dark:text-gray-400">
+                  Đang tải sản phẩm...
+                </span>
+              </div>
+            </div>
+          ) : (
+            /* Normal CTA */
+            <Link 
+              to="/products"
+              className="inline-flex items-center space-x-1.5 sm:space-x-2 bg-gradient-to-r from-amber-600 dark:from-amber-500 to-orange-600 dark:to-orange-500 text-white px-4 sm:px-5 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full text-xs sm:text-sm lg:text-lg font-semibold hover:from-amber-700 hover:to-orange-700 dark:hover:from-amber-600 dark:hover:to-orange-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-102 group"
+            >
+              <span>Xem tất cả sản phẩm</span>
+              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-6 lg:h-6 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          )}
         </div>
       </div>
     </section>
