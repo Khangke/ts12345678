@@ -20,6 +20,7 @@ export const MobileBottomNav = ({ cartCount, onCartClick }) => {
   const location = useLocation();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   const isActive = (path) => {
     return location.pathname === path;
