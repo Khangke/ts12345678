@@ -572,14 +572,14 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
   };
 
   return (
-    <section className="py-12 lg:py-24 bg-gradient-to-br from-amber-50/70 via-orange-50/50 to-yellow-50/70 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-500 relative overflow-hidden">
-      {/* Background Decorative Elements */}
+    <section className="py-6 sm:py-8 lg:py-16 bg-gradient-to-br from-amber-50/70 via-orange-50/50 to-yellow-50/70 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-500 relative overflow-hidden">
+      {/* Background Decorative Elements - Smaller on mobile */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-amber-200/20 to-orange-200/20 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-orange-200/20 to-yellow-200/20 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+        <div className="absolute top-0 left-0 w-48 lg:w-72 h-48 lg:h-72 bg-gradient-to-br from-amber-200/20 to-orange-200/20 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-64 lg:w-96 h-64 lg:h-96 bg-gradient-to-br from-orange-200/20 to-yellow-200/20 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
       </div>
 
-      <div className="container mx-auto px-3 lg:px-4 relative">
+      <div className="container mx-auto px-2 sm:px-3 lg:px-4 relative">
         {/* Enhanced Header - More compact on mobile */}
         <div 
           ref={featuredRef}
