@@ -597,6 +597,9 @@ frontend:
       - working: true
         agent: "testing"
         comment: "Đã test backend API sau frontend dark mode implementation và xác nhận tất cả API endpoints vẫn hoạt động đúng. Không có ảnh hưởng nào đến backend functionality."
+      - working: true
+        agent: "testing"
+        comment: "Đã test dark mode functionality trên mobile: ✅ Dark mode toggle hiển thị trong mobile bottom navigation với label 'Tối' và icon phù hợp. ✅ Click toggle chuyển đổi dark/light mode thành công. ✅ Khi chuyển sang dark mode, label thay đổi từ 'Tối' sang 'Sáng' và icon thay đổi từ Moon sang Sun. ✅ UI có dark mode styling chính xác với background tối và text sáng. ✅ Dark mode toggle cũng được tìm thấy trong mobile header. ✅ Dark mode state được lưu trữ và duy trì giữa các lần toggle."
 
   - task: "Backend API health check after cart persistence fix"
     implemented: true
