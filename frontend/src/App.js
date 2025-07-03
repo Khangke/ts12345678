@@ -187,7 +187,9 @@ function App() {
         items: cartItems.map(item => ({
           product_id: item.id,
           product_name: item.name,
-          price: item.price,
+          price: item.selectedSize && item.size_prices && item.size_prices[item.selectedSize] 
+            ? item.size_prices[item.selectedSize]
+            : item.price,
           quantity: item.quantity,
           selected_size: item.selectedSize
         })),
@@ -218,7 +220,9 @@ function App() {
       };
       
       setOrderInfo(newOrderInfo);
+      // Clear cart immediately and localStorage
       setCartItems([]);
+      localStorage.removeItem('cart_items');
       setShowCheckout(false);
       setShowSuccess(true);
     } catch (error) {
@@ -234,7 +238,9 @@ function App() {
       };
       
       setOrderInfo(newOrderInfo);
+      // Clear cart immediately and localStorage
       setCartItems([]);
+      localStorage.removeItem('cart_items');
       setShowCheckout(false);
       setShowSuccess(true);
     }
