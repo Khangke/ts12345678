@@ -348,43 +348,76 @@ export const MobileProductCard = ({ product, onProductClick, className = "" }) =
 };
 
 export const MobileHeader = ({ cartCount, onCartClick, isMenuOpen, setIsMenuOpen }) => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl shadow-sm z-50 lg:hidden transition-all duration-300">
-      <div className="px-4 py-3">
-        <div className="flex items-center justify-between">
-          {/* Compact Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-8 h-8 bg-gradient-to-br from-amber-600 to-orange-600 rounded-full flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-sm">SMH</span>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-700 ease-in-out ${
+      scrolled 
+        ? 'bg-white/98 dark:bg-gray-900/98 backdrop-blur-xl shadow-xl border-b border-gray-100/20 dark:border-gray-800/20' 
+        : 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg shadow-lg'
+    }`}>
+      <div className="px-4">
+        <div className={`flex items-center justify-between transition-all duration-500 ${
+          scrolled ? 'py-2' : 'py-3'
+        }`}>
+          
+          {/* Enhanced Mobile Logo */}
+          <Link to="/" className="flex items-center space-x-2 group focus:outline-none focus:ring-2 focus:ring-amber-400/50 rounded-xl p-1">
+            <div className={`bg-gradient-to-br from-amber-700 via-amber-800 to-amber-900 dark:from-amber-500 dark:via-amber-600 dark:to-amber-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:scale-105 ${
+              scrolled ? 'w-9 h-9' : 'w-10 h-10'
+            }`}>
+              <span className={`text-white font-bold transition-all duration-300 group-hover:animate-pulse ${
+                scrolled ? 'text-sm' : 'text-base'
+              }`}>SMH</span>
+              
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-amber-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
             </div>
-            <span className="text-lg font-bold text-amber-700 dark:text-amber-400 group-hover:text-amber-800 transition-colors">
-              Sơn Mộc Hương
-            </span>
+            
+            <div className="flex flex-col">
+              <span className={`font-bold text-gray-800 dark:text-white transition-all duration-500 group-hover:text-amber-800 dark:group-hover:text-amber-400 ${
+                scrolled ? 'text-lg' : 'text-xl'
+              }`}>
+                Sơn Mộc Hương
+              </span>
+              {!scrolled && (
+                <span className="text-xs text-gray-500 dark:text-gray-400 font-light tracking-wide opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0">
+                  Trầm hương cao cấp
+                </span>
+              )}
+            </div>
           </Link>
 
-          {/* Action buttons */}
+          {/* Enhanced Mobile Actions */}
           <div className="flex items-center space-x-2">
-            {/* Dark Mode Toggle for Mobile */}
-            <div className="flex items-center">
-              <DarkModeToggle className="scale-75" />
-            </div>
-
-            {/* Compact cart button */}
+            {/* Enhanced Mobile Cart Button */}
             <button 
               onClick={onCartClick}
-              className="relative bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm p-2 rounded-full hover:bg-amber-50 dark:hover:bg-amber-900/30 transition-all duration-300 shadow-sm hover:shadow-md group"
+              className="relative group bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 p-2.5 rounded-xl hover:from-amber-50 hover:to-orange-50 dark:hover:from-amber-900/30 dark:hover:to-orange-900/30 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 focus:outline-none border border-gray-200/50 dark:border-gray-600/50"
             >
-              <ShoppingCartIcon className="w-5 h-5 text-amber-700 dark:text-amber-400 group-hover:scale-110 transition-transform" />
+              <ShoppingCartIcon className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors duration-300" />
+              
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold animate-pulse">
+                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-bounce shadow-lg">
                   {cartCount > 99 ? '99+' : cartCount}
                 </span>
               )}
+              
+              {/* Hover effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-amber-400/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
 
-            {/* Compact menu button */}
+            {/* Enhanced Mobile menu button */}
             <button 
-              className="p-2 hover:bg-gray-100/80 dark:hover:bg-gray-800/80 rounded-full transition-all duration-300"
+              className="p-2.5 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 focus:outline-none border border-gray-200/50 dark:border-gray-600/50 shadow-md hover:shadow-lg"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <div className="w-5 h-5 flex flex-col justify-center space-y-1">
