@@ -738,19 +738,100 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
           </div>
         </div>
 
-        {/* Enhanced Products Grid - Ultra compact for mobile */}
-        {loading ? (
+        {/* Enhanced Loading State with Better Animation and Indicators */}
+        {loading || isInitialLoad ? (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-1.5 sm:gap-2 lg:gap-6">
             {[...Array(4)].map((_, index) => (
-              <div key={index} className="animate-pulse">
-                <div className="bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 h-24 sm:h-32 lg:h-56 rounded-lg lg:rounded-2xl mb-1.5 sm:mb-2 lg:mb-4 shadow-lg"></div>
-                <div className="space-y-1 sm:space-y-1.5 lg:space-y-3">
-                  <div className="bg-gray-300 dark:bg-gray-700 h-2 sm:h-2.5 lg:h-4 rounded-full"></div>
-                  <div className="bg-gray-300 dark:bg-gray-700 h-1.5 sm:h-2 lg:h-3 rounded-full w-3/4"></div>
-                  <div className="bg-gray-300 dark:bg-gray-700 h-2.5 sm:h-3 lg:h-5 rounded-full w-1/2"></div>
+              <div key={index} className="animate-pulse group">
+                {/* Enhanced Card Structure */}
+                <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg lg:rounded-2xl p-2 sm:p-3 lg:p-4 shadow-lg border border-white/20 dark:border-gray-700/50 relative overflow-hidden">
+                  
+                  {/* Shimmer overlay for better loading effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 dark:via-gray-600/40 to-transparent -translate-x-full animate-shimmer"></div>
+                  
+                  {/* Image skeleton with gradient */}
+                  <div className="bg-gradient-to-br from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 h-28 sm:h-32 lg:h-48 rounded-md lg:rounded-xl mb-2 sm:mb-3 lg:mb-4 shadow-inner relative overflow-hidden">
+                    {/* Pulsing indicator */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-amber-200/30 to-transparent animate-pulse"></div>
+                    {/* Loading icon */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-6 h-6 lg:w-8 lg:h-8 border-2 border-amber-300 border-t-amber-600 rounded-full animate-spin opacity-60"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Content skeleton with staggered animation */}
+                  <div className="space-y-1.5 sm:space-y-2 lg:space-y-3">
+                    {/* Title skeleton */}
+                    <div 
+                      className="bg-gray-300 dark:bg-gray-700 h-2.5 sm:h-3 lg:h-4 rounded-full animate-pulse"
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    ></div>
+                    
+                    {/* Description skeleton - 2 lines */}
+                    <div className="space-y-1">
+                      <div 
+                        className="bg-gray-300 dark:bg-gray-700 h-1.5 sm:h-2 lg:h-3 rounded-full w-full animate-pulse"
+                        style={{ animationDelay: `${index * 100 + 50}ms` }}
+                      ></div>
+                      <div 
+                        className="bg-gray-300 dark:bg-gray-700 h-1.5 sm:h-2 lg:h-3 rounded-full w-3/4 animate-pulse"
+                        style={{ animationDelay: `${index * 100 + 100}ms` }}
+                      ></div>
+                    </div>
+                    
+                    {/* Price and button skeleton */}
+                    <div className="flex items-center justify-between pt-1">
+                      <div 
+                        className="bg-gradient-to-r from-amber-300 to-orange-300 dark:from-amber-700 dark:to-orange-700 h-3 sm:h-4 lg:h-6 rounded-full w-1/3 animate-pulse"
+                        style={{ animationDelay: `${index * 100 + 150}ms` }}
+                      ></div>
+                      <div 
+                        className="bg-gray-300 dark:bg-gray-700 h-4 sm:h-5 lg:h-8 rounded-full w-12 sm:w-16 lg:w-20 animate-pulse"
+                        style={{ animationDelay: `${index * 100 + 200}ms` }}
+                      ></div>
+                    </div>
+                  </div>
+                  
+                  {/* Loading indicator badge */}
+                  <div className="absolute top-1 right-1 bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 text-[8px] sm:text-[9px] px-1.5 py-0.5 rounded-full animate-pulse">
+                    Đang tải...
+                  </div>
                 </div>
               </div>
             ))}
+          </div>
+        ) : products.length === 0 ? (
+          /* Enhanced Empty State with Better Messaging */
+          <div className="text-center py-8 lg:py-16">
+            <div className="mb-4 lg:mb-6">
+              {/* Enhanced empty state icon */}
+              <div className="relative mx-auto w-16 h-16 lg:w-24 lg:h-24">
+                <svg className="w-full h-full text-gray-400 dark:text-gray-500 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M9 5.5l6 3m0 0V15" />
+                </svg>
+                {/* Decorative elements */}
+                <div className="absolute -top-2 -right-2 w-4 h-4 bg-amber-200 dark:bg-amber-600 rounded-full animate-bounce opacity-60"></div>
+                <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-orange-200 dark:bg-orange-600 rounded-full animate-pulse opacity-40"></div>
+              </div>
+            </div>
+            
+            <h3 className="text-lg lg:text-2xl font-bold text-gray-800 dark:text-white mb-2 lg:mb-4">
+              Đang cập nhật sản phẩm nổi bật
+            </h3>
+            <p className="text-xs lg:text-base text-gray-600 dark:text-gray-400 mb-4 lg:mb-6 px-4 max-w-md mx-auto">
+              Chúng tôi đang cập nhật danh sách sản phẩm nổi bật. Vui lòng quay lại sau hoặc xem tất cả sản phẩm.
+            </p>
+            
+            {/* Action button */}
+            <Link 
+              to="/products"
+              className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-500 dark:to-orange-500 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-full text-xs lg:text-base font-semibold hover:from-amber-700 hover:to-orange-700 dark:hover:from-amber-600 dark:hover:to-orange-600 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
+            >
+              <span>Xem tất cả sản phẩm</span>
+              <svg className="w-4 h-4 lg:w-5 lg:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
           </div>
         ) : (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-1.5 sm:gap-2 lg:gap-6">
