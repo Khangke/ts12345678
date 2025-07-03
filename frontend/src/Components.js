@@ -286,98 +286,194 @@ export const Header = ({ cartCount, onCartClick }) => {
   );
 };
 
-// Hero Section Component
+// Hero Section Component - Modern, Elegant & Clean
 export const HeroSection = () => {
   const [heroRef, isHeroVisible] = useScrollAnimation(0.2);
   const [statsRef, isStatsVisible] = useScrollAnimation(0.3);
 
   return (
-    <>
-    <section id="home" className="bg-gradient-to-br from-amber-50 via-orange-50 to-orange-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden transition-colors duration-500">
-      <div className="container mx-auto px-3 lg:px-4 py-6 lg:py-16">
-        <div className="flex flex-col lg:flex-row items-center justify-between">
+    <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden transition-colors duration-500">
+      
+      {/* Enhanced Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Subtle geometric patterns */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-amber-100/20 to-orange-100/20 dark:from-amber-900/10 dark:to-orange-900/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-orange-100/20 to-yellow-100/20 dark:from-orange-900/10 dark:to-yellow-900/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        
+        {/* Floating particles */}
+        <div className="absolute top-20 left-20 w-2 h-2 bg-amber-400/30 rounded-full animate-float"></div>
+        <div className="absolute top-40 right-32 w-1.5 h-1.5 bg-orange-400/30 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-32 left-1/3 w-1 h-1 bg-yellow-400/30 rounded-full animate-float" style={{ animationDelay: '3s' }}></div>
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]" style={{
+          backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
+        }}></div>
+      </div>
+
+      <div className="container mx-auto px-4 lg:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          {/* Enhanced Content Section */}
           <div 
             ref={heroRef}
-            className={`lg:w-1/2 mb-6 lg:mb-0 transition-all duration-1000 ${
+            className={`space-y-8 lg:space-y-12 transition-all duration-1000 ${
               isHeroVisible ? 'animate-fade-in-left' : 'opacity-0 translate-x-[-50px]'
             }`}
           >
-            <div className="text-left">
-              <h1 className="text-2xl md:text-3xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-3 lg:mb-6 leading-tight transition-colors duration-300">
-                <span className="inline-block animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                  Trầm Hương Thiên Nhiên
+            {/* Subtitle Badge */}
+            <div className="inline-flex items-center space-x-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200/50 dark:border-gray-700/50 shadow-lg">
+              <div className="w-2 h-2 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full animate-pulse"></div>
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300 tracking-wide">
+                Trầm hương nguyên chất Việt Nam
+              </span>
+            </div>
+
+            {/* Main Title - More sophisticated typography */}
+            <div className="space-y-4">
+              <h1 className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold leading-none">
+                <span className="block text-gray-900 dark:text-white animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                  Tinh Hoa
                 </span>
-                <br />
-                <span className="text-amber-800 dark:text-amber-400 inline-block animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                  Chất lượng cao từ
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-amber-700 to-orange-600 dark:from-amber-400 dark:via-amber-500 dark:to-orange-400 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                  Trầm Hương
                 </span>
-                <br />
-                <span className="text-amber-800 dark:text-amber-400 inline-block animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                  đất Việt Nam
+                <span className="block text-gray-700 dark:text-gray-300 text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+                  Thiên Nhiên Việt
                 </span>
               </h1>
-              <p className={`text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 mb-4 lg:mb-8 max-w-md transition-all duration-800 ${
-                isHeroVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-[20px]'
-              }`} style={{ animationDelay: '0.8s' }}>
-                Sơn Mộc Hương - Địa chỉ uy tín chuyên cung cấp các sản phẩm trầm hương chất lượng cao, 
-                vòng tay trầm, nhang trầm và phụ kiện xông trầm đa dạng từ thiên nhiên Việt Nam.
-              </p>
-              <button className={`bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white px-5 md:px-6 lg:px-8 py-2.5 md:py-3 lg:py-4 rounded-full text-sm md:text-base lg:text-lg font-semibold hover:from-amber-900 hover:to-amber-800 dark:hover:from-amber-700 dark:hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 ${
-                isHeroVisible ? 'animate-bounce-in' : 'opacity-0 scale-50'
-              }`} style={{ animationDelay: '1s' }}>
-                <span className="relative z-10">Xem thêm</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-700 dark:to-amber-600 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+
+            {/* Enhanced Description */}
+            <p className={`text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl font-light transition-all duration-800 ${
+              isHeroVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-[20px]'
+            }`} style={{ animationDelay: '0.8s' }}>
+              Khám phá bộ sưu tập trầm hương cao cấp từ 
+              <span className="text-amber-700 dark:text-amber-400 font-medium"> Sơn Mộc Hương</span>
+              <br />
+              Nơi hội tụ tinh hoa của đất trời và nghệ thuật chế tác truyền thống.
+            </p>
+
+            {/* Enhanced CTA Buttons */}
+            <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-800 ${
+              isHeroVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-[30px]'
+            }`} style={{ animationDelay: '1s' }}>
+              
+              <Link 
+                to="/products"
+                className="group relative bg-gradient-to-r from-amber-700 via-amber-800 to-amber-900 dark:from-amber-600 dark:via-amber-700 dark:to-amber-800 text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-amber-400/50 overflow-hidden"
+              >
+                <span className="relative z-10 flex items-center space-x-2">
+                  <span>Khám phá bộ sưu tập</span>
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+                
+                {/* Enhanced hover effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-orange-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              </Link>
+
+              <button className="group bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-gray-800 dark:text-white px-8 py-4 rounded-2xl text-lg font-medium border border-gray-200/50 dark:border-gray-700/50 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-400/50">
+                <span className="flex items-center space-x-2">
+                  <PhoneIcon className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                  <span>Tư vấn ngay</span>
+                </span>
               </button>
             </div>
 
+            {/* Enhanced Stats Section */}
             <div 
               ref={statsRef}
-              className={`flex space-x-4 md:space-x-6 lg:space-x-8 mt-6 lg:mt-12 transition-all duration-800 ${
+              className={`grid grid-cols-3 gap-8 pt-8 transition-all duration-800 ${
                 isStatsVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-[30px]'
               }`}
               style={{ animationDelay: '1.2s' }}
             >
-              <div className="text-center group cursor-pointer">
-                <div className="text-xl md:text-2xl lg:text-3xl font-bold text-amber-800 dark:text-amber-400 group-hover:animate-pulse transition-all duration-300 group-hover:scale-110">100+</div>
-                <div className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-300 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">Sản phẩm</div>
-              </div>
-              <div className="text-center group cursor-pointer">
-                <div className="text-xl md:text-2xl lg:text-3xl font-bold text-amber-800 dark:text-amber-400 group-hover:animate-pulse transition-all duration-300 group-hover:scale-110">1000+</div>
-                <div className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-300 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">Khách hàng</div>
-              </div>
+              {[
+                { number: '500+', label: 'Sản phẩm', icon: '🏆' },
+                { number: '5000+', label: 'Khách hàng', icon: '❤️' },
+                { number: '10+', label: 'Năm kinh nghiệm', icon: '⭐' }
+              ].map((stat, index) => (
+                <div key={index} className="group text-center cursor-pointer">
+                  <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-amber-800 dark:text-amber-400 group-hover:scale-110 transition-transform duration-300">
+                    {stat.number}
+                  </div>
+                  <div className="text-sm md:text-base text-gray-600 dark:text-gray-300 font-light group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className={`lg:w-1/2 flex justify-center transition-all duration-1000 ${
+          {/* Enhanced Visual Section */}
+          <div className={`relative flex justify-center lg:justify-end transition-all duration-1000 ${
             isHeroVisible ? 'animate-fade-in-right' : 'opacity-0 translate-x-[50px]'
           }`} style={{ animationDelay: '0.5s' }}>
-            <div className="relative">
-              <div className="w-48 h-48 md:w-64 md:h-64 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl hover:shadow-3xl dark:shadow-amber-900/20 dark:hover:shadow-amber-800/30 transition-all duration-500 group">
+            
+            <div className="relative group">
+              {/* Main Hero Image */}
+              <div className="relative w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px] rounded-[3rem] overflow-hidden shadow-2xl group-hover:shadow-3xl dark:shadow-amber-900/20 dark:hover:shadow-amber-800/30 transition-all duration-700">
                 <img 
                   src="https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg"
                   alt="Meditation Space"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 filter group-hover:brightness-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-800/20 to-orange-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Elegant overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-transparent to-orange-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Content overlay */}
+                <div className="absolute bottom-6 left-6 right-6 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                  <h3 className="text-xl font-semibold mb-2">Không gian thiền định</h3>
+                  <p className="text-sm text-gray-200">Tạo nên sự bình an trong tâm hồn</p>
+                </div>
               </div>
-              <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 lg:-top-4 lg:-right-4 w-12 h-12 md:w-16 md:h-16 lg:w-24 lg:h-24 bg-white dark:bg-gray-800 rounded-full shadow-lg dark:shadow-amber-900/20 flex items-center justify-center animate-float hover:animate-pulse cursor-pointer group">
-                <img 
-                  src="https://images.pexels.com/photos/2297252/pexels-photo-2297252.jpeg"
-                  alt="Trầm hương"
-                  className="w-8 h-8 md:w-10 md:h-10 lg:w-16 lg:h-16 rounded-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
+
+              {/* Floating Product Showcase */}
+              <div className="absolute -top-4 -right-4 w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 flex items-center justify-center backdrop-blur-sm group-hover:scale-105 transition-transform duration-500" style={{ animationDelay: '0.3s' }}>
+                <div className="text-center space-y-2">
+                  <img 
+                    src="https://images.pexels.com/photos/2297252/pexels-photo-2297252.jpeg"
+                    alt="Trầm hương"
+                    className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-2xl object-cover mx-auto shadow-lg"
+                  />
+                  <div className="space-y-1">
+                    <h4 className="text-xs md:text-sm font-semibold text-gray-800 dark:text-white">Vòng tay trầm</h4>
+                    <p className="text-xs text-amber-600 dark:text-amber-400 font-medium">Từ 1.2M VNĐ</p>
+                  </div>
+                </div>
               </div>
-              
-              {/* Decorative elements - smaller on mobile */}
-              <div className="absolute -bottom-2 -left-2 lg:-bottom-4 lg:-left-4 w-6 h-6 lg:w-8 lg:h-8 bg-amber-200 dark:bg-amber-600 rounded-full animate-pulse opacity-60"></div>
-              <div className="absolute top-6 -left-3 lg:top-10 lg:-left-6 w-3 h-3 lg:w-4 lg:h-4 bg-orange-300 dark:bg-orange-500 rounded-full animate-bounce opacity-40" style={{ animationDelay: '0.5s' }}></div>
-              <div className="absolute -bottom-1 right-6 lg:-bottom-2 lg:right-10 w-4 h-4 lg:w-6 lg:h-6 bg-amber-300 dark:bg-amber-500 rounded-full animate-pulse opacity-50" style={{ animationDelay: '1s' }}></div>
+
+              {/* Quality Badge */}
+              <div className="absolute -bottom-4 -left-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-3 rounded-2xl shadow-xl backdrop-blur-sm group-hover:scale-105 transition-transform duration-500" style={{ animationDelay: '0.6s' }}>
+                <div className="text-center">
+                  <div className="text-lg font-bold">100%</div>
+                  <div className="text-xs font-medium">Nguyên chất</div>
+                </div>
+              </div>
+
+              {/* Decorative Elements - More refined */}
+              <div className="absolute top-1/4 -left-8 w-4 h-4 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full animate-pulse opacity-60"></div>
+              <div className="absolute bottom-1/3 -right-6 w-6 h-6 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-bounce opacity-40" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute top-1/2 -left-4 w-2 h-2 bg-gradient-to-r from-yellow-400 to-amber-400 rounded-full animate-pulse opacity-50" style={{ animationDelay: '2s' }}></div>
             </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full p-1">
+            <div className="w-1 h-3 bg-amber-600 dark:bg-amber-400 rounded-full mx-auto animate-pulse"></div>
           </div>
         </div>
       </div>
     </section>
-    </>
   );
 };
 
