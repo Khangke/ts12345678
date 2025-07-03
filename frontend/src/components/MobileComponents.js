@@ -97,7 +97,7 @@ export const MobileBottomNav = ({ cartCount, onCartClick }) => {
           
           {/* Navigation content */}
           <div className="relative px-2 py-2">
-            <div className="grid grid-cols-6 gap-1 max-w-md mx-auto">
+            <div className="grid grid-cols-7 gap-1 max-w-md mx-auto">
               {navItems.map((item, index) => (
                 <Link
                   key={item.path}
@@ -133,6 +133,32 @@ export const MobileBottomNav = ({ cartCount, onCartClick }) => {
                   </span>
                 </Link>
               ))}
+              
+              {/* Enhanced Dark Mode Toggle */}
+              <button
+                onClick={toggleDarkMode}
+                className="relative flex flex-col items-center justify-center py-2 px-1 rounded-xl text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50/80 dark:hover:bg-indigo-900/30 transition-all duration-300 group"
+              >
+                {/* Icon container with transition */}
+                <div className="relative transition-transform duration-300 group-hover:scale-105">
+                  {isDarkMode ? (
+                    <SunIcon className="w-5 h-5 text-yellow-500" />
+                  ) : (
+                    <MoonIcon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                  )}
+                  
+                  {/* Glow effect */}
+                  <div className={`absolute inset-0 rounded-full transition-opacity duration-300 ${
+                    isDarkMode 
+                      ? 'bg-yellow-400/20 opacity-100' 
+                      : 'bg-indigo-400/20 opacity-0 group-hover:opacity-100'
+                  } blur-sm`}></div>
+                </div>
+                
+                <span className="text-xs font-medium mt-1 opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                  {isDarkMode ? 'Sáng' : 'Tối'}
+                </span>
+              </button>
               
               {/* Enhanced Cart button */}
               <button
