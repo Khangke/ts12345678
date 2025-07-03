@@ -489,14 +489,7 @@ export const HeroSection = () => {
       </div>
     </section>
   );
-    <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-amber-950 to-orange-900 dark:from-black dark:via-amber-950 dark:to-orange-950 overflow-hidden">
-      
-      {/* Ultra Modern Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Cinematic lighting effects */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-amber-400/5 via-transparent to-orange-400/5"></div>
-        <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-gradient-to-br from-amber-300/10 to-orange-300/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-orange-300/10 to-yellow-300/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
+};
         
         {/* Floating luxury particles */}
         <div className="absolute top-20 left-20 w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full animate-float shadow-lg"></div>
