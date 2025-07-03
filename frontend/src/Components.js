@@ -286,124 +286,130 @@ export const Header = ({ cartCount, onCartClick }) => {
   );
 };
 
-// Hero Section Component - Modern, Elegant & Clean
+// Hero Section Component - Ultra Modern, Cinematic & Luxurious
 export const HeroSection = () => {
   const [heroRef, isHeroVisible] = useScrollAnimation(0.2);
   const [statsRef, isStatsVisible] = useScrollAnimation(0.3);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden transition-colors duration-500">
+    <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-amber-950 to-orange-900 dark:from-black dark:via-amber-950 dark:to-orange-950 overflow-hidden">
       
-      {/* Enhanced Background Elements */}
+      {/* Ultra Modern Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Subtle geometric patterns */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-amber-100/20 to-orange-100/20 dark:from-amber-900/10 dark:to-orange-900/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-orange-100/20 to-yellow-100/20 dark:from-orange-900/10 dark:to-yellow-900/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        {/* Cinematic lighting effects */}
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-amber-400/5 via-transparent to-orange-400/5"></div>
+        <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-gradient-to-br from-amber-300/10 to-orange-300/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-orange-300/10 to-yellow-300/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
         
-        {/* Floating particles */}
-        <div className="absolute top-20 left-20 w-2 h-2 bg-amber-400/30 rounded-full animate-float"></div>
-        <div className="absolute top-40 right-32 w-1.5 h-1.5 bg-orange-400/30 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-32 left-1/3 w-1 h-1 bg-yellow-400/30 rounded-full animate-float" style={{ animationDelay: '3s' }}></div>
+        {/* Floating luxury particles */}
+        <div className="absolute top-20 left-20 w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full animate-float shadow-lg"></div>
+        <div className="absolute top-40 right-32 w-2 h-2 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-float shadow-lg" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute bottom-32 left-1/3 w-1.5 h-1.5 bg-gradient-to-r from-yellow-400 to-amber-400 rounded-full animate-float shadow-lg" style={{ animationDelay: '2.5s' }}></div>
         
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]" style={{
-          backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
+        {/* Sophisticated dot pattern */}
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.08]" style={{
+          backgroundImage: 'radial-gradient(circle, #f59e0b 1px, transparent 1px)',
+          backgroundSize: '60px 60px'
         }}></div>
+        
+        {/* Dynamic geometric shapes */}
+        <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-amber-300/20 rounded-full animate-spin-slow"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-24 h-24 border border-orange-300/20 rounded-lg rotate-45 animate-pulse"></div>
       </div>
 
-      <div className="container mx-auto px-4 lg:px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           
-          {/* Enhanced Content Section */}
+          {/* Ultra Enhanced Content Section */}
           <div 
             ref={heroRef}
-            className={`space-y-8 lg:space-y-12 transition-all duration-1000 ${
-              isHeroVisible ? 'animate-fade-in-left' : 'opacity-0 translate-x-[-50px]'
+            className={`space-y-10 lg:space-y-14 transition-all duration-1200 ${
+              isHeroVisible ? 'animate-fade-in-left' : 'opacity-0 translate-x-[-60px]'
             }`}
           >
-            {/* Subtitle Badge */}
-            <div className="inline-flex items-center space-x-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200/50 dark:border-gray-700/50 shadow-lg">
-              <div className="w-2 h-2 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300 tracking-wide">
+            {/* Luxury Badge */}
+            <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-amber-900/90 to-orange-900/90 backdrop-blur-xl px-6 py-3 rounded-full border border-amber-400/30 shadow-2xl">
+              <div className="w-2.5 h-2.5 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full animate-pulse shadow-lg"></div>
+              <span className="text-sm font-semibold text-amber-100 tracking-wider uppercase">
                 Trầm hương nguyên chất Việt Nam
               </span>
             </div>
 
-            {/* Main Title - More sophisticated typography */}
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold leading-none">
-                <span className="block text-gray-900 dark:text-white animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            {/* Cinematic Title */}
+            <div className="space-y-6">
+              <h1 className="text-5xl md:text-6xl lg:text-8xl xl:text-9xl font-black leading-[0.85] tracking-tight">
+                <span className="block text-white drop-shadow-2xl animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
                   Tinh Hoa
                 </span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-amber-700 to-orange-600 dark:from-amber-400 dark:via-amber-500 dark:to-orange-400 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400 animate-fade-in-up drop-shadow-2xl" style={{ animationDelay: '0.6s' }}>
                   Trầm Hương
                 </span>
-                <span className="block text-gray-700 dark:text-gray-300 text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+                <span className="block text-amber-100 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light animate-fade-in-up tracking-wide" style={{ animationDelay: '0.9s' }}>
                   Thiên Nhiên Việt
                 </span>
               </h1>
             </div>
 
-            {/* Enhanced Description */}
-            <p className={`text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl font-light transition-all duration-800 ${
-              isHeroVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-[20px]'
-            }`} style={{ animationDelay: '0.8s' }}>
-              Khám phá bộ sưu tập trầm hương cao cấp từ 
-              <span className="text-amber-700 dark:text-amber-400 font-medium"> Sơn Mộc Hương</span>
-              <br />
-              Nơi hội tụ tinh hoa của đất trời và nghệ thuật chế tác truyền thống.
-            </p>
-
-            {/* Enhanced CTA Buttons */}
-            <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-800 ${
+            {/* Luxury Description */}
+            <div className={`space-y-4 transition-all duration-1000 ${
               isHeroVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-[30px]'
-            }`} style={{ animationDelay: '1s' }}>
+            }`} style={{ animationDelay: '1.2s' }}>
+              <p className="text-xl md:text-2xl lg:text-3xl text-amber-100 leading-relaxed max-w-2xl font-light">
+                Khám phá bộ sưu tập trầm hương cao cấp từ 
+                <span className="text-amber-300 font-semibold"> Sơn Mộc Hương</span>
+              </p>
+              <p className="text-lg md:text-xl text-amber-200/80 leading-relaxed max-w-xl">
+                Nơi hội tụ tinh hoa của đất trời và nghệ thuật chế tác truyền thống.
+              </p>
+            </div>
+
+            {/* Ultra Enhanced CTA Buttons */}
+            <div className={`flex flex-col sm:flex-row gap-6 transition-all duration-1000 ${
+              isHeroVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-[40px]'
+            }`} style={{ animationDelay: '1.5s' }}>
               
               <Link 
                 to="/products"
-                className="group relative bg-gradient-to-r from-amber-700 via-amber-800 to-amber-900 dark:from-amber-600 dark:via-amber-700 dark:to-amber-800 text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-amber-400/50 overflow-hidden"
+                className="group relative bg-gradient-to-r from-amber-500 via-amber-600 to-orange-600 text-white px-10 py-5 rounded-3xl text-xl font-bold shadow-2xl hover:shadow-amber-500/30 transition-all duration-700 transform hover:scale-105 hover:-translate-y-2 focus:outline-none focus:ring-4 focus:ring-amber-400/50 overflow-hidden"
               >
-                <span className="relative z-10 flex items-center space-x-2">
+                <span className="relative z-10 flex items-center space-x-3">
                   <span>Khám phá bộ sưu tập</span>
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </span>
                 
-                {/* Enhanced hover effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-orange-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                {/* Shimmer effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                {/* Enhanced hover effects */}
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1200"></div>
               </Link>
 
-              <button className="group bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-gray-800 dark:text-white px-8 py-4 rounded-2xl text-lg font-medium border border-gray-200/50 dark:border-gray-700/50 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-400/50">
-                <span className="flex items-center space-x-2">
-                  <PhoneIcon className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+              <button className="group bg-white/10 backdrop-blur-xl text-amber-100 px-10 py-5 rounded-3xl text-xl font-semibold border border-amber-300/30 shadow-2xl hover:shadow-amber-400/20 transition-all duration-500 transform hover:scale-105 hover:bg-white/20 focus:outline-none focus:ring-4 focus:ring-amber-400/30">
+                <span className="flex items-center space-x-3">
+                  <PhoneIcon className="w-6 h-6 text-amber-300 group-hover:text-amber-200 transition-colors duration-300" />
                   <span>Tư vấn ngay</span>
                 </span>
               </button>
             </div>
 
-            {/* Enhanced Stats Section */}
+            {/* Premium Stats Section */}
             <div 
               ref={statsRef}
-              className={`grid grid-cols-3 gap-8 pt-8 transition-all duration-800 ${
-                isStatsVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-[30px]'
+              className={`grid grid-cols-3 gap-10 pt-12 transition-all duration-1000 ${
+                isStatsVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-[40px]'
               }`}
-              style={{ animationDelay: '1.2s' }}
+              style={{ animationDelay: '1.8s' }}
             >
               {[
-                { number: '500+', label: 'Sản phẩm', icon: '🏆' },
-                { number: '5000+', label: 'Khách hàng', icon: '❤️' },
-                { number: '10+', label: 'Năm kinh nghiệm', icon: '⭐' }
+                { number: '500+', label: 'Sản phẩm cao cấp', gradient: 'from-amber-400 to-orange-400' },
+                { number: '5000+', label: 'Khách hàng tin tưởng', gradient: 'from-orange-400 to-yellow-400' },
+                { number: '10+', label: 'Năm kinh nghiệm', gradient: 'from-yellow-400 to-amber-400' }
               ].map((stat, index) => (
                 <div key={index} className="group text-center cursor-pointer">
-                  <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-amber-800 dark:text-amber-400 group-hover:scale-110 transition-transform duration-300">
+                  <div className={`text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r ${stat.gradient} group-hover:scale-110 transition-transform duration-500 drop-shadow-lg`}>
                     {stat.number}
                   </div>
-                  <div className="text-sm md:text-base text-gray-600 dark:text-gray-300 font-light group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300">
+                  <div className="text-sm md:text-base text-amber-200/90 font-medium group-hover:text-amber-100 transition-colors duration-300 mt-2">
                     {stat.label}
                   </div>
                 </div>
@@ -411,65 +417,65 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* Enhanced Visual Section */}
-          <div className={`relative flex justify-center lg:justify-end transition-all duration-1000 ${
-            isHeroVisible ? 'animate-fade-in-right' : 'opacity-0 translate-x-[50px]'
-          }`} style={{ animationDelay: '0.5s' }}>
+          {/* Ultra Enhanced Visual Section */}
+          <div className={`relative flex justify-center lg:justify-end transition-all duration-1200 ${
+            isHeroVisible ? 'animate-fade-in-right' : 'opacity-0 translate-x-[60px]'
+          }`} style={{ animationDelay: '0.7s' }}>
             
             <div className="relative group">
-              {/* Main Hero Image */}
-              <div className="relative w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px] rounded-[3rem] overflow-hidden shadow-2xl group-hover:shadow-3xl dark:shadow-amber-900/20 dark:hover:shadow-amber-800/30 transition-all duration-700">
+              {/* Cinematic Main Image */}
+              <div className="relative w-80 h-80 md:w-96 md:h-96 lg:w-[520px] lg:h-[520px] rounded-[4rem] overflow-hidden shadow-2xl group-hover:shadow-amber-500/30 transition-all duration-1000">
                 <img 
-                  src="https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg"
-                  alt="Meditation Space"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 filter group-hover:brightness-110"
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxtZWRpdGF0aW9uJTIwc3BhY2V8ZW58MHx8fHwxNjk2MjI0MDMw&ixlib=rb-4.0.3&q=85&w=1080"
+                  alt="Luxury Meditation Space"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1200 brightness-110"
                 />
                 
-                {/* Elegant overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-transparent to-orange-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Cinematic overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-900/30 via-transparent to-orange-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 
-                {/* Content overlay */}
-                <div className="absolute bottom-6 left-6 right-6 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                  <h3 className="text-xl font-semibold mb-2">Không gian thiền định</h3>
-                  <p className="text-sm text-gray-200">Tạo nên sự bình an trong tâm hồn</p>
+                {/* Luxury content overlay */}
+                <div className="absolute bottom-8 left-8 right-8 text-white opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-6 group-hover:translate-y-0">
+                  <h3 className="text-2xl font-bold mb-3 text-amber-100">Không gian thiền định</h3>
+                  <p className="text-base text-amber-200/90">Tạo nên sự bình an trong tâm hồn</p>
                 </div>
               </div>
 
-              {/* Floating Product Showcase */}
-              <div className="absolute -top-4 -right-4 w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 flex items-center justify-center backdrop-blur-sm group-hover:scale-105 transition-transform duration-500" style={{ animationDelay: '0.3s' }}>
-                <div className="text-center space-y-2">
+              {/* Floating Premium Product Card */}
+              <div className="absolute -top-6 -right-6 w-36 h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 bg-gradient-to-br from-white/95 to-amber-50/95 dark:from-gray-800/95 dark:to-amber-900/95 rounded-3xl shadow-2xl border border-amber-200/50 dark:border-amber-700/50 flex items-center justify-center backdrop-blur-xl group-hover:scale-110 transition-transform duration-700" style={{ animationDelay: '0.4s' }}>
+                <div className="text-center space-y-3">
                   <img 
-                    src="https://images.pexels.com/photos/2297252/pexels-photo-2297252.jpeg"
-                    alt="Trầm hương"
-                    className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-2xl object-cover mx-auto shadow-lg"
+                    src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?crop=entropy&cs=srgb&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxicmFjZWxldHxlbnwwfHx8fDE2OTYyMjQwMzA&ixlib=rb-4.0.3&q=85&w=300"
+                    alt="Premium Trầm hương"
+                    className="w-18 h-18 md:w-22 md:h-22 lg:w-28 lg:h-28 rounded-2xl object-cover mx-auto shadow-xl"
                   />
                   <div className="space-y-1">
-                    <h4 className="text-xs md:text-sm font-semibold text-gray-800 dark:text-white">Vòng tay trầm</h4>
-                    <p className="text-xs text-amber-600 dark:text-amber-400 font-medium">Từ 1.2M VNĐ</p>
+                    <h4 className="text-sm md:text-base font-bold text-gray-800 dark:text-white">Vòng tay trầm cao cấp</h4>
+                    <p className="text-sm text-amber-600 dark:text-amber-400 font-bold">Từ 1.500.000đ</p>
                   </div>
                 </div>
               </div>
 
-              {/* Quality Badge */}
-              <div className="absolute -bottom-4 -left-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-3 rounded-2xl shadow-xl backdrop-blur-sm group-hover:scale-105 transition-transform duration-500" style={{ animationDelay: '0.6s' }}>
+              {/* Premium Quality Badge */}
+              <div className="absolute -bottom-6 -left-6 bg-gradient-to-r from-amber-400 to-orange-500 text-white px-6 py-4 rounded-3xl shadow-2xl backdrop-blur-sm group-hover:scale-110 transition-transform duration-700" style={{ animationDelay: '0.8s' }}>
                 <div className="text-center">
-                  <div className="text-lg font-bold">100%</div>
-                  <div className="text-xs font-medium">Nguyên chất</div>
+                  <div className="text-xl font-black">100%</div>
+                  <div className="text-sm font-semibold">Nguyên chất</div>
                 </div>
               </div>
 
-              {/* Decorative Elements - More refined */}
-              <div className="absolute top-1/4 -left-8 w-4 h-4 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full animate-pulse opacity-60"></div>
-              <div className="absolute bottom-1/3 -right-6 w-6 h-6 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-bounce opacity-40" style={{ animationDelay: '1s' }}></div>
-              <div className="absolute top-1/2 -left-4 w-2 h-2 bg-gradient-to-r from-yellow-400 to-amber-400 rounded-full animate-pulse opacity-50" style={{ animationDelay: '2s' }}></div>
+              {/* Luxury Decorative Elements */}
+              <div className="absolute top-1/4 -left-10 w-5 h-5 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full animate-pulse shadow-lg"></div>
+              <div className="absolute bottom-1/3 -right-8 w-7 h-7 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-bounce shadow-lg" style={{ animationDelay: '1.2s' }}></div>
+              <div className="absolute top-1/2 -left-6 w-3 h-3 bg-gradient-to-r from-yellow-400 to-amber-400 rounded-full animate-pulse shadow-lg" style={{ animationDelay: '2.4s' }}></div>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full p-1">
-            <div className="w-1 h-3 bg-amber-600 dark:bg-amber-400 rounded-full mx-auto animate-pulse"></div>
+        {/* Modern Scroll Indicator */}
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-8 h-12 border-2 border-amber-300/60 rounded-full p-2 backdrop-blur-sm">
+            <div className="w-2 h-4 bg-gradient-to-b from-amber-400 to-orange-400 rounded-full mx-auto animate-pulse shadow-lg"></div>
           </div>
         </div>
       </div>
