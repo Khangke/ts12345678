@@ -2043,7 +2043,7 @@ export const Footer = () => {
       </div>
 
       {/* Main Footer Content */}
-      <div className="relative z-10 container mx-auto px-4 py-8 md:py-12">
+      <div className="relative z-10 container mx-auto px-4 py-4 md:py-6">
         
         {/* Top Section - Mobile optimized layout */}
         <div className="space-y-6">
