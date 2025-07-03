@@ -40,6 +40,17 @@ footer {
     padding-bottom: 0 !important;
 }
 
+/* Force remove any white space at bottom */
+body::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background: transparent;
+}
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
