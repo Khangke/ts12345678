@@ -144,10 +144,28 @@ function App() {
   };
 
   const getTotalPrice = () => {
-    return cartItems.reduce((total, item) => {
-      const price = parseInt(item.price.replace(/[.,đ]/g, ''));
-      return total + (price * item.quantity);
-    }, 0);
+    try {
+      return cartItems.reduce((total, item) => {
+        if (!item || !item.price || !item.quantity) return total;
+        
+        let price;
+        // Handle size-based pricing
+        if (item.selectedSize && item.size_prices && item.size_prices[item.selectedSize]) {
+          // Use size-specific price
+          const sizePrice = item.size_prices[item.selectedSize].toString();
+          price = parseInt(sizePrice.replace(/[.,đ\s]/g, ''));
+        } else {
+          // Use regular price
+          price = parseInt(item.price.toString().replace(/[.,đ\s]/g, ''));
+        }
+        
+        if (isNaN(price)) return total;
+        return total + (price * item.quantity);
+      }, 0);
+    } catch (error) {
+      console.error('Error calculating total price:', error);
+      return 0;
+    }
   };
 
   const getShippingFee = () => {
