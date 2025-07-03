@@ -35,10 +35,20 @@ import {
 import { useScrollAnimation, useStaggerAnimation } from './hooks/useScrollAnimation';
 import { DarkModeToggle } from './contexts/DarkModeContext';
 
-// Header Component
+// Header Component - Modern, Clean & Sophisticated
 export const Header = ({ cartCount, onCartClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  // Handle scroll effect for header
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Enhanced prefetch with immediate cache and background refresh
   const prefetchProducts = async () => {
@@ -92,214 +102,183 @@ export const Header = ({ cartCount, onCartClick }) => {
   };
 
   return (
-    <header className="fixed top-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg z-50 transition-all duration-500">
-      <div className="container mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group focus:outline-none">
-            <div className="w-12 h-12 bg-gradient-to-br from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-              <span className="text-white font-bold text-xl group-hover:animate-pulse">SMH</span>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-700 ease-in-out ${
+      scrolled 
+        ? 'bg-white/98 dark:bg-gray-900/98 backdrop-blur-xl shadow-xl border-b border-gray-100/20 dark:border-gray-800/20' 
+        : 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg shadow-lg'
+    }`}>
+      <div className="container mx-auto px-4 lg:px-6">
+        <div className={`flex items-center justify-between transition-all duration-500 ${
+          scrolled ? 'py-2.5' : 'py-4'
+        }`}>
+          
+          {/* Enhanced Logo - More sophisticated */}
+          <Link to="/" className="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-amber-400/50 rounded-xl p-1">
+            <div className={`bg-gradient-to-br from-amber-700 via-amber-800 to-amber-900 dark:from-amber-500 dark:via-amber-600 dark:to-amber-700 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:rotate-3 ${
+              scrolled ? 'w-10 h-10' : 'w-12 h-12'
+            }`}>
+              <span className={`text-white font-bold transition-all duration-300 group-hover:animate-pulse ${
+                scrolled ? 'text-lg' : 'text-xl'
+              }`}>SMH</span>
+              
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
             </div>
-            <span className="text-2xl font-bold text-amber-800 dark:text-amber-400 group-hover:text-amber-900 dark:group-hover:text-amber-300 transition-colors duration-300">Sơn Mộc Hương</span>
+            
+            <div className="flex flex-col">
+              <span className={`font-bold text-gray-800 dark:text-white transition-all duration-500 group-hover:text-amber-800 dark:group-hover:text-amber-400 ${
+                scrolled ? 'text-xl' : 'text-2xl'
+              }`}>
+                Sơn Mộc Hương
+              </span>
+              <span className="text-xs text-gray-500 dark:text-gray-400 font-light tracking-wide opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0">
+                Trầm hương cao cấp
+              </span>
+            </div>
           </Link>
 
-          {/* Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <Link 
-              to="/" 
-              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium focus:outline-none ${
-                isActive('/') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
-              }`}
-            >
-              Trang chủ
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-800 dark:bg-amber-400 transition-all duration-300 ${
-                isActive('/') ? 'w-full' : 'w-0'
-              }`}></span>
-            </Link>
-            <Link 
-              to="/about" 
-              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium focus:outline-none ${
-                isActive('/about') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
-              }`}
-            >
-              Giới thiệu
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-800 dark:bg-amber-400 transition-all duration-300 ${
-                isActive('/about') ? 'w-full' : 'w-0'
-              }`}></span>
-            </Link>
-            <Link 
-              to="/products" 
-              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium focus:outline-none ${
-                isActive('/products') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
-              }`}
-              onMouseEnter={prefetchProducts} // Prefetch khi hover
-            >
-              Sản phẩm
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-800 dark:bg-amber-400 transition-all duration-300 ${
-                isActive('/products') ? 'w-full' : 'w-0'
-              }`}></span>
-            </Link>
-            <Link 
-              to="/news" 
-              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium focus:outline-none ${
-                isActive('/news') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
-              }`}
-            >
-              Tin tức
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-800 dark:bg-amber-400 transition-all duration-300 ${
-                isActive('/news') ? 'w-full' : 'w-0'
-              }`}></span>
-            </Link>
-            <Link 
-              to="/contact" 
-              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium focus:outline-none ${
-                isActive('/contact') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
-              }`}
-            >
-              Liên hệ
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-800 dark:bg-amber-400 transition-all duration-300 ${
-                isActive('/contact') ? 'w-full' : 'w-0'
-              }`}></span>
-            </Link>
-            <Link 
-              to="/admin" 
-              className={`relative text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 font-medium focus:outline-none ${
-                isActive('/admin') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
-              }`}
-            >
-              Admin
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-800 dark:bg-amber-400 transition-all duration-300 ${
-                isActive('/admin') ? 'w-full' : 'w-0'
-              }`}></span>
-            </Link>
+          {/* Modern Navigation */}
+          <nav className="hidden lg:flex items-center space-x-1 bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full px-2 py-1.5 border border-gray-200/50 dark:border-gray-700/50">
+            {[
+              { path: '/', label: 'Trang chủ' },
+              { path: '/about', label: 'Giới thiệu' },
+              { path: '/products', label: 'Sản phẩm' },
+              { path: '/news', label: 'Tin tức' },
+              { path: '/contact', label: 'Liên hệ' },
+              { path: '/admin', label: 'Admin' }
+            ].map((item) => (
+              <Link 
+                key={item.path}
+                to={item.path}
+                className={`relative px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-amber-400/50 ${
+                  isActive(item.path)
+                    ? 'bg-white dark:bg-gray-700 text-amber-800 dark:text-amber-400 shadow-md'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 hover:bg-white/50 dark:hover:bg-gray-700/50'
+                }`}
+                onMouseEnter={item.path === '/products' ? prefetchProducts : undefined}
+              >
+                {item.label}
+                
+                {/* Active indicator */}
+                {isActive(item.path) && (
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500/10 to-orange-500/10 animate-pulse"></div>
+                )}
+              </Link>
+            ))}
           </nav>
 
-          {/* Contact Info, Dark Mode Toggle & Cart */}
+          {/* Enhanced Right Section */}
           <div className="hidden lg:flex items-center space-x-4">
-            <div className="text-sm animate-fade-in-right">
-              <div className="text-gray-600 dark:text-gray-400 flex items-center space-x-1">
-                <PhoneIcon className="w-4 h-4 text-amber-800 dark:text-amber-400" />
-                <span>0762 222 448</span>
+            {/* Contact Info - More elegant */}
+            <div className="text-right animate-fade-in-right">
+              <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center justify-end space-x-1.5 mb-0.5">
+                <PhoneIcon className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+                <span className="font-medium">0762 222 448</span>
               </div>
-              <div className="text-gray-600 dark:text-gray-400 flex items-center space-x-1">
-                <EmailIcon className="w-4 h-4 text-amber-800 dark:text-amber-400" />
+              <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center justify-end space-x-1.5">
+                <EmailIcon className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
                 <span>sonmochuong@gmail.com</span>
               </div>
             </div>
             
+            {/* Divider */}
+            <div className="w-px h-8 bg-gray-200 dark:bg-gray-700"></div>
+            
             {/* Dark Mode Toggle */}
             <DarkModeToggle />
             
+            {/* Enhanced Cart Button */}
             <button 
               onClick={onCartClick}
-              className="relative bg-gray-100 dark:bg-gray-800 p-2 rounded-full hover:bg-amber-50 dark:hover:bg-amber-900/50 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md group"
+              className="relative group bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 p-3 rounded-2xl hover:from-amber-50 hover:to-orange-50 dark:hover:from-amber-900/30 dark:hover:to-orange-900/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-400/50 border border-gray-200/50 dark:border-gray-600/50"
             >
-              <ShoppingCartIcon className="w-6 h-6 text-amber-800 dark:text-amber-400 group-hover:animate-bounce" />
+              <ShoppingCartIcon className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors duration-300" />
+              
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-amber-800 dark:bg-amber-600 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center cart-badge animate-scale-in">
-                  {cartCount}
+                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-bounce shadow-lg">
+                  {cartCount > 99 ? '99+' : cartCount}
                 </span>
               )}
+              
+              {/* Hover effect */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-400/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
-            <button className="bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white px-6 py-2 rounded-full hover:from-amber-900 hover:to-amber-800 dark:hover:from-amber-700 dark:hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform hover:-translate-y-0.5">
-              Mua ngay
-            </button>
+
+            {/* CTA Button - More sophisticated */}
+            <Link 
+              to="/products"
+              className="bg-gradient-to-r from-amber-700 via-amber-800 to-amber-900 dark:from-amber-600 dark:via-amber-700 dark:to-amber-800 text-white px-6 py-3 rounded-2xl text-sm font-semibold hover:from-amber-800 hover:via-amber-900 hover:to-amber-950 dark:hover:from-amber-700 dark:hover:via-amber-800 dark:hover:to-amber-900 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-amber-400/50 relative overflow-hidden"
+            >
+              <span className="relative z-10">Mua ngay</span>
+              
+              {/* Shimmer effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            </Link>
           </div>
 
-          {/* Mobile Cart & Menu */}
+          {/* Mobile Section - Enhanced */}
           <div className="lg:hidden flex items-center space-x-3">
             {/* Mobile Cart Button */}
             <button 
               onClick={onCartClick}
-              className="relative bg-gray-100 dark:bg-gray-800 p-2 rounded-full hover:bg-amber-50 dark:hover:bg-amber-900/50 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md group focus:outline-none"
+              className="relative group bg-gray-50 dark:bg-gray-800 p-2.5 rounded-xl hover:bg-amber-50 dark:hover:bg-amber-900/30 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 focus:outline-none border border-gray-200/50 dark:border-gray-600/50"
             >
-              <ShoppingCartIcon className="w-6 h-6 text-amber-800 dark:text-amber-400 group-hover:animate-bounce" />
+              <ShoppingCartIcon className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors duration-300" />
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-amber-800 dark:bg-amber-600 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center cart-badge animate-scale-in">
-                  {cartCount}
+                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-bounce shadow-lg">
+                  {cartCount > 99 ? '99+' : cartCount}
                 </span>
               )}
             </button>
 
-            {/* Mobile menu button */}
+            {/* Enhanced Mobile menu button */}
             <button 
-              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300 focus:outline-none"
+              className="p-2.5 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 focus:outline-none border border-gray-200/50 dark:border-gray-600/50 shadow-md hover:shadow-lg"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              <div className="w-6 h-6 flex flex-col justify-center">
-                <span className={`block h-0.5 w-6 bg-gray-600 dark:bg-gray-400 transform transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
-                <span className={`block h-0.5 w-6 bg-gray-600 dark:bg-gray-400 my-1 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-                <span className={`block h-0.5 w-6 bg-gray-600 dark:bg-gray-400 transform transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+              <div className="w-5 h-5 flex flex-col justify-center space-y-1">
+                <span className={`block h-0.5 w-5 bg-gray-600 dark:bg-gray-400 transform transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+                <span className={`block h-0.5 w-5 bg-gray-600 dark:bg-gray-400 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`block h-0.5 w-5 bg-gray-600 dark:bg-gray-400 transform transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
               </div>
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Enhanced Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 animate-slide-in-top bg-white/95 dark:bg-gray-900/95 rounded-lg backdrop-blur-md shadow-lg border dark:border-gray-700">
-            <nav className="flex flex-col space-y-3 p-4">
-              <Link 
-                to="/" 
-                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium focus:outline-none ${
-                  isActive('/') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Trang chủ
-              </Link>
-              <Link 
-                to="/about" 
-                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium focus:outline-none ${
-                  isActive('/about') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Giới thiệu
-              </Link>
-              <Link 
-                to="/products" 
-                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium focus:outline-none ${
-                  isActive('/products') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Sản phẩm
-              </Link>
-              <Link 
-                to="/news" 
-                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium focus:outline-none ${
-                  isActive('/news') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Tin tức
-              </Link>
-              <Link 
-                to="/contact" 
-                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium focus:outline-none ${
-                  isActive('/contact') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Liên hệ
-              </Link>
-              <Link 
-                to="/admin" 
-                className={`text-gray-700 dark:text-gray-300 hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300 hover:translate-x-2 hover:font-medium focus:outline-none ${
-                  isActive('/admin') ? 'text-amber-800 dark:text-amber-400 font-semibold' : ''
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Admin
-              </Link>
-              
-              {/* Mobile Dark Mode Toggle */}
-              <div className="flex items-center space-x-3 pt-3 border-t dark:border-gray-700">
-                <span className="text-gray-700 dark:text-gray-300 text-sm">Dark Mode:</span>
-                <DarkModeToggle />
-              </div>
-            </nav>
+          <div className="lg:hidden mt-4 pb-6 animate-slide-in-top">
+            <div className="bg-white/95 dark:bg-gray-900/95 rounded-3xl backdrop-blur-xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
+              <nav className="p-6 space-y-1">
+                {[
+                  { path: '/', label: 'Trang chủ' },
+                  { path: '/about', label: 'Giới thiệu' },
+                  { path: '/products', label: 'Sản phẩm' },
+                  { path: '/news', label: 'Tin tức' },
+                  { path: '/contact', label: 'Liên hệ' },
+                  { path: '/admin', label: 'Admin' }
+                ].map((item) => (
+                  <Link 
+                    key={item.path}
+                    to={item.path}
+                    className={`block px-4 py-3 rounded-2xl transition-all duration-300 font-medium ${
+                      isActive(item.path)
+                        ? 'bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/30 dark:to-orange-900/30 text-amber-800 dark:text-amber-400 shadow-lg'
+                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-amber-800 dark:hover:text-amber-400 hover:translate-x-2'
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                
+                {/* Mobile Dark Mode Toggle */}
+                <div className="flex items-center justify-between pt-4 mt-4 border-t border-gray-200/50 dark:border-gray-700/50">
+                  <span className="text-gray-700 dark:text-gray-300 text-sm font-medium">Giao diện tối:</span>
+                  <DarkModeToggle />
+                </div>
+              </nav>
+            </div>
           </div>
         )}
       </div>
