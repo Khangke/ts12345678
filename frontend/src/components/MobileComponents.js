@@ -217,7 +217,7 @@ export const MobileQuickActions = () => {
   ];
 
   return (
-    <div className="fixed right-4 bottom-16 z-40 lg:hidden">
+    <div className="fixed right-4 bottom-24 z-40 lg:hidden">
       <div className="flex flex-col-reverse items-end space-y-2 space-y-reverse">
         {/* Enhanced quick actions */}
         {isExpanded && actions.map((action, index) => (
