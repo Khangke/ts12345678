@@ -820,6 +820,21 @@ test_plan:
   test_priority: "high_first"
 
 backend:
+  - task: "Test Admin Authentication Flow"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Testing admin authentication flow as per review request"
+      - working: true
+        agent: "testing"
+        comment: "✅ POST /api/admin/login with credentials admin/admin123 returns 200 status code with valid JWT token ✅ JWT token has correct structure with 24-hour expiration ✅ GET /api/admin/me with valid token returns 200 status code with admin user information ✅ Protected routes return 401 Unauthorized when accessed without token ✅ Admin authentication is working correctly and securely"
+
   - task: "Test API endpoints after FeaturedProductsSection improvements"
     implemented: true
     working: true
