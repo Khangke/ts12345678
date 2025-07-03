@@ -675,32 +675,32 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
                     </div>
                   </div>
 
-                  {/* Enhanced Product Info - Ultra compact for mobile */}
+                  {/* Enhanced Product Info - Mobile optimized with action button */}
                   <div className="space-y-1 sm:space-y-1.5 lg:space-y-3 relative">
-                    <h3 className="font-bold text-[10px] sm:text-xs lg:text-base text-gray-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300 leading-tight line-clamp-2" 
+                    <h3 className="font-bold text-[10px] sm:text-xs lg:text-base text-gray-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300 leading-tight" 
                         style={{
                           display: '-webkit-box',
-                          WebkitLineClamp: 2,
+                          WebkitLineClamp: 3,
                           WebkitBoxOrient: 'vertical',
                           overflow: 'hidden'
                         }}>
                       {product.name}
                     </h3>
                     
-                    <p className="text-[8px] sm:text-[10px] lg:text-sm text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-1 lg:line-clamp-2 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300"
+                    <p className="text-[8px] sm:text-[10px] lg:text-sm text-gray-600 dark:text-gray-400 leading-relaxed lg:line-clamp-2 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300 hidden lg:block"
                        style={{
                          display: '-webkit-box',
-                         WebkitLineClamp: window.innerWidth < 640 ? 1 : (window.innerWidth < 1024 ? 1 : 2),
+                         WebkitLineClamp: 2,
                          WebkitBoxOrient: 'vertical',
                          overflow: 'hidden'
                        }}>
                       {product.description}
                     </p>
 
-                    {/* Category badge and rating - Ultra compact */}
+                    {/* Category badge and rating - Compact */}
                     <div className="flex items-center justify-between">
                       <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 text-[7px] sm:text-[8px] lg:text-xs px-1 sm:px-1.5 lg:px-2 py-0.5 lg:py-1 rounded-full font-medium">
-                        {product.category.split(' ')[0]} {/* Show only first word on mobile */}
+                        {product.category}
                       </span>
                       
                       {/* Rating - Ultra small on mobile */}
@@ -710,7 +710,7 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
                       </div>
                     </div>
 
-                    {/* Price display - Ultra compact responsive sizing */}
+                    {/* Price and Action Button */}
                     <div className="flex items-center justify-between pt-1 lg:pt-2">
                       <div>
                         <span className="text-xs sm:text-sm lg:text-xl font-bold text-amber-600 dark:text-amber-400">
@@ -722,6 +722,11 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
                           </p>
                         )}
                       </div>
+                      
+                      {/* Action Button */}
+                      <button className="bg-amber-600 hover:bg-amber-700 dark:bg-amber-500 dark:hover:bg-amber-600 text-white text-[7px] sm:text-[8px] lg:text-xs px-1.5 sm:px-2 lg:px-3 py-0.5 sm:py-1 lg:py-1.5 rounded-full font-medium transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105">
+                        Xem chi tiết
+                      </button>
                     </div>
                   </div>
                 </div>
