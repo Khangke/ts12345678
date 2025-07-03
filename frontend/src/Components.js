@@ -109,7 +109,7 @@ export const Header = ({ cartCount, onCartClick }) => {
     }`}>
       <div className="container mx-auto px-4 lg:px-6">
         <div className={`flex items-center justify-between transition-all duration-500 ${
-          scrolled ? 'py-1.5' : 'py-2.5'
+          scrolled ? 'py-1' : 'py-1.5'
         }`}>
           
           {/* Enhanced Logo - More sophisticated */}
