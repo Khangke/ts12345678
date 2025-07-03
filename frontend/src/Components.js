@@ -312,6 +312,7 @@ export const HeroSection = () => {
   const [statsRef, isStatsVisible] = useScrollAnimation(0.3);
 
   return (
+    <>
     <section id="home" className="bg-gradient-to-br from-amber-50 via-orange-50 to-orange-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-20 overflow-hidden transition-colors duration-500">
       <div className="container mx-auto px-4 py-8 md:py-16">
         <div className="flex flex-col lg:flex-row items-center justify-between">
