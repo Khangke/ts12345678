@@ -2019,7 +2019,7 @@ export const ContactSection = () => {
 // Modern Footer Component - Elegant, Sophisticated & Responsive
 export const Footer = () => {
   return (
-    <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 text-white overflow-hidden transition-all duration-500 pb-6 lg:pb-0">
+    <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 text-white overflow-hidden transition-all duration-500 pb-0">
       
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
