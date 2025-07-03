@@ -1251,5 +1251,5 @@ if __name__ == "__main__":
         "tests": []
     }
     
-    # Run comprehensive tests
-    run_comprehensive_tests()
+    # Run specific tests as requested in the review
+    run_tests()
