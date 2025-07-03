@@ -360,7 +360,7 @@ export const MobileHeader = ({ cartCount, onCartClick, isMenuOpen, setIsMenuOpen
             
             <div className="flex flex-col">
               <span className={`font-bold text-gray-800 dark:text-white transition-all duration-500 group-hover:text-amber-800 dark:group-hover:text-amber-400 ${
-                scrolled ? 'text-base' : 'text-lg'
+                scrolled ? 'text-sm' : 'text-base'
               }`}>
                 Sơn Mộc Hương
               </span>
