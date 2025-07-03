@@ -711,20 +711,20 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
                     </div>
 
                     {/* Price and Action Button */}
-                    <div className="flex items-center justify-between pt-1 lg:pt-2">
+                    <div className="flex items-center justify-between pt-1.5 lg:pt-2">
                       <div>
-                        <span className="text-xs sm:text-sm lg:text-xl font-bold text-amber-600 dark:text-amber-400">
+                        <span className="text-sm sm:text-base lg:text-2xl font-bold text-amber-600 dark:text-amber-400">
                           {formatPrice(product.price)}
                         </span>
                         {product.sizes && product.sizes.length > 1 && (
-                          <p className="text-[7px] sm:text-[8px] lg:text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                          <p className="text-[8px] sm:text-[9px] lg:text-xs text-gray-500 dark:text-gray-400 mt-0.5">
                             Từ {product.sizes[0]}
                           </p>
                         )}
                       </div>
                       
-                      {/* Action Button */}
-                      <button className="bg-amber-600 hover:bg-amber-700 dark:bg-amber-500 dark:hover:bg-amber-600 text-white text-[7px] sm:text-[8px] lg:text-xs px-1.5 sm:px-2 lg:px-3 py-0.5 sm:py-1 lg:py-1.5 rounded-full font-medium transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105">
+                      {/* Action Button - Larger size */}
+                      <button className="bg-amber-600 hover:bg-amber-700 dark:bg-amber-500 dark:hover:bg-amber-600 text-white text-[8px] sm:text-[10px] lg:text-sm px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-full font-medium transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105">
                         Xem chi tiết
                       </button>
                     </div>
