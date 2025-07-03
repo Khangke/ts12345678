@@ -555,6 +555,9 @@ frontend:
       - working: true
         agent: "testing"
         comment: "Đã test backend API sau frontend mobile UI/UX improvements và xác nhận tất cả API endpoints vẫn hoạt động đúng. Không có ảnh hưởng nào đến backend functionality."
+      - working: true
+        agent: "testing"
+        comment: "Đã test mobile UI/UX optimization. Trang web hiển thị tốt trên kích thước màn hình mobile (390x844px). Các thành phần mobile đã được tối ưu hóa: (1) Mobile Header hiển thị đúng với logo, cart button và menu button, (2) Mobile Bottom Navigation hiển thị đúng với 6 tabs (Home, Products, News, About, Contact, Cart) và có tính năng auto-hide khi scroll, (3) Mobile Quick Actions hiển thị đúng với floating button ở góc phải và các actions (Phone, Email, Location), (4) Mobile Product Cards hiển thị đúng với grid layout 2 cột trên mobile, có category badge và price overlay, (5) Featured Products Section hiển thị với các sản phẩm nổi bật và nút 'Xem tất cả sản phẩm', (6) Các trang News, About, Contact đều được tối ưu cho mobile với spacing và typography phù hợp."
 
   - task: "Thêm dark mode"
     implemented: true
