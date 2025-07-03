@@ -802,7 +802,9 @@ test_plan:
     - "Test add to cart with size-specific pricing"
     - "Test order creation with size-based pricing"
     - "Test complete purchase flow"
-  stuck_tasks: []
+    - "Modern Footer Enhancement"
+  stuck_tasks:
+    - "Modern Footer Enhancement"
   test_all: false
   test_priority: "high_first"
 
