@@ -12,7 +12,7 @@ import {
   CloseIcon,
   NewsIcon
 } from '../Icons';
-import { DarkModeToggle } from '../contexts/DarkModeContext';
+import { DarkModeToggle, useDarkMode } from '../contexts/DarkModeContext';
 
 export const MobileBottomNav = ({ cartCount, onCartClick }) => {
   const location = useLocation();
