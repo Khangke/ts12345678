@@ -453,39 +453,54 @@ export const FeaturesSection = () => {
   const { visibleItems, setRef } = useStaggerAnimation(features, 150);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-500">
+    <section className="py-12 sm:py-16 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-500">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-[10px] sm:text-xs lg:text-sm font-bold text-gray-800 dark:text-white mb-4 animate-fade-in-up transition-colors duration-300">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-[10px] sm:text-xs lg:text-sm font-bold text-gray-800 dark:text-white mb-3 animate-fade-in-up transition-colors duration-300">
             Tại sao chọn Sơn Mộc Hương?
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-amber-800 to-orange-600 dark:from-amber-400 dark:to-orange-400 mx-auto rounded-full animate-fade-in-up" style={{ animationDelay: '0.2s' }}></div>
+          <div className="w-16 h-0.5 bg-gradient-to-r from-amber-800 to-orange-600 dark:from-amber-400 dark:to-orange-400 mx-auto rounded-full animate-fade-in-up" style={{ animationDelay: '0.2s' }}></div>
         </div>
         
-        <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6 max-w-4xl mx-auto">
           {features.map((feature, index) => (
             <div 
               key={index} 
               ref={setRef(index)}
-              className={`text-center p-4 sm:p-6 rounded-2xl border border-transparent bg-white dark:bg-gray-800 transition-all duration-500 cursor-pointer group ${
-                feature.bgColor
-              } ${feature.borderColor} hover:shadow-xl dark:hover:shadow-amber-900/10 hover:transform hover:scale-105 hover:-translate-y-2 ${
+              className={`relative text-center p-3 sm:p-4 lg:p-6 rounded-xl sm:rounded-2xl border border-white/20 dark:border-gray-700/30 bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-900/90 backdrop-blur-sm transition-all duration-500 cursor-pointer group hover:shadow-2xl dark:hover:shadow-amber-900/20 hover:transform hover:scale-[1.02] hover:-translate-y-1 ${
                 visibleItems.has(index) ? 'animate-fade-in-up opacity-100' : 'opacity-0'
               }`}
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className="flex justify-center mb-4 sm:mb-6 transform transition-transform duration-300 group-hover:scale-110">
-                <div className="p-3 sm:p-4 rounded-full bg-white dark:bg-gray-700 shadow-lg group-hover:shadow-xl dark:shadow-amber-900/20 transition-shadow duration-300">
-                  {getFeatureIcon(feature.iconType)}
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-50/30 to-orange-50/30 dark:from-amber-900/10 dark:to-orange-900/10 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              {/* Icon */}
+              <div className="relative flex justify-center mb-2 sm:mb-3 lg:mb-4 transform transition-transform duration-300 group-hover:scale-110">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br from-white to-gray-100 dark:from-gray-700 dark:to-gray-800 shadow-lg group-hover:shadow-xl dark:shadow-amber-900/20 transition-all duration-300 flex items-center justify-center border border-gray-200/50 dark:border-gray-600/50">
+                  <div className="scale-50 sm:scale-60 lg:scale-75">
+                    {getFeatureIcon(feature.iconType)}
+                  </div>
                 </div>
               </div>
-              <h3 className="text-[10px] sm:text-xs lg:text-sm font-bold text-gray-800 dark:text-white mb-2 sm:mb-4 group-hover:text-gray-900 dark:group-hover:text-amber-300 transition-colors">{feature.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-[8px] sm:text-[10px] lg:text-xs leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">{feature.description}</p>
+              
+              {/* Content */}
+              <div className="relative">
+                <h3 className="text-[9px] sm:text-[10px] lg:text-xs font-bold text-gray-800 dark:text-white mb-1 sm:mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-[7px] sm:text-[8px] lg:text-[10px] text-gray-600 dark:text-gray-300 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300 line-clamp-3">
+                  {feature.description}
+                </p>
+              </div>
               
               {/* Hover indicator */}
-              <div className="mt-2 sm:mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-8 h-0.5 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-400 dark:to-orange-400 mx-auto rounded-full"></div>
+              <div className="relative mt-2 sm:mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="w-6 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto rounded-full"></div>
               </div>
+              
+              {/* Corner accent */}
+              <div className="absolute top-2 right-2 w-1 h-1 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           ))}
         </div>
