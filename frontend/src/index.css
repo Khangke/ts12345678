@@ -17,12 +17,27 @@ body {
 /* Remove any default margins */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html, body, #root {
     height: 100%;
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure no white space at bottom */
+.App {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh;
+}
+
+/* Remove bottom spacing */
+footer {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 code {
