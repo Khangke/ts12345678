@@ -619,16 +619,16 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
           </div>
         </div>
 
-        {/* Enhanced Products Grid */}
+        {/* Enhanced Products Grid - Optimized for mobile */}
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-8">
             {[...Array(4)].map((_, index) => (
               <div key={index} className="animate-pulse">
-                <div className="bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 h-72 rounded-3xl mb-6 shadow-lg"></div>
-                <div className="space-y-3">
-                  <div className="bg-gray-300 dark:bg-gray-700 h-5 rounded-full"></div>
-                  <div className="bg-gray-300 dark:bg-gray-700 h-4 rounded-full w-3/4"></div>
-                  <div className="bg-gray-300 dark:bg-gray-700 h-6 rounded-full w-1/2"></div>
+                <div className="bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 h-40 lg:h-72 rounded-2xl lg:rounded-3xl mb-3 lg:mb-6 shadow-lg"></div>
+                <div className="space-y-2 lg:space-y-3">
+                  <div className="bg-gray-300 dark:bg-gray-700 h-3 lg:h-5 rounded-full"></div>
+                  <div className="bg-gray-300 dark:bg-gray-700 h-2 lg:h-4 rounded-full w-3/4"></div>
+                  <div className="bg-gray-300 dark:bg-gray-700 h-4 lg:h-6 rounded-full w-1/2"></div>
                 </div>
               </div>
             ))}
