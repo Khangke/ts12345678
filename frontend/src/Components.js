@@ -2011,14 +2011,14 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
           onClick={(e) => e.stopPropagation()} // Prevent modal close when clicking inside
         >
           
-          {/* Minimal Modern Header */}
-          <div className="flex justify-between items-center p-6 border-b border-gray-100/50 dark:border-gray-800/50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl flex-shrink-0">
-            <h2 className="text-xl font-light text-gray-900 dark:text-white tracking-wide">Chi tiết sản phẩm</h2>
+          {/* Ultra Compact Header */}
+          <div className="flex justify-between items-center p-3 border-b border-gray-200/50 dark:border-gray-700/50 bg-gradient-to-r from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 flex-shrink-0">
+            <h2 className="text-base font-bold text-gray-800 dark:text-white">Chi tiết sản phẩm</h2>
             <button 
               onClick={onClose} 
-              className="w-10 h-10 rounded-full bg-gray-50/80 dark:bg-gray-800/80 flex items-center justify-center text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-700/80 transition-all duration-300 backdrop-blur-sm"
+              className="w-7 h-7 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
             >
-              <CloseIcon className="w-5 h-5" />
+              <CloseIcon className="w-4 h-4" />
             </button>
           </div>
 
