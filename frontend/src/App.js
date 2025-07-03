@@ -266,7 +266,32 @@ function App() {
     }
   };
 
-  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  // Calculate cart count with error handling
+  const cartCount = cartItems.reduce((total, item) => {
+    try {
+      return total + (item.quantity || 0);
+    } catch (error) {
+      console.warn('Error calculating cart count for item:', item);
+      return total;
+    }
+  }, 0);
+
+  // Debug logging for cart state (only in development)
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Cart state updated:', {
+        itemCount: cartItems.length,
+        totalQuantity: cartCount,
+        totalPrice: getTotalPrice(),
+        items: cartItems.map(item => ({
+          id: item.id,
+          name: item.name,
+          quantity: item.quantity,
+          cartId: item.cartId
+        }))
+      });
+    }
+  }, [cartItems]);
 
   // Show success page if order completed
   if (showSuccess && orderInfo) {
