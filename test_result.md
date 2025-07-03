@@ -758,7 +758,7 @@ test_plan:
     - "Test order creation with size-based pricing"
     - "Test complete purchase flow"
   stuck_tasks: []
-  test_all: true
+  test_all: false
   test_priority: "high_first"
 
 backend:
