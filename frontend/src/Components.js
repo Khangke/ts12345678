@@ -580,42 +580,41 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
       </div>
 
       <div className="container mx-auto px-2 sm:px-3 lg:px-4 relative">
-        {/* Enhanced Header - More compact on mobile */}
+        {/* Enhanced Header - Ultra compact on mobile */}
         <div 
           ref={featuredRef}
-          className={`text-center mb-8 lg:mb-20 transition-all duration-1000 ${
+          className={`text-center mb-4 sm:mb-6 lg:mb-16 transition-all duration-1000 ${
             isFeaturedVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          {/* Badge */}
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 px-4 lg:px-6 py-2 lg:py-3 rounded-full mb-3 lg:mb-6 border border-amber-200/50 dark:border-amber-800/50">
-            <span className="w-2 h-2 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full animate-pulse"></span>
-            <span className="text-xs lg:text-sm font-semibold text-amber-800 dark:text-amber-200 uppercase tracking-wide">
+          {/* Badge - Smaller on mobile */}
+          <div className="inline-flex items-center space-x-1 sm:space-x-2 bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 px-2 sm:px-4 lg:px-6 py-1 sm:py-2 lg:py-3 rounded-full mb-2 sm:mb-3 lg:mb-6 border border-amber-200/50 dark:border-amber-800/50">
+            <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full animate-pulse"></span>
+            <span className="text-[10px] sm:text-xs lg:text-sm font-semibold text-amber-800 dark:text-amber-200 uppercase tracking-wide">
               Sản phẩm nổi bật
             </span>
           </div>
 
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-3 lg:mb-6 leading-tight">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-4xl xl:text-6xl font-bold text-gray-800 dark:text-white mb-2 sm:mb-3 lg:mb-6 leading-tight">
             Trầm hương 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 dark:from-amber-400 dark:via-orange-400 dark:to-yellow-400 relative">
               {' '}chất lượng cao
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 transform scale-x-0 origin-left transition-transform duration-1000 delay-500 group-hover:scale-x-100"></div>
             </span>
           </h2>
           
-          <p className="text-sm lg:text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-light px-2">
+          <p className="text-[11px] sm:text-xs lg:text-lg xl:text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-light px-1 sm:px-2">
             Khám phá những sản phẩm trầm hương được khách hàng yêu thích nhất
-            <br className="hidden lg:block" />
+            <br className="hidden sm:block" />
             <span className="text-amber-700 dark:text-amber-300 font-medium">
               Chất lượng cao cấp, giá cả hợp lý
             </span>
           </p>
 
-          {/* Decorative Line */}
-          <div className="flex items-center justify-center mt-4 lg:mt-8">
-            <div className="h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent w-16 lg:w-32"></div>
-            <div className="mx-2 lg:mx-4 w-2 lg:w-3 h-2 lg:h-3 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
-            <div className="h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent w-16 lg:w-32"></div>
+          {/* Decorative Line - Smaller on mobile */}
+          <div className="flex items-center justify-center mt-2 sm:mt-4 lg:mt-8">
+            <div className="h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent w-8 sm:w-16 lg:w-32"></div>
+            <div className="mx-1 sm:mx-2 lg:mx-4 w-1.5 sm:w-2 lg:w-3 h-1.5 sm:h-2 lg:h-3 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
+            <div className="h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent w-8 sm:w-16 lg:w-32"></div>
           </div>
         </div>
 
