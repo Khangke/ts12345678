@@ -635,11 +635,23 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
 
                   {/* Product Info */}
                   <div className="space-y-3">
-                    <h3 className="font-bold text-lg text-gray-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300 line-clamp-2">
+                    <h3 className="font-bold text-lg text-gray-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300" 
+                        style={{
+                          display: '-webkit-box',
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden'
+                        }}>
                       {product.name}
                     </h3>
                     
-                    <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 leading-relaxed">
+                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed"
+                       style={{
+                         display: '-webkit-box',
+                         WebkitLineClamp: 2,
+                         WebkitBoxOrient: 'vertical',
+                         overflow: 'hidden'
+                       }}>
                       {product.description}
                     </p>
 
