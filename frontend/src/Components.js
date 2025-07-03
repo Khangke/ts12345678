@@ -675,9 +675,9 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
                     </div>
                   </div>
 
-                  {/* Enhanced Product Info */}
-                  <div className="space-y-2 lg:space-y-4 relative">
-                    <h3 className="font-bold text-sm lg:text-lg text-gray-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300 leading-tight line-clamp-2" 
+                  {/* Enhanced Product Info - Ultra compact for mobile */}
+                  <div className="space-y-1 sm:space-y-1.5 lg:space-y-3 relative">
+                    <h3 className="font-bold text-[10px] sm:text-xs lg:text-base text-gray-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300 leading-tight line-clamp-2" 
                         style={{
                           display: '-webkit-box',
                           WebkitLineClamp: 2,
@@ -687,46 +687,41 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
                       {product.name}
                     </h3>
                     
-                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed"
+                    <p className="text-[8px] sm:text-[10px] lg:text-sm text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-1 lg:line-clamp-2 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300"
                        style={{
                          display: '-webkit-box',
-                         WebkitLineClamp: 2,
+                         WebkitLineClamp: window.innerWidth < 640 ? 1 : (window.innerWidth < 1024 ? 1 : 2),
                          WebkitBoxOrient: 'vertical',
                          overflow: 'hidden'
                        }}>
                       {product.description}
                     </p>
 
-                    {/* Enhanced Rating */}
-                    <div className="flex items-center space-x-1">
-                      <div className="flex">
-                        {[...Array(5)].map((_, i) => (
-                          <span key={i} className={`text-lg ${i < (product.rating || 5) ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-600'}`}>
-                            ★
-                          </span>
-                        ))}
-                      </div>
-                      <span className="text-sm text-gray-500 dark:text-gray-400 ml-2 font-medium">
-                        ({product.rating || 5}.0)
+                    {/* Category badge and rating - Ultra compact */}
+                    <div className="flex items-center justify-between">
+                      <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 text-[7px] sm:text-[8px] lg:text-xs px-1 sm:px-1.5 lg:px-2 py-0.5 lg:py-1 rounded-full font-medium">
+                        {product.category.split(' ')[0]} {/* Show only first word on mobile */}
                       </span>
+                      
+                      {/* Rating - Ultra small on mobile */}
+                      <div className="flex items-center space-x-0.5">
+                        <span className="text-yellow-400 text-[8px] sm:text-[10px] lg:text-sm">★</span>
+                        <span className="text-[7px] sm:text-[9px] lg:text-xs text-gray-600 dark:text-gray-400">{product.rating || 4.5}</span>
+                      </div>
                     </div>
 
-                    {/* Enhanced Price Section */}
-                    <div className="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-gray-700">
-                      <div className="flex-1">
-                        <span className="text-2xl font-bold text-amber-600 dark:text-amber-400 block">
+                    {/* Price display - Ultra compact responsive sizing */}
+                    <div className="flex items-center justify-between pt-1 lg:pt-2">
+                      <div>
+                        <span className="text-xs sm:text-sm lg:text-xl font-bold text-amber-600 dark:text-amber-400">
                           {formatPrice(product.price)}
                         </span>
-                        {product.sizes && product.sizes.length > 0 && (
-                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 flex items-center">
-                            <span className="w-2 h-2 bg-green-500 rounded-full mr-1"></span>
-                            Có {product.sizes.length} kích cỡ
+                        {product.sizes && product.sizes.length > 1 && (
+                          <p className="text-[7px] sm:text-[8px] lg:text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                            Từ {product.sizes[0]}
                           </p>
                         )}
                       </div>
-                      <button className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 ml-3">
-                        <ShoppingCartIcon className="w-5 h-5" />
-                      </button>
                     </div>
                   </div>
                 </div>
