@@ -730,39 +730,39 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
           </div>
         )}
 
-        {/* Enhanced CTA Section - Compact for mobile */}
-        <div className="text-center mt-8 lg:mt-16">
+        {/* Enhanced CTA Section - Ultra compact for mobile */}
+        <div className="text-center mt-4 sm:mt-6 lg:mt-12">
           <Link
             to="/products"
-            className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-500 dark:to-orange-500 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-full text-sm lg:text-lg font-semibold hover:from-amber-700 hover:to-orange-700 dark:hover:from-amber-600 dark:hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 group"
+            className="inline-flex items-center space-x-1 sm:space-x-2 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-500 dark:to-orange-500 text-white px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 lg:py-3 rounded-full text-[10px] sm:text-xs lg:text-base font-semibold hover:from-amber-700 hover:to-orange-700 dark:hover:from-amber-600 dark:hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 group"
           >
             <span>Xem tất cả sản phẩm</span>
-            <svg className="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
         </div>
 
-        {/* Trust Indicators Section - More compact */}
-        <div className="mt-8 lg:mt-16 text-center">
-          <div className="inline-flex items-center justify-center space-x-4 lg:space-x-8 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full px-4 lg:px-8 py-3 lg:py-4 border border-amber-200/30 dark:border-amber-700/30">
-            <div className="flex items-center space-x-2 text-green-600 dark:text-green-400">
-              <svg className="w-4 h-4 lg:w-5 lg:h-5" fill="currentColor" viewBox="0 0 20 20">
+        {/* Trust Indicators Section - Ultra compact */}
+        <div className="mt-4 sm:mt-6 lg:mt-12 text-center">
+          <div className="inline-flex items-center justify-center space-x-2 sm:space-x-4 lg:space-x-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full px-2 sm:px-4 lg:px-6 py-1.5 sm:py-2 lg:py-3 border border-amber-200/30 dark:border-amber-700/30">
+            <div className="flex items-center space-x-1">
+              <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-4 lg:h-4 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-              <span className="text-xs lg:text-sm font-medium">Chất lượng cao</span>
+              <span className="text-[8px] sm:text-[10px] lg:text-sm font-medium text-green-600 dark:text-green-400">Chất lượng cao</span>
             </div>
-            <div className="flex items-center space-x-2 text-blue-600 dark:text-blue-400">
-              <svg className="w-4 h-4 lg:w-5 lg:h-5" fill="currentColor" viewBox="0 0 20 20">
+            <div className="flex items-center space-x-1">
+              <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-4 lg:h-4 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
               </svg>
-              <span className="text-xs lg:text-sm font-medium">Miễn phí ship</span>
+              <span className="text-[8px] sm:text-[10px] lg:text-sm font-medium text-blue-600 dark:text-blue-400">Miễn phí ship</span>
             </div>
-            <div className="flex items-center space-x-2 text-purple-600 dark:text-purple-400">
-              <svg className="w-4 h-4 lg:w-5 lg:h-5" fill="currentColor" viewBox="0 0 20 20">
+            <div className="flex items-center space-x-1">
+              <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-4 lg:h-4 text-purple-600 dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd" />
               </svg>
-              <span className="text-xs lg:text-sm font-medium">Tư vấn 24/7</span>
+              <span className="text-[8px] sm:text-[10px] lg:text-sm font-medium text-purple-600 dark:text-purple-400">Tư vấn 24/7</span>
             </div>
           </div>
         </div>
