@@ -1299,10 +1299,11 @@ export const ContactSection = () => {
                         name="subject"
                         value={formData.subject}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 pr-10 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-amber-400 focus:bg-white/20 text-white transition-all duration-300 appearance-none cursor-pointer"
+                        className="w-full px-4 py-3 pr-10 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-amber-400 focus:bg-white/20 text-white transition-all duration-300 appearance-none cursor-pointer hover:bg-white/15"
                         style={{
                           color: 'white',
-                          backgroundColor: 'rgba(255, 255, 255, 0.1)'
+                          backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                          colorScheme: 'dark'
                         }}
                       >
                         <option value="" style={{ backgroundColor: '#1f2937', color: 'white' }}>Chọn chủ đề</option>
