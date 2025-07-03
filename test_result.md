@@ -912,6 +912,21 @@ backend:
       - working: true
         agent: "testing"
         comment: "✅ Verified navigation to Products page works correctly ✅ Page title is 'Tất cả sản phẩm' as expected ✅ Search functionality works for 'vòng tay' and 'trầm' ✅ Clear search button works ✅ Empty state displays correctly when searching for non-existent products ✅ Product counter shows correct number of products ✅ Mobile layout displays correctly"
+  - task: "Test floating action button position"
+    implemented: true
+    working: true
+    file: "frontend/src/components/MobileComponents.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "User yêu cầu kiểm tra vị trí của floating action button (dấu cộng màu cam) ở góc dưới bên phải. Đã di chuyển floating action button từ bottom-16 lên bottom-24 (tăng 32px) để tránh bị che khuất bởi mobile bottom navigation."
+      - working: true
+        agent: "testing"
+        comment: "✅ Floating action button hiển thị đúng vị trí ở góc dưới bên phải với class 'fixed right-4 bottom-24'. ✅ Khoảng cách giữa floating button và mobile bottom navigation là 24px, đảm bảo không bị che khuất. ✅ Floating button vẫn hiển thị rõ ràng khi cuộn trang lên xuống. ✅ Khi click vào floating button, menu actions mở ra thành công hiển thị các tùy chọn (Địa chỉ, Email, Gọi ngay). ✅ Việc di chuyển floating action button từ bottom-16 lên bottom-24 (tăng 32px) đã giải quyết thành công vấn đề bị che khuất bởi mobile bottom navigation."
+
   - task: "Modern Footer Enhancement"
     implemented: true
     working: true
