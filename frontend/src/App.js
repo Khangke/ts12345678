@@ -92,22 +92,28 @@ function App() {
   };
 
   const buyNow = (product, quantity = 1, selectedSize = null) => {
-    // Thêm sản phẩm vào giỏ hàng trước
-    const newItem = { 
-      ...product, 
-      quantity, 
-      selectedSize,
-      cartId: Date.now() + Math.random()
-    };
-    
-    // Clear giỏ hàng hiện tại và chỉ giữ sản phẩm mua ngay
-    setCartItems([newItem]);
-    
-    // Đóng modal sản phẩm và chuyển thẳng đến checkout
-    setSelectedProduct(null);
-    setShowCheckout(true);
-    
-    showToastMessage(`Tiến hành thanh toán cho ${product.name}`);
+    try {
+      // Thêm sản phẩm vào giỏ hàng trước
+      const newItem = { 
+        ...product, 
+        quantity, 
+        selectedSize,
+        cartId: Date.now() + Math.random(),
+        addedAt: Date.now()
+      };
+      
+      // Clear giỏ hàng hiện tại và chỉ giữ sản phẩm mua ngay
+      setCartItems([newItem]);
+      
+      // Đóng modal sản phẩm và chuyển thẳng đến checkout
+      setSelectedProduct(null);
+      setShowCheckout(true);
+      
+      showToastMessage(`Tiến hành thanh toán cho ${product.name}`);
+    } catch (error) {
+      console.error('Error with buy now:', error);
+      showToastMessage('Có lỗi khi mua ngay!');
+    }
   };
 
   const removeFromCart = (cartId) => {
