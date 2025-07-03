@@ -596,8 +596,8 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
           </div>
 
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-7xl font-bold text-gray-800 dark:text-white mb-2 sm:mb-3 lg:mb-6 leading-tight">
-            Trầm hương 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 dark:from-amber-400 dark:via-orange-400 dark:to-yellow-400 relative">
+            Trầm hương{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 dark:from-amber-400 dark:via-orange-400 dark:to-yellow-400 relative drop-shadow-lg">
               chất lượng cao
             </span>
           </h2>
