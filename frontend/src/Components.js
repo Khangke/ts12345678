@@ -1935,14 +1935,20 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
   // Navigation functions
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % productImages.length);
+    setIsPaused(true); // Pause auto-slide when user manually navigates
+    setTimeout(() => setIsPaused(false), 5000); // Resume after 5 seconds
   };
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + productImages.length) % productImages.length);
+    setIsPaused(true); // Pause auto-slide when user manually navigates
+    setTimeout(() => setIsPaused(false), 5000); // Resume after 5 seconds
   };
 
   const goToImage = (index) => {
     setCurrentImageIndex(index);
+    setIsPaused(true); // Pause auto-slide when user clicks thumbnail
+    setTimeout(() => setIsPaused(false), 5000); // Resume after 5 seconds
   };
 
   // Lightbox Component
