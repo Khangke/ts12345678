@@ -1,364 +1,298 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { newsData } from '../data/newsData';
+import React, { useState } from 'react';
+import { ChevronDownIcon, CloseIcon } from '../Icons';
 
 const NewsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [newsRef, isNewsVisible] = useScrollAnimation(0.1);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [isLoading, setIsLoading] = useState(false); // Changed to false to skip loading
-  const [visibleCards, setVisibleCards] = useState(new Set());
-  const navigate = useNavigate();
-  const heroRef = useRef(null);
+  const [selectedArticle, setSelectedArticle] = useState(null);
 
-  // Simulate loading for smooth entry
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 300);
-    return () => clearTimeout(timer);
-  }, []);
+  const categories = [
+    { id: 'all', name: 'Tất cả', color: 'amber' },
+    { id: 'guide', name: 'Hướng dẫn', color: 'blue' },
+    { id: 'health', name: 'Sức khỏe', color: 'green' },
+    { id: 'culture', name: 'Văn hóa', color: 'purple' },
+    { id: 'investment', name: 'Đầu tư', color: 'red' },
+    { id: 'lifestyle', name: 'Phong cách', color: 'pink' }
+  ];
 
-  // Intersection Observer for staggered animations
-  useEffect(() => {
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const index = parseInt(entry.target.dataset.index);
-          setVisibleCards(prev => new Set([...prev, index]));
-        }
-      });
+  const articles = [
+    {
+      id: 1,
+      title: 'Cách phân biệt trầm hương thật và giả',
+      excerpt: 'Hướng dẫn chi tiết các phương pháp nhận biết trầm hương chất lượng cao và tránh mua phải hàng giả.',
+      category: 'guide',
+      readTime: '5 phút đọc',
+      date: '15/12/2024',
+      image: 'https://images.unsplash.com/photo-1509726360306-3f44543aea4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85',
+      content: `Trầm hương là một trong những loại gỗ quý hiếm nhất thế giới, có giá trị cao cả về mặt kinh tế lẫn tinh thần. Tuy nhiên, trên thị trường hiện nay có rất nhiều sản phẩm trầm hương giả hoặc chất lượng kém được bán với giá cao. Để tránh bị lừa dối, bạn cần biết cách phân biệt trầm hương thật và giả.
+
+**1. Quan sát màu sắc và vân gỗ**
+
+Trầm hương thật thường có màu nâu đến nâu đen, với những vân gỗ tự nhiên không đều đặn. Vân gỗ phải mịn màng, có độ bóng tự nhiên. Trầm hương giả thường có màu sắc đồng đều, vân gỗ nhân tạo hoặc được sơn màu.
+
+**2. Kiểm tra mùi hương**
+
+Đây là cách quan trọng nhất để nhận biết trầm hương thật. Trầm hương chất lượng cao có mùi hương đặc trưng, ngọt ngào, ấm áp và bền lâu. Khi đốt, khói sẽ có màu trắng và hương thơm lan tỏa đều. Trầm hương giả thường có mùi nhựa thông, khó chịu hoặc không có mùi gì.
+
+**3. Thử nghiệm chìm nước**
+
+Trầm hương chất lượng cao (trầm chìm) sẽ chìm xuống nước do mật độ cao. Tuy nhiên, không phải tất cả trầm hương thật đều chìm nước, vì vậy đây chỉ là một trong các tiêu chí tham khảo.
+
+**4. Kiểm tra giá cả**
+
+Trầm hương thật có giá rất cao do sự khan hiếm. Nếu gặp sản phẩm có giá quá rẻ so với thị trường, bạn cần cảnh giác vì có thể đó là hàng giả.
+
+**5. Mua từ nguồn uy tín**
+
+Để đảm bảo chất lượng, bạn nên mua trầm hương từ những cơ sở có uy tín, có chứng nhận chất lượng và cam kết đổi trả nếu sản phẩm không đúng mô tả.
+
+Việc đầu tư vào trầm hương chất lượng cao không chỉ mang lại giá trị sưu tầm mà còn có tác dụng tốt cho sức khỏe và tinh thần. Hãy trang bị cho mình những kiến thức cần thiết để có thể lựa chọn được sản phẩm trầm hương chất lượng nhất.`
+    },
+    {
+      id: 2,
+      title: 'Công dụng của trầm hương đối với sức khỏe và tinh thần',
+      excerpt: 'Tìm hiểu về những lợi ích tuyệt vời của trầm hương trong việc thư giãn, giảm stress và cải thiện sức khỏe.',
+      category: 'health',
+      readTime: '7 phút đọc',
+      date: '12/12/2024',
+      image: 'https://images.unsplash.com/photo-1541795083-1b160cf4f3d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwYnVybmluZ3xlbnwwfHx8fDE3NTE0Mjk4ODl8MA&ixlib=rb-4.1.0&q=85',
+      content: `Trầm hương không chỉ được biết đến như một loại gỗ quý hiếm mà còn là "thần dược" trong y học cổ truyền với nhiều công dụng tuyệt vời đối với sức khỏe và tinh thần con người.
+
+**1. Tác dụng an thần, giảm stress**
+
+Hương thơm của trầm hương có tác dụng làm dịu hệ thần kinh, giúp giảm căng thẳng, lo âu và stress. Khi xông trầm hương, não bộ sẽ tiết ra các chất endorphin giúp tạo cảm giác thư giãn và hạnh phúc.
+
+**2. Cải thiện chất lượng giấc ngủ**
+
+Trầm hương được sử dụng như một liệu pháp tự nhiên để điều trị mất ngủ. Hương thơm nhẹ nhàng giúp thư giãn tinh thần, tạo môi trường thuận lợi cho giấc ngủ sâu và ngon.
+
+**3. Tăng cường khả năng tập trung**
+
+Trong thiền định và yoga, trầm hương được sử dụng để giúp tăng cường khả năng tập trung và thanh lọc tâm trí. Hương thơm giúp tạo không gian yên tĩnh, thích hợp cho việc thiền và tĩnh tâm.
+
+**4. Hỗ trợ hệ hô hấp**
+
+Khói trầm hương có tác dụng kháng khuẩn, giúp làm sạch không khí và hỗ trợ hệ hô hấp. Tuy nhiên, cần sử dụng đúng cách và không lạm dụng.
+
+**5. Cân bằng năng lượng**
+
+Theo phong thủy và y học cổ truyền, trầm hương có tác dụng cân bằng âm dương, điều hòa khí huyết trong cơ thể, mang lại cảm giác cân bằng và bình an.
+
+**Cách sử dụng trầm hương đúng cách:**
+
+- Xông trầm trong không gian thoáng mát
+- Không xông quá lâu (15-30 phút/lần)
+- Kết hợp với thiền định hoặc yoga
+- Sử dụng lư xông chất lượng tốt
+
+Việc sử dụng trầm hương đúng cách sẽ mang lại những lợi ích tuyệt vời cho sức khỏe và tinh thần. Tuy nhiên, cần chọn trầm hương chất lượng cao và sử dụng có tiết độ để đạt được hiệu quả tốt nhất.`
+    },
+    // ... thêm các bài viết khác
+  ];
+
+  const filteredArticles = selectedCategory === 'all' 
+    ? articles 
+    : articles.filter(article => article.category === selectedCategory);
+
+  const getCategoryColor = (color) => {
+    const colors = {
+      amber: 'bg-amber-100 text-amber-800 border-amber-200',
+      blue: 'bg-blue-100 text-blue-800 border-blue-200',
+      green: 'bg-green-100 text-green-800 border-green-200',
+      purple: 'bg-purple-100 text-purple-800 border-purple-200',
+      red: 'bg-red-100 text-red-800 border-red-200',
+      pink: 'bg-pink-100 text-pink-800 border-pink-200'
     };
-
-    const observer = new IntersectionObserver(observerCallback, {
-      threshold: 0.1,
-      rootMargin: '50px'
-    });
-
-    const cards = document.querySelectorAll('[data-index]');
-    cards.forEach(card => observer.observe(card));
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Enhanced scroll and parallax effects
-  useEffect(() => {
-    const handleScroll = () => {
-      if (heroRef.current) {
-        const scrollY = window.scrollY;
-        const parallaxSpeed = 0.5;
-        heroRef.current.style.transform = `translateY(${scrollY * parallaxSpeed}px)`;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const categories = ['all', 'Kiến thức', 'Sức khỏe', 'Hướng dẫn', 'Văn hóa', 'Đầu tư', 'Xu hướng', 'Phong thủy', 'Y học', 'Lịch sử', 'Kỹ thuật', 'Kinh nghiệm', 'Spa & Wellness', 'Tâm linh', 'Thị trường', 'Bảo dưỡng', 'Liệu pháp', 'An toàn', 'Kiến trúc', 'Môi trường', 'Công nghệ', 'Nghệ thuật', 'Ẩm thực', 'Pháp lý', 'Nghiên cứu', 'Tương lai', 'Cộng đồng'];
-
-  const filteredNews = selectedCategory === 'all' 
-    ? newsData.filter(item => 
-        searchTerm === '' || 
-        item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.category.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    : newsData.filter(item => 
-        item.category === selectedCategory && 
-        (searchTerm === '' || 
-         item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-         item.excerpt.toLowerCase().includes(searchTerm.toLowerCase()))
-      );
-
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('vi-VN', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
+    return colors[color] || colors.amber;
   };
 
-  return (
-    <div className="pt-20 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/20 dark:from-gray-900 dark:via-amber-900/10 dark:to-orange-900/10 min-h-screen transition-colors duration-500 overflow-hidden">
-      
-      {/* Enhanced Hero Section with Parallax */}
-      <section className="relative py-20 bg-gradient-to-r from-amber-800/10 to-orange-600/10 dark:from-amber-500/20 dark:to-orange-500/20 overflow-hidden">
-        {/* Animated Background Elements */}
-        <div ref={heroRef} className="absolute inset-0 opacity-10 dark:opacity-5">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-amber-300 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-32 right-20 w-24 h-24 bg-orange-300 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-20 left-1/3 w-40 h-40 bg-amber-200 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-        </div>
-        
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 dark:text-amber-100 mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-amber-800 to-orange-600 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent animate-gradient-x">
-                Tin Tức
-              </span>
-              <br />
-              <span className="text-amber-800 dark:text-amber-300 block mt-2 text-4xl md:text-5xl">Trầm Hương</span>
-            </h1>
-          </div>
-          
-          <div className="w-40 h-1.5 bg-gradient-to-r from-amber-800 via-orange-600 to-amber-800 dark:from-amber-400 dark:via-orange-400 dark:to-amber-400 mx-auto rounded-full mb-8 animate-fade-in-up animate-shimmer" style={{ animationDelay: '0.3s' }}></div>
-          
-          <p className="text-xl text-gray-600 dark:text-amber-200 max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            Khám phá thế giới trầm hương qua những bài viết chuyên sâu, từ kiến thức cơ bản đến xu hướng hiện đại. 
-            <br className="hidden md:block" />
-            <span className="text-amber-700 dark:text-amber-300 font-medium">Cập nhật thông tin mới nhất về văn hóa, sức khỏe và nghệ thuật sống với trầm hương.</span>
-          </p>
-
-          {/* Enhanced Search Bar */}
-          <div className="max-w-2xl mx-auto mt-12 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
-            <div className="relative group">
-              <input
-                type="text"
-                placeholder="Tìm kiếm bài viết, chủ đề..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-8 py-5 pl-16 pr-12 text-lg border-2 border-amber-200 dark:border-amber-600/30 rounded-2xl focus:outline-none focus:border-amber-600 dark:focus:border-amber-400 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-500 shadow-xl focus:shadow-2xl group-hover:shadow-xl transform focus:scale-105"
-              />
-              <div className="absolute left-6 top-1/2 transform -translate-y-1/2">
-                <svg className="w-6 h-6 text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-              {searchTerm && (
+  if (selectedArticle) {
+    return (
+      <div className="bg-white dark:bg-gray-900 transition-colors duration-500">
+        <div className="pt-16 lg:pt-20">
+          {/* Article Detail View - Mobile Optimized */}
+          <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+            <div className="container mx-auto px-3 lg:px-4 py-4 lg:py-8">
+              {/* Compact Header */}
+              <div className="flex items-center justify-between mb-4 lg:mb-6">
                 <button
-                  onClick={() => setSearchTerm('')}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-all duration-300 hover:scale-110 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+                  onClick={() => setSelectedArticle(null)}
+                  className="flex items-center space-x-2 text-amber-600 hover:text-amber-700 transition-colors bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-2 rounded-full shadow-sm"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
+                  <span className="text-sm font-medium">Quay lại</span>
                 </button>
-              )}
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-200/20 to-orange-200/20 dark:from-amber-600/10 dark:to-orange-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-            </div>
-          </div>
-        </div>
+                
+                <div className="flex items-center space-x-1 text-xs text-gray-500 dark:text-gray-400">
+                  <span>{selectedArticle.readTime}</span>
+                  <span>•</span>
+                  <span>{selectedArticle.date}</span>
+                </div>
+              </div>
 
-        {/* Floating particles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-amber-400 dark:bg-amber-300 rounded-full opacity-20 animate-float"
-              style={{
-                left: `${20 + i * 15}%`,
-                top: `${30 + (i % 3) * 20}%`,
-                animationDelay: `${i * 0.8}s`,
-                animationDuration: `${4 + i * 0.5}s`
-              }}
-            />
-          ))}
-        </div>
-      </section>
-
-      <div className="container mx-auto px-4 py-16">
-        {/* Enhanced Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
-          {categories.map((category, index) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`group px-8 py-4 rounded-2xl text-sm font-semibold transition-all duration-500 hover:shadow-2xl transform hover:scale-110 hover:-translate-y-1 ${
-                selectedCategory === category
-                  ? 'bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white shadow-2xl scale-110 -translate-y-1'
-                  : 'bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-700 dark:text-gray-300 border-2 border-gray-200 dark:border-gray-700 hover:bg-amber-50 dark:hover:bg-amber-900/30 hover:border-amber-400 dark:hover:border-amber-500'
-              }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <span className="relative z-10">
-                {category === 'all' ? 'Tất cả' : category}
-              </span>
-              <div className={`absolute inset-0 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
-                selectedCategory === category ? 'opacity-100' : ''
-              }`}></div>
-            </button>
-          ))}
-        </div>
-
-        {/* Results Info */}
-        <div className="text-center mb-12 animate-fade-in-up">
-          <p className="text-lg text-gray-600 dark:text-gray-400 transition-colors duration-300">
-            <span className="text-amber-800 dark:text-amber-400 font-bold text-xl">{filteredNews.length}</span> bài viết
-            {searchTerm && (
-              <span> cho "<span className="font-semibold text-amber-800 dark:text-amber-400">{searchTerm}</span>"</span>
-            )}
-            {selectedCategory !== 'all' && !searchTerm && (
-              <span> trong danh mục <span className="font-semibold text-amber-800 dark:text-amber-400">{selectedCategory}</span></span>
-            )}
-          </p>
-        </div>
-
-        {/* Enhanced News Grid with Staggered Animations */}
-        <div className="relative">
-          {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[...Array(6)].map((_, index) => (
-                <div key={index} className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden animate-pulse">
-                  <div className="w-full h-56 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700"></div>
-                  <div className="p-8 space-y-4">
-                    <div className="h-4 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded w-3/4"></div>
-                    <div className="h-3 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded w-full"></div>
-                    <div className="h-3 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded w-2/3"></div>
-                    <div className="flex justify-between items-center">
-                      <div className="h-6 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded w-1/3"></div>
-                      <div className="h-8 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded w-24"></div>
-                    </div>
+              {/* Article Content - Mobile First */}
+              <article className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
+                {/* Compact Featured Image */}
+                <div className="relative h-48 lg:h-64 overflow-hidden">
+                  <img 
+                    src={selectedArticle.image}
+                    alt={selectedArticle.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  
+                  {/* Category Badge */}
+                  <div className="absolute top-3 left-3">
+                    <span className={`px-2 py-1 rounded-full text-xs font-medium border ${getCategoryColor(categories.find(c => c.id === selectedArticle.category)?.color)}`}>
+                      {categories.find(c => c.id === selectedArticle.category)?.name}
+                    </span>
                   </div>
                 </div>
+
+                {/* Compact Content */}
+                <div className="p-4 lg:p-8">
+                  <h1 className="text-xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-3 lg:mb-4 leading-tight">
+                    {selectedArticle.title}
+                  </h1>
+                  
+                  <p className="text-sm lg:text-lg text-gray-600 dark:text-gray-300 mb-4 lg:mb-6 italic">
+                    {selectedArticle.excerpt}
+                  </p>
+                  
+                  <div className="prose prose-sm lg:prose-lg max-w-none dark:prose-invert prose-amber">
+                    {selectedArticle.content.split('\n\n').map((paragraph, index) => (
+                      <p key={index} className="mb-3 lg:mb-4 text-sm lg:text-base leading-relaxed text-gray-700 dark:text-gray-300">
+                        {paragraph.startsWith('**') && paragraph.endsWith('**') ? (
+                          <strong className="text-amber-700 dark:text-amber-400 text-base lg:text-lg">
+                            {paragraph.slice(2, -2)}
+                          </strong>
+                        ) : (
+                          paragraph
+                        )}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-white dark:bg-gray-900 transition-colors duration-500">
+      <div className="pt-16 lg:pt-20">
+        {/* Mobile Optimized News Page */}
+        <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+          <div className="container mx-auto px-3 lg:px-4 py-4 lg:py-12">
+            {/* Compact Header */}
+            <div className="text-center mb-6 lg:mb-12">
+              <h1 className="text-2xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-2 lg:mb-4">
+                Tin tức về trầm hương
+              </h1>
+              <div className="w-16 lg:w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-600 mx-auto rounded-full mb-2 lg:mb-4"></div>
+              <p className="text-sm lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-2">
+                Cập nhật những thông tin mới nhất về trầm hương, hướng dẫn sử dụng và chia sẻ kinh nghiệm
+              </p>
+            </div>
+
+            {/* Compact Category Filter */}
+            <div className="flex flex-wrap gap-2 mb-6 lg:mb-8 justify-center">
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`px-3 py-1.5 lg:px-4 lg:py-2 rounded-full text-xs lg:text-sm font-medium transition-all duration-300 border ${
+                    selectedCategory === category.id
+                      ? `${getCategoryColor(category.color)} shadow-md scale-105`
+                      : 'bg-white/80 dark:bg-gray-800/80 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-700 hover:shadow-md backdrop-blur-sm'
+                  }`}
+                >
+                  {category.name}
+                </button>
               ))}
             </div>
-          ) : filteredNews.length === 0 ? (
-            <div className="text-center py-20">
-              <div className="mb-8 animate-bounce">
-                <svg className="w-20 h-20 text-amber-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Không tìm thấy bài viết</h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg">
-                {searchTerm 
-                  ? `Không có bài viết nào phù hợp với từ khóa "${searchTerm}"`
-                  : 'Không có bài viết nào trong danh mục này'
-                }
-              </p>
-              <button
-                onClick={() => {
-                  setSearchTerm('');
-                  setSelectedCategory('all');
-                }}
-                className="bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white px-8 py-4 rounded-2xl hover:from-amber-900 hover:to-amber-800 dark:hover:from-amber-700 dark:hover:to-amber-600 transition-all duration-500 font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105"
-              >
-                Xem tất cả bài viết
-              </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredNews.map((news, index) => (
+
+            {/* Compact Articles Grid - Mobile First */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6">
+              {filteredArticles.map((article, index) => (
                 <article 
-                  key={news.id}
-                  data-index={index}
-                  className={`group bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-3xl shadow-xl dark:shadow-amber-900/20 overflow-hidden hover:shadow-2xl dark:hover:shadow-amber-500/30 transition-all duration-700 hover:transform hover:scale-105 hover:-translate-y-3 cursor-pointer border border-gray-100/50 dark:border-amber-700/30 animate-fade-in-up opacity-100`}
-                  style={{ 
-                    animationDelay: `${index * 0.15}s`,
-                    transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
-                  }}
-                  onClick={() => navigate(`/news/${news.id}`)}
+                  key={article.id}
+                  className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group overflow-hidden border border-white/20 dark:border-gray-700/20"
+                  onClick={() => setSelectedArticle(article)}
                 >
-                  {/* Enhanced Image Section */}
-                  <div className="relative overflow-hidden h-56">
+                  {/* Compact Image */}
+                  <div className="relative h-40 lg:h-48 overflow-hidden">
                     <img 
-                      src={news.image}
-                      alt={news.title}
-                      className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-1000 ease-out"
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                     
                     {/* Category Badge */}
-                    <div className="absolute top-6 left-6 transform group-hover:scale-110 transition-transform duration-300">
-                      <span className="bg-gradient-to-r from-amber-800 to-amber-900 dark:from-amber-600 dark:to-amber-700 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg backdrop-blur-sm">
-                        {news.category}
+                    <div className="absolute top-2 left-2">
+                      <span className={`px-2 py-1 rounded-lg text-xs font-medium border backdrop-blur-sm ${getCategoryColor(categories.find(c => c.id === article.category)?.color)}`}>
+                        {categories.find(c => c.id === article.category)?.name}
                       </span>
                     </div>
                     
                     {/* Read Time */}
-                    <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
-                      <div className="flex items-center space-x-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
-                        <svg className="w-5 h-5 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.102m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                        </svg>
-                        <a 
-                          href={news.sourceUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm font-medium dark:text-amber-200 hover:text-amber-700 dark:hover:text-amber-300 transition-colors"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          Nguồn gốc
-                        </a>
-                      </div>
-                    </div>
-
-                    {/* Floating Read Button */}
-                    <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                      <button className="bg-amber-600 hover:bg-amber-700 text-white p-3 rounded-full shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110">
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
+                    <div className="absolute bottom-2 right-2">
+                      <span className="bg-black/50 text-white px-2 py-1 rounded-lg text-xs backdrop-blur-sm">
+                        {article.readTime}
+                      </span>
                     </div>
                   </div>
 
-                  {/* Enhanced Content Section */}
-                  <div className="p-8 relative">
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-amber-100 mb-4 group-hover:text-amber-800 dark:group-hover:text-amber-300 transition-colors duration-500 line-clamp-2 leading-tight">
-                      {news.title}
-                    </h3>
+                  {/* Compact Content */}
+                  <div className="p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs text-gray-500 dark:text-gray-400">{article.date}</span>
+                    </div>
                     
-                    {/* Excerpt */}
-                    <p className="text-gray-600 dark:text-amber-200/80 text-sm mb-6 line-clamp-3 transition-colors duration-500 leading-relaxed">
-                      {news.excerpt}
+                    <h2 className="text-base lg:text-lg font-bold text-gray-800 dark:text-white mb-2 line-clamp-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                      {article.title}
+                    </h2>
+                    
+                    <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2 mb-3">
+                      {article.excerpt}
                     </p>
                     
-                    {/* Author & Date */}
-                    <div className="flex items-center justify-between text-xs text-gray-500 dark:text-amber-300/70 mb-6">
-                      <span className="flex items-center space-x-3">
-                        <div className="w-8 h-8 bg-gradient-to-br from-amber-400 to-amber-600 dark:from-amber-500 dark:to-amber-700 rounded-full flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-300">
-                          <span className="text-white font-bold text-sm">
-                            {news.author.split(' ').pop().charAt(0)}
-                          </span>
-                        </div>
-                        <span className="dark:text-amber-200 font-medium">{news.author}</span>
-                      </span>
-                      <span className="dark:text-amber-200 bg-gray-100 dark:bg-gray-700/50 px-3 py-1 rounded-full">
-                        {formatDate(news.date)}
-                      </span>
-                    </div>
-
-                    {/* Enhanced Action Button */}
-                    <div className="flex items-center justify-between">
-                      <button 
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          navigate(`/news/${news.id}`);
-                        }}
-                        className="group/btn text-amber-800 dark:text-amber-300 font-semibold text-sm hover:text-amber-900 dark:hover:text-amber-200 transition-all duration-300 flex items-center space-x-2"
-                      >
-                        <span>Đọc thêm</span>
-                        <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      
-                      <div className="w-10 h-10 bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-600/30 dark:to-amber-500/30 rounded-full flex items-center justify-center group-hover:from-amber-200 group-hover:to-amber-300 dark:group-hover:from-amber-500/50 dark:group-hover:to-amber-400/50 transition-all duration-500 shadow-md group-hover:shadow-lg transform group-hover:rotate-12">
-                        <span className="text-amber-800 dark:text-amber-300 text-sm">📖</span>
-                      </div>
-                    </div>
-
-                    {/* Enhanced Progress Bar */}
-                    <div className="mt-6 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-all duration-500">
-                      <div className="h-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 dark:from-amber-400 dark:via-orange-400 dark:to-amber-500 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-out"></div>
-                    </div>
-
-                    {/* Decorative Elements */}
-                    <div className="absolute top-4 right-4 w-12 h-12 bg-gradient-to-br from-amber-400/10 to-orange-400/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                    <button className="text-xs lg:text-sm text-amber-600 dark:text-amber-400 font-medium hover:text-amber-700 dark:hover:text-amber-300 transition-colors flex items-center space-x-1 group">
+                      <span>Đọc thêm</span>
+                      <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
                   </div>
                 </article>
               ))}
             </div>
-          )}
+
+            {/* No articles message */}
+            {filteredArticles.length === 0 && (
+              <div className="text-center py-12">
+                <div className="text-gray-400 dark:text-gray-600 mb-4">
+                  <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.291.94-5.709 2.291M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+                  Chưa có bài viết
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Hiện tại chưa có bài viết nào trong danh mục này.
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-
     </div>
   );
 };

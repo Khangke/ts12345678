@@ -3,8 +3,11 @@ import { ContactSection } from '../Components';
 
 const ContactPage = () => {
   return (
-    <div className="pt-20 bg-white dark:bg-gray-900 transition-colors duration-500">
-      <ContactSection />
+    <div className="bg-white dark:bg-gray-900 transition-colors duration-500">
+      {/* Mobile top spacing - reduced */}
+      <div className="pt-16 lg:pt-20">
+        <ContactSection />
+      </div>
     </div>
   );
 };
