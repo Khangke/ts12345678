@@ -667,9 +667,9 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
                       </span>
                     </div>
 
-                    {/* Discount Badge (if applicable) */}
-                    <div className="absolute top-1.5 lg:top-4 right-1.5 lg:right-4">
-                      <span className="bg-red-500 text-white text-[10px] lg:text-xs font-bold px-2 lg:px-3 py-1 rounded-full shadow-lg">
+                    {/* Discount Badge - Ultra small on mobile */}
+                    <div className="absolute top-0.5 sm:top-1 lg:top-2 right-0.5 sm:right-1 lg:right-2">
+                      <span className="bg-red-500 text-white text-[8px] sm:text-[9px] lg:text-xs font-bold px-1 sm:px-1.5 lg:px-2 py-0.5 rounded-full shadow-lg">
                         Hot
                       </span>
                     </div>
