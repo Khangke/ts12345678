@@ -1865,13 +1865,13 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
     };
   }, []);
 
-  // Auto-slide functionality
+  // Auto-slide functionality - updated to 2s interval
   useEffect(() => {
     if (!isAutoSliding || isPaused) return;
     
     const autoSlideInterval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % productImages.length);
-    }, 3000); // Auto-slide every 3 seconds
+    }, 2000); // Auto-slide every 2 seconds
     
     return () => clearInterval(autoSlideInterval);
   }, [isAutoSliding, isPaused, productImages.length]);
