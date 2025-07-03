@@ -428,17 +428,17 @@ export const HeroSection = () => {
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex items-center space-x-8 pt-6 text-sm text-gray-400">
+            <div className="grid grid-cols-1 sm:flex sm:items-center sm:space-x-8 pt-6 text-sm text-gray-400 gap-4 sm:gap-0">
               <div className="flex items-center space-x-2">
-                <CheckCircleIcon className="w-5 h-5 text-green-400" />
+                <CheckCircleIcon className="w-5 h-5 text-green-400 flex-shrink-0" />
                 <span>Chất lượng đảm bảo</span>
               </div>
               <div className="flex items-center space-x-2">
-                <TruckIcon className="w-5 h-5 text-blue-400" />
+                <TruckIcon className="w-5 h-5 text-blue-400 flex-shrink-0" />
                 <span>Miễn phí ship</span>
               </div>
               <div className="flex items-center space-x-2">
-                <ShieldIcon className="w-5 h-5 text-amber-400" />
+                <ShieldIcon className="w-5 h-5 text-amber-400 flex-shrink-0" />
                 <span>Uy tín 10+ năm</span>
               </div>
             </div>
