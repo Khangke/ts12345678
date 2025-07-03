@@ -2045,11 +2045,11 @@ export const Footer = () => {
       {/* Main Footer Content */}
       <div className="relative z-10 container mx-auto px-4 py-8 md:py-12">
         
-        {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        {/* Top Section - Mobile optimized layout */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
           
-          {/* Brand Section - Enhanced */}
-          <div className="md:col-span-2 lg:col-span-1">
+          {/* Brand Section - Enhanced - Hidden on mobile, visible on desktop */}
+          <div className="hidden lg:block md:col-span-2 lg:col-span-1">
             <div className="group">
               {/* Logo */}
               <div className="flex items-center space-x-3 mb-4 md:mb-6">
@@ -2101,15 +2101,15 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Products Section - Enhanced */}
+          {/* Products Section - Enhanced - Always visible */}
           <div className="group">
-            <div className="flex items-center space-x-2 mb-4 md:mb-6">
-              <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center">
-                <ShoppingBagIcon className="w-3 h-3 text-white" />
+            <div className="flex items-center space-x-2 mb-3 md:mb-4 lg:mb-6">
+              <div className="w-5 h-5 md:w-6 md:h-6 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center">
+                <ShoppingBagIcon className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" />
               </div>
-              <h4 className="text-lg font-semibold text-white group-hover:text-amber-300 transition-colors duration-300">Sản phẩm</h4>
+              <h4 className="text-sm md:text-lg font-semibold text-white group-hover:text-amber-300 transition-colors duration-300">Sản phẩm</h4>
             </div>
-            <ul className="space-y-2 md:space-y-3">
+            <ul className="space-y-1.5 md:space-y-2 lg:space-y-3">
               {[
                 'Vòng tay trầm hương',
                 'Nhang trầm hương', 
@@ -2118,7 +2118,7 @@ export const Footer = () => {
                 'Cảnh trầm phong thủy'
               ].map((item, index) => (
                 <li key={index}>
-                  <Link to="/products" className="group text-sm md:text-base text-gray-300 dark:text-gray-200 hover:text-amber-300 dark:hover:text-amber-300 transition-all duration-300 flex items-center space-x-2 hover:translate-x-1">
+                  <Link to="/products" className="group text-xs md:text-sm lg:text-base text-gray-300 dark:text-gray-200 hover:text-amber-300 dark:hover:text-amber-300 transition-all duration-300 flex items-center space-x-2 hover:translate-x-1">
                     <div className="w-1 h-1 bg-amber-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <span>{item}</span>
                   </Link>
@@ -2127,15 +2127,15 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Services Section - Enhanced */}
+          {/* Services Section - Enhanced - Always visible */}
           <div className="group">
-            <div className="flex items-center space-x-2 mb-4 md:mb-6">
-              <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
-                <ShieldIcon className="w-3 h-3 text-white" />
+            <div className="flex items-center space-x-2 mb-3 md:mb-4 lg:mb-6">
+              <div className="w-5 h-5 md:w-6 md:h-6 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                <ShieldIcon className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" />
               </div>
-              <h4 className="text-lg font-semibold text-white group-hover:text-amber-300 transition-colors duration-300">Dịch vụ</h4>
+              <h4 className="text-sm md:text-lg font-semibold text-white group-hover:text-amber-300 transition-colors duration-300">Dịch vụ</h4>
             </div>
-            <ul className="space-y-2 md:space-y-3">
+            <ul className="space-y-1.5 md:space-y-2 lg:space-y-3">
               {[
                 'Tư vấn chọn sản phẩm',
                 'Miễn phí ship từ 300k',
@@ -2143,7 +2143,7 @@ export const Footer = () => {
                 'Hỗ trợ 24/7'
               ].map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="group text-sm md:text-base text-gray-300 dark:text-gray-200 hover:text-amber-300 dark:hover:text-amber-300 transition-all duration-300 flex items-center space-x-2 hover:translate-x-1">
+                  <a href="#" className="group text-xs md:text-sm lg:text-base text-gray-300 dark:text-gray-200 hover:text-amber-300 dark:hover:text-amber-300 transition-all duration-300 flex items-center space-x-2 hover:translate-x-1">
                     <div className="w-1 h-1 bg-amber-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <span>{item}</span>
                   </a>
@@ -2152,8 +2152,8 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Section - Enhanced */}
-          <div className="group">
+          {/* Contact Section - Enhanced - Hidden on mobile, visible on desktop */}
+          <div className="hidden lg:block group">
             <div className="flex items-center space-x-2 mb-4 md:mb-6">
               <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center">
                 <PhoneIcon className="w-3 h-3 text-white" />
