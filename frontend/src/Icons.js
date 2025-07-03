@@ -417,3 +417,10 @@ export const LiveHelpIcon = ({ className = "w-6 h-6", color = "currentColor" }) 
     <path d="M19,2H5A3,3 0 0,0 2,5V19A3,3 0 0,0 5,22H19A3,3 0 0,0 22,19V5A3,3 0 0,0 19,2M12,18A2,2 0 0,1 10,16A2,2 0 0,1 12,14A2,2 0 0,1 14,16A2,2 0 0,1 12,18M14,12H10C10,10.89 10.9,10 12,10C13.11,10 14,10.89 14,12Z"/>
   </svg>
 );
+
+// Chevron Down Icon for Dropdown
+export const ChevronDownIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
+  <svg className={className} fill="none" stroke={color} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+  </svg>
+);
