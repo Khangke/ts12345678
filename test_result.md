@@ -814,7 +814,7 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Completed testing of floating action button position"
+    - "Completed testing of Ultra Modern Hero Section"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
