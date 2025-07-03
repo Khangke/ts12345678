@@ -559,6 +559,21 @@ frontend:
         agent: "testing"
         comment: "Đã test backend API sau frontend animations implementation và xác nhận tất cả API endpoints vẫn hoạt động đúng. Không có ảnh hưởng nào đến backend functionality."
 
+  - task: "Optimize mobile bottom navigation"
+    implemented: true
+    working: true
+    file: "frontend/src/components/MobileComponents.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "User yêu cầu xóa dark mode toggle và giỏ hàng khỏi mobile bottom navigation"
+      - working: true
+        agent: "testing"
+        comment: "Đã test và xác nhận các thay đổi: ✅ Dark mode toggle và giỏ hàng đã được xóa khỏi mobile bottom navigation. ✅ Grid layout đã được thay đổi từ grid-cols-7 sang grid-cols-5. ✅ Bottom navigation hiện chỉ có 5 links (Trang chủ, Sản phẩm, Tin tức, Giới thiệu, Liên hệ). ✅ Dark mode toggle vẫn được giữ lại trong mobile header. ✅ Tất cả các chức năng navigation vẫn hoạt động bình thường."
+
   - task: "Cải tiến UI/UX cho mobile"
     implemented: true
     working: true
