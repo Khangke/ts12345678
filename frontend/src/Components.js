@@ -1965,10 +1965,10 @@ export const ProductDetailModal = ({ product, onClose, onAddToCart, onBuyNow }) 
           {/* Right Column - Price, Size, Actions */}
           <div className="space-y-2 flex flex-col min-h-0">
             
-            {/* Ultra Compact Price Display - 30% smaller */}
-            <div className="text-center p-2 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-lg border border-amber-200/30 dark:border-amber-700/30 flex-shrink-0">
-              <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">Giá bán</div>
-              <div className="text-lg font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+            {/* Ultra Compact Price Display - Even smaller */}
+            <div className="text-center p-1.5 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-md border border-amber-200/30 dark:border-amber-700/30 flex-shrink-0">
+              <div className="text-xs text-gray-600 dark:text-gray-400 mb-0.5">Giá bán</div>
+              <div className="text-base font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
                 {currentPrice}
               </div>
               {selectedSize && (
