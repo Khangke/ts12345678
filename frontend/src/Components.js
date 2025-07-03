@@ -735,14 +735,14 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
           </div>
         )}
 
-        {/* Optimized CTA Section - Super compact */}
+        {/* Optimized CTA Section - Larger button */}
         <div className="text-center mt-3 sm:mt-4 lg:mt-8">
           <Link
             to="/products"
-            className="inline-flex items-center space-x-1 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-500 dark:to-orange-500 text-white px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 lg:py-2.5 rounded-full text-[10px] sm:text-xs lg:text-base font-semibold hover:from-amber-700 hover:to-orange-700 dark:hover:from-amber-600 dark:hover:to-orange-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-102 group"
+            className="inline-flex items-center space-x-1.5 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-500 dark:to-orange-500 text-white px-4 sm:px-5 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full text-xs sm:text-sm lg:text-lg font-semibold hover:from-amber-700 hover:to-orange-700 dark:hover:from-amber-600 dark:hover:to-orange-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-102 group"
           >
             <span>Xem tất cả sản phẩm</span>
-            <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-5 lg:h-5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-6 lg:h-6 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
