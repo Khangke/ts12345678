@@ -1140,12 +1140,12 @@ export const ProductsSection = ({ onProductClick }) => {
         </div>
 
         {/* Compact Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 lg:gap-3 mb-6 lg:mb-12">
+        <div className="flex flex-wrap justify-center gap-1.5 lg:gap-3 mb-4 lg:mb-12">
           {getCategories().map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-3 lg:px-6 py-1.5 lg:py-3 rounded-full text-xs lg:text-sm font-medium transition-all duration-300 ${
+              className={`px-2.5 lg:px-6 py-1 lg:py-3 rounded-full text-[11px] lg:text-sm font-medium transition-all duration-300 ${
                 selectedCategory === category
                   ? 'bg-amber-800 dark:bg-amber-600 text-white shadow-lg transform scale-105'
                   : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:border-amber-300 dark:hover:border-amber-600 hover:shadow-md'
@@ -1157,8 +1157,8 @@ export const ProductsSection = ({ onProductClick }) => {
         </div>
 
         {/* Compact Products Count */}
-        <div className="text-center mb-4 lg:mb-8">
-          <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
+        <div className="text-center mb-3 lg:mb-8">
+          <p className="text-[11px] lg:text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
             Hiển thị <span className="font-semibold text-amber-800 dark:text-amber-400">{filteredProducts.length}</span> sản phẩm
             {searchTerm && (
               <span> cho từ khóa "<span className="font-semibold text-amber-800 dark:text-amber-400">{searchTerm}</span>"</span>
