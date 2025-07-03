@@ -649,8 +649,8 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
                   {/* Card Background Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-amber-50/30 dark:from-gray-800/50 dark:to-amber-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                  {/* Product Image - Ultra compact for mobile */}
-                  <div className="relative overflow-hidden rounded-md lg:rounded-xl mb-1.5 sm:mb-2 lg:mb-4 h-20 sm:h-24 lg:h-40 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600">
+                  {/* Product Image - Larger for better display */}
+                  <div className="relative overflow-hidden rounded-md lg:rounded-xl mb-2 sm:mb-3 lg:mb-4 h-28 sm:h-32 lg:h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600">
                     <img 
                       src={product.image || `https://images.unsplash.com/photo-1509726360306-3f44543aea4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85`}
                       alt={product.name}
