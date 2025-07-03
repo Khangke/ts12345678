@@ -342,7 +342,7 @@ export const MobileHeader = ({ cartCount, onCartClick, isMenuOpen, setIsMenuOpen
     }`}>
       <div className="px-4">
         <div className={`flex items-center justify-between transition-all duration-500 ${
-          scrolled ? 'py-1.5' : 'py-2.5'
+          scrolled ? 'py-1' : 'py-1.5'
         }`}>
           
           {/* Enhanced Mobile Logo */}
