@@ -595,17 +595,17 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
             </span>
           </div>
 
-          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-4xl xl:text-6xl font-bold text-gray-800 dark:text-white mb-2 sm:mb-3 lg:mb-6 leading-tight">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-7xl font-bold text-gray-800 dark:text-white mb-2 sm:mb-3 lg:mb-6 leading-tight">
             Trầm hương 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 dark:from-amber-400 dark:via-orange-400 dark:to-yellow-400 relative">
-              {' '}chất lượng cao
+              chất lượng cao
             </span>
           </h2>
           
           <p className="text-[11px] sm:text-xs lg:text-lg xl:text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-light px-1 sm:px-2">
             Khám phá những sản phẩm trầm hương được khách hàng yêu thích nhất
             <br className="hidden sm:block" />
-            <span className="text-amber-700 dark:text-amber-300 font-medium">
+            <span className="text-amber-700 dark:text-amber-300 font-medium block mt-1">
               Chất lượng cao cấp, giá cả hợp lý
             </span>
           </p>
