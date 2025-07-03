@@ -104,7 +104,7 @@
 
 user_problem_statement: "sửa hoàn thành các đoạn còn dang dở. và thêm tính năng, nếu chọn size thì giá nhảy theo size. lưu ý code trong phần đăng đơn hàng luôn"
 
-recent_issue: "check lại font chữ, tôi thấy hiển thị vẫn bị lỗi ở phần kích cỡ và giá. và ở phần quản lý đơn hàng, ở mục chờ xử lý và đã xử lý. tôi muốn khi click qua mục đó là những đơn ở mục đó hiện ra luôn chứ không phải bay lên như vậy"
+recent_issue: "HOÀN THÀNH TASK - Phần chi tiết sản phẩm đã được cải tiến với tính năng auto-slide và thumbnail thu nhỏ: ✅ Ảnh tự động chuyển sau mỗi 3s với progress indicator ✅ Thumbnail layer giảm 30% kích thước (từ 48px xuống 32px) ✅ Auto-slide tạm dừng khi hover hoặc user tương tác ✅ Nút play/pause để control auto-slide ✅ Auto-slide resume sau 5s khi user ngừng tương tác ✅ Enhanced UX với ring indicator cho active thumbnail"
 
 frontend:
   - task: "Fix và hoàn thiện featured products section"
