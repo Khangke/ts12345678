@@ -1186,14 +1186,14 @@ export const ProductsSection = ({ onProductClick }) => {
           </div>
         ) : filteredProducts.length === 0 ? (
           // Mobile Optimized No products found
-          <div className="text-center py-8 lg:py-16">
-            <div className="mb-3 lg:mb-4">
-              <svg className="w-12 h-12 lg:w-16 lg:h-16 text-gray-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="text-center py-6 lg:py-16">
+            <div className="mb-2 lg:mb-4">
+              <svg className="w-10 h-10 lg:w-16 lg:h-16 text-gray-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.291.94-5.709 2.291M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="text-lg lg:text-xl font-semibold text-gray-800 dark:text-white mb-2">Không tìm thấy sản phẩm</h3>
-            <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400 mb-4 px-4">
+            <h3 className="text-base lg:text-xl font-semibold text-gray-800 dark:text-white mb-2">Không tìm thấy sản phẩm</h3>
+            <p className="text-xs lg:text-base text-gray-600 dark:text-gray-400 mb-3 lg:mb-4 px-4">
               {searchTerm 
                 ? `Không có sản phẩm nào phù hợp với từ khóa "${searchTerm}"`
                 : 'Không có sản phẩm nào trong danh mục này'
@@ -1204,7 +1204,7 @@ export const ProductsSection = ({ onProductClick }) => {
                 setSearchTerm('');
                 setSelectedCategory('all');
               }}
-              className="bg-amber-800 dark:bg-amber-600 text-white px-4 lg:px-6 py-2 rounded-full hover:bg-amber-900 dark:hover:bg-amber-700 transition-all duration-300 text-sm lg:text-base"
+              className="bg-amber-800 dark:bg-amber-600 text-white px-3 lg:px-6 py-2 rounded-full hover:bg-amber-900 dark:hover:bg-amber-700 transition-all duration-300 text-xs lg:text-base"
             >
               Xem tất cả sản phẩm
             </button>
