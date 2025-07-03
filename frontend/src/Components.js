@@ -494,6 +494,207 @@ export const FeaturesSection = () => {
   );
 };
 
+// Featured Products Section Component
+export const FeaturedProductsSection = ({ onProductClick }) => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
+  // Animation hook
+  const [featuredRef, isFeaturedVisible] = useScrollAnimation(0.2);
+
+  // Cache cho featured products
+  const CACHE_KEY = 'featured_products_cache';
+  const CACHE_DURATION = 5 * 60 * 1000; // 5 phút
+
+  useEffect(() => {
+    fetchFeaturedProducts();
+  }, []);
+
+  const fetchFeaturedProducts = async () => {
+    try {
+      // Check cache first
+      const cachedData = localStorage.getItem(CACHE_KEY);
+      if (cachedData) {
+        const { data, timestamp } = JSON.parse(cachedData);
+        const isValid = Date.now() - timestamp < CACHE_DURATION;
+        
+        if (isValid) {
+          setProducts(data.slice(0, 4)); // Chỉ lấy 4 sản phẩm đầu
+          setLoading(false);
+          
+          // Refresh cache in background
+          fetchFromAPI(true);
+          return;
+        }
+      }
+
+      // Fetch from API
+      await fetchFromAPI(false);
+    } catch (error) {
+      console.error('Error fetching featured products:', error);
+      setLoading(false);
+    }
+  };
+
+  const fetchFromAPI = async (isBackground = false) => {
+    try {
+      const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
+      const response = await fetch(`${BACKEND_URL}/api/products`);
+      const data = await response.json();
+      
+      // Cache the data
+      localStorage.setItem(CACHE_KEY, JSON.stringify({
+        data,
+        timestamp: Date.now()
+      }));
+      
+      if (!isBackground) {
+        setProducts(data.slice(0, 4)); // Chỉ lấy 4 sản phẩm nổi bật
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error('Error fetching from API:', error);
+      if (!isBackground) {
+        setLoading(false);
+      }
+    }
+  };
+
+  const formatPrice = (price) => {
+    if (typeof price === 'string') return price;
+    return new Intl.NumberFormat('vi-VN').format(price) + 'đ';
+  };
+
+  const handleProductClick = (product) => {
+    if (onProductClick) {
+      onProductClick(product);
+    }
+  };
+
+  return (
+    <section className="py-20 bg-gradient-to-br from-amber-50/50 to-orange-50/50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-500">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <div 
+          ref={featuredRef}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            isFeaturedVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6">
+            Sản phẩm 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-400 dark:to-orange-400"> nổi bật</span>
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Khám phá những sản phẩm trầm hương chất lượng cao, được khách hàng ưa chuộng nhất tại Sơn Mộc Hương
+          </p>
+        </div>
+
+        {/* Products Grid */}
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[...Array(4)].map((_, index) => (
+              <div key={index} className="animate-pulse">
+                <div className="bg-gray-300 dark:bg-gray-700 h-64 rounded-2xl mb-4"></div>
+                <div className="bg-gray-300 dark:bg-gray-700 h-4 rounded mb-2"></div>
+                <div className="bg-gray-300 dark:bg-gray-700 h-4 rounded w-3/4"></div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {products.map((product, index) => (
+              <div
+                key={product.id}
+                className={`group cursor-pointer transition-all duration-700 ${
+                  isFeaturedVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+                onClick={() => handleProductClick(product)}
+              >
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl hover:shadow-2xl dark:shadow-amber-900/20 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
+                  {/* Product Image */}
+                  <div className="relative overflow-hidden rounded-xl mb-6 h-48">
+                    <img 
+                      src={product.image || `https://images.unsplash.com/photo-1509726360306-3f44543aea4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85`}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    {/* Bestseller Badge */}
+                    <div className="absolute top-3 left-3">
+                      <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                        Nổi bật
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Product Info */}
+                  <div className="space-y-3">
+                    <h3 className="font-bold text-lg text-gray-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300 line-clamp-2">
+                      {product.name}
+                    </h3>
+                    
+                    <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 leading-relaxed">
+                      {product.description}
+                    </p>
+
+                    {/* Rating */}
+                    <div className="flex items-center space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <span key={i} className={`text-sm ${i < (product.rating || 5) ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-600'}`}>
+                          ★
+                        </span>
+                      ))}
+                      <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">
+                        ({product.rating || 5}.0)
+                      </span>
+                    </div>
+
+                    {/* Price */}
+                    <div className="flex items-center justify-between pt-2">
+                      <div>
+                        <span className="text-2xl font-bold text-amber-600 dark:text-amber-400">
+                          {formatPrice(product.price)}
+                        </span>
+                        {product.sizes && product.sizes.length > 0 && (
+                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                            Có {product.sizes.length} kích cỡ
+                          </p>
+                        )}
+                      </div>
+                      <button className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white p-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300">
+                        <ShoppingCartIcon className="w-5 h-5" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* View All Products Button */}
+        <div className="text-center mt-12">
+          <a 
+            href="/products"
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+          >
+            <span>Xem tất cả sản phẩm</span>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // About Section Component
 export const AboutSection = () => {
   return (
