@@ -456,34 +456,34 @@ export const FeaturesSection = () => {
     <section className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-500">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 animate-fade-in-up transition-colors duration-300">
+          <h2 className="text-[10px] sm:text-xs lg:text-sm font-bold text-gray-800 dark:text-white mb-4 animate-fade-in-up transition-colors duration-300">
             Tại sao chọn Sơn Mộc Hương?
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-amber-800 to-orange-600 dark:from-amber-400 dark:to-orange-400 mx-auto rounded-full animate-fade-in-up" style={{ animationDelay: '0.2s' }}></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <div 
               key={index} 
               ref={setRef(index)}
-              className={`text-center p-6 rounded-2xl border border-transparent bg-white dark:bg-gray-800 transition-all duration-500 cursor-pointer group ${
+              className={`text-center p-4 sm:p-6 rounded-2xl border border-transparent bg-white dark:bg-gray-800 transition-all duration-500 cursor-pointer group ${
                 feature.bgColor
               } ${feature.borderColor} hover:shadow-xl dark:hover:shadow-amber-900/10 hover:transform hover:scale-105 hover:-translate-y-2 ${
                 visibleItems.has(index) ? 'animate-fade-in-up opacity-100' : 'opacity-0'
               }`}
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className="flex justify-center mb-6 transform transition-transform duration-300 group-hover:scale-110">
-                <div className="p-4 rounded-full bg-white dark:bg-gray-700 shadow-lg group-hover:shadow-xl dark:shadow-amber-900/20 transition-shadow duration-300">
+              <div className="flex justify-center mb-4 sm:mb-6 transform transition-transform duration-300 group-hover:scale-110">
+                <div className="p-3 sm:p-4 rounded-full bg-white dark:bg-gray-700 shadow-lg group-hover:shadow-xl dark:shadow-amber-900/20 transition-shadow duration-300">
                   {getFeatureIcon(feature.iconType)}
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4 group-hover:text-gray-900 dark:group-hover:text-amber-300 transition-colors">{feature.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">{feature.description}</p>
+              <h3 className="text-[10px] sm:text-xs lg:text-sm font-bold text-gray-800 dark:text-white mb-2 sm:mb-4 group-hover:text-gray-900 dark:group-hover:text-amber-300 transition-colors">{feature.title}</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-[8px] sm:text-[10px] lg:text-xs leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">{feature.description}</p>
               
               {/* Hover indicator */}
-              <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="mt-2 sm:mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="w-8 h-0.5 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-400 dark:to-orange-400 mx-auto rounded-full"></div>
               </div>
             </div>
