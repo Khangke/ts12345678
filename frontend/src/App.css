@@ -259,105 +259,81 @@ body {
     animation: scale-breath 4s ease-in-out infinite;
 }
 
-/* Modern Product Page Animations */
-@keyframes float-gentle {
-    0%, 100% { 
-        transform: translateY(0px) rotate(0deg); 
-    }
-    50% { 
-        transform: translateY(-10px) rotate(1deg); 
-    }
+/* PREMIUM GLASS MORPHISM EFFECTS */
+.glass-morphism-luxury {
+    backdrop-filter: blur(25px) saturate(180%) brightness(110%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%) brightness(110%);
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.15), 
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.1)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 8px 20px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-@keyframes glass-shimmer {
-    0% { 
-        background-position: -200% 0; 
-    }
-    100% { 
-        background-position: 200% 0; 
-    }
+.glass-morphism-premium {
+    backdrop-filter: blur(35px) saturate(200%) brightness(120%);
+    -webkit-backdrop-filter: blur(35px) saturate(200%) brightness(120%);
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.2), 
+        rgba(255, 255, 255, 0.08),
+        rgba(255, 255, 255, 0.15)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.5),
+        0 12px 30px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
-@keyframes pulse-glow {
-    0%, 100% { 
-        box-shadow: 0 0 20px rgba(251, 146, 60, 0.3); 
-    }
-    50% { 
-        box-shadow: 0 0 40px rgba(251, 146, 60, 0.6); 
-    }
+/* LUXURY HOVER STATES */
+.hover-lift-premium {
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@keyframes scale-bounce {
-    0% { 
-        transform: scale(1); 
-    }
-    50% { 
-        transform: scale(1.05); 
-    }
-    100% { 
-        transform: scale(1); 
-    }
+.hover-lift-premium:hover {
+    transform: translateY(-20px) scale(1.05) perspective(1000px) rotateX(8deg);
+    box-shadow: 
+        0 40px 100px rgba(0, 0, 0, 0.6),
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        0 0 60px rgba(251, 191, 36, 0.3);
 }
 
-@keyframes gradient-shift {
-    0% { 
-        background-position: 0% 50%; 
-    }
-    50% { 
-        background-position: 100% 50%; 
-    }
-    100% { 
-        background-position: 0% 50%; 
-    }
+.hover-glow-luxury {
+    transition: all 0.4s ease-out;
 }
 
-@keyframes fade-slide-up {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.hover-glow-luxury:hover {
+    box-shadow: 
+        0 0 30px rgba(251, 191, 36, 0.5),
+        0 0 60px rgba(251, 191, 36, 0.3),
+        0 0 90px rgba(251, 191, 36, 0.1);
 }
 
-/* Modern Glass Effects */
-.glass-morphism {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.glass-morphism-dark {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    background: rgba(17, 24, 39, 0.8);
-    border: 1px solid rgba(75, 85, 99, 0.3);
-}
-
-/* Modern Hover States */
-.hover-lift {
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.hover-lift:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-/* Text Gradient Effects */
-.text-gradient-orange {
-    background: linear-gradient(135deg, #f97316, #f59e0b);
+/* LUXURY TEXT EFFECTS */
+.text-gradient-premium {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706, #92400e);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-size: 200% 200%;
-    animation: gradient-shift 3s ease infinite;
+    background-size: 300% 300%;
+    animation: gradient-luxury 6s ease infinite;
+    font-weight: 700;
 }
 
-/* Custom Line Clamp */
+.text-glow-luxury {
+    text-shadow: 
+        0 0 10px rgba(251, 191, 36, 0.5),
+        0 0 20px rgba(251, 191, 36, 0.3),
+        0 0 30px rgba(251, 191, 36, 0.2);
+}
+
+/* PREMIUM LINE CLAMPS */
 .line-clamp-1 {
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -377,6 +353,133 @@ body {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+/* LUXURY BUTTON EFFECTS */
+.btn-luxury-hover {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-luxury-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-luxury-hover:hover::before {
+    left: 100%;
+}
+
+.btn-luxury-hover:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        0 5px 15px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(251, 191, 36, 0.4);
+}
+
+/* PREMIUM IMAGE OPTIMIZATIONS */
+.image-luxury {
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: brightness(1) contrast(1.1) saturate(1.1);
+}
+
+.image-luxury:hover {
+    transform: scale(1.08) perspective(1000px) rotateX(2deg);
+    filter: brightness(1.1) contrast(1.2) saturate(1.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* LUXURY SECTION SPACING */
+.section-luxury {
+    scroll-margin-top: 100px;
+    padding: 120px 0;
+}
+
+@media (max-width: 640px) {
+    .section-luxury {
+        padding: 80px 0;
+        scroll-margin-top: 80px;
+    }
+}
+
+/* PREMIUM LOADING STATES */
+.loading-luxury {
+    position: relative;
+    color: transparent;
+}
+
+.loading-luxury::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    border: 3px solid rgba(251, 191, 36, 0.3);
+    border-top-color: #fbbf24;
+    border-radius: 50%;
+    animation: spin-luxury 1s linear infinite;
+}
+
+/* LUXURY ANIMATIONS FOR PERFORMANCE */
+@media (prefers-reduced-motion: reduce) {
+    .animate-cinematic-entrance,
+    .animate-luxury-float,
+    .animate-premium-pulse,
+    .animate-gradient-luxury,
+    .animate-shimmer-premium,
+    .animate-text-glow,
+    .animate-particle-dance,
+    .animate-spin-luxury,
+    .animate-scale-breath {
+        animation: none !important;
+    }
+    
+    .hover-lift-premium:hover,
+    .hover-glow-luxury:hover,
+    .btn-luxury-hover:hover,
+    .image-luxury:hover {
+        transform: none !important;
+    }
+}
+
+/* MOBILE PERFORMANCE OPTIMIZATIONS */
+@media (max-width: 640px) {
+    .animate-luxury-float {
+        animation-duration: 10s;
+    }
+    
+    .animate-premium-pulse {
+        animation-duration: 4s;
+    }
+    
+    .hover-lift-premium:hover {
+        transform: translateY(-8px) scale(1.02);
+    }
+    
+    .image-luxury:hover {
+        transform: scale(1.04);
+    }
+    
+    .glass-morphism-luxury {
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+    
+    .glass-morphism-premium {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
 }
 
 /* Button Hover Effects */
