@@ -1,501 +1,245 @@
-import React, { useState } from 'react';
-import { ChevronDownIcon, CloseIcon } from '../Icons';
+import React, { useState, useMemo } from 'react';
+import { ChevronDownIcon, CloseIcon, SearchIcon, FilterIcon } from '../Icons';
 
 const NewsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedArticle, setSelectedArticle] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [showCategoryFilter, setShowCategoryFilter] = useState(false);
+  const [sortBy, setSortBy] = useState('latest');
 
   const categories = [
-    { id: 'all', name: 'Tất cả', color: 'amber' },
-    { id: 'guide', name: 'Hướng dẫn', color: 'blue' },
-    { id: 'health', name: 'Sức khỏe', color: 'green' },
-    { id: 'culture', name: 'Văn hóa', color: 'purple' },
-    { id: 'investment', name: 'Đầu tư', color: 'red' },
-    { id: 'lifestyle', name: 'Phong cách', color: 'pink' },
-    { id: 'technique', name: 'Kỹ thuật', color: 'indigo' },
-    { id: 'history', name: 'Lịch sử', color: 'gray' }
+    { id: 'all', name: 'Tất cả', color: 'amber', count: 0 },
+    { id: 'Kiến thức', name: 'Kiến thức', color: 'blue', count: 0 },
+    { id: 'Sức khỏe', name: 'Sức khỏe', color: 'green', count: 0 },
+    { id: 'Phong thủy', name: 'Phong thủy', color: 'purple', count: 0 },
+    { id: 'Sản phẩm', name: 'Sản phẩm', color: 'red', count: 0 },
+    { id: 'Kỹ thuật', name: 'Kỹ thuật', color: 'indigo', count: 0 },
+    { id: 'Văn hóa', name: 'Văn hóa', color: 'pink', count: 0 },
+    { id: 'Xu hướng', name: 'Xu hướng', color: 'orange', count: 0 },
+    { id: 'Đầu tư', name: 'Đầu tư', color: 'emerald', count: 0 }
   ];
 
-  const articles = [
-    {
-      id: 1,
-      title: 'Cách phân biệt trầm hương thật và giả',
-      excerpt: 'Hướng dẫn chi tiết các phương pháp nhận biết trầm hương chất lượng cao và tránh mua phải hàng giả.',
-      category: 'guide',
-      readTime: '5 phút đọc',
-      date: '15/12/2024',
-      image: 'https://images.unsplash.com/photo-1509726360306-3f44543aea4c',
-      content: 'Trầm hương là một trong những loại gỗ quý hiếm nhất thế giới...'
-    },
-    {
-      id: 2,
-      title: 'Công dụng của trầm hương đối với sức khỏe và tinh thần',
-      excerpt: 'Tìm hiểu về những lợi ích tuyệt vời của trầm hương trong việc thư giãn, giảm stress và cải thiện sức khỏe.',
-      category: 'health',
-      readTime: '7 phút đọc',
-      date: '12/12/2024',
-      image: 'https://images.unsplash.com/photo-1541795083-1b160cf4f3d7',
-      content: 'Trầm hương không chỉ được biết đến như một loại gỗ quý hiếm...'
-    },
-    {
-      id: 3,
-      title: 'Lịch sử và nguồn gốc của trầm hương Việt Nam',
-      excerpt: 'Khám phá lịch sử hàng nghìn năm của trầm hương tại Việt Nam và vị trí đặc biệt trong văn hóa dân tộc.',
-      category: 'history',
-      readTime: '8 phút đọc',
-      date: '10/12/2024',
-      image: 'https://images.pexels.com/photos/2297252/pexels-photo-2297252.jpeg',
-      content: 'Trầm hương Việt Nam có lịch sử phát triển lâu đời...'
-    },
-    {
-      id: 4,
-      title: 'Cách chọn vòng tay trầm hương phù hợp',
-      excerpt: 'Hướng dẫn lựa chọn vòng tay trầm hương phù hợp với tuổi tác, phong thủy và sở thích cá nhân.',
-      category: 'guide',
-      readTime: '6 phút đọc',
-      date: '08/12/2024',
-      image: 'https://images.unsplash.com/photo-1581669808238-7f73311e2031',
-      content: 'Vòng tay trầm hương không chỉ là trang sức mà còn mang ý nghĩa phong thủy...'
-    },
-    {
-      id: 5,
-      title: 'Kỹ thuật xông trầm hương đúng cách',
-      excerpt: 'Học cách xông trầm hương đúng kỹ thuật để tận hưởng hương thơm và công dụng tối đa.',
-      category: 'technique',
-      readTime: '5 phút đọc',
-      date: '05/12/2024',
-      image: 'https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg',
-      content: 'Xông trầm hương là một nghệ thuật tinh tế đòi hỏi kỹ thuật...'
-    },
-    {
-      id: 6,
-      title: 'Trầm hương trong văn hóa Phật giáo',
-      excerpt: 'Vai trò thiêng liêng của trầm hương trong các nghi lễ Phật giáo và ý nghĩa tâm linh.',
-      category: 'culture',
-      readTime: '9 phút đọc',
-      date: '03/12/2024',
-      image: 'https://images.pexels.com/photos/8484055/pexels-photo-8484055.jpeg',
-      content: 'Trong Phật giáo, trầm hương được coi là một trong những...'
-    },
-    {
-      id: 7,
-      title: 'Đầu tư trầm hương: Cơ hội và rủi ro',
-      excerpt: 'Phân tích thị trường đầu tư trầm hương, tiềm năng sinh lời và những rủi ro cần lưu ý.',
-      category: 'investment',
-      readTime: '10 phút đọc',
-      date: '01/12/2024',
-      image: 'https://images.unsplash.com/photo-1742474561321-10e657e125f4',
-      content: 'Trầm hương đã trở thành một kênh đầu tư hấp dẫn...'
-    },
-    {
-      id: 8,
-      title: 'Cách bảo quản trầm hương để giữ hương thơm',
-      excerpt: 'Những mẹo hay để bảo quản trầm hương luôn giữ được hương thơm và chất lượng theo thời gian.',
-      category: 'guide',
-      readTime: '4 phút đọc',
-      date: '28/11/2024',
-      image: 'https://images.unsplash.com/photo-1509726360306-3f44543aea4c',
-      content: 'Bảo quản trầm hương đúng cách là yếu tố quan trọng...'
-    },
-    {
-      id: 9,
-      title: 'Phong thủy và trầm hương trong nhà ở',
-      excerpt: 'Cách bố trí và sử dụng trầm hương trong nhà để tạo không gian tích cực và may mắn.',
-      category: 'culture',
-      readTime: '7 phút đọc',
-      date: '25/11/2024',
-      image: 'https://images.unsplash.com/photo-1541795083-1b160cf4f3d7',
-      content: 'Theo phong thủy, trầm hương có tác dụng thanh tẩy...'
-    },
-    {
-      id: 10,
-      title: 'Trầm hương và thiền định',
-      excerpt: 'Tác dụng của trầm hương trong thiền định và cách sử dụng để nâng cao hiệu quả tĩnh tâm.',
-      category: 'health',
-      readTime: '6 phút đọc',
-      date: '22/11/2024',
-      image: 'https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg',
-      content: 'Thiền định với trầm hương là phương pháp đã được áp dụng...'
-    },
-    {
-      id: 11,
-      title: 'Các vùng trầm hương nổi tiếng Việt Nam',
-      excerpt: 'Tìm hiểu về các vùng đất nổi tiếng sản xuất trầm hương chất lượng cao tại Việt Nam.',
-      category: 'culture',
-      readTime: '8 phút đọc',
-      date: '20/11/2024',
-      image: 'https://images.pexels.com/photos/2297252/pexels-photo-2297252.jpeg',
-      content: 'Việt Nam có nhiều vùng đất nổi tiếng về trầm hương...'
-    },
-    {
-      id: 12,
-      title: 'Làm nhang từ trầm hương tại nhà',
-      excerpt: 'Hướng dẫn chi tiết cách làm nhang trầm hương tự nhiên tại nhà một cách đơn giản.',
-      category: 'technique',
-      readTime: '12 phút đọc',
-      date: '18/11/2024',
-      image: 'https://images.pexels.com/photos/8484055/pexels-photo-8484055.jpeg',
-      content: 'Làm nhang trầm hương tại nhà không quá phức tạp...'
-    },
-    {
-      id: 13,
-      title: 'Trầm hương trong y học cổ truyền',
-      excerpt: 'Vai trò của trầm hương trong y học cổ truyền Việt Nam và các bài thuốc truyền thống.',
-      category: 'health',
-      readTime: '9 phút đọc',
-      date: '15/11/2024',
-      image: 'https://images.unsplash.com/photo-1581669808238-7f73311e2031',
-      content: 'Y học cổ truyền Việt Nam đã sử dụng trầm hương...'
-    },
-    {
-      id: 14,
-      title: 'Xu hướng sử dụng trầm hương hiện đại',
-      excerpt: 'Những xu hướng mới trong việc sử dụng trầm hương trong đời sống hiện đại và spa.',
-      category: 'lifestyle',
-      readTime: '5 phút đọc',
-      date: '12/11/2024',
-      image: 'https://images.unsplash.com/photo-1742474561321-10e657e125f4',
-      content: 'Trầm hương ngày nay không chỉ được sử dụng truyền thống...'
-    },
-    {
-      id: 15,
-      title: 'Cách chế biến tinh dầu trầm hương',
-      excerpt: 'Quy trình chế biến tinh dầu trầm hương và những lợi ích tuyệt vời của sản phẩm này.',
-      category: 'technique',
-      readTime: '8 phút đọc',
-      date: '10/11/2024',
-      image: 'https://images.unsplash.com/photo-1509726360306-3f44543aea4c',
-      content: 'Tinh dầu trầm hương là sản phẩm quý giá được chưng cất...'
-    },
-    {
-      id: 16,
-      title: 'Giá trị kinh tế của trầm hương Việt Nam',
-      excerpt: 'Phân tích giá trị kinh tế và tiềm năng xuất khẩu của ngành trầm hương Việt Nam.',
-      category: 'investment',
-      readTime: '11 phút đọc',
-      date: '08/11/2024',
-      image: 'https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg',
-      content: 'Ngành trầm hương Việt Nam đang có những bước phát triển...'
-    },
-    {
-      id: 17,
-      title: 'Trầm hương và tâm linh học',
-      excerpt: 'Khám phá mối liên hệ giữa trầm hương và các hoạt động tâm linh, năng lượng.',
-      category: 'culture',
-      readTime: '7 phút đọc',
-      date: '05/11/2024',
-      image: 'https://images.pexels.com/photos/8484055/pexels-photo-8484055.jpeg',
-      content: 'Trong tâm linh học, trầm hương được cho là có khả năng...'
-    },
-    {
-      id: 18,
-      title: 'Cách sử dụng vòng tay trầm hương đúng cách',
-      excerpt: 'Hướng dẫn đeo và chăm sóc vòng tay trầm hương để mang lại may mắn và sức khỏe.',
-      category: 'guide',
-      readTime: '6 phút đọc',
-      date: '03/11/2024',
-      image: 'https://images.unsplash.com/photo-1581669808238-7f73311e2031',
-      content: 'Vòng tay trầm hương cần được sử dụng đúng cách...'
-    },
-    {
-      id: 19,
-      title: 'Trầm hương trong ẩm thực và trà đạo',
-      excerpt: 'Ứng dụng độc đáo của trầm hương trong ẩm thực và nghệ thuật pha trà Việt Nam.',
-      category: 'lifestyle',
-      readTime: '8 phút đọc',
-      date: '01/11/2024',
-      image: 'https://images.pexels.com/photos/2297252/pexels-photo-2297252.jpeg',
-      content: 'Trầm hương không chỉ dùng để xông mà còn có thể...'
-    },
-    {
-      id: 20,
-      title: 'Bí quyết nhận biết trầm hương chìm nước',
-      excerpt: 'Những đặc điểm và cách nhận biết trầm hương chìm nước - loại trầm hương quý nhất.',
-      category: 'guide',
-      readTime: '9 phút đọc',
-      date: '28/10/2024',
-      image: 'https://images.unsplash.com/photo-1742474561321-10e657e125f4',
-      content: 'Trầm hương chìm nước là loại trầm hương có chất lượng...'
-    },
-    {
-      id: 21,
-      title: 'Trầm hương trong kiến trúc cổ Việt Nam',
-      excerpt: 'Vai trò của trầm hương trong kiến trúc và trang trí các công trình cổ tại Việt Nam.',
-      category: 'history',
-      readTime: '10 phút đọc',
-      date: '25/10/2024',
-      image: 'https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg',
-      content: 'Trong kiến trúc cổ Việt Nam, trầm hương được sử dụng...'
-    },
-    {
-      id: 22,
-      title: 'Cách tăng giá trị trầm hương theo thời gian',
-      excerpt: 'Những phương pháp để tăng giá trị và chất lượng trầm hương qua thời gian.',
-      category: 'investment',
-      readTime: '7 phút đọc',
-      date: '22/10/2024',
-      image: 'https://images.unsplash.com/photo-1509726360306-3f44543aea4c',
-      content: 'Trầm hương có thể tăng giá trị theo thời gian nếu...'
-    },
-    {
-      id: 23,
-      title: 'Trầm hương và môi trường sống',
-      excerpt: 'Tác động tích cực của trầm hương đến môi trường sống và chất lượng không khí.',
-      category: 'health',
-      readTime: '6 phút đọc',
-      date: '20/10/2024',
-      image: 'https://images.pexels.com/photos/8484055/pexels-photo-8484055.jpeg',
-      content: 'Trầm hương có tác dụng tích cực đến môi trường sống...'
-    },
-    {
-      id: 24,
-      title: 'Nghệ thuật chạm khắc trên gỗ trầm hương',
-      excerpt: 'Khám phá nghệ thuật chạm khắc tinh xảo trên gỗ trầm hương và các tác phẩm nghệ thuật.',
-      category: 'culture',
-      readTime: '8 phút đọc',
-      date: '18/10/2024',
-      image: 'https://images.unsplash.com/photo-1541795083-1b160cf4f3d7',
-      content: 'Nghệ thuật chạm khắc trên gỗ trầm hương là một lĩnh vực...'
-    },
-    {
-      id: 25,
-      title: 'Trầm hương trong các lễ hội truyền thống',
-      excerpt: 'Vai trò của trầm hương trong các lễ hội và nghi lễ truyền thống Việt Nam.',
-      category: 'culture',
-      readTime: '9 phút đọc',
-      date: '15/10/2024',
-      image: 'https://images.pexels.com/photos/2297252/pexels-photo-2297252.jpeg',
-      content: 'Trong các lễ hội truyền thống Việt Nam, trầm hương...'
-    },
-    {
-      id: 26,
-      title: 'Kỹ thuật trồng cây trầm hương',
-      excerpt: 'Hướng dẫn kỹ thuật trồng và chăm sóc cây trầm hương từ gieo hạt đến thu hoạch.',
-      category: 'technique',
-      readTime: '15 phút đọc',
-      date: '12/10/2024',
-      image: 'https://images.unsplash.com/photo-1581669808238-7f73311e2031',
-      content: 'Trồng cây trầm hương đòi hỏi kỹ thuật và kiên nhẫn...'
-    },
-    {
-      id: 27,
-      title: 'Trầm hương trong trang sức hiện đại',
-      excerpt: 'Xu hướng sử dụng trầm hương trong thiết kế trang sức hiện đại và thời trang.',
-      category: 'lifestyle',
-      readTime: '5 phút đọc',
-      date: '10/10/2024',
-      image: 'https://images.unsplash.com/photo-1742474561321-10e657e125f4',
-      content: 'Trầm hương ngày càng được ưa chuộng trong ngành trang sức...'
-    },
-    {
-      id: 28,
-      title: 'Bí mật về hương thơm của trầm hương',
-      excerpt: 'Khám phá bí mật tạo nên hương thơm đặc trưng và cuốn hút của trầm hương.',
-      category: 'technique',
-      readTime: '7 phút đọc',
-      date: '08/10/2024',
-      image: 'https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg',
-      content: 'Hương thơm của trầm hương được tạo ra từ quá trình...'
-    },
-    {
-      id: 29,
-      title: 'Trầm hương và phong thủy văn phòng',
-      excerpt: 'Cách bố trí trầm hương trong văn phòng để tăng vận may và tập trung làm việc.',
-      category: 'culture',
-      readTime: '6 phút đọc',
-      date: '05/10/2024',
-      image: 'https://images.pexels.com/photos/8484055/pexels-photo-8484055.jpeg',
-      content: 'Sử dụng trầm hương trong văn phòng có thể mang lại...'
-    },
-    {
-      id: 30,
-      title: 'Cách làm sạch và bảo dưỡng đồ trầm hương',
-      excerpt: 'Hướng dẫn chi tiết cách làm sạch và bảo dưỡng các sản phẩm từ trầm hương.',
-      category: 'guide',
-      readTime: '5 phút đọc',
-      date: '03/10/2024',
-      image: 'https://images.unsplash.com/photo-1509726360306-3f44543aea4c',
-      content: 'Việc làm sạch và bảo dưỡng đồ trầm hương đúng cách...'
-    },
-    {
-      id: 31,
-      title: 'Trầm hương trong điều trị bệnh',
-      excerpt: 'Ứng dụng của trầm hương trong điều trị một số bệnh lý theo y học cổ truyền.',
-      category: 'health',
-      readTime: '10 phút đọc',
-      date: '01/10/2024',
-      image: 'https://images.unsplash.com/photo-1581669808238-7f73311e2031',
-      content: 'Theo y học cổ truyền, trầm hương có thể hỗ trợ điều trị...'
-    },
-    {
-      id: 32,
-      title: 'Thị trường trầm hương quốc tế',
-      excerpt: 'Phân tích thị trường trầm hương thế giới và vị thế của Việt Nam.',
-      category: 'investment',
-      readTime: '12 phút đọc',
-      date: '28/09/2024',
-      image: 'https://images.unsplash.com/photo-1742474561321-10e657e125f4',
-      content: 'Thị trường trầm hương quốc tế đang có những biến động...'
-    },
-    {
-      id: 33,
-      title: 'Trầm hương và ngũ hành phong thủy',
-      excerpt: 'Mối quan hệ giữa trầm hương và ngũ hành trong phong thủy Việt Nam.',
-      category: 'culture',
-      readTime: '8 phút đọc',
-      date: '25/09/2024',
-      image: 'https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg',
-      content: 'Trong ngũ hành phong thủy, trầm hương thuộc hành Thổ...'
-    },
-    {
-      id: 34,
-      title: 'Công nghệ bảo quản trầm hương hiện đại',
-      excerpt: 'Những công nghệ tiên tiến trong bảo quản và duy trì chất lượng trầm hương.',
-      category: 'technique',
-      readTime: '7 phút đọc',
-      date: '22/09/2024',
-      image: 'https://images.pexels.com/photos/8484055/pexels-photo-8484055.jpeg',
-      content: 'Công nghệ hiện đại đã mang lại những phương pháp...'
-    },
-    {
-      id: 35,
-      title: 'Trầm hương trong spa và massage',
-      excerpt: 'Ứng dụng của trầm hương trong ngành spa và massage để thư giãn, chữa lành.',
-      category: 'lifestyle',
-      readTime: '6 phút đọc',
-      date: '20/09/2024',
-      image: 'https://images.pexels.com/photos/2297252/pexels-photo-2297252.jpeg',
-      content: 'Các spa và trung tâm massage ngày càng sử dụng...'
-    },
-    {
-      id: 36,
-      title: 'Những câu chuyện huyền thoại về trầm hương',
-      excerpt: 'Khám phá những câu chuyện huyền thoại và truyền thuyết về trầm hương Việt Nam.',
-      category: 'history',
-      readTime: '11 phút đọc',
-      date: '18/09/2024',
-      image: 'https://images.unsplash.com/photo-1541795083-1b160cf4f3d7',
-      content: 'Trong văn hóa dân gian Việt Nam có nhiều câu chuyện...'
-    },
-    {
-      id: 37,
-      title: 'Cách chọn mua trầm hương chất lượng',
-      excerpt: 'Bí quyết chọn mua trầm hương chất lượng cao với giá hợp lý từ chuyên gia.',
-      category: 'guide',
-      readTime: '9 phút đọc',
-      date: '15/09/2024',
-      image: 'https://images.unsplash.com/photo-1581669808238-7f73311e2031',
-      content: 'Để chọn mua được trầm hương chất lượng, bạn cần...'
-    },
-    {
-      id: 38,
-      title: 'Trầm hương và âm nhạc thiền',
-      excerpt: 'Sự kết hợp hoàn hảo giữa trầm hương và âm nhạc thiền trong thực hành tâm linh.',
-      category: 'health',
-      readTime: '6 phút đọc',
-      date: '12/09/2024',
-      image: 'https://images.unsplash.com/photo-1742474561321-10e657e125f4',
-      content: 'Âm nhạc thiền kết hợp với hương trầm tạo nên...'
-    },
-    {
-      id: 39,
-      title: 'Xu hướng trầm hương trong thiết kế nội thất',
-      excerpt: 'Cách tích hợp trầm hương vào thiết kế nội thất hiện đại một cách tinh tế.',
-      category: 'lifestyle',
-      readTime: '8 phút đọc',
-      date: '10/09/2024',
-      image: 'https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg',
-      content: 'Thiết kế nội thất hiện đại ngày càng chú trọng...'
-    },
-    {
-      id: 40,
-      title: 'Tương lai của ngành trầm hương Việt Nam',
-      excerpt: 'Dự báo và định hướng phát triển của ngành trầm hương Việt Nam trong tương lai.',
-      category: 'investment',
-      readTime: '13 phút đọc',
-      date: '08/09/2024',
-      image: 'https://images.pexels.com/photos/8484055/pexels-photo-8484055.jpeg',
-      content: 'Ngành trầm hương Việt Nam đang đứng trước những cơ hội...'
+  // Import dữ liệu từ newsData
+  const { newsData } = require('../data/newsData');
+  const articles = newsData || [];
+
+  // Update category counts
+  const categoriesWithCount = useMemo(() => {
+    const counts = {};
+    articles.forEach(article => {
+      counts[article.category] = (counts[article.category] || 0) + 1;
+    });
+    
+    return categories.map(cat => ({
+      ...cat,
+      count: cat.id === 'all' ? articles.length : (counts[cat.id] || 0)
+    }));
+  }, [articles]);
+
+  // Filter và search articles
+  const filteredArticles = useMemo(() => {
+    let filtered = articles;
+    
+    // Filter by category
+    if (selectedCategory !== 'all') {
+      filtered = filtered.filter(article => article.category === selectedCategory);
     }
-  ];
-
-  const filteredArticles = selectedCategory === 'all' 
-    ? articles 
-    : articles.filter(article => article.category === selectedCategory);
+    
+    // Search filter
+    if (searchTerm) {
+      filtered = filtered.filter(article =>
+        article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        article.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        article.author?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (article.tags && article.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())))
+      );
+    }
+    
+    // Sort articles
+    switch (sortBy) {
+      case 'latest':
+        filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+        break;
+      case 'oldest':
+        filtered.sort((a, b) => new Date(a.date) - new Date(b.date));
+        break;
+      case 'popular':
+        filtered.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+        break;
+      case 'readTime':
+        filtered.sort((a, b) => {
+          const aTime = parseInt(a.readTime) || 0;
+          const bTime = parseInt(b.readTime) || 0;
+          return aTime - bTime;
+        });
+        break;
+      default:
+        break;
+    }
+    
+    return filtered;
+  }, [articles, selectedCategory, searchTerm, sortBy]);
 
   const getCategoryColor = (color) => {
     const colors = {
-      amber: 'bg-amber-100 text-amber-800 border-amber-200',
-      blue: 'bg-blue-100 text-blue-800 border-blue-200',
-      green: 'bg-green-100 text-green-800 border-green-200',
-      purple: 'bg-purple-100 text-purple-800 border-purple-200',
-      red: 'bg-red-100 text-red-800 border-red-200',
-      pink: 'bg-pink-100 text-pink-800 border-pink-200',
-      indigo: 'bg-indigo-100 text-indigo-800 border-indigo-200',
-      gray: 'bg-gray-100 text-gray-800 border-gray-200'
+      amber: 'bg-amber-100 text-amber-800 border-amber-200 dark:bg-amber-900/30 dark:text-amber-300 dark:border-amber-700',
+      blue: 'bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-700',
+      green: 'bg-green-100 text-green-800 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-700',
+      purple: 'bg-purple-100 text-purple-800 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-700',
+      red: 'bg-red-100 text-red-800 border-red-200 dark:bg-red-900/30 dark:text-red-300 dark:border-red-700',
+      pink: 'bg-pink-100 text-pink-800 border-pink-200 dark:bg-pink-900/30 dark:text-pink-300 dark:border-pink-700',
+      indigo: 'bg-indigo-100 text-indigo-800 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-700',
+      orange: 'bg-orange-100 text-orange-800 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-700',
+      emerald: 'bg-emerald-100 text-emerald-800 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-300 dark:border-emerald-700'
     };
     return colors[color] || colors.amber;
+  };
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('vi-VN', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  const clearSearch = () => {
+    setSearchTerm('');
   };
 
   if (selectedArticle) {
     return (
       <div className="bg-white dark:bg-gray-900 transition-colors duration-500">
         <div className="pt-16 lg:pt-20">
-          {/* Article Detail View - Mobile Optimized */}
-          <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-            <div className="container mx-auto px-3 lg:px-4 py-4 lg:py-8">
-              {/* Compact Header */}
-              <div className="flex items-center justify-between mb-4 lg:mb-6">
+          {/* Article Detail View - Ultra Premium Design */}
+          <div className="min-h-screen relative overflow-hidden">
+            {/* Luxury Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+              <div className="absolute inset-0 bg-gradient-to-tr from-amber-900/10 via-transparent to-orange-900/10"></div>
+              {/* Floating orbs */}
+              <div className="absolute top-20 left-10 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl animate-pulse"></div>
+              <div className="absolute bottom-20 right-10 w-40 h-40 bg-orange-400/8 rounded-full blur-3xl animate-pulse delay-1000"></div>
+            </div>
+
+            <div className="relative z-10 container mx-auto px-3 lg:px-6 py-6 lg:py-12">
+              {/* Premium Header Bar */}
+              <div className="flex items-center justify-between mb-6 lg:mb-8">
                 <button
                   onClick={() => setSelectedArticle(null)}
-                  className="flex items-center space-x-2 text-amber-600 hover:text-amber-700 transition-colors bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-2 rounded-full shadow-sm"
+                  className="group flex items-center space-x-3 bg-white/10 dark:bg-gray-800/30 backdrop-blur-xl border border-white/20 dark:border-gray-700/30 px-4 py-3 rounded-2xl hover:bg-white/20 dark:hover:bg-gray-700/40 transition-all duration-300"
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-white group-hover:text-amber-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
-                  <span className="text-sm font-medium">Quay lại</span>
+                  <span className="text-white font-medium group-hover:text-amber-300 transition-colors">Quay lại</span>
                 </button>
                 
-                <div className="flex items-center space-x-1 text-xs text-gray-500 dark:text-gray-400">
-                  <span>{selectedArticle.readTime}</span>
-                  <span>•</span>
-                  <span>{selectedArticle.date}</span>
+                {/* Article Meta */}
+                <div className="flex items-center space-x-4 text-gray-300">
+                  <div className="flex items-center space-x-2">
+                    <svg className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-sm">{selectedArticle.readTime}</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <svg className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-sm">{formatDate(selectedArticle.date)}</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Article Content - Mobile First */}
-              <article className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
-                {/* Compact Featured Image */}
-                <div className="relative h-48 lg:h-64 overflow-hidden">
+              {/* Premium Article Content */}
+              <article className="max-w-4xl mx-auto">
+                {/* Hero Image */}
+                <div className="relative h-64 lg:h-96 rounded-3xl overflow-hidden mb-8 lg:mb-12">
                   <img 
                     src={selectedArticle.image}
                     alt={selectedArticle.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   
                   {/* Category Badge */}
-                  <div className="absolute top-3 left-3">
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium border ${getCategoryColor(categories.find(c => c.id === selectedArticle.category)?.color)}`}>
-                      {categories.find(c => c.id === selectedArticle.category)?.name}
+                  <div className="absolute top-6 left-6">
+                    <span className={`px-4 py-2 rounded-2xl text-sm font-semibold border backdrop-blur-sm ${getCategoryColor(categoriesWithCount.find(c => c.name === selectedArticle.category)?.color)}`}>
+                      {selectedArticle.category}
                     </span>
                   </div>
+
+                  {/* Featured Badge */}
+                  {selectedArticle.featured && (
+                    <div className="absolute top-6 right-6">
+                      <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-2xl text-sm font-bold backdrop-blur-sm border border-white/20">
+                        ⭐ Nổi bật
+                      </span>
+                    </div>
+                  )}
                 </div>
 
-                {/* Compact Content */}
-                <div className="p-4 lg:p-8">
-                  <h1 className="text-xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-3 lg:mb-4 leading-tight">
+                {/* Content Section */}
+                <div className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl rounded-3xl border border-white/20 dark:border-gray-700/20 p-6 lg:p-12">
+                  {/* Title */}
+                  <h1 className="text-2xl lg:text-4xl xl:text-5xl font-black text-gray-900 dark:text-white mb-6 lg:mb-8 leading-tight">
                     {selectedArticle.title}
                   </h1>
                   
-                  <p className="text-sm lg:text-lg text-gray-600 dark:text-gray-300 mb-4 lg:mb-6 italic">
+                  {/* Author and Meta */}
+                  <div className="flex flex-wrap items-center gap-4 lg:gap-6 mb-8 lg:mb-12 pb-6 lg:pb-8 border-b border-gray-200/50 dark:border-gray-700/50">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
+                        <span className="text-white font-bold text-lg">{selectedArticle.author?.charAt(0) || 'A'}</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-white">{selectedArticle.author}</p>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Chuyên gia</p>
+                      </div>
+                    </div>
+                    
+                    {/* Tags */}
+                    {selectedArticle.tags && (
+                      <div className="flex flex-wrap gap-2">
+                        {selectedArticle.tags.slice(0, 3).map((tag, index) => (
+                          <span key={index} className="bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 px-3 py-1 rounded-full text-xs font-medium">
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Excerpt */}
+                  <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 mb-8 lg:mb-12 italic font-medium leading-relaxed bg-amber-50/50 dark:bg-amber-900/10 p-6 rounded-2xl border-l-4 border-amber-500">
                     {selectedArticle.excerpt}
                   </p>
                   
-                  <div className="prose prose-sm lg:prose-lg max-w-none dark:prose-invert prose-amber">
-                    <p className="text-sm lg:text-base leading-relaxed text-gray-700 dark:text-gray-300">
-                      {selectedArticle.content}
-                    </p>
+                  {/* Content */}
+                  <div 
+                    className="prose prose-lg lg:prose-xl max-w-none dark:prose-invert prose-amber prose-headings:text-gray-900 dark:prose-headings:text-white prose-a:text-amber-600 dark:prose-a:text-amber-400"
+                    dangerouslySetInnerHTML={{ __html: selectedArticle.content }}
+                  />
+
+                  {/* Bottom Meta */}
+                  <div className="mt-12 pt-8 border-t border-gray-200/50 dark:border-gray-700/50">
+                    <div className="flex items-center justify-between">
+                      <div className="text-sm text-gray-600 dark:text-gray-400">
+                        Cập nhật: {formatDate(selectedArticle.date)}
+                      </div>
+                      {selectedArticle.sourceUrl && (
+                        <a 
+                          href={selectedArticle.sourceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-medium"
+                        >
+                          Xem nguồn →
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </article>
@@ -509,121 +253,282 @@ const NewsPage = () => {
   return (
     <div className="bg-white dark:bg-gray-900 transition-colors duration-500">
       <div className="pt-16 lg:pt-20">
-        {/* Mobile Optimized News Page */}
-        <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-          <div className="container mx-auto px-3 lg:px-4 py-4 lg:py-12">
-            {/* Compact Header */}
-            <div className="text-center mb-6 lg:mb-12">
-              <h1 className="text-2xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-2 lg:mb-4">
-                Tin tức về trầm hương
+        {/* Ultra Premium News Page */}
+        <div className="min-h-screen relative overflow-hidden">
+          {/* Luxury Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+            <div className="absolute inset-0 bg-gradient-to-tr from-amber-900/10 via-transparent to-orange-900/10"></div>
+            {/* Animated particles */}
+            <div className="absolute top-20 left-10 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl animate-pulse"></div>
+            <div className="absolute top-40 right-20 w-24 h-24 bg-orange-400/8 rounded-full blur-xl animate-pulse delay-1000"></div>
+            <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-amber-300/6 rounded-full blur-3xl animate-pulse delay-2000"></div>
+          </div>
+
+          <div className="relative z-10 container mx-auto px-2 lg:px-6 py-6 lg:py-12">
+            {/* Premium Header */}
+            <div className="text-center mb-8 lg:mb-16">
+              {/* Badge */}
+              <div className="inline-flex items-center space-x-2 bg-white/10 dark:bg-gray-800/30 backdrop-blur-xl border border-white/20 dark:border-gray-700/30 px-6 py-3 rounded-2xl mb-6">
+                <div className="w-2 h-2 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-pulse"></div>
+                <span className="text-white font-semibold text-sm tracking-wide">TIN TỨC TRẦM HƯƠNG</span>
+              </div>
+
+              <h1 className="text-3xl lg:text-6xl xl:text-7xl font-black text-white mb-6 lg:mb-8">
+                Khám phá thế giới{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-300">
+                  trầm hương
+                </span>
               </h1>
-              <div className="w-16 lg:w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-600 mx-auto rounded-full mb-2 lg:mb-4"></div>
-              <p className="text-sm lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-2">
-                Cập nhật những thông tin mới nhất về trầm hương với 40 bài viết chuyên sâu
+              
+              <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
+                Cập nhật những thông tin mới nhất về trầm hương với{' '}
+                <span className="text-amber-400 font-semibold">{articles.length} bài viết</span> chuyên sâu
+                <br className="hidden lg:block" />
+                từ các chuyên gia hàng đầu
               </p>
             </div>
 
-            {/* Compact Category Filter */}
-            <div className="flex flex-wrap gap-2 mb-6 lg:mb-8 justify-center">
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={`px-3 py-1.5 lg:px-4 lg:py-2 rounded-full text-xs lg:text-sm font-medium transition-all duration-300 border ${
-                    selectedCategory === category.id
-                      ? `${getCategoryColor(category.color)} shadow-md scale-105`
-                      : 'bg-white/80 dark:bg-gray-800/80 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-700 hover:shadow-md backdrop-blur-sm'
-                  }`}
-                >
-                  {category.name}
-                </button>
-              ))}
+            {/* Premium Search & Filter Bar */}
+            <div className="mb-8 lg:mb-12">
+              <div className="max-w-4xl mx-auto">
+                {/* Search Bar */}
+                <div className="relative mb-6">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <SearchIcon className="h-5 w-5 text-gray-400" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm bài viết, tác giả, chủ đề..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full pl-12 pr-12 py-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border border-white/20 dark:border-gray-700/30 rounded-2xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50 transition-all duration-300"
+                  />
+                  {searchTerm && (
+                    <button
+                      onClick={clearSearch}
+                      className="absolute inset-y-0 right-0 pr-4 flex items-center"
+                    >
+                      <CloseIcon className="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" />
+                    </button>
+                  )}
+                </div>
+
+                {/* Filter & Sort Controls */}
+                <div className="flex flex-col lg:flex-row gap-4 lg:items-center lg:justify-between">
+                  {/* Category Filter */}
+                  <div className="relative">
+                    <button
+                      onClick={() => setShowCategoryFilter(!showCategoryFilter)}
+                      className="flex items-center space-x-2 bg-white/10 dark:bg-gray-800/30 backdrop-blur-xl border border-white/20 dark:border-gray-700/30 px-4 py-3 rounded-xl text-white hover:bg-white/20 dark:hover:bg-gray-700/40 transition-all duration-300"
+                    >
+                      <FilterIcon className="w-4 h-4" />
+                      <span className="text-sm font-medium">
+                        {categoriesWithCount.find(c => c.id === selectedCategory)?.name} 
+                        {selectedCategory !== 'all' && ` (${filteredArticles.length})`}
+                      </span>
+                      <ChevronDownIcon className={`w-4 h-4 transition-transform duration-200 ${showCategoryFilter ? 'rotate-180' : ''}`} />
+                    </button>
+
+                    {/* Category Dropdown */}
+                    {showCategoryFilter && (
+                      <div className="absolute top-full left-0 mt-2 w-64 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border border-white/20 dark:border-gray-700/30 rounded-2xl shadow-2xl z-20 overflow-hidden">
+                        <div className="p-2">
+                          {categoriesWithCount.map((category) => (
+                            <button
+                              key={category.id}
+                              onClick={() => {
+                                setSelectedCategory(category.id);
+                                setShowCategoryFilter(false);
+                              }}
+                              className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-left transition-all duration-200 ${
+                                selectedCategory === category.id
+                                  ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300'
+                                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50'
+                              }`}
+                            >
+                              <span className="font-medium">{category.name}</span>
+                              <span className="text-sm bg-gray-200 dark:bg-gray-600 px-2 py-1 rounded-full">
+                                {category.count}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Sort Options */}
+                  <div className="flex items-center space-x-3">
+                    <span className="text-sm text-gray-300 font-medium">Sắp xếp:</span>
+                    <select
+                      value={sortBy}
+                      onChange={(e) => setSortBy(e.target.value)}
+                      className="bg-white/10 dark:bg-gray-800/30 backdrop-blur-xl border border-white/20 dark:border-gray-700/30 text-white rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                    >
+                      <option value="latest" className="bg-gray-800 text-white">Mới nhất</option>
+                      <option value="oldest" className="bg-gray-800 text-white">Cũ nhất</option>
+                      <option value="popular" className="bg-gray-800 text-white">Nổi bật</option>
+                      <option value="readTime" className="bg-gray-800 text-white">Thời gian đọc</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Articles Count */}
-            <div className="text-center mb-4 lg:mb-6">
-              <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400">
-                Hiển thị <span className="font-semibold text-amber-800 dark:text-amber-400">{filteredArticles.length}</span> bài viết
+            {/* Results Counter */}
+            <div className="text-center mb-6 lg:mb-8">
+              <p className="text-gray-300">
+                Hiển thị <span className="font-bold text-amber-400">{filteredArticles.length}</span> bài viết
                 {selectedCategory !== 'all' && (
-                  <span> trong danh mục "<span className="font-semibold text-amber-800 dark:text-amber-400">{categories.find(c => c.id === selectedCategory)?.name}</span>"</span>
+                  <span> trong danh mục "<span className="font-semibold text-amber-400">{categoriesWithCount.find(c => c.id === selectedCategory)?.name}</span>"</span>
+                )}
+                {searchTerm && (
+                  <span> cho "<span className="font-semibold text-amber-400">{searchTerm}</span>"</span>
                 )}
               </p>
             </div>
 
-            {/* Compact Articles Grid - Mobile First */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-              {filteredArticles.map((article, index) => (
-                <article 
-                  key={article.id}
-                  className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group overflow-hidden border border-white/20 dark:border-gray-700/20"
-                  onClick={() => setSelectedArticle(article)}
-                >
-                  {/* Compact Image */}
-                  <div className="relative h-40 lg:h-48 overflow-hidden">
-                    <img 
-                      src={article.image}
-                      alt={article.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                    
-                    {/* Category Badge */}
-                    <div className="absolute top-2 left-2">
-                      <span className={`px-2 py-1 rounded-lg text-xs font-medium border backdrop-blur-sm ${getCategoryColor(categories.find(c => c.id === article.category)?.color)}`}>
-                        {categories.find(c => c.id === article.category)?.name}
-                      </span>
-                    </div>
-                    
-                    {/* Read Time */}
-                    <div className="absolute bottom-2 right-2">
-                      <span className="bg-black/50 text-white px-2 py-1 rounded-lg text-xs backdrop-blur-sm">
-                        {article.readTime}
-                      </span>
-                    </div>
+            {/* Premium Articles Grid */}
+            {filteredArticles.length === 0 ? (
+              /* Enhanced Empty State */
+              <div className="text-center py-16 lg:py-24">
+                <div className="mb-8">
+                  <div className="relative mx-auto w-24 h-24 lg:w-32 lg:h-32">
+                    <svg className="w-full h-full text-gray-500 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.291.94-5.709 2.291M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div className="absolute -top-3 -right-3 w-6 h-6 bg-amber-400 rounded-full animate-bounce opacity-60"></div>
                   </div>
-
-                  {/* Compact Content */}
-                  <div className="p-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs text-gray-500 dark:text-gray-400">{article.date}</span>
-                    </div>
-                    
-                    <h2 className="text-base lg:text-lg font-bold text-gray-800 dark:text-white mb-2 line-clamp-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
-                      {article.title}
-                    </h2>
-                    
-                    <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2 mb-3">
-                      {article.excerpt}
-                    </p>
-                    
-                    <button className="text-xs lg:text-sm text-amber-600 dark:text-amber-400 font-medium hover:text-amber-700 dark:hover:text-amber-300 transition-colors flex items-center space-x-1 group">
-                      <span>Đọc thêm</span>
-                      <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            {/* No articles message */}
-            {filteredArticles.length === 0 && (
-              <div className="text-center py-12">
-                <div className="text-gray-400 dark:text-gray-600 mb-4">
-                  <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.291.94-5.709 2.291M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
-                  Chưa có bài viết
+                
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+                  Không tìm thấy bài viết
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Hiện tại chưa có bài viết nào trong danh mục này.
+                <p className="text-gray-400 mb-8 max-w-md mx-auto">
+                  Không có bài viết nào phù hợp với tìm kiếm của bạn. Hãy thử tìm kiếm với từ khóa khác.
                 </p>
+                
+                {(searchTerm || selectedCategory !== 'all') && (
+                  <button
+                    onClick={() => {
+                      setSearchTerm('');
+                      setSelectedCategory('all');
+                    }}
+                    className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-2xl font-semibold hover:from-amber-600 hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                  >
+                    Xem tất cả bài viết
+                  </button>
+                )}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
+                {filteredArticles.map((article, index) => (
+                  <article 
+                    key={article.id}
+                    className="group cursor-pointer h-full flex flex-col"
+                    onClick={() => setSelectedArticle(article)}
+                  >
+                    <div className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl rounded-2xl lg:rounded-3xl border border-white/20 dark:border-gray-700/20 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] lg:hover:scale-105 hover:-translate-y-2 h-full flex flex-col">
+                      {/* Image */}
+                      <div className="relative h-48 lg:h-56 overflow-hidden">
+                        <img 
+                          src={article.image}
+                          alt={article.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                        
+                        {/* Badges */}
+                        <div className="absolute top-3 left-3 flex items-center space-x-2">
+                          <span className={`px-3 py-1 rounded-xl text-xs font-semibold border backdrop-blur-sm ${getCategoryColor(categoriesWithCount.find(c => c.name === article.category)?.color)}`}>
+                            {article.category}
+                          </span>
+                          {article.featured && (
+                            <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 rounded-xl text-xs font-bold backdrop-blur-sm border border-white/20">
+                              ⭐
+                            </span>
+                          )}
+                        </div>
+                        
+                        {/* Read Time */}
+                        <div className="absolute bottom-3 right-3">
+                          <span className="bg-black/60 text-white px-3 py-1 rounded-xl text-xs backdrop-blur-sm">
+                            {article.readTime}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="p-4 lg:p-6 flex-1 flex flex-col">
+                        {/* Meta */}
+                        <div className="flex items-center justify-between mb-3 text-xs text-gray-600 dark:text-gray-400">
+                          <span>{formatDate(article.date)}</span>
+                          {article.author && (
+                            <span className="font-medium">⌘ {article.author.split(' ').slice(0, 2).join(' ')}</span>
+                          )}
+                        </div>
+                        
+                        {/* Title */}
+                        <h2 className="text-base lg:text-lg xl:text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors flex-1">
+                          {article.title}
+                        </h2>
+                        
+                        {/* Excerpt */}
+                        <p className="text-sm lg:text-base text-gray-600 dark:text-gray-300 line-clamp-2 lg:line-clamp-3 mb-4 leading-relaxed">
+                          {article.excerpt}
+                        </p>
+                        
+                        {/* Tags - chỉ hiển thị trên desktop */}
+                        {article.tags && article.tags.length > 0 && (
+                          <div className="hidden lg:flex flex-wrap gap-1 mb-4">
+                            {article.tags.slice(0, 2).map((tag, tagIndex) => (
+                              <span key={tagIndex} className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded-lg text-xs">
+                                #{tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        
+                        {/* Read More Button */}
+                        <button className="flex items-center space-x-2 text-amber-600 dark:text-amber-400 font-semibold hover:text-amber-700 dark:hover:text-amber-300 transition-colors group mt-auto">
+                          <span className="text-sm lg:text-base">Đọc thêm</span>
+                          <svg className="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                ))}
               </div>
             )}
+
+            {/* Premium CTA Section */}
+            <div className="text-center mt-16 lg:mt-24">
+              <div className="bg-white/10 dark:bg-gray-800/30 backdrop-blur-xl border border-white/20 dark:border-gray-700/30 rounded-3xl p-8 lg:p-12 max-w-4xl mx-auto">
+                <h3 className="text-2xl lg:text-4xl font-bold text-white mb-4">
+                  Khám phá thêm về trầm hương
+                </h3>
+                <p className="text-gray-300 mb-8 text-lg">
+                  Tìm hiểu sâu hơn về thế giới trầm hương qua các sản phẩm chất lượng cao
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a 
+                    href="/products"
+                    className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-4 rounded-2xl font-semibold hover:from-amber-600 hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                  >
+                    Xem sản phẩm
+                  </a>
+                  <a 
+                    href="/contact"
+                    className="bg-white/10 dark:bg-gray-800/30 border border-white/20 dark:border-gray-700/30 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white/20 dark:hover:bg-gray-700/40 transition-all duration-300"
+                  >
+                    Liên hệ tư vấn
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
