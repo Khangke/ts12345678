@@ -1413,129 +1413,378 @@ export const ProductsSection = ({ onProductClick }) => {
   const getStaticProducts = () => [
     {
       id: '1',
-      name: 'Vòng tay trầm hương tự nhiên',
-      description: 'Vòng tay trầm hương nguyên chất, mang lại sự bình an và may mắn, kết nối tinh thần và tăng cường năng lượng tích cực.',
+      name: 'Vòng tay trầm hương tự nhiên cao cấp',
+      description: 'Vòng tay trầm hương nguyên chất, mang lại sự bình an và may mắn, kết nối tinh thần và tăng cường năng lượng tích cực với hương thơm tự nhiên đặc trưng.',
       price: '1.500.000đ',
+      originalPrice: '2.000.000đ',
       image: 'https://images.pexels.com/photos/2297252/pexels-photo-2297252.jpeg',
+      images: [
+        'https://images.pexels.com/photos/2297252/pexels-photo-2297252.jpeg',
+        'https://images.unsplash.com/photo-1581669808238-7f73311e2031?w=400',
+        'https://images.unsplash.com/photo-1608393189376-5264bcca3582?w=400'
+      ],
       category: 'Vòng tay trầm',
       material: 'Trầm hương tự nhiên',
       rating: 4.9,
+      reviewCount: 245,
+      inStock: true,
+      isNew: false,
+      isFeatured: true,
+      discount: 25,
       sizes: ['16mm', '18mm', '20mm'],
       reviews: [
-        { name: 'Nguyễn Văn A', rating: 5, comment: 'Sản phẩm rất đẹp, hương thơm tự nhiên' },
-        { name: 'Trần Thị B', rating: 5, comment: 'Chất lượng tốt, đúng như mô tả' }
+        { name: 'Nguyễn Văn A', rating: 5, comment: 'Sản phẩm rất đẹp, hương thơm tự nhiên', date: '2024-12-15' },
+        { name: 'Trần Thị B', rating: 5, comment: 'Chất lượng tốt, đúng như mô tả', date: '2024-12-10' }
       ],
-      detail_description: 'Vòng tay trầm hương tự nhiên được chế tác từ gỗ trầm hương Việt Nam cao cấp. Sản phẩm có hương thơm nhẹ nhàng, mang lại cảm giác thư giãn và bình an cho người đeo.'
+      detail_description: 'Vòng tay trầm hương tự nhiên được chế tác từ gỗ trầm hương Việt Nam cao cấp. Sản phẩm có hương thơm nhẹ nhàng, mang lại cảm giác thư giãn và bình an cho người đeo.',
+      features: ['100% tự nhiên', 'Hương thơm bền lâu', 'Tăng cường may mắn', 'Chống stress']
     },
     {
       id: '2',
-      name: 'Nhang nụ trầm hương',
-      description: 'Nhang nụ trầm hương cao cấp, cháy lâu và tỏa hương đều, tạo không gian thư giãn và thanh tịnh.',
+      name: 'Nhang nụ trầm hương premium',
+      description: 'Nhang nụ trầm hương cao cấp, cháy lâu và tỏa hương đều, tạo không gian thư giãn và thanh tịnh cho ngôi nhà của bạn.',
       price: '280.000đ',
+      originalPrice: '350.000đ',
       image: 'https://images.pexels.com/photos/8484055/pexels-photo-8484055.jpeg',
+      images: [
+        'https://images.pexels.com/photos/8484055/pexels-photo-8484055.jpeg',
+        'https://images.unsplash.com/photo-1509726360306-3f44543aea4c?w=400'
+      ],
       category: 'Nhang nụ trầm',
       material: 'Trầm hương nguyên chất',
       rating: 4.9,
+      reviewCount: 178,
+      inStock: true,
+      isNew: true,
+      isFeatured: true,
+      discount: 20,
       sizes: ['Hộp 50 nụ', 'Hộp 100 nụ'],
       reviews: [
-        { name: 'Hoàng Văn E', rating: 5, comment: 'Nhang nụ chất lượng, hương thơm tự nhiên' }
+        { name: 'Hoàng Văn E', rating: 5, comment: 'Nhang nụ chất lượng, hương thơm tự nhiên', date: '2024-12-12' }
       ],
-      detail_description: 'Nhang nụ trầm hương được làm từ bột trầm hương nguyên chất, không chất phụ gia, tạo khói nhẹ và hương thơm dễ chịu.'
+      detail_description: 'Nhang nụ trầm hương được làm từ bột trầm hương nguyên chất, không chất phụ gia, tạo khói nhẹ và hương thơm dễ chịu.',
+      features: ['Không phụ gia', 'Cháy đều lâu', 'Khói nhẹ', 'Hương thơm tự nhiên']
     },
     {
       id: '3',
-      name: 'Vòng tay trầm hương chìm nước',
-      description: 'Vòng tay trầm hương chìm nước cao cấp, hương thơm đặc trưng và bền lâu, phù hợp làm quà tặng.',
+      name: 'Vòng tay trầm hương chìm nước siêu cấp',
+      description: 'Vòng tay trầm hương chìm nước cao cấp, hương thơm đặc trưng và bền lâu, phù hợp làm quà tặng sang trọng cho những dịp đặc biệt.',
       price: '12.000.000đ',
+      originalPrice: '15.000.000đ',
       image: 'https://images.unsplash.com/photo-1581669808238-7f73311e2031?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHx3b29kZW4lMjBiZWFkc3xlbnwwfHx8fDE3NTE0Mjk4OTR8MA&ixlib=rb-4.1.0&q=85',
+      images: [
+        'https://images.unsplash.com/photo-1581669808238-7f73311e2031?w=400',
+        'https://images.unsplash.com/photo-1608393189376-5264bcca3582?w=400'
+      ],
       category: 'Vòng tay cao cấp',
       material: 'Trầm hương chìm nước',
       rating: 4.8,
+      reviewCount: 89,
+      inStock: true,
+      isNew: false,
+      isFeatured: true,
+      discount: 20,
       sizes: ['16mm', '18mm', '20mm', '22mm'],
       reviews: [
-        { name: 'Lê Văn C', rating: 5, comment: 'Trầm chìm nước thật, hương rất thơm' },
-        { name: 'Phạm Thị D', rating: 4, comment: 'Đắt nhưng xứng đáng với giá tiền' }
+        { name: 'Lê Văn C', rating: 5, comment: 'Trầm chìm nước thật, hương rất thơm', date: '2024-12-08' },
+        { name: 'Phạm Thị D', rating: 4, comment: 'Đắt nhưng xứng đáng với giá tiền', date: '2024-12-05' }
       ],
-      detail_description: 'Vòng tay trầm hương chìm nước là loại trầm hương cao cấp nhất, có mật độ cao, chìm trong nước và tỏa hương đặc trưng khi đốt.'
+      detail_description: 'Vòng tay trầm hương chìm nước là loại trầm hương cao cấp nhất, có mật độ cao, chìm trong nước và tỏa hương đặc trưng khi đốt.',
+      features: ['Chìm nước 100%', 'Mật độ cao', 'Hương đặc trưng', 'Giá trị đầu tư']
     },
     {
-      id: 4,
-      name: 'Tinh dầu trầm hương',
-      description: 'Tinh dầu trầm hương nguyên chất 100%, dùng cho liệu pháp thư giãn và xông hương.',
+      id: '4',
+      name: 'Tinh dầu trầm hương nguyên chất',
+      description: 'Tinh dầu trầm hương nguyên chất 100%, dùng cho liệu pháp thư giãn và xông hương, mang lại hiệu quả thư giãn tinh thần tối ưu.',
       price: '5.500.000đ',
+      originalPrice: '7.000.000đ',
       image: 'https://images.unsplash.com/photo-1742474561321-10e657e125f4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxhZ2Fyd29vZCUyMG9pbHxlbnwwfHx8fDE3NTE0Mjk4NzN8MA&ixlib=rb-4.1.0&q=85',
+      images: [
+        'https://images.unsplash.com/photo-1742474561321-10e657e125f4?w=400'
+      ],
       category: 'Tinh dầu trầm',
       material: 'Tinh dầu nguyên chất',
       rating: 4.7,
+      reviewCount: 156,
+      inStock: true,
+      isNew: false,
+      isFeatured: false,
+      discount: 21,
       sizes: ['5ml', '10ml', '20ml'],
       reviews: [
-        { name: 'Vũ Thị F', rating: 5, comment: 'Tinh dầu thật 100%, rất thơm' }
+        { name: 'Vũ Thị F', rating: 5, comment: 'Tinh dầu thật 100%, rất thơm', date: '2024-12-07' }
       ],
-      detail_description: 'Tinh dầu trầm hương được chưng cất từ gỗ trầm hương cao cấp, có tác dụng thư giãn tinh thần, giảm stress.'
+      detail_description: 'Tinh dầu trầm hương được chưng cất từ gỗ trầm hương cao cấp, có tác dụng thư giãn tinh thần, giảm stress.',
+      features: ['100% nguyên chất', 'Không pha trộn', 'Hiệu quả cao', 'An toàn sử dụng']
     },
     {
-      id: 5,
-      name: 'Cảnh trầm hương phong thủy',
-      description: 'Tác phẩm nghệ thuật từ trầm hương tự nhiên, dùng trang trí và phong thủy, mang lại may mắn.',
+      id: '5',
+      name: 'Cảnh trầm hương phong thủy cao cấp',
+      description: 'Tác phẩm nghệ thuật từ trầm hương tự nhiên, dùng trang trí và phong thủy, mang lại may mắn và thịnh vượng cho gia đình.',
       price: '15.000.000đ',
+      originalPrice: '18.000.000đ',
       image: 'https://images.unsplash.com/photo-1541795083-1b160cf4f3d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwYnVybmluZ3xlbnwwfHx8fDE3NTE0Mjk4ODl8MA&ixlib=rb-4.1.0&q=85',
+      images: [
+        'https://images.unsplash.com/photo-1541795083-1b160cf4f3d7?w=400'
+      ],
       category: 'Cảnh trầm',
       material: 'Gỗ trầm hương nguyên khối',
       rating: 4.8,
+      reviewCount: 67,
+      inStock: true,
+      isNew: true,
+      isFeatured: false,
+      discount: 17,
       sizes: ['Size S (10-15cm)', 'Size M (15-20cm)', 'Size L (20-30cm)'],
       reviews: [
-        { name: 'Đỗ Văn G', rating: 5, comment: 'Cảnh trầm đẹp, thích hợp trang trí' }
+        { name: 'Đỗ Văn G', rating: 5, comment: 'Cảnh trầm đẹp, thích hợp trang trí', date: '2024-12-06' }
       ],
-      detail_description: 'Cảnh trầm hương được chế tác thủ công từ gỗ trầm hương tự nhiên, mang ý nghĩa phong thủy tốt lành.'
+      detail_description: 'Cảnh trầm hương được chế tác thủ công từ gỗ trầm hương tự nhiên, mang ý nghĩa phong thủy tốt lành.',
+      features: ['Thủ công cao cấp', 'Phong thủy tốt', 'Trang trí đẹp', 'Giá trị nghệ thuật']
     },
     {
-      id: 6,
-      name: 'Nhang tăm trầm hương',
-      description: 'Nhang tăm trầm hương thơm nhẹ, phù hợp đốt hàng ngày trong gia đình và nơi thờ cúng.',
+      id: '6',
+      name: 'Nhang tăm trầm hương gia đình',
+      description: 'Nhang tăm trầm hương thơm nhẹ, phù hợp đốt hàng ngày trong gia đình và nơi thờ cúng, mang lại không gian thanh tịnh.',
       price: '350.000đ',
+      originalPrice: '420.000đ',
       image: 'https://images.unsplash.com/photo-1509726360306-3f44543aea4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85',
+      images: [
+        'https://images.unsplash.com/photo-1509726360306-3f44543aea4c?w=400'
+      ],
       category: 'Nhang tăm',
       material: 'Trầm hương tự nhiên',
       rating: 4.6,
+      reviewCount: 201,
+      inStock: true,
+      isNew: false,
+      isFeatured: false,
+      discount: 16,
       sizes: ['Hộp 100 que', 'Hộp 200 que'],
       reviews: [
-        { name: 'Bùi Thị H', rating: 4, comment: 'Nhang tăm dễ sử dụng, hương nhẹ nhàng' }
+        { name: 'Bùi Thị H', rating: 4, comment: 'Nhang tăm dễ sử dụng, hương nhẹ nhàng', date: '2024-12-04' }
       ],
-      detail_description: 'Nhang tăm trầm hương được làm từ bột trầm hương pha trộn với chất liệu tự nhiên, tạo hương thơm dễ chịu.'
+      detail_description: 'Nhang tăm trầm hương được làm từ bột trầm hương pha trộn với chất liệu tự nhiên, tạo hương thơm dễ chịu.',
+      features: ['Hương nhẹ nhàng', 'Dễ sử dụng', 'Cháy đều', 'Giá cả hợp lý']
     },
     {
-      id: 7,
-      name: 'Vòng tay trầm hương bọc vàng',
-      description: 'Vòng tay trầm hương kết hợp với vàng 24k, sang trọng và đẳng cấp, phù hợp làm quà tặng.',
+      id: '7',
+      name: 'Vòng tay trầm hương bọc vàng 24k',
+      description: 'Vòng tay trầm hương kết hợp với vàng 24k, sang trọng và đẳng cấp, phù hợp làm quà tặng cho những dịp quan trọng.',
       price: '25.000.000đ',
+      originalPrice: '30.000.000đ',
       image: 'https://images.unsplash.com/photo-1608393189376-5264bcca3582?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwxfHZ2aWV0bmFtZXNlJTIwYWdhcndvb2R8ZW58MHx8fHwxNzUxNDI5ODg0fDA&ixlib=rb-4.1.0&q=85',
+      images: [
+        'https://images.unsplash.com/photo-1608393189376-5264bcca3582?w=400'
+      ],
       category: 'Vòng tay cao cấp',
       material: 'Trầm hương + Vàng 24k',
       rating: 4.7,
+      reviewCount: 34,
+      inStock: true,
+      isNew: false,
+      isFeatured: true,
+      discount: 17,
       sizes: ['16mm', '18mm', '20mm'],
       reviews: [
-        { name: 'Trương Văn I', rating: 5, comment: 'Sản phẩm cao cấp, rất đẹp và sang trọng' }
+        { name: 'Trương Văn I', rating: 5, comment: 'Sản phẩm cao cấp, rất đẹp và sang trọng', date: '2024-12-02' }
       ],
-      detail_description: 'Vòng tay trầm hương bọc vàng 24k là sự kết hợp hoàn hảo giữa trầm hương và vàng, tạo nên sản phẩm đẳng cấp.'
+      detail_description: 'Vòng tay trầm hương bọc vàng 24k là sự kết hợp hoàn hảo giữa trầm hương và vàng, tạo nên sản phẩm đẳng cấp.',
+      features: ['Vàng 24k thật', 'Thiết kế độc đáo', 'Đẳng cấp luxury', 'Tăng giá trị theo thời gian']
     },
     {
-      id: 8,
-      name: 'Bộ phụ kiện xông trầm',
-      description: 'Bộ phụ kiện xông trầm hoàn chỉnh, bao gồm lư xông, kẹp trầm và phụ kiện cần thiết.',
+      id: '8',
+      name: 'Bộ phụ kiện xông trầm professional',
+      description: 'Bộ phụ kiện xông trầm hoàn chỉnh, bao gồm lư xông, kẹp trầm và phụ kiện cần thiết cho trải nghiệm xông trầm hoàn hảo.',
       price: '3.200.000đ',
+      originalPrice: '4.000.000đ',
       image: 'https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg',
+      images: [
+        'https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg'
+      ],
       category: 'Phụ kiện xông trầm',
       material: 'Gốm sứ cao cấp',
       rating: 4.9,
+      reviewCount: 112,
+      inStock: true,
+      isNew: true,
+      isFeatured: false,
+      discount: 20,
       sizes: ['Bộ cơ bản', 'Bộ cao cấp', 'Bộ VIP'],
       reviews: [
-        { name: 'Ngô Thị J', rating: 5, comment: 'Bộ phụ kiện đầy đủ, chất lượng tốt' }
+        { name: 'Ngô Thị J', rating: 5, comment: 'Bộ phụ kiện đầy đủ, chất lượng tốt', date: '2024-12-01' }
       ],
-      detail_description: 'Bộ phụ kiện xông trầm gồm lư xông gốm sứ, kẹp gỗ, đế xông và các phụ kiện cần thiết để xông trầm hương.'
+      detail_description: 'Bộ phụ kiện xông trầm gồm lư xông gốm sứ, kẹp gỗ, đế xông và các phụ kiện cần thiết để xông trầm hương.',
+      features: ['Bộ đầy đủ', 'Chất liệu cao cấp', 'Dễ sử dụng', 'Bền lâu']
     }
   ];
 
-  const { visibleItems, setRef } = useStaggerAnimation(filteredProducts, 100);
+  const { visibleItems, setRef } = useStaggerAnimation(paginatedProducts, 100);
+
+  // Enhanced Quick View Modal
+  const QuickViewModal = ({ product, onClose }) => {
+    if (!product) return null;
+
+    return (
+      <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+        {/* Enhanced Backdrop */}
+        <div 
+          className="absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity duration-300"
+          onClick={onClose}
+        ></div>
+        
+        {/* Modal Content */}
+        <div className="relative bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-white/20 dark:border-gray-700/50">
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 dark:bg-gray-800/50 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-white/30 dark:hover:bg-gray-700/50 transition-all duration-300"
+          >
+            <CloseIcon className="w-5 h-5" />
+          </button>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 lg:p-8">
+            {/* Image Section */}
+            <div className="space-y-4">
+              <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700">
+                <img 
+                  src={product.image} 
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* Thumbnail Images */}
+              {product.images && product.images.length > 1 && (
+                <div className="grid grid-cols-4 gap-2">
+                  {product.images.slice(1).map((img, index) => (
+                    <div key={index} className="aspect-square rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+                      <img src={img} alt="" className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity cursor-pointer" />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Content Section */}
+            <div className="space-y-6">
+              {/* Product Title & Rating */}
+              <div>
+                <div className="flex items-center space-x-2 mb-2">
+                  {product.isNew && (
+                    <span className="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-medium">Mới</span>
+                  )}
+                  {product.isFeatured && (
+                    <span className="bg-amber-500 text-white px-2 py-1 rounded-full text-xs font-medium">Nổi bật</span>
+                  )}
+                </div>
+                <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                  {product.name}
+                </h2>
+                <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} className={`text-sm ${i < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-300'}`}>★</span>
+                    ))}
+                  </div>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                    {product.rating} ({product.reviewCount || 0} đánh giá)
+                  </span>
+                </div>
+              </div>
+
+              {/* Price */}
+              <div className="space-y-2">
+                <div className="flex items-center space-x-3">
+                  <span className="text-3xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+                    {product.price}
+                  </span>
+                  {product.originalPrice && (
+                    <span className="text-lg text-gray-500 line-through">
+                      {product.originalPrice}
+                    </span>
+                  )}
+                  {product.discount && (
+                    <span className="bg-red-500 text-white px-2 py-1 rounded-full text-sm font-medium">
+                      -{product.discount}%
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                {product.description}
+              </p>
+
+              {/* Features */}
+              {product.features && (
+                <div>
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Đặc điểm nổi bật:</h4>
+                  <ul className="grid grid-cols-2 gap-2">
+                    {product.features.map((feature, index) => (
+                      <li key={index} className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-300">
+                        <div className="w-1.5 h-1.5 bg-amber-500 rounded-full flex-shrink-0"></div>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Material & Size */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">Chất liệu:</span>
+                  <p className="font-medium text-gray-900 dark:text-white">{product.material}</p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">Danh mục:</span>
+                  <p className="font-medium text-gray-900 dark:text-white">{product.category}</p>
+                </div>
+              </div>
+
+              {/* Sizes */}
+              {product.sizes && (
+                <div>
+                  <span className="text-sm text-gray-500 dark:text-gray-400 block mb-2">Kích thước:</span>
+                  <div className="flex flex-wrap gap-2">
+                    {product.sizes.map((size, index) => (
+                      <span key={index} className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-full text-sm">
+                        {size}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Action Buttons */}
+              <div className="flex space-x-3 pt-4">
+                <button 
+                  onClick={() => onProductClick(product)}
+                  className="flex-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white py-3 px-6 rounded-2xl font-semibold hover:from-amber-600 hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
+                  Chi tiết đầy đủ
+                </button>
+                <button 
+                  onClick={() => toggleWishlist(product.id)}
+                  className={`p-3 rounded-xl transition-all duration-300 ${
+                    wishlist.has(product.id)
+                      ? 'bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400'
+                      : 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400 hover:bg-red-100 hover:text-red-600'
+                  }`}
+                >
+                  <svg className="w-6 h-6" fill={wishlist.has(product.id) ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <section id="products" className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-orange-50 dark:from-slate-900 dark:via-gray-900 dark:to-orange-900/20 relative overflow-hidden">
