@@ -18,6 +18,8 @@ body {
     color: #f8fafc;
 }
 
+/* LUXURY DESIGN SYSTEM - Premium Aesthetics */
+
 /* Remove any default margins */
 * {
     box-sizing: border-box;
@@ -29,13 +31,34 @@ html, body, #root {
     height: 100%;
     margin: 0 !important;
     padding: 0 !important;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e293b 75%, #0f172a 100%);
+    background-attachment: fixed;
 }
 
-/* Ensure no white space at bottom */
+/* Premium App Container */
 .App {
     margin: 0 !important;
     padding: 0 !important;
     min-height: 100vh;
+    background: transparent;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Premium backdrop effects */
+.App::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(251, 191, 36, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* Remove bottom spacing */
@@ -44,24 +67,18 @@ footer {
     padding-bottom: 0 !important;
 }
 
-/* Force remove any white space at bottom */
-body::after {
-    content: '';
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 0;
-    background: transparent;
-}
-
+/* Premium Code Styling */
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-        monospace;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', monospace;
+    background: rgba(251, 191, 36, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
 }
 
-/* Custom animations and utilities */
+/* LUXURY UTILITIES */
 @layer utilities {
+  /* Premium Line Clamps */
   .line-clamp-1 {
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -83,53 +100,97 @@ code {
     overflow: hidden;
   }
   
-  .backdrop-blur-safari {
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+  /* Premium Backdrop Blur */
+  .backdrop-blur-luxury {
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
   }
   
-  .shadow-3xl {
-    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+  .backdrop-blur-premium {
+    -webkit-backdrop-filter: blur(32px) saturate(200%);
+    backdrop-filter: blur(32px) saturate(200%);
+  }
+  
+  /* Luxury Shadows */
+  .shadow-luxury {
+    box-shadow: 
+      0 20px 25px -5px rgba(0, 0, 0, 0.3),
+      0 10px 10px -5px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .shadow-premium {
+    box-shadow: 
+      0 32px 64px -12px rgba(0, 0, 0, 0.4),
+      0 20px 30px -8px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
   }
 
-  /* Mobile-first responsive text sizes */
-  .text-responsive-sm {
-    font-size: 0.75rem; /* 12px */
+  .shadow-glow-gold {
+    box-shadow: 
+      0 0 30px rgba(251, 191, 36, 0.3),
+      0 0 60px rgba(251, 191, 36, 0.1),
+      0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Premium Text Sizes - Mobile First */
+  .text-luxury-xs { font-size: 0.7rem; font-weight: 500; }
+  .text-luxury-sm { font-size: 0.825rem; font-weight: 500; }
+  .text-luxury-base { font-size: 0.95rem; font-weight: 500; }
+  .text-luxury-lg { font-size: 1.1rem; font-weight: 600; }
+  .text-luxury-xl { font-size: 1.3rem; font-weight: 600; }
+  .text-luxury-2xl { font-size: 1.6rem; font-weight: 700; }
+  .text-luxury-3xl { font-size: 2rem; font-weight: 800; }
+  
+  /* Mobile Touch Targets */
+  .touch-target-luxury {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px 16px;
   }
   
-  .text-responsive-base {
-    font-size: 0.875rem; /* 14px */
-  }
-  
-  .text-responsive-lg {
-    font-size: 1rem; /* 16px */
-  }
-  
-  /* Mobile touch targets */
-  .touch-target {
-    min-height: 44px;
-    min-width: 44px;
-  }
-  
-  /* Mobile spacing utilities */
+  /* Safe Area Support */
   .safe-area-top {
-    padding-top: env(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top, 1rem);
   }
   
   .safe-area-bottom {
-    padding-bottom: env(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
   }
 
-  /* Mobile scroll improvements */
-  .scroll-smooth-mobile {
+  /* Premium Scroll */
+  .scroll-luxury {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(251, 191, 36, 0.5) transparent;
   }
 
-  /* Mobile backdrop blur */
-  .backdrop-blur-mobile {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+  /* Glass Morphism Effects */
+  .glass-luxury {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-premium {
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.15), 
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.1)
+    );
+    backdrop-filter: blur(32px) saturate(200%) brightness(120%);
+    -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(120%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.4),
+      0 8px 20px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   }
 }
 
