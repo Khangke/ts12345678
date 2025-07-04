@@ -419,9 +419,13 @@ export const HeroSection = () => {
                 </span>
               </Link>
               
-              <button className="glass-morphism-luxury px-8 py-4 rounded-2xl text-white font-semibold hover:bg-white/10 transition-all duration-500 border border-white/20 hover:border-amber-400/50">
-                Xem Video
-              </button>
+              <Link 
+                to="/contact"
+                className="glass-morphism-luxury px-8 py-4 rounded-2xl text-white font-semibold hover:bg-white/10 transition-all duration-500 border border-white/20 hover:border-amber-400/50 flex items-center space-x-2 group"
+              >
+                <PhoneIcon className="w-5 h-5 text-amber-400 group-hover:animate-pulse" />
+                <span>Liên hệ ngay</span>
+              </Link>
             </div>
 
             {/* Premium Trust Indicators */}
