@@ -1331,38 +1331,208 @@ def test_products_enhanced_ui():
     except Exception as e:
         log_test("GET /api/products", False, error=str(e))
 
+def test_products_api_for_review_request():
+    """Test products API endpoints specifically for the review request requirements:
+    1. Test GET /api/products endpoint - ensure it returns 3 seeded products
+    2. Check response format of API matches what frontend expects
+    3. Test CORS headers to ensure frontend can call API
+    4. Verify each product has all required fields: id, name, description, price, size_prices, category, material, rating, sizes
+    """
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    print(f"{Colors.HEADER}TESTING PRODUCTS API FOR REVIEW REQUEST{Colors.ENDC}")
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    
+    # Test GET /api/products endpoint
+    try:
+        response = requests.get(f"{API_URL}/products")
+        
+        if response.status_code == 200:
+            products = response.json()
+            
+            # 1. Check if we have exactly 3 seeded products
+            if len(products) == 3:
+                log_test("GET /api/products - Returns 3 Seeded Products", True, response)
+                print(f"  Found exactly 3 products as expected")
+            else:
+                log_test("GET /api/products - Returns 3 Seeded Products", False, response, 
+                        f"Expected exactly 3 products, got {len(products)}")
+                
+                # If not 3 products, try to seed the database
+                if len(products) < 3:
+                    print("  Less than 3 products found. Attempting to seed the database...")
+                    
+                    # Get admin token
+                    try:
+                        token = get_admin_token()
+                        
+                        # Call seed-products endpoint
+                        seed_response = requests.post(
+                            f"{API_URL}/admin/seed-products",
+                            headers={"Authorization": f"Bearer {token}"}
+                        )
+                        
+                        if seed_response.status_code == 200:
+                            print("  Successfully seeded the database with sample products")
+                            
+                            # Try getting products again
+                            retry_response = requests.get(f"{API_URL}/products")
+                            if retry_response.status_code == 200 and len(retry_response.json()) == 3:
+                                log_test("GET /api/products - After Seeding", True, retry_response)
+                                print(f"  Found exactly 3 products after seeding")
+                                products = retry_response.json()  # Update products for further tests
+                            else:
+                                log_test("GET /api/products - After Seeding", False, retry_response,
+                                        f"Expected exactly 3 products after seeding, got {len(retry_response.json())}")
+                        else:
+                            log_test("Seed Products", False, seed_response,
+                                    f"Failed to seed products: {seed_response.status_code}")
+                    except Exception as e:
+                        log_test("Seed Products", False, error=str(e))
+            
+            # 4. Verify each product has all required fields
+            if products:
+                required_fields = ['id', 'name', 'description', 'price', 'size_prices', 
+                                  'category', 'material', 'rating', 'sizes']
+                
+                all_fields_present = True
+                missing_fields = {}
+                
+                for i, product in enumerate(products):
+                    product_missing_fields = [field for field in required_fields if field not in product]
+                    if product_missing_fields:
+                        all_fields_present = False
+                        missing_fields[product.get('name', f'Product {i+1}')] = product_missing_fields
+                
+                if all_fields_present:
+                    log_test("Product Fields Verification", True)
+                    print("  All products have the required fields")
+                else:
+                    log_test("Product Fields Verification", False, 
+                            error=f"Some products are missing required fields: {missing_fields}")
+                
+                # 2. Check response format matches what frontend expects
+                # Verify size_prices is a dictionary mapping size to price
+                valid_size_prices = True
+                for product in products:
+                    if not isinstance(product.get('size_prices'), dict):
+                        valid_size_prices = False
+                        break
+                    
+                    # Check if sizes and size_prices keys match
+                    if set(product.get('sizes', [])) != set(product.get('size_prices', {}).keys()):
+                        valid_size_prices = False
+                        break
+                
+                if valid_size_prices:
+                    log_test("Response Format Verification", True)
+                    print("  Response format matches what frontend expects")
+                    
+                    # Print details of the products
+                    for i, product in enumerate(products):
+                        print(f"\n  Product {i+1}:")
+                        print(f"    Name: {product.get('name')}")
+                        print(f"    Category: {product.get('category')}")
+                        print(f"    Material: {product.get('material')}")
+                        print(f"    Base Price: {product.get('price')}")
+                        print(f"    Sizes: {product.get('sizes')}")
+                        print(f"    Size Prices: {json.dumps(product.get('size_prices', {}), indent=2)}")
+                else:
+                    log_test("Response Format Verification", False, 
+                            error="Size-based pricing format is not valid")
+        else:
+            log_test("GET /api/products - Status Code", False, response,
+                    f"Expected status 200, got {response.status_code}")
+    except Exception as e:
+        log_test("GET /api/products", False, error=str(e))
+    
+    # 3. Test CORS headers
+    try:
+        response = requests.options(f"{API_URL}/products")
+        
+        cors_headers = [
+            'Access-Control-Allow-Origin',
+            'Access-Control-Allow-Methods',
+            'Access-Control-Allow-Headers'
+        ]
+        
+        has_cors_headers = all(header in response.headers for header in cors_headers)
+        
+        if has_cors_headers:
+            log_test("CORS Headers for /api/products", True, response)
+            print("  CORS headers found:")
+            for header in cors_headers:
+                if header in response.headers:
+                    print(f"    {header}: {response.headers[header]}")
+                    
+            # Check if Access-Control-Allow-Origin is set to allow frontend access
+            if 'Access-Control-Allow-Origin' in response.headers:
+                origin = response.headers['Access-Control-Allow-Origin']
+                if origin == '*' or 'emergentagent.com' in origin:
+                    log_test("CORS Origin Configuration", True)
+                    print(f"  CORS Origin is properly configured: {origin}")
+                else:
+                    log_test("CORS Origin Configuration", False, 
+                            error=f"CORS Origin might not allow frontend access: {origin}")
+        else:
+            log_test("CORS Headers for /api/products", False, response,
+                    "Missing required CORS headers")
+            print("  Available headers:")
+            for header, value in response.headers.items():
+                print(f"    {header}: {value}")
+    except Exception as e:
+        log_test("CORS Headers for /api/products", False, error=str(e))
+    
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    print(f"{Colors.HEADER}PRODUCTS API TESTING COMPLETED{Colors.ENDC}")
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+
 def run_tests():
     """Run specific tests as requested in the review"""
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
-    print(f"{Colors.HEADER}TESTING BACKEND APIs AFTER PRODUCT PAGE ENHANCEMENTS{Colors.ENDC}")
+    print(f"{Colors.HEADER}TESTING BACKEND APIs FOR PRODUCTS ENDPOINTS{Colors.ENDC}")
     print(f"{Colors.HEADER}Backend URL: {BACKEND_URL}{Colors.ENDC}")
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
     
     # Check MongoDB connection
     check_mongodb_connection()
     
-    # Test the specific endpoints mentioned in the review request
-    print(f"{Colors.HEADER}1. Testing GET /api/products endpoint{Colors.ENDC}")
-    test_products_enhanced_ui()
+    # Test the specific products API endpoints as requested in the review
+    test_products_api_for_review_request()
     
     # Get admin token for authenticated tests
     token = get_admin_token()
     
     # Test admin stats endpoint
-    print(f"{Colors.HEADER}2. Testing GET /api/admin/stats endpoint{Colors.ENDC}")
+    print(f"{Colors.HEADER}Testing GET /api/admin/stats endpoint{Colors.ENDC}")
     test_admin_stats(token)
     
     # Test creating an order with size-specific pricing
-    print(f"{Colors.HEADER}3. Testing POST /api/orders endpoint with size-specific pricing{Colors.ENDC}")
+    print(f"{Colors.HEADER}Testing POST /api/orders endpoint with size-specific pricing{Colors.ENDC}")
     test_create_order_with_size_pricing()
     
-    # Test getting admin orders
-    print(f"{Colors.HEADER}4. Testing GET /api/admin/orders endpoint{Colors.ENDC}")
-    test_get_admin_orders(token)
+    # Print summary
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    print(f"{Colors.HEADER}TEST SUMMARY{Colors.ENDC}")
+    print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
+    print(f"Total Tests: {test_results['passed'] + test_results['failed']}")
+    print(f"Passed: {Colors.OKGREEN}{test_results['passed']}{Colors.ENDC}")
+    print(f"Failed: {Colors.FAIL}{test_results['failed']}{Colors.ENDC}")
     
-    # Test updating order status
-    print(f"{Colors.HEADER}5. Testing PUT /api/admin/orders/{{id}}/status endpoint{Colors.ENDC}")
-    test_order_status_update(token)
+    # List failed tests if any
+    if test_results['failed'] > 0:
+        print(f"\n{Colors.FAIL}Failed Tests:{Colors.ENDC}")
+        for test in test_results['tests']:
+            if not test['passed']:
+                print(f"- {test['name']}: {test['error']}")
+        
+        print(f"\n{Colors.WARNING}Recommendations:{Colors.ENDC}")
+        print("1. Check if MongoDB is running and accessible")
+        print("2. Verify that products have been seeded in the database")
+        print("3. Check for any errors in the backend logs")
+        print("4. Ensure CORS is properly configured for frontend access")
+    else:
+        print(f"\n{Colors.OKGREEN}All backend API tests passed successfully!{Colors.ENDC}")
+        print(f"{Colors.OKGREEN}Frontend should be able to fetch product data correctly.{Colors.ENDC}")
     
     # Print summary
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
