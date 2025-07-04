@@ -24,11 +24,17 @@ module.exports = {
         'bounce-in': 'bounceIn 0.8s ease-out',
         'scale-in': 'scaleIn 0.5s ease-out',
         'float': 'float 3s ease-in-out infinite',
+        'float-gentle': 'floatGentle 4s ease-in-out infinite',
         'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+        'pulse-glow-orange': 'pulseGlowOrange 2s ease-in-out infinite',
         'wiggle': 'wiggle 1s ease-in-out infinite',
         'spin-slow': 'spin 3s linear infinite',
         'gradient-x': 'gradientX 3s ease infinite',
+        'gradient-shift': 'gradientShift 4s ease infinite',
         'shimmer': 'shimmer 2s ease-in-out infinite',
+        'glass-shimmer': 'glassShimmer 3s ease-in-out infinite',
+        'scale-bounce': 'scaleBounce 0.6s ease-out',
+        'backdrop-blur': 'backdropBlur 0.3s ease-out',
       },
       keyframes: {
         fadeIn: {
@@ -81,9 +87,17 @@ module.exports = {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' },
         },
+        floatGentle: {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '50%': { transform: 'translateY(-8px) rotate(1deg)' },
+        },
         pulseGlow: {
           '0%, 100%': { boxShadow: '0 0 5px rgba(251, 191, 36, 0.3)' },
           '50%': { boxShadow: '0 0 20px rgba(251, 191, 36, 0.8)' },
+        },
+        pulseGlowOrange: {
+          '0%, 100%': { boxShadow: '0 0 20px rgba(251, 146, 60, 0.3)' },
+          '50%': { boxShadow: '0 0 40px rgba(251, 146, 60, 0.6)' },
         },
         wiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },
@@ -99,19 +113,51 @@ module.exports = {
             'background-position': 'right center'
           },
         },
+        gradientShift: {
+          '0%': { 'background-position': '0% 50%' },
+          '50%': { 'background-position': '100% 50%' },
+          '100%': { 'background-position': '0% 50%' },
+        },
         shimmer: {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(100%)' },
+        },
+        glassShimmer: {
+          '0%': { 'background-position': '-200% 0' },
+          '100%': { 'background-position': '200% 0' },
+        },
+        scaleBounce: {
+          '0%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.05)' },
+          '100%': { transform: 'scale(1)' },
+        },
+        backdropBlur: {
+          '0%': { 'backdrop-filter': 'blur(0px)' },
+          '100%': { 'backdrop-filter': 'blur(16px)' },
         },
       },
       transitionDuration: {
         '400': '400ms',
         '600': '600ms',
         '800': '800ms',
+        '1200': '1200ms',
       },
       scale: {
         '102': '1.02',
         '103': '1.03',
+      },
+      backdropBlur: {
+        'xs': '2px',
+        'sm': '4px',
+        'md': '8px',
+        'lg': '12px',
+        'xl': '16px',
+        '2xl': '24px',
+        '3xl': '32px',
+      },
+      backgroundSize: {
+        '200': '200% 200%',
+        '300': '300% 300%',
       },
     },
   },
