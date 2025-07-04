@@ -314,7 +314,7 @@ export const HeroSection = () => {
       titleAccent: "Cao Cấp",
       subtitle: "Premium Collection",
       description: "Khám phá bộ sưu tập trầm hương nguyên chất từ thiên nhiên Việt Nam với chất lượng luxury đỉnh cao.",
-      badge: "Luxury Collection",
+      badge: "Sơn Mộc Hương",
       image: "https://images.unsplash.com/photo-1509726360306-3f44543aea4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85"
     },
     {
