@@ -1788,85 +1788,266 @@ export const ProductsSection = ({ onProductClick }) => {
 
   return (
     <section id="products" className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-orange-50 dark:from-slate-900 dark:via-gray-900 dark:to-orange-900/20 relative overflow-hidden">
-      {/* Modern Background Elements */}
+      
+      {/* Ultra-Modern Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-200/30 to-amber-200/30 dark:from-orange-800/10 dark:to-amber-800/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-amber-200/30 to-orange-200/30 dark:from-amber-800/10 dark:to-orange-800/10 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-br from-orange-300/20 to-amber-300/20 dark:from-orange-700/10 dark:to-amber-700/10 rounded-full blur-2xl transform -translate-x-1/2 -translate-y-1/2"></div>
+        {/* Dynamic Background Gradients */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-200/30 to-amber-200/30 dark:from-orange-800/10 dark:to-amber-800/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-luxury-float"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-amber-200/30 to-orange-200/30 dark:from-amber-800/10 dark:to-orange-800/10 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2 animate-luxury-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-br from-orange-300/20 to-amber-300/20 dark:from-orange-700/10 dark:to-amber-700/10 rounded-full blur-2xl transform -translate-x-1/2 -translate-y-1/2 animate-luxury-float" style={{animationDelay: '4s'}}></div>
+        
+        {/* Luxury Geometric Elements */}
+        <div className="absolute top-20 right-20 w-32 h-32 border border-amber-400/20 rotate-45 animate-spin-luxury"></div>
+        <div className="absolute bottom-32 left-20 w-24 h-24 border border-orange-400/15 rotate-12 animate-pulse"></div>
       </div>
 
       <div className="container mx-auto px-3 lg:px-6 py-6 lg:py-12 relative z-10">
-        {/* Modern Header with Glass Morphism */}
+        
+        {/* Enhanced Luxury Header */}
         <div className="text-center mb-6 lg:mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-orange-500 to-amber-500 dark:from-orange-600 dark:to-amber-600 rounded-2xl lg:rounded-3xl shadow-xl mb-4 lg:mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 dark:from-orange-600 dark:via-amber-600 dark:to-orange-700 rounded-2xl lg:rounded-3xl shadow-xl mb-4 lg:mb-6 animate-premium-pulse">
             <svg className="w-8 h-8 lg:w-10 lg:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
             </svg>
           </div>
-          <h1 className="text-2xl lg:text-5xl font-bold bg-gradient-to-r from-slate-800 to-orange-600 dark:from-white dark:to-orange-400 bg-clip-text text-transparent mb-3 lg:mb-4">
+          <h1 className="text-2xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-slate-800 via-amber-700 to-orange-600 dark:from-white dark:via-amber-300 dark:to-orange-400 bg-clip-text text-transparent mb-3 lg:mb-4 animate-text-glow">
             Bộ Sưu Tập Trầm Hương
           </h1>
-          <p className="text-sm lg:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Khám phá những sản phẩm trầm hương cao cấp được tuyển chọn kỹ lưỡng, mang đến trải nghiệm thư giãn và tinh tế nhất.
+          <p className="text-sm lg:text-lg xl:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Khám phá những sản phẩm trầm hương cao cấp được tuyển chọn kỹ lưỡng, mang đến trải nghiệm thư giãn và tinh tế nhất với chất lượng luxury đỉnh cao.
           </p>
         </div>
 
-        {/* Modern Search Bar with Glass Effect */}
-        <div className="max-w-2xl mx-auto mb-6 lg:mb-8">
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-amber-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl shadow-xl">
-              <input
-                type="text"
-                placeholder="Tìm kiếm sản phẩm yêu thích..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-6 py-4 pl-14 bg-transparent text-slate-700 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none text-sm lg:text-base"
-              />
-              <div className="absolute left-5 top-1/2 transform -translate-y-1/2">
-                <svg className="w-5 h-5 text-slate-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-              {searchTerm && (
-                <button
-                  onClick={() => setSearchTerm('')}
-                  className="absolute right-5 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+        {/* Ultra-Modern Search & Filter Bar */}
+        <div className="max-w-6xl mx-auto mb-6 lg:mb-8">
+          <div className="glass-morphism-luxury rounded-2xl lg:rounded-3xl p-4 lg:p-6 border border-white/20 dark:border-gray-700/30 shadow-xl">
+            
+            {/* Main Search Bar */}
+            <div className="relative group mb-4">
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-amber-500/20 rounded-xl lg:rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border border-white/30 dark:border-gray-700/50 rounded-xl lg:rounded-2xl shadow-lg">
+                <input
+                  type="text"
+                  placeholder="Tìm kiếm sản phẩm trầm hương yêu thích..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full px-6 py-4 pl-14 bg-transparent text-slate-700 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none text-sm lg:text-base font-medium"
+                />
+                <div className="absolute left-5 top-1/2 transform -translate-y-1/2">
+                  <svg className="w-5 h-5 text-slate-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
-                </button>
-              )}
+                </div>
+                {searchTerm && (
+                  <button
+                    onClick={() => setSearchTerm('')}
+                    className="absolute right-5 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
+                  >
+                    <CloseIcon className="w-5 h-5" />
+                  </button>
+                )}
+              </div>
             </div>
+
+            {/* Advanced Filter Controls */}
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+              
+              {/* View Mode Toggle */}
+              <div className="lg:col-span-1">
+                <div className="flex items-center space-x-2 bg-white/60 dark:bg-gray-800/60 rounded-xl p-1 border border-white/30 dark:border-gray-700/50">
+                  <button
+                    onClick={() => setViewMode('grid')}
+                    className={`flex-1 py-2 px-3 rounded-lg text-xs lg:text-sm font-medium transition-all duration-300 ${
+                      viewMode === 'grid' 
+                        ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md' 
+                        : 'text-slate-600 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-gray-700/50'
+                    }`}
+                  >
+                    <svg className="w-4 h-4 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={() => setViewMode('list')}
+                    className={`flex-1 py-2 px-3 rounded-lg text-xs lg:text-sm font-medium transition-all duration-300 ${
+                      viewMode === 'list' 
+                        ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md' 
+                        : 'text-slate-600 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-gray-700/50'
+                    }`}
+                  >
+                    <svg className="w-4 h-4 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              {/* Sort Dropdown */}
+              <div className="lg:col-span-1">
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="w-full py-3 px-4 bg-white/60 dark:bg-gray-800/60 border border-white/30 dark:border-gray-700/50 rounded-xl text-sm font-medium text-slate-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 backdrop-blur-sm"
+                >
+                  <option value="featured">Nổi bật</option>
+                  <option value="price-low">Giá thấp đến cao</option>
+                  <option value="price-high">Giá cao đến thấp</option>
+                  <option value="rating">Đánh giá cao nhất</option>
+                  <option value="name">Tên A-Z</option>
+                  <option value="newest">Mới nhất</option>
+                </select>
+              </div>
+
+              {/* Rating Filter */}
+              <div className="lg:col-span-1">
+                <select
+                  value={selectedRating}
+                  onChange={(e) => setSelectedRating(Number(e.target.value))}
+                  className="w-full py-3 px-4 bg-white/60 dark:bg-gray-800/60 border border-white/30 dark:border-gray-700/50 rounded-xl text-sm font-medium text-slate-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 backdrop-blur-sm"
+                >
+                  <option value={0}>Tất cả đánh giá</option>
+                  <option value={4.5}>4.5★ trở lên</option>
+                  <option value={4}>4★ trở lên</option>
+                  <option value={3.5}>3.5★ trở lên</option>
+                </select>
+              </div>
+
+              {/* Advanced Filters Toggle */}
+              <div className="lg:col-span-1">
+                <button
+                  onClick={() => setShowFilters(!showFilters)}
+                  className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl font-medium hover:from-amber-600 hover:to-orange-600 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 text-sm"
+                >
+                  <span className="flex items-center justify-center space-x-2">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+                    </svg>
+                    <span>Bộ lọc</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            {/* Advanced Filters Panel */}
+            {showFilters && (
+              <div className="mt-4 p-4 bg-white/40 dark:bg-gray-800/40 rounded-xl border border-white/20 dark:border-gray-700/30 backdrop-blur-sm animate-slide-down">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                  
+                  {/* Category Filter */}
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Danh mục</label>
+                    <div className="space-y-2 max-h-32 overflow-y-auto">
+                      {getCategories().map((category) => (
+                        <label key={category} className="flex items-center space-x-2 cursor-pointer">
+                          <input
+                            type="radio"
+                            name="category"
+                            value={category}
+                            checked={selectedCategory === category}
+                            onChange={() => setSelectedCategory(category)}
+                            className="text-amber-500 focus:ring-amber-500"
+                          />
+                          <span className="text-sm text-slate-600 dark:text-slate-400">
+                            {getCategoryDisplayName(category)}
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Material Filter */}
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Chất liệu</label>
+                    <select
+                      value={selectedMaterial}
+                      onChange={(e) => setSelectedMaterial(e.target.value)}
+                      className="w-full py-2 px-3 bg-white/60 dark:bg-gray-800/60 border border-white/30 dark:border-gray-700/50 rounded-lg text-sm text-slate-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                    >
+                      <option value="all">Tất cả chất liệu</option>
+                      {getMaterials().slice(1).map((material) => (
+                        <option key={material} value={material}>{material}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Price Range Slider */}
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                      Khoảng giá: {new Intl.NumberFormat('vi-VN').format(priceRange[0])}đ - {new Intl.NumberFormat('vi-VN').format(priceRange[1])}đ
+                    </label>
+                    <div className="space-y-2">
+                      <input
+                        type="range"
+                        min="0"
+                        max="30000000"
+                        step="100000"
+                        value={priceRange[1]}
+                        onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
+                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-amber"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Clear Filters */}
+                <div className="mt-4 flex justify-between items-center">
+                  <button
+                    onClick={() => {
+                      setSelectedCategory('all');
+                      setSelectedMaterial('all');
+                      setSelectedRating(0);
+                      setPriceRange([0, 30000000]);
+                      setSearchTerm('');
+                      setSortBy('featured');
+                    }}
+                    className="text-sm text-slate-500 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+                  >
+                    Xóa bộ lọc
+                  </button>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">
+                    {filteredProducts.length} sản phẩm được tìm thấy
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Modern Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 lg:gap-3 mb-6 lg:mb-10">
-          {getCategories().map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 lg:px-6 lg:py-3 rounded-full text-xs lg:text-sm font-medium transition-all duration-300 backdrop-blur-sm ${
-                selectedCategory === category
-                  ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg shadow-orange-500/25 transform scale-105'
-                  : 'bg-white/70 dark:bg-gray-800/70 text-slate-700 dark:text-slate-300 border border-white/50 dark:border-gray-700/50 hover:bg-white/90 dark:hover:bg-gray-800/90 hover:shadow-md hover:scale-102'
-              }`}
-            >
-              {getCategoryDisplayName(category)}
-            </button>
-          ))}
-        </div>
+        {/* Quick Stats & Actions Bar */}
+        <div className="flex flex-col lg:flex-row justify-between items-center mb-6 lg:mb-8 space-y-4 lg:space-y-0">
+          <div className="flex items-center space-x-4">
+            <div className="inline-flex items-center space-x-2 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm px-4 py-2 rounded-full border border-white/40 dark:border-gray-700/40">
+              <span className="text-sm lg:text-base text-slate-600 dark:text-slate-400">
+                Hiển thị <span className="font-semibold text-orange-600 dark:text-orange-400">{paginatedProducts.length}</span> 
+                / <span className="font-semibold text-amber-600 dark:text-amber-400">{filteredProducts.length}</span> sản phẩm
+              </span>
+            </div>
+            
+            {/* Wishlist & Compare Indicators */}
+            <div className="flex items-center space-x-2">
+              {wishlist.size > 0 && (
+                <div className="inline-flex items-center space-x-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 px-3 py-1 rounded-full text-xs font-medium">
+                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                  </svg>
+                  <span>{wishlist.size}</span>
+                </div>
+              )}
+              {compareList.size > 0 && (
+                <div className="inline-flex items-center space-x-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full text-xs font-medium">
+                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
+                  </svg>
+                  <span>{compareList.size}/3</span>
+                </div>
+              )}
+            </div>
+          </div>
 
-        {/* Products Count with Modern Styling */}
-        <div className="text-center mb-6 lg:mb-8">
-          <div className="inline-flex items-center space-x-2 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm px-4 py-2 rounded-full border border-white/40 dark:border-gray-700/40">
-            <span className="text-sm lg:text-base text-slate-600 dark:text-slate-400">
-              Hiển thị <span className="font-semibold text-orange-600 dark:text-orange-400">{filteredProducts.length}</span> sản phẩm
-            </span>
+          {/* Secondary Actions */}
+          <div className="flex items-center space-x-2">
             {searchTerm && (
-              <span className="text-xs lg:text-sm text-slate-500 dark:text-slate-500">
+              <span className="text-xs lg:text-sm text-slate-500 dark:text-slate-500 bg-white/40 dark:bg-gray-800/40 px-3 py-1 rounded-full">
                 cho "{searchTerm}"
               </span>
             )}
