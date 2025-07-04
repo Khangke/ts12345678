@@ -1131,10 +1131,210 @@ def check_mongodb_connection():
     except Exception as e:
         log_test("MongoDB Connection via API", False, error=str(e))
 
+def test_order_status_update(token: str):
+    """Test updating order status specifically"""
+    print(f"{Colors.HEADER}Testing PUT /api/admin/orders/{{id}}/status endpoint{Colors.ENDC}")
+    
+    # First create a test order
+    order_id = None
+    try:
+        # Get a product to use in the order
+        product_response = requests.get(f"{API_URL}/products")
+        if product_response.status_code == 200 and len(product_response.json()) > 0:
+            product = product_response.json()[0]
+            
+            # Get the first size and its price from size_prices
+            if product.get("size_prices") and product.get("sizes"):
+                selected_size = product["sizes"][0]
+                size_specific_price = product["size_prices"][selected_size]
+                
+                # Create an order with size-specific pricing
+                order_data = {
+                    "customer_name": "Test Status Update",
+                    "customer_phone": "0123456789",
+                    "customer_email": "test@example.com",
+                    "customer_address": "123 Test Street",
+                    "note": "This is a test order for status update",
+                    "items": [
+                        {
+                            "product_id": product["id"],
+                            "product_name": product["name"],
+                            "price": size_specific_price,
+                            "quantity": 1,
+                            "selected_size": selected_size,
+                            "size_specific_price": size_specific_price
+                        }
+                    ],
+                    "total_price": int(size_specific_price.replace(".", "").replace("đ", "")),
+                    "shipping_fee": 30000
+                }
+                
+                order_response = requests.post(
+                    f"{API_URL}/orders",
+                    json=order_data
+                )
+                
+                if order_response.status_code == 200 and "id" in order_response.json():
+                    order_id = order_response.json()["id"]
+                    log_test("Create Order for Status Update Test", True, order_response)
+                else:
+                    log_test("Create Order for Status Update Test", False, order_response,
+                            f"Failed to create order: {order_response.status_code}")
+            else:
+                log_test("Create Order for Status Update Test", False, error="Product doesn't have size_prices or sizes")
+        else:
+            log_test("Create Order for Status Update Test", False, error="No products available to create test order")
+    except Exception as e:
+        log_test("Create Order for Status Update Test", False, error=str(e))
+    
+    if not order_id:
+        print(f"{Colors.FAIL}Cannot proceed with status update test without order ID{Colors.ENDC}")
+        return
+    
+    # Test all valid status updates
+    statuses = ["confirmed", "shipping", "delivered", "cancelled"]
+    
+    for status in statuses:
+        try:
+            status_data = {"status": status}
+            
+            start_time = time.time()
+            response = requests.put(
+                f"{API_URL}/admin/orders/{order_id}/status",
+                headers={"Authorization": f"Bearer {token}"},
+                json=status_data
+            )
+            response_time = time.time() - start_time
+            
+            if response.status_code == 200 and response.json()["status"] == status:
+                log_test(f"Update Order Status to '{status}'", True, response)
+                print(f"  Response time: {response_time:.3f} seconds")
+            else:
+                log_test(f"Update Order Status to '{status}'", False, response, 
+                        f"Expected status 200 with updated status '{status}', got {response.status_code}")
+        except Exception as e:
+            log_test(f"Update Order Status to '{status}'", False, error=str(e))
+
+def test_get_admin_orders(token: str):
+    """Test GET /api/admin/orders endpoint specifically"""
+    print(f"{Colors.HEADER}Testing GET /api/admin/orders endpoint{Colors.ENDC}")
+    
+    try:
+        start_time = time.time()
+        response = requests.get(
+            f"{API_URL}/admin/orders",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+        response_time = time.time() - start_time
+        
+        if response.status_code == 200 and isinstance(response.json(), list):
+            orders = response.json()
+            
+            # Check if orders have all required fields
+            required_fields = ['id', 'order_id', 'customer_name', 'customer_phone', 
+                              'customer_address', 'items', 'total_price', 'status', 'created_at']
+            
+            all_fields_present = all(all(field in order for field in required_fields) 
+                                    for order in orders)
+            
+            # Check if order items have size-specific fields when applicable
+            items_with_size = [item for order in orders for item in order.get('items', []) 
+                              if 'selected_size' in item and 'size_specific_price' in item]
+            
+            if all_fields_present:
+                log_test("GET /api/admin/orders - Data Format", True, response)
+                print(f"  Found {len(orders)} orders")
+                print(f"  Response time: {response_time:.3f} seconds")
+                print(f"  Orders with size-specific items: {len(items_with_size)}")
+                
+                # Print status distribution
+                statuses = {}
+                for order in orders:
+                    status = order.get('status', 'unknown')
+                    statuses[status] = statuses.get(status, 0) + 1
+                
+                print("  Order status distribution:")
+                for status, count in statuses.items():
+                    print(f"    {status}: {count}")
+            else:
+                log_test("GET /api/admin/orders - Data Format", False, response,
+                        "Some orders missing required fields")
+        else:
+            log_test("GET /api/admin/orders - Status Code", False, response,
+                    f"Expected status 200 with array, got {response.status_code}")
+    except Exception as e:
+        log_test("GET /api/admin/orders", False, error=str(e))
+
+def test_products_enhanced_ui():
+    """Test GET /api/products endpoint specifically for enhanced UI requirements"""
+    print(f"{Colors.HEADER}Testing GET /api/products endpoint for enhanced UI{Colors.ENDC}")
+    
+    try:
+        start_time = time.time()
+        response = requests.get(f"{API_URL}/products")
+        response_time = time.time() - start_time
+        
+        if response.status_code == 200:
+            products = response.json()
+            
+            # Check if we have products
+            if len(products) > 0:
+                # Check for all fields needed by enhanced UI
+                required_fields = ['id', 'name', 'description', 'price', 'image', 'category', 
+                                  'material', 'rating', 'sizes', 'size_prices']
+                
+                all_fields_present = all(all(field in product for field in required_fields) 
+                                        for product in products)
+                
+                # Check size-based pricing
+                has_size_pricing = all('size_prices' in product and len(product.get('size_prices', {})) > 0 
+                                      for product in products)
+                
+                # Check if sizes and size_prices match
+                sizes_match = all(set(product.get('sizes', [])) == set(product.get('size_prices', {}).keys()) 
+                                 for product in products if product.get('sizes') and product.get('size_prices'))
+                
+                if all_fields_present and has_size_pricing and sizes_match:
+                    log_test("GET /api/products - Enhanced UI Data", True, response)
+                    print(f"  Found {len(products)} products with enhanced UI data")
+                    print(f"  Response time: {response_time:.3f} seconds")
+                    
+                    # Print example of first product
+                    if products:
+                        product = products[0]
+                        print("\n  Example product:")
+                        print(f"    Name: {product.get('name')}")
+                        print(f"    Description: {product.get('description')}")
+                        print(f"    Category: {product.get('category')}")
+                        print(f"    Material: {product.get('material')}")
+                        print(f"    Rating: {product.get('rating')}")
+                        print(f"    Base Price: {product.get('price')}")
+                        print(f"    Sizes: {product.get('sizes')}")
+                        print(f"    Size Prices: {json.dumps(product.get('size_prices', {}), indent=2)}")
+                else:
+                    errors = []
+                    if not all_fields_present:
+                        errors.append("Some products missing required fields for enhanced UI")
+                    if not has_size_pricing:
+                        errors.append("Some products missing size-based pricing")
+                    if not sizes_match:
+                        errors.append("Sizes and size_prices keys don't match for some products")
+                    
+                    log_test("GET /api/products - Enhanced UI Data", False, response, 
+                            f"Enhanced UI data validation failed: {', '.join(errors)}")
+            else:
+                log_test("GET /api/products - Enhanced UI Data", False, response, 
+                        "No products found in the response")
+        else:
+            log_test("GET /api/products - Status Code", False, response,
+                    f"Expected status 200, got {response.status_code}")
+    except Exception as e:
+        log_test("GET /api/products", False, error=str(e))
+
 def run_tests():
     """Run specific tests as requested in the review"""
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
-    print(f"{Colors.HEADER}TESTING BACKEND APIs AFTER MOBILE UI OPTIMIZATION{Colors.ENDC}")
+    print(f"{Colors.HEADER}TESTING BACKEND APIs AFTER PRODUCT PAGE ENHANCEMENTS{Colors.ENDC}")
     print(f"{Colors.HEADER}Backend URL: {BACKEND_URL}{Colors.ENDC}")
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
     
@@ -1143,7 +1343,7 @@ def run_tests():
     
     # Test the specific endpoints mentioned in the review request
     print(f"{Colors.HEADER}1. Testing GET /api/products endpoint{Colors.ENDC}")
-    test_products_api_for_featured_section()
+    test_products_enhanced_ui()
     
     # Get admin token for authenticated tests
     token = get_admin_token()
@@ -1155,6 +1355,14 @@ def run_tests():
     # Test creating an order with size-specific pricing
     print(f"{Colors.HEADER}3. Testing POST /api/orders endpoint with size-specific pricing{Colors.ENDC}")
     test_create_order_with_size_pricing()
+    
+    # Test getting admin orders
+    print(f"{Colors.HEADER}4. Testing GET /api/admin/orders endpoint{Colors.ENDC}")
+    test_get_admin_orders(token)
+    
+    # Test updating order status
+    print(f"{Colors.HEADER}5. Testing PUT /api/admin/orders/{{id}}/status endpoint{Colors.ENDC}")
+    test_order_status_update(token)
     
     # Print summary
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
@@ -1179,7 +1387,7 @@ def run_tests():
     else:
         print(f"\n{Colors.OKGREEN}All backend API tests passed successfully!{Colors.ENDC}")
         print(f"{Colors.OKGREEN}Backend health check complete - all endpoints returning status 200 with proper data format.{Colors.ENDC}")
-        print(f"{Colors.OKGREEN}The mobile UI optimization changes have not affected the backend API functionality.{Colors.ENDC}")
+        print(f"{Colors.OKGREEN}The product page enhancements have not affected the backend API functionality.{Colors.ENDC}")
 
 def run_comprehensive_tests():
     """Run all tests to verify backend functionality after ProductDetailModal UI enhancements"""
