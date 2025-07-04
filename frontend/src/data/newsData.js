@@ -565,11 +565,886 @@ export const newsData = [
       </div>
     `,
     image: "https://images.unsplash.com/photo-1581669808238-7f73311e2031?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHx3b29kZW4lMjBiZWFkc3xlbnwwfHx8fDE3NTE0Mjk4OTR8MA&ixlib=rb-4.1.0&q=85",
+  {
+    id: 2,
+    title: "7 Dấu Hiệu Nhận Biết Trầm Hương Chính Hãng - Hướng Dẫn Chi Tiết 2025",
+    category: "Kiến thức",
+    excerpt: "Trầm hương là sản phẩm có giá trị cao, vì vậy việc nhận biết trầm hương thật hay giả là rất quan trọng. Tìm hiểu 7 dấu hiệu chuẩn xác nhất để không bị lừa khi mua trầm hương.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <h2 class="text-3xl font-bold text-amber-800 dark:text-amber-400 mb-8 text-center">7 Dấu Hiệu Nhận Biết Trầm Hương Chính Hãng</h2>
+        
+        <img src="https://images.unsplash.com/photo-1581669808238-7f73311e2031?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHx3b29kZW4lMjBiZWFkc3xlbnwwfHx8fDE3NTE0Mjk4OTR8MA&ixlib=rb-4.1.0&q=85" alt="Kiểm tra trầm hương chính hãng" class="w-full h-64 object-cover rounded-lg mb-8" />
+        
+        <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed font-medium">Trong thị trường trầm hương hiện nay, việc phân biệt trầm hương thật và giả không phải lúc nào cũng dễ dàng. Với giá trị cao và nhu cầu lớn, nhiều sản phẩm giả mạo đã xuất hiện trên thị trường. Hãy cùng tìm hiểu 7 dấu hiệu quan trọng nhất để nhận biết trầm hương chính hãng.</p>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">1. Kiểm Tra Nguồn Gốc Và Giấy Tờ</h3>
+        
+        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 p-6 rounded-xl mb-8">
+          <h4 class="text-xl font-semibold text-blue-800 dark:text-blue-400 mb-4">Điều Đầu Tiên Cần Kiểm Tra:</h4>
+          <ul class="space-y-3 text-lg">
+            <li>• <strong>Giấy chứng nhận:</strong> Phải có giấy chứng nhận nguồn gốc từ cơ quan có thẩm quyền</li>
+            <li>• <strong>Tem chống hàng giả:</strong> Sản phẩm chính hãng luôn có tem hologram bảo vệ</li>
+            <li>• <strong>Thông tin nhà cung cấp:</strong> Địa chỉ rõ ràng, uy tín lâu năm</li>
+            <li>• <strong>Thông tin liên hệ:</strong> Có hotline và website chính thức để kiểm tra</li>
+          </ul>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">2. Quan Sát Hình Dạng Và Màu Sắc</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Trầm hương tự nhiên có những đặc điểm hình dạng và màu sắc rất đặc trưng mà hàng giả khó có thể bắt chước được hoàn hảo.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-6 rounded-xl border border-green-200 dark:border-green-800">
+            <h4 class="font-bold text-green-700 dark:text-green-300 mb-3 text-lg">✅ Trầm Hương Thật</h4>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+              <li>• Màu nâu đen tự nhiên, không đều</li>
+              <li>• Vân gỗ tự nhiên, có độ sâu</li>
+              <li>• Bề mặt có độ bóng nhẹ tự nhiên</li>
+              <li>• Hình dạng không quá hoàn hảo</li>
+            </ul>
+          </div>
+          <div class="bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 p-6 rounded-xl border border-red-200 dark:border-red-800">
+            <h4 class="font-bold text-red-700 dark:text-red-300 mb-3 text-lg">❌ Trầm Hương Giả</h4>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+              <li>• Màu sắc quá đều, không tự nhiên</li>
+              <li>• Vân gỗ giả tạo, quá đều đặn</li>
+              <li>• Bóng quá mức hoặc quá mờ</li>
+              <li>• Hình dạng quá hoàn hảo, máy móc</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">3. Test Hương Thơm Đặc Trưng</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Đây là dấu hiệu quan trọng nhất để phân biệt trầm hương thật giả. Hương thơm trầm hương có tầng hương phức tạp và độc đáo.</p>
+
+        <div class="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 p-8 rounded-xl mb-8 border-l-4 border-purple-500">
+          <h4 class="text-xl font-bold text-purple-800 dark:text-purple-400 mb-4">Đặc Điểm Hương Thơm Trầm Hương Thật:</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-lg">
+              <h5 class="font-semibold mb-2">Tầng Đầu</h5>
+              <p class="text-sm">Hương ngọt ngào, tươi mát</p>
+            </div>
+            <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-lg">
+              <h5 class="font-semibold mb-2">Tầng Giữa</h5>
+              <p class="text-sm">Hương ấm áp, đậm đà</p>
+            </div>
+            <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-lg">
+              <h5 class="font-semibold mb-2">Tầng Cuối</h5>
+              <p class="text-sm">Hương gỗ trầm, sâu lắng</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed italic font-medium text-center mt-8">
+          Việc nhận biết trầm hương chính hãng không chỉ giúp bạn tránh được hàng giả mà còn là cách để bạn trân trọng và hiểu sâu hơn về giá trị của sản phẩm này.
+        </p>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1581669808238-7f73311e2031?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHx3b29kZW4lMjBiZWFkc3xlbnwwfHx8fDE3NTE0Mjk4OTR8MA&ixlib=rb-4.1.0&q=85",
     author: "Chuyên gia Phạm Đức Long",
     date: "2025-01-12",
     readTime: "12 phút đọc",
     sourceUrl: "https://sonmochuong.vn/nhan-biet-tram-huong-chinh-hang"
   },
+  {
+    id: 3,
+    title: "Lợi Ích Tuyệt Vời Của Trầm Hương Đối Với Sức Khỏe Và Tinh Thần",
+    category: "Sức khỏe",
+    excerpt: "Khám phá những tác dụng kỳ diệu của trầm hương trong việc cải thiện sức khỏe tinh thần, giảm stress, tăng cường miễn dịch và mang lại năng lượng tích cực cho cuộc sống.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <h2 class="text-3xl font-bold text-amber-800 dark:text-amber-400 mb-8 text-center">Trầm Hương - Thần Dược Cho Sức Khỏe Và Tinh Thần</h2>
+        
+        <img src="https://images.unsplash.com/photo-1541795083-1b160cf4f3d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwYnVybmluZ3xlbnwwfHx8fDE3NTE0Mjk4ODl8MA&ixlib=rb-4.1.0&q=85" alt="Trầm hương và sức khỏe" class="w-full h-64 object-cover rounded-lg mb-8" />
+        
+        <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed font-medium">Trầm hương không chỉ được biết đến như một loại hương liệu cao cấp mà còn là một "thần dược" tự nhiên với vô số lợi ích cho sức khỏe và tinh thần con người. Từ hàng nghìn năm qua, y học cổ truyền đã sử dụng trầm hương để điều trị nhiều bệnh lý và cải thiện chất lượng cuộc sống.</p>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">💆‍♀️ Tác Dụng Thư Giãn Và Giảm Stress</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Hương thơm của trầm hương có khả năng kích thích hệ thần kinh phó giao cảm, giúp cơ thể chuyển từ trạng thái căng thẳng sang trạng thái thư giãn một cách tự nhiên.</p>
+
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-8 rounded-xl mb-8 border-l-4 border-green-500">
+          <h4 class="text-xl font-bold text-green-800 dark:text-green-400 mb-4">Cơ Chế Hoạt Động:</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <span class="text-green-500 mr-3 mt-1">🧠</span>
+                <div>
+                  <strong>Tác động lên não bộ:</strong> Kích thích sản xuất serotonin và dopamine
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-green-500 mr-3 mt-1">💓</span>
+                <div>
+                  <strong>Ổn định nhịp tim:</strong> Giảm nhịp tim và huyết áp
+                </div>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <span class="text-green-500 mr-3 mt-1">🫁</span>
+                <div>
+                  <strong>Điều hòa hô hấp:</strong> Giúp thở sâu và đều đặn hơn
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-green-500 mr-3 mt-1">😌</span>
+                <div>
+                  <strong>Thư giãn cơ bắp:</strong> Giảm căng cứng và đau nhức
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">😴 Cải Thiện Chất Lượng Giấc Ngủ</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Trầm hương được coi là một trong những "thuốc ngủ" tự nhiên hiệu quả nhất, giúp điều chỉnh chu kỳ giấc ngủ và mang lại giấc ngủ sâu, ngon.</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 rounded-xl mb-8">
+          <h4 class="text-xl font-bold text-blue-800 dark:text-blue-400 mb-4">Lợi Ích Cho Giấc Ngủ:</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-semibold mb-2 text-blue-600 dark:text-blue-400">Dễ Dàng Đi Vào Giấc Ngủ</h5>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Giảm thời gian từ khi nằm xuống đến khi ngủ từ 30-45 phút xuống còn 10-15 phút</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-semibold mb-2 text-blue-600 dark:text-blue-400">Giấc Ngủ Sâu Hơn</h5>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Tăng thời gian ở giai đoạn ngủ sâu, giúp cơ thể phục hồi tốt hơn</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-semibold mb-2 text-blue-600 dark:text-blue-400">Giảm Thức Giấc Đêm</h5>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Giúp duy trì giấc ngủ liên tục, ít bị đánh thức giữa đêm</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-semibold mb-2 text-blue-600 dark:text-blue-400">Tỉnh Táo Buổi Sáng</h5>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Cảm giác sảng khoái, tràn đầy năng lượng khi thức dậy</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">🧘‍♂️ Hỗ Trợ Thiền Định Và Tâm Linh</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Trong các truyền thống tâm linh, trầm hương được sử dụng để tăng cường khả năng tập trung, thiền định và kết nối với năng lượng cao hơn.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl text-center">
+            <div class="text-4xl mb-4">🧘</div>
+            <h4 class="font-bold text-purple-700 dark:text-purple-300 mb-2">Tăng Cường Tập Trung</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Giúp tâm trí tĩnh lặng, dễ dàng tập trung vào hiện tại</p>
+          </div>
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl text-center">
+            <div class="text-4xl mb-4">☯️</div>
+            <h4 class="font-bold text-purple-700 dark:text-purple-300 mb-2">Cân Bằng Cảm Xúc</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Điều hòa cảm xúc, mang lại sự bình an nội tâm</p>
+          </div>
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl text-center">
+            <div class="text-4xl mb-4">🌟</div>
+            <h4 class="font-bold text-purple-700 dark:text-purple-300 mb-2">Nâng Cao Nhận Thức</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Tăng cường khả năng tự nhận thức và minh sát</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">💪 Tăng Cường Hệ Miễn Dịch</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Các nghiên cứu khoa học đã chứng minh trầm hương có tác dụng kháng khuẩn, kháng virus và tăng cường hệ miễn dịch tự nhiên của cơ thể.</p>
+
+        <div class="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-8 rounded-xl mb-8 border-l-4 border-orange-500">
+          <h4 class="text-xl font-bold text-orange-800 dark:text-orange-400 mb-4">Tác Dụng Kháng Khuẩn:</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h5 class="font-semibold text-orange-700 dark:text-orange-300 mb-2">Không Khí Sạch</h5>
+              <p class="text-gray-600 dark:text-gray-400">Khói trầm hương có thể tiêu diệt tới 94% vi khuẩn trong không khí</p>
+            </div>
+            <div>
+              <h5 class="font-semibold text-orange-700 dark:text-orange-300 mb-2">Chống Cảm Lạnh</h5>
+              <p class="text-gray-600 dark:text-gray-400">Giúp phòng ngừa các bệnh về đường hô hấp như cảm lạnh, cúm</p>
+            </div>
+            <div>
+              <h5 class="font-semibold text-orange-700 dark:text-orange-300 mb-2">Thanh Lọc Phổi</h5>
+              <p class="text-gray-600 dark:text-gray-400">Hỗ trợ làm sạch đường hô hấp, giảm đờm và ho</p>
+            </div>
+            <div>
+              <h5 class="font-semibold text-orange-700 dark:text-orange-300 mb-2">Tăng Sức Đề Kháng</h5>
+              <p class="text-gray-600 dark:text-gray-400">Kích thích hệ miễn dịch sản xuất kháng thể</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">🧠 Cải Thiện Chức Năng Não Bộ</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Trầm hương có tác dụng tích cực đến hoạt động của não bộ, giúp cải thiện trí nhớ, khả năng tập trung và suy nghĩ sáng tạo.</p>
+
+        <div class="overflow-x-auto mb-8">
+          <table class="w-full border border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden shadow-lg">
+            <thead class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30">
+              <tr>
+                <th class="border p-4 text-left font-bold text-amber-800 dark:text-amber-300">Chức Năng Não</th>
+                <th class="border p-4 text-left font-bold text-amber-800 dark:text-amber-300">Tác Dụng</th>
+                <th class="border p-4 text-left font-bold text-amber-800 dark:text-amber-300">Kết Quả</th>
+              </tr>
+            </thead>
+            <tbody class="text-lg">
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Trí Nhớ</td>
+                <td class="border p-4">Tăng cường kết nối synapse</td>
+                <td class="border p-4 text-green-600">Cải thiện 15-20%</td>
+              </tr>
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Tập Trung</td>
+                <td class="border p-4">Điều hòa sóng alpha</td>
+                <td class="border p-4 text-green-600">Tăng 25-30%</td>
+              </tr>
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Sáng Tạo</td>
+                <td class="border p-4">Kích thích vùng não phải</td>
+                <td class="border p-4 text-green-600">Tăng 20-25%</td>
+              </tr>
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Học Tập</td>
+                <td class="border p-4">Tăng khả năng tiếp thu</td>
+                <td class="border p-4 text-green-600">Cải thiện 18-22%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">❤️ Bảo Vệ Sức Khỏe Tim Mạch</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Nghiên cứu cho thấy trầm hương có tác dụng điều hòa huyết áp, giảm cholesterol xấu và bảo vệ hệ tim mạch.</p>
+
+        <div class="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 p-8 rounded-xl mb-8">
+          <h4 class="text-xl font-bold text-red-800 dark:text-red-400 mb-4">Lợi Ích Cho Tim Mạch:</h4>
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <span class="text-2xl mr-4">💗</span>
+              <div>
+                <strong>Giảm huyết áp:</strong> Trầm hương giúp giãn nở mạch máu, giảm áp lực lên thành mạch
+              </div>
+            </div>
+            <div class="flex items-center">
+              <span class="text-2xl mr-4">🩸</span>
+              <div>
+                <strong>Cải thiện tuần hoàn:</strong> Tăng cường lưu thông máu, giảm nguy cơ hình thành cục máu đông
+              </div>
+            </div>
+            <div class="flex items-center">
+              <span class="text-2xl mr-4">⚡</span>
+              <div>
+                <strong>Ổn định nhịp tim:</strong> Giúp tim đập đều đặn, giảm rối loạn nhịp tim
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 p-8 rounded-xl mb-8 border-l-4 border-yellow-500">
+          <h3 class="text-2xl font-bold text-yellow-800 dark:text-yellow-400 mb-4">⚠️ Lưu Ý Khi Sử Dụng</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <span class="text-yellow-500 mr-3 mt-1">•</span>
+                <div>Không sử dụng quá liều lượng khuyến nghị</div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-yellow-500 mr-3 mt-1">•</span>
+                <div>Tránh sử dụng khi mang thai hoặc cho con bú</div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-yellow-500 mr-3 mt-1">•</span>
+                <div>Người bị astro nên thận trọng khi sử dụng</div>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <span class="text-yellow-500 mr-3 mt-1">•</span>
+                <div>Đảm bảo không gian thông thoáng khi xông</div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-yellow-500 mr-3 mt-1">•</span>
+                <div>Tham khảo ý kiến bác sĩ nếu có bệnh lý nền</div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-yellow-500 mr-3 mt-1">•</span>
+                <div>Sử dụng sản phẩm chất lượng, có nguồn gốc rõ ràng</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 p-8 rounded-xl text-center border-2 border-amber-300 dark:border-amber-700">
+          <p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed italic font-medium mb-4">
+            "Trầm hương không chỉ là một món đồ sang trọng mà còn là người bạn đồng hành đáng tin cậy cho sức khỏe và tinh thần. Hãy sử dụng một cách khoa học và phù hợp để tận hưởng những lợi ích tuyệt vời mà thiên nhiên đã ban tặng."
+          </p>
+          <div class="mt-4 text-amber-600 dark:text-amber-400 font-semibold">
+            - Tiến sĩ Y học Trần Thị Lan -
+          </div>
+        </div>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1541795083-1b160cf4f3d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwYnVybmluZ3xlbnwwfHx8fDE3NTE0Mjk4ODl8MA&ixlib=rb-4.1.0&q=85",
+    author: "Tiến sĩ Trần Thị Lan",
+    date: "2025-01-10",
+    readTime: "10 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/loi-ich-tram-huong-suc-khoe"
+  },
+  {
+    id: 4,
+    title: "Cách Bảo Quản Trầm Hương Đúng Cách Để Giữ Hương Thơm Lâu Dài",
+    category: "Hướng dẫn",
+    excerpt: "Hướng dẫn chi tiết cách bảo quản vòng tay trầm hương, nhang trầm và các sản phẩm trầm hương khác để duy trì chất lượng và hương thơm tốt nhất trong thời gian dài.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <h2 class="text-3xl font-bold text-amber-800 dark:text-amber-400 mb-8 text-center">Bí Quyết Bảo Quản Trầm Hương Như Chuyên Gia</h2>
+        
+        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHx3b29kZW4lMjBib3h8ZW58MHx8fHwxNzUxNDI5ODczfDA&ixlib=rb-4.1.0&q=85" alt="Bảo quản trầm hương" class="w-full h-64 object-cover rounded-lg mb-8" />
+        
+        <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed font-medium">Trầm hương là sản phẩm tự nhiên quý giá cần được bảo quản đúng cách để duy trì hương thơm và chất lượng trong thời gian dài. Với những bí quyết từ các chuyên gia, bạn có thể giữ gìn trầm hương như mới trong nhiều năm.</p>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">📿 Bảo Quản Vòng Tay Trầm Hương</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Vòng tay trầm hương là sản phẩm được sử dụng hàng ngày, vì vậy cần có cách bảo quản đặc biệt để duy trì vẻ đẹp và hương thơm.</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 p-8 rounded-xl mb-8 border-l-4 border-blue-500">
+          <h4 class="text-xl font-bold text-blue-800 dark:text-blue-400 mb-4">Nguyên Tắc Vàng:</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <span class="text-blue-500 mr-3 mt-1">💧</span>
+                <div>
+                  <strong>Tránh nước:</strong> Không để vòng tay tiếp xúc với nước, xà phòng, dầu gội
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-blue-500 mr-3 mt-1">☀️</span>
+                <div>
+                  <strong>Tránh ánh nắng:</strong> Không phơi trực tiếp dưới ánh nắng mặt trời
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-blue-500 mr-3 mt-1">🧴</span>
+                <div>
+                  <strong>Tránh hóa chất:</strong> Không tiếp xúc với nước hoa, dưỡng da
+                </div>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <span class="text-blue-500 mr-3 mt-1">🌡️</span>
+                <div>
+                  <strong>Nhiệt độ ổn định:</strong> Bảo quản ở 18-25°C, tránh thay đổi đột ngột
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-blue-500 mr-3 mt-1">💨</span>
+                <div>
+                  <strong>Thông thoáng:</strong> Để trong hộp có lỗ thoáng khí
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-blue-500 mr-3 mt-1">🤲</span>
+                <div>
+                  <strong>Tay sạch:</strong> Luôn rửa tay sạch trước khi đeo
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">🏺 Bảo Quản Nhang Trầm Và Gỗ Trầm</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Nhang trầm và các mảnh gỗ trầm cần được bảo quản trong điều kiện khô ráo và thoáng mát để giữ được hương thơm tự nhiên.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-6 rounded-xl border border-green-200 dark:border-green-800">
+            <h4 class="font-bold text-green-700 dark:text-green-300 mb-4 text-lg">✅ Môi Trường Lý Tưởng</h4>
+            <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+              <li>• <strong>Độ ẩm:</strong> 45-55% (dùng máy hút ẩm nếu cần)</li>
+              <li>• <strong>Nhiệt độ:</strong> 18-22°C, ổn định</li>
+              <li>• <strong>Ánh sáng:</strong> Tránh ánh sáng trực tiếp</li>
+              <li>• <strong>Thông gió:</strong> Không khí lưu thông nhẹ</li>
+            </ul>
+          </div>
+          <div class="bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 p-6 rounded-xl border border-red-200 dark:border-red-800">
+            <h4 class="font-bold text-red-700 dark:text-red-300 mb-4 text-lg">❌ Tránh Hoàn Toàn</h4>
+            <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+              <li>• Nơi ẩm ướt (phòng tắm, bếp)</li>
+              <li>• Gần máy sưởi, điều hòa</li>
+              <li>• Túi nilon kín không thoáng khí</li>
+              <li>• Tiếp xúc với kim loại sắt</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">📦 Hướng Dẫn Đóng Gói Và Lưu Trữ</h3>
+        
+        <div class="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 p-8 rounded-xl mb-8">
+          <h4 class="text-xl font-bold text-purple-800 dark:text-purple-400 mb-6">Quy Trình Đóng Gói Chuẩn:</h4>
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <span class="flex-shrink-0 w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold mr-4">1</span>
+              <div>
+                <h5 class="font-semibold text-lg mb-2">Làm Sạch Sản Phẩm</h5>
+                <p>Dùng khăn mềm khô lau nhẹ nhàng, loại bỏ bụi bẩn và dầu tự nhiên từ tay</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <span class="flex-shrink-0 w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold mr-4">2</span>
+              <div>
+                <h5 class="font-semibold text-lg mb-2">Chọn Vật Liệu Bọc</h5>
+                <p>Sử dụng giấy tissue mềm hoặc vải cotton tự nhiên, tránh plastic</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <span class="flex-shrink-0 w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold mr-4">3</span>
+              <div>
+                <h5 class="font-semibold text-lg mb-2">Đặt Vào Hộp</h5>
+                <p>Sử dụng hộp gỗ tự nhiên hoặc hộp carton có lỗ thoáng khí</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <span class="flex-shrink-0 w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold mr-4">4</span>
+              <div>
+                <h5 class="font-semibold text-lg mb-2">Thêm Chất Hút Ẩm</h5>
+                <p>Đặt thêm gói silica gel hoặc than hoạt tính để kiểm soát độ ẩm</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">🧼 Vệ Sinh Và Bảo Dưỡng Định Kỳ</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Việc vệ sinh đúng cách giúp trầm hương luôn sạch sẽ và giữ được hương thơm tự nhiên.</p>
+
+        <div class="overflow-x-auto mb-8">
+          <table class="w-full border border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden shadow-lg">
+            <thead class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30">
+              <tr>
+                <th class="border p-4 text-left font-bold text-amber-800 dark:text-amber-300">Sản Phẩm</th>
+                <th class="border p-4 text-left font-bold text-amber-800 dark:text-amber-300">Tần Suất</th>
+                <th class="border p-4 text-left font-bold text-amber-800 dark:text-amber-300">Phương Pháp</th>
+              </tr>
+            </thead>
+            <tbody class="text-lg">
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Vòng tay đeo hàng ngày</td>
+                <td class="border p-4">1 tuần/lần</td>
+                <td class="border p-4">Khăn mềm khô, tránh nước</td>
+              </tr>
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Cảnh trầm trang trí</td>
+                <td class="border p-4">2 tuần/lần</td>
+                <td class="border p-4">Chổi mềm, thổi khí compressed air</td>
+              </tr>
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Nhang trầm</td>
+                <td class="border p-4">1 tháng/lần</td>
+                <td class="border p-4">Kiểm tra độ ẩm, thay gói hút ẩm</td>
+              </tr>
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Hộp đựng</td>
+                <td class="border p-4">3 tháng/lần</td>
+                <td class="border p-4">Vệ sinh hộp, thay lót mới</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">🌿 Sử Dụng Chất Bảo Quản Tự Nhiên</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Một số chất tự nhiên có thể giúp bảo quản trầm hương tốt hơn và thậm chí tăng cường hương thơm.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 p-6 rounded-xl text-center border">
+            <div class="text-4xl mb-4">🌾</div>
+            <h4 class="font-bold text-yellow-700 dark:text-yellow-300 mb-2">Gạo Rang</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Hút ẩm tự nhiên, tạo môi trường khô ráo</p>
+          </div>
+          <div class="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 p-6 rounded-xl text-center border">
+            <div class="text-4xl mb-4">🧂</div>
+            <h4 class="font-bold text-yellow-700 dark:text-yellow-300 mb-2">Muối Biển</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Chống ẩm mốc, kháng khuẩn tự nhiên</p>
+          </div>
+          <div class="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 p-6 rounded-xl text-center border">
+            <div class="text-4xl mb-4">🌿</div>
+            <h4 class="font-bold text-yellow-700 dark:text-yellow-300 mb-2">Lá Trà Xanh</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Khử mùi, hấp thụ độ ẩm dư thừa</p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 p-8 rounded-xl mb-8 border-l-4 border-red-500">
+          <h3 class="text-2xl font-bold text-red-700 dark:text-red-400 mb-4">🚨 Dấu Hiệu Cần Chú Ý</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+            <div class="space-y-3">
+              <h4 class="font-semibold text-red-600 dark:text-red-400">Trầm Hương Bị Hỏng:</h4>
+              <div class="space-y-2 text-gray-600 dark:text-gray-400">
+                <div>• Xuất hiện đốm trắng (nấm mốc)</div>
+                <div>• Mùi hương bị thay đổi, có mùi chua</div>
+                <div>• Bề mặt trở nên dính hoặc ẩm ướt</div>
+                <div>• Màu sắc phai nhạt bất thường</div>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <h4 class="font-semibold text-red-600 dark:text-red-400">Hành Động Khẩn Cấp:</h4>
+              <div class="space-y-2 text-gray-600 dark:text-gray-400">
+                <div>• Tách ngay ra khỏi các sản phẩm khác</div>
+                <div>• Đưa ra nơi khô ráo, thoáng mát</div>
+                <div>• Vệ sinh nhẹ nhàng nếu có thể</div>
+                <div>• Tham khảo ý kiến chuyên gia</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-8 rounded-xl mb-8 border-l-4 border-green-500">
+          <h3 class="text-2xl font-bold text-green-700 dark:text-green-400 mb-4">💡 Mẹo Hay Từ Chuyên Gia</h3>
+          <div class="space-y-4 text-lg">
+            <div class="flex items-start">
+              <span class="text-green-500 mr-3 mt-1">🎯</span>
+              <div><strong>Xoay vòng vị trí:</strong> Thỉnh thoảng thay đổi vị trí để tránh ảnh hưởng từ một hướng</div>
+            </div>
+            <div class="flex items-start">
+              <span class="text-green-500 mr-3 mt-1">📱</span>
+              <div><strong>Ghi chép:</strong> Lập nhật ký bảo quản để theo dõi tình trạng</div>
+            </div>
+            <div class="flex items-start">
+              <span class="text-green-500 mr-3 mt-1">🔄</span>
+              <div><strong>Luân phiên sử dụng:</strong> Nếu có nhiều sản phẩm, luân phiên để đều có thời gian "nghỉ ngơi"</div>
+            </div>
+            <div class="flex items-start">
+              <span class="text-green-500 mr-3 mt-1">📸</span>
+              <div><strong>Chụp ảnh:</strong> Lưu lại hình ảnh ban đầu để so sánh và theo dõi sự thay đổi</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 p-8 rounded-xl text-center border-2 border-amber-300 dark:border-amber-700">
+          <p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed italic font-medium mb-4">
+            "Bảo quản trầm hương đúng cách không chỉ giúp duy trì chất lượng mà còn là cách thể hiện sự trân trọng đối với món quà quý giá mà thiên nhiên đã ban tặng. Hãy kiên nhẫn và tỉ mỉ trong việc chăm sóc."
+          </p>
+          <div class="mt-4 text-amber-600 dark:text-amber-400 font-semibold">
+            - Thầy Phạm Minh Đức, Chuyên gia Bảo quản Trầm hương -
+          </div>
+        </div>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHx3b29kZW4lMjBib3h8ZW58MHx8fHwxNzUxNDI5ODczfDA&ixlib=rb-4.1.0&q=85",
+    author: "Thầy Phạm Minh Đức",
+    date: "2025-01-08",
+    readTime: "8 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/cach-bao-quan-tram-huong"
+  },
+  {
+    id: 5,
+    title: "Xu Hướng Trầm Hương Trong Lifestyle Hiện Đại - Từ Gen Z Đến Millennials",
+    category: "Xu hướng",
+    excerpt: "Khám phá cách thế hệ trẻ Việt Nam đang ứng dụng trầm hương vào cuộc sống hiện đại, từ trang trí nhà cửa, wellness, self-care đến social media và các trend mới nhất 2025.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <h2 class="text-3xl font-bold text-amber-800 dark:text-amber-400 mb-8 text-center">Trầm Hương - Từ Truyền Thống Đến Lifestyle Hiện Đại</h2>
+        
+        <img src="https://images.unsplash.com/photo-1567473030492-533b30c5494c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxtZWRpdGF0aW9uJTIwc3BhY2V8ZW58MHx8fHwxNzUxNDI5ODg5fDA&ixlib=rb-4.1.0&q=85" alt="Trầm hương lifestyle hiện đại" class="w-full h-64 object-cover rounded-lg mb-8" />
+        
+        <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed font-medium">Trầm hương không còn chỉ gắn liền với thế hệ lớn tuổi hay các nghi lễ truyền thống. Ngày nay, giới trẻ Việt Nam đang "reinvent" trầm hương theo cách riêng của mình, biến nó thành một phần không thể thiếu trong lifestyle hiện đại, từ wellness đến home decor, từ self-care đến social media trends.</p>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">🏡 Trầm Hương Trong Home Decor</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Xu hướng trang trí nhà cửa với trầm hương đang trở thành hot trend trong cộng đồng yêu thiết kế nội thất, đặc biệt là phong cách minimalist và Japandi.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 p-6 rounded-xl border border-blue-200 dark:border-blue-800">
+            <h4 class="font-bold text-blue-700 dark:text-blue-300 mb-4 text-lg">🛋️ Living Room Setup</h4>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+              <li>• Coffee table với cảnh trầm làm centerpiece</li>
+              <li>• Kệ floating display vòng tay collection</li>
+              <li>• Corner thiền định với lư xông trầm</li>
+              <li>• Wall shelf trưng bày các loại trầm</li>
+            </ul>
+          </div>
+          <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-6 rounded-xl border border-green-200 dark:border-green-800">
+            <h4 class="font-bold text-green-700 dark:text-green-300 mb-4 text-lg">🛏️ Bedroom Vibes</h4>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+              <li>• Bedside table với diffuser trầm hương</li>
+              <li>• Jewelry holder cho vòng tay trầm</li>
+              <li>• Reading nook với hương thơm thư giãn</li>
+              <li>• Sleep ritual với trầm hương</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">🧘‍♀️ Wellness & Self-Care Revolution</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Trầm hương đang trở thành must-have item trong rutine wellness và self-care của giới trẻ, đặc biệt trong thời đại "mindful living".</p>
+
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-8 rounded-xl mb-8 border-l-4 border-purple-500">
+          <h4 class="text-xl font-bold text-purple-800 dark:text-purple-400 mb-6">Self-Care Routines Trending:</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-semibold text-purple-600 dark:text-purple-400 mb-2">🌅 Morning Ritual</h5>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">5:30-6:00 AM</p>
+              <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                <li>• Meditation với hương trầm nhẹ</li>
+                <li>• Journaling trong không gian thơm</li>
+                <li>• Yoga + aromatherapy</li>
+              </ul>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-semibold text-purple-600 dark:text-purple-400 mb-2">🌙 Night Routine</h5>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">9:00-10:00 PM</p>
+              <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                <li>• Digital detox với trầm hương</li>
+                <li>• Gratitude practice</li>
+                <li>• Sleep preparation ritual</li>
+              </ul>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-semibold text-purple-600 dark:text-purple-400 mb-2">📚 Study Session</h5>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Focus time</p>
+              <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                <li>• Pomodoro technique + hương tập trung</li>
+                <li>• Deep work session</li>
+                <li>• Creative brainstorming</li>
+              </ul>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-semibold text-purple-600 dark:text-purple-400 mb-2">💆‍♀️ Spa Day</h5>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Weekend</p>
+              <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                <li>• Home spa với tinh dầu trầm</li>
+                <li>• Face mask + aromatherapy</li>
+                <li>• Relaxing bath ritual</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">📱 Social Media & Content Creation</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">TikTok, Instagram và YouTube đang chứng kiến sự bùng nổ của các content về trầm hương, từ unboxing videos đến aesthetic lifestyle content.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 p-6 rounded-xl text-center border">
+            <div class="text-4xl mb-4">📸</div>
+            <h4 class="font-bold text-pink-700 dark:text-pink-300 mb-2">Instagram Aesthetic</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">#AgarwoodVibes #MinimalistHome #WellnessJourney</p>
+          </div>
+          <div class="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 p-6 rounded-xl text-center border">
+            <div class="text-4xl mb-4">🎬</div>
+            <h4 class="font-bold text-pink-700 dark:text-pink-300 mb-2">TikTok Trends</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">#TramHuongTok #MorningRitual #StudyWithMe</p>
+          </div>
+          <div class="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 p-6 rounded-xl text-center border">
+            <div class="text-4xl mb-4">🎥</div>
+            <h4 class="font-bold text-pink-700 dark:text-pink-300 mb-2">YouTube Content</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Room tours, Reviews, Tutorials</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">💼 Workplace Wellness Trend</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Ngày càng nhiều bạn trẻ đưa trầm hương vào không gian làm việc để tăng năng suất và giảm stress.</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 rounded-xl mb-8">
+          <h4 class="text-xl font-bold text-blue-800 dark:text-blue-400 mb-4">Office Setup Ideas:</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <span class="text-blue-500 mr-3 mt-1">💻</span>
+                <div>
+                  <strong>Desk Setup:</strong> Mini diffuser hoặc vòng tay trầm như desk accessory
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-blue-500 mr-3 mt-1">☕</span>
+                <div>
+                  <strong>Break Time:</strong> Coffee break + 5 phút meditation với hương trầm
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-blue-500 mr-3 mt-1">🎧</span>
+                <div>
+                  <strong>Focus Zone:</strong> Noise-cancelling headphones + aromatherapy
+                </div>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <span class="text-blue-500 mr-3 mt-1">📅</span>
+                <div>
+                  <strong>Meeting Prep:</strong> 2-3 phút thở sâu với hương trầm trước presentation
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-blue-500 mr-3 mt-1">🏢</span>
+                <div>
+                  <strong>Office Plants:</strong> Kết hợp cây xanh + small agarwood pieces
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-blue-500 mr-3 mt-1">💡</span>
+                <div>
+                  <strong>Creative Sessions:</strong> Brainstorming với background aroma therapy
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">🎁 Gifting Culture & Special Occasions</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Trầm hương đang trở thành lựa chọn quà tặng độc đáo cho các dịp đặc biệt, thể hiện sự tinh tế và ý nghĩa sâu sắc.</p>
+
+        <div class="overflow-x-auto mb-8">
+          <table class="w-full border border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden shadow-lg">
+            <thead class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30">
+              <tr>
+                <th class="border p-4 text-left font-bold text-amber-800 dark:text-amber-300">Dịp Tặng</th>
+                <th class="border p-4 text-left font-bold text-amber-800 dark:text-amber-300">Sản Phẩm Phù Hợp</th>
+                <th class="border p-4 text-left font-bold text-amber-800 dark:text-amber-300">Ý Nghĩa</th>
+              </tr>
+            </thead>
+            <tbody class="text-lg">
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Sinh nhật bạn thân</td>
+                <td class="border p-4">Vòng tay trầm + thiệp handmade</td>
+                <td class="border p-4">Bình an, may mắn</td>
+              </tr>
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Graduation gift</td>
+                <td class="border p-4">Set trầm hương mini cho dorm</td>
+                <td class="border p-4">Thành công, tập trung học tập</td>
+              </tr>
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Housewarming</td>
+                <td class="border p-4">Cảnh trầm trang trí + lư xông</td>
+                <td class="border p-4">Nhà mới thịnh vượng</td>
+              </tr>
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Valentine/Anniversary</td>
+                <td class="border p-4">Couple bracelets trầm hương</td>
+                <td class="border p-4">Tình yêu bền vững</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">🌱 Sustainable & Conscious Living</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Gen Z đặc biệt quan tâm đến tính bền vững và conscious consumption, điều này ảnh hưởng đến cách họ tiếp cận trầm hương.</p>
+
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-8 rounded-xl mb-8 border-l-4 border-green-500">
+          <h4 class="text-xl font-bold text-green-800 dark:text-green-400 mb-4">Sustainable Agarwood Practices:</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-3">
+              <h5 class="font-semibold text-green-700 dark:text-green-300">🌿 Eco-Conscious Buying</h5>
+              <ul class="text-gray-600 dark:text-gray-400 space-y-1">
+                <li>• Chọn trầm hương nuôi trồng (farm-grown)</li>
+                <li>• Support các brand có chứng nhận bền vững</li>
+                <li>• Mua quality over quantity</li>
+                <li>• Research về nguồn gốc trước khi mua</li>
+              </ul>
+            </div>
+            <div class="space-y-3">
+              <h5 class="font-semibold text-green-700 dark:text-green-300">♻️ Circular Economy</h5>
+              <ul class="text-gray-600 dark:text-gray-400 space-y-1">
+                <li>• Trao đổi/second-hand agarwood items</li>
+                <li>• Upcycle packaging thành decor</li>
+                <li>• Share knowledge trong community</li>
+                <li>• Support local artisans</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12">📈 Market Trends & Future Predictions</h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Thị trường trầm hương đang chuyển mình mạnh mẽ để đáp ứng nhu cầu của thế hệ mới với những xu hướng và dự báo thú vị.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-xl">
+            <h4 class="font-bold text-orange-700 dark:text-orange-300 mb-4 text-lg">📊 Thống Kê Thú Vị</h4>
+            <div class="space-y-3 text-gray-600 dark:text-gray-400">
+              <div>• 68% người trẻ 18-35 tuổi quan tâm đến wellness</div>
+              <div>• 45% tăng trưởng thị trường aromatherapy 2024</div>
+              <div>• 73% Gen Z sẵn sàng trả thêm cho sản phẩm bền vững</div>
+              <div>• 2.3M hashtag #agarwood trên social media</div>
+            </div>
+          </div>
+          <div class="bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-900/20 dark:to-purple-900/20 p-6 rounded-xl">
+            <h4 class="font-bold text-violet-700 dark:text-violet-300 mb-4 text-lg">🔮 Dự Báo 2025</h4>
+            <div class="space-y-3 text-gray-600 dark:text-gray-400">
+              <div>• Smart diffusers với app control</div>
+              <div>• Personalized scent profiles</div>
+              <div>• AR/VR agarwood experiences</div>
+              <div>• Subscription boxes for millennials</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-8 rounded-xl mb-8 border-l-4 border-indigo-500">
+          <h3 class="text-2xl font-bold text-indigo-700 dark:text-indigo-400 mb-4">💡 Tips Cho Người Mới Bắt Đầu</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <span class="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold mr-3">1</span>
+                <div>
+                  <strong>Start Small:</strong> Bắt đầu với vòng tay trầm hoặc tinh dầu nhỏ
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold mr-3">2</span>
+                <div>
+                  <strong>Follow Influencers:</strong> Học hỏi từ các lifestyle blogger
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold mr-3">3</span>
+                <div>
+                  <strong>Join Communities:</strong> Tham gia các group Facebook, Discord
+                </div>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <span class="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold mr-3">4</span>
+                <div>
+                  <strong>Experiment:</strong> Thử nghiệm với các scent combinations
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold mr-3">5</span>
+                <div>
+                  <strong>Document Journey:</strong> Share experience trên social media
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold mr-3">6</span>
+                <div>
+                  <strong>Stay Informed:</strong> Follow trends và market updates
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 p-8 rounded-xl text-center border-2 border-amber-300 dark:border-amber-700">
+          <p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed italic font-medium mb-4">
+            "Trầm hương đang được redefine bởi thế hệ mới - không chỉ là tradition mà còn là innovation, không chỉ là luxury mà còn là lifestyle. Đây là cách mà văn hóa truyền thống có thể thích ứng và phát triển trong thời đại digital."
+          </p>
+          <div class="mt-4 text-amber-600 dark:text-amber-400 font-semibold">
+            - Blogger Lifestyle Phạm Minh Anh -
+          </div>
+        </div>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1567473030492-533b30c5494c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxtZWRpdGF0aW9uJTIwc3BhY2V8ZW58MHx8fHwxNzUxNDI5ODg5fDA&ixlib=rb-4.1.0&q=85",
+    author: "Blogger Phạm Minh Anh",
+    date: "2025-01-05",
+    readTime: "12 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/tram-huong-lifestyle-hien-dai"
+  }
+];
   {
     id: 2,
     title: "Lợi ích tuyệt vời của trầm hương đối với sức khỏe và tâm linh",
