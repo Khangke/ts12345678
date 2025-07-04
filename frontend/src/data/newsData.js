@@ -241,10 +241,334 @@ export const newsData = [
       </div>
     `,
     image: "https://images.unsplash.com/photo-1542838132-92c53300491e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHx3b29kJTIwZXh0cmFjdGlvbnxlbnwwfHx8fDE3NTE0Mjk4Njh8MA&ixlib=rb-4.1.0&q=85",
-    author: "Thạc sĩ Nguyễn Quang Minh",
-    date: "2025-01-15",
-    readTime: "15 phút đọc",
-    sourceUrl: "https://sonmochuong.vn/tram-huong-viet-nam-hanh-trinh-tu-rung-gia"
+  {
+    id: 2,
+    title: "7 Dấu Hiệu Nhận Biết Trầm Hương Chính Hãng - Hướng Dẫn Chi Tiết 2025",
+    category: "Kiến thức",
+    excerpt: "Trầm hương là sản phẩm có giá trị cao, vì vậy việc nhận biết trầm hương thật hay giả là rất quan trọng. Tìm hiểu 7 dấu hiệu chuẩn xác nhất để không bị lừa khi mua trầm hương.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <h2 class="text-3xl font-bold text-amber-800 dark:text-amber-400 mb-8 text-center">7 Dấu Hiệu Nhận Biết Trầm Hương Chính Hãng</h2>
+        
+        <img src="https://images.unsplash.com/photo-1581669808238-7f73311e2031?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHx3b29kZW4lMjBiZWFkc3xlbnwwfHx8fDE3NTE0Mjk4OTR8MA&ixlib=rb-4.1.0&q=85" alt="Kiểm tra trầm hương chính hãng" class="w-full h-64 object-cover rounded-lg mb-8" />
+        
+        <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed font-medium">Trong thị trường trầm hương hiện nay, việc phân biệt trầm hương thật và giả không phải lúc nào cũng dễ dàng. Với giá trị cao và nhu cầu lớn, nhiều sản phẩm giả mạo đã xuất hiện trên thị trường. Hãy cùng tìm hiểu 7 dấu hiệu quan trọng nhất để nhận biết trầm hương chính hãng.</p>
+
+        <div class="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 p-8 rounded-xl mb-8 border-l-4 border-red-500">
+          <h3 class="text-2xl font-bold text-red-700 dark:text-red-400 mb-4 flex items-center">
+            <span class="text-3xl mr-3">⚠️</span>
+            Tại Sao Cần Biết Cách Nhận Biết?
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+            <div class="flex items-center">
+              <span class="text-red-500 mr-3">•</span>
+              Trầm hương giả có thể gây hại cho sức khỏe
+            </div>
+            <div class="flex items-center">
+              <span class="text-red-500 mr-3">•</span>
+              Tránh mất tiền oan với sản phẩm kém chất lượng
+            </div>
+            <div class="flex items-center">
+              <span class="text-red-500 mr-3">•</span>
+              Bảo vệ quyền lợi người tiêu dùng
+            </div>
+            <div class="flex items-center">
+              <span class="text-red-500 mr-3">•</span>
+              Đảm bảo trải nghiệm thưởng hương chất lượng
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12 flex items-center">
+          <span class="text-3xl mr-3">1️⃣</span>
+          Kiểm Tra Nguồn Gốc Và Giấy Tờ
+        </h3>
+        
+        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 p-6 rounded-xl mb-8">
+          <h4 class="text-xl font-semibold text-blue-800 dark:text-blue-400 mb-4">Điều Đầu Tiên Cần Kiểm Tra:</h4>
+          <div class="space-y-4 text-lg">
+            <div class="flex items-start">
+              <span class="text-blue-500 mr-3 mt-1">📋</span>
+              <div><strong>Giấy chứng nhận:</strong> Phải có giấy chứng nhận nguồn gốc từ cơ quan có thẩm quyền</div>
+            </div>
+            <div class="flex items-start">
+              <span class="text-blue-500 mr-3 mt-1">🏷️</span>
+              <div><strong>Tem chống hàng giả:</strong> Sản phẩm chính hãng luôn có tem hologram bảo vệ</div>
+            </div>
+            <div class="flex items-start">
+              <span class="text-blue-500 mr-3 mt-1">🏪</span>
+              <div><strong>Thông tin nhà cung cấp:</strong> Địa chỉ rõ ràng, uy tín lâu năm</div>
+            </div>
+            <div class="flex items-start">
+              <span class="text-blue-500 mr-3 mt-1">📞</span>
+              <div><strong>Thông tin liên hệ:</strong> Có hotline và website chính thức để kiểm tra</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12 flex items-center">
+          <span class="text-3xl mr-3">2️⃣</span>
+          Quan Sát Hình Dạng Và Màu Sắc
+        </h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Trầm hương tự nhiên có những đặc điểm hình dạng và màu sắc rất đặc trưng mà hàng giả khó có thể bắt chước được hoàn hảo.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-6 rounded-xl border border-green-200 dark:border-green-800">
+            <h4 class="font-bold text-green-700 dark:text-green-300 mb-3 text-lg">✅ Trầm Hương Thật</h4>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+              <li>• Màu nâu đen tự nhiên, không đều</li>
+              <li>• Vân gỗ tự nhiên, có độ sâu</li>
+              <li>• Bề mặt có độ bóng nhẹ tự nhiên</li>
+              <li>• Hình dạng không quá hoàn hảo</li>
+            </ul>
+          </div>
+          <div class="bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 p-6 rounded-xl border border-red-200 dark:border-red-800">
+            <h4 class="font-bold text-red-700 dark:text-red-300 mb-3 text-lg">❌ Trầm Hương Giả</h4>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+              <li>• Màu sắc quá đều, không tự nhiên</li>
+              <li>• Vân gỗ giả tạo, quá đều đặn</li>
+              <li>• Bóng quá mức hoặc quá mờ</li>
+              <li>• Hình dạng quá hoàn hảo, máy móc</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12 flex items-center">
+          <span class="text-3xl mr-3">3️⃣</span>
+          Test Hương Thơm Đặc Trưng
+        </h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Đây là dấu hiệu quan trọng nhất để phân biệt trầm hương thật giả. Hương thơm trầm hương có tầng hương phức tạp và độc đáo.</p>
+
+        <div class="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 p-8 rounded-xl mb-8 border-l-4 border-purple-500">
+          <h4 class="text-xl font-bold text-purple-800 dark:text-purple-400 mb-4">🌸 Đặc Điểm Hương Thơm Trầm Hương Thật:</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-lg">
+              <div class="text-2xl mb-2">🌅</div>
+              <h5 class="font-semibold mb-2">Tầng Đầu</h5>
+              <p class="text-sm">Hương ngọt ngão, tươi mát</p>
+            </div>
+            <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-lg">
+              <div class="text-2xl mb-2">🌞</div>
+              <h5 class="font-semibold mb-2">Tầng Giữa</h5>
+              <p class="text-sm">Hương ấm áp, đậm đà</p>
+            </div>
+            <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-lg">
+              <div class="text-2xl mb-2">🌙</div>
+              <h5 class="font-semibold mb-2">Tầng Cuối</h5>
+              <p class="text-sm">Hương gỗ trầm, sâu lắng</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12 flex items-center">
+          <span class="text-3xl mr-3">4️⃣</span>
+          Kiểm Tra Trọng Lượng Và Tỷ Trọng
+        </h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Test chìm nước là phương pháp truyền thống và hiệu quả nhất để kiểm tra chất lượng trầm hương.</p>
+
+        <div class="bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 p-8 rounded-xl mb-8">
+          <h4 class="text-xl font-bold text-cyan-800 dark:text-cyan-400 mb-4 flex items-center">
+            <span class="text-2xl mr-3">💧</span>
+            Cách Thực Hiện Test Chìm Nước:
+          </h4>
+          <ol class="space-y-4 text-lg">
+            <li class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold mr-4">1</span>
+              <div>Chuẩn bị một ly nước sạch ở nhiệt độ phòng</div>
+            </li>
+            <li class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold mr-4">2</span>
+              <div>Thả nhẹ nhàng mảnh trầm vào nước</div>
+            </li>
+            <li class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold mr-4">3</span>
+              <div>Quan sát phản ứng trong 2-3 phút đầu</div>
+            </li>
+            <li class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold mr-4">4</span>
+              <div>Trầm thật sẽ chìm từ từ hoặc chìm một phần</div>
+            </li>
+          </ol>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12 flex items-center">
+          <span class="text-3xl mr-3">5️⃣</span>
+          Kiểm Tra Cấu Trúc Và Kết Cấu
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border">
+            <h4 class="font-bold text-amber-700 dark:text-amber-300 mb-3 text-lg">🔍 Quan Sát Chi Tiết</h4>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+              <li>• Xem vân gỗ có tự nhiên không</li>
+              <li>• Kiểm tra độ cứng và độ đàn hồi</li>
+              <li>• Cảm nhận độ mịn màng bề mặt</li>
+              <li>• Quan sát các vết nứt tự nhiên</li>
+            </ul>
+          </div>
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border">
+            <h4 class="font-bold text-amber-700 dark:text-amber-300 mb-3 text-lg">🔥 Test Nhiệt Độ</h4>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+              <li>• Đốt một mảnh nhỏ để test</li>
+              <li>• Hương thơm tỏa ra ngay lập tức</li>
+              <li>• Không có mùi hóa chất lạ</li>
+              <li>• Tạo ra khói trắng mịn</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12 flex items-center">
+          <span class="text-3xl mr-3">6️⃣</span>
+          Tìm Hiểu Giá Cả Và Thị Trường
+        </h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Giá cả là một chỉ báo quan trọng. Trầm hương chất lượng có mức giá tương xứng với giá trị của nó.</p>
+
+        <div class="overflow-x-auto mb-8">
+          <table class="w-full border border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden shadow-lg">
+            <thead class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30">
+              <tr>
+                <th class="border p-4 text-left font-bold text-amber-800 dark:text-amber-300">Loại Sản Phẩm</th>
+                <th class="border p-4 text-left font-bold text-amber-800 dark:text-amber-300">Mức Giá Tham Khảo</th>
+                <th class="border p-4 text-left font-bold text-amber-800 dark:text-amber-300">Lưu Ý</th>
+              </tr>
+            </thead>
+            <tbody class="text-lg">
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Vòng tay trầm C</td>
+                <td class="border p-4">500.000 - 1.500.000đ</td>
+                <td class="border p-4 text-sm">Phù hợp người mới bắt đầu</td>
+              </tr>
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Vòng tay trầm B</td>
+                <td class="border p-4">1.500.000 - 5.000.000đ</td>
+                <td class="border p-4 text-sm">Chất lượng trung bình khá</td>
+              </tr>
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Vòng tay trầm A</td>
+                <td class="border p-4">5.000.000 - 20.000.000đ</td>
+                <td class="border p-4 text-sm">Chất lượng cao</td>
+              </tr>
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-medium">Kỳ trầm chìm nước</td>
+                <td class="border p-4">20.000.000đ+</td>
+                <td class="border p-4 text-sm">Cực phẩm, cần chuyên gia</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12 flex items-center">
+          <span class="text-3xl mr-3">7️⃣</span>
+          Kiểm Tra Đánh Giá Và Feedback
+        </h3>
+        
+        <div class="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 p-8 rounded-xl mb-8 border-l-4 border-yellow-500">
+          <h4 class="text-xl font-bold text-yellow-800 dark:text-yellow-400 mb-4">⭐ Các Nguồn Thông Tin Đáng Tin Cậy:</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+            <div class="flex items-start">
+              <span class="text-yellow-500 mr-3 mt-1">🗣️</span>
+              <div>Đánh giá từ khách hàng thực tế</div>
+            </div>
+            <div class="flex items-start">
+              <span class="text-yellow-500 mr-3 mt-1">👥</span>
+              <div>Ý kiến từ cộng đồng yêu trầm hương</div>
+            </div>
+            <div class="flex items-start">
+              <span class="text-yellow-500 mr-3 mt-1">🏅</span>
+              <div>Chứng nhận từ các hiệp hội</div>
+            </div>
+            <div class="flex items-start">
+              <span class="text-yellow-500 mr-3 mt-1">📺</span>
+              <div>Review từ các chuyên gia trên media</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 p-8 rounded-xl mb-8 border-l-4 border-red-500">
+          <h3 class="text-2xl font-bold text-red-700 dark:text-red-400 mb-4 flex items-center">
+            <span class="text-3xl mr-3">⚠️</span>
+            Những Dấu Hiệu Cảnh Báo Hàng Giả
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <span class="text-red-500 mr-3 mt-1">❌</span>
+                <div>Giá quá rẻ so với thị trường</div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-red-500 mr-3 mt-1">❌</span>
+                <div>Không có giấy tờ chứng nhận</div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-red-500 mr-3 mt-1">❌</span>
+                <div>Hương thơm quá gắt hoặc hóa chất</div>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <span class="text-red-500 mr-3 mt-1">❌</span>
+                <div>Màu sắc quá đều, không tự nhiên</div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-red-500 mr-3 mt-1">❌</span>
+                <div>Nổi hẳn trên mặt nước</div>
+              </div>
+              <div class="flex items-start">
+                <span class="text-red-500 mr-3 mt-1">❌</span>
+                <div>Người bán không có kiến thức chuyên môn</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-8 rounded-xl mb-8 border-l-4 border-green-500">
+          <h3 class="text-2xl font-bold text-green-700 dark:text-green-400 mb-4 flex items-center">
+            <span class="text-3xl mr-3">💡</span>
+            Lời Khuyên Từ Chuyên Gia
+          </h3>
+          <div class="space-y-4 text-lg">
+            <div class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mr-4">1</span>
+              <div>Luôn mua từ các cửa hàng uy tín, có địa chỉ rõ ràng</div>
+            </div>
+            <div class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mr-4">2</span>
+              <div>Không nên mua qua mạng xã hội từ người lạ</div>
+            </div>
+            <div class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mr-4">3</span>
+              <div>Hỏi ý kiến từ những người có kinh nghiệm</div>
+            </div>
+            <div class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mr-4">4</span>
+              <div>Bắt đầu với sản phẩm giá trị thấp để học kinh nghiệm</div>
+            </div>
+            <div class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mr-4">5</span>
+              <div>Tham gia các khóa học hoặc câu lạc bộ trầm hương</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 p-8 rounded-xl text-center border-2 border-amber-300 dark:border-amber-700">
+          <p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed italic font-medium mb-4">
+            "Việc nhận biết trầm hương chính hãng không chỉ giúp bạn tránh được hàng giả mà còn là cách để bạn trân trọng và hiểu sâu hơn về giá trị của sản phẩm này. Hãy kiên nhẫn học hỏi và tích lũy kinh nghiệm."
+          </p>
+          <div class="mt-4 text-amber-600 dark:text-amber-400 font-semibold">
+            - Chuyên gia Trầm Hương Sơn Mộc Hương -
+          </div>
+        </div>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1581669808238-7f73311e2031?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHx3b29kZW4lMjBiZWFkc3xlbnwwfHx8fDE3NTE0Mjk4OTR8MA&ixlib=rb-4.1.0&q=85",
+    author: "Chuyên gia Phạm Đức Long",
+    date: "2025-01-12",
+    readTime: "12 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/nhan-biet-tram-huong-chinh-hang"
   },
   {
     id: 2,
