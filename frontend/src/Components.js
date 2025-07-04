@@ -1182,13 +1182,25 @@ export const AboutSection = () => {
   );
 };
 
-// Products Section Component
+// Ultra-Modern Luxury Products Section - Complete UX/UI Overhaul
 export const ProductsSection = ({ onProductClick }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
+  const [sortBy, setSortBy] = useState('featured');
+  const [viewMode, setViewMode] = useState('grid'); // grid or list
+  const [priceRange, setPriceRange] = useState([0, 30000000]);
+  const [selectedRating, setSelectedRating] = useState(0);
+  const [selectedMaterial, setSelectedMaterial] = useState('all');
+  const [showFilters, setShowFilters] = useState(false);
+  const [quickViewProduct, setQuickViewProduct] = useState(null);
+  const [wishlist, setWishlist] = useState(new Set());
+  const [compareList, setCompareList] = useState(new Set());
+  const [currentPage, setCurrentPage] = useState(1);
+  const [isFilterAnimating, setIsFilterAnimating] = useState(false);
+  const itemsPerPage = 12;
 
   // Cache products in localStorage để tăng tốc load
   const CACHE_KEY = 'products_cache';
@@ -1196,7 +1208,22 @@ export const ProductsSection = ({ onProductClick }) => {
 
   useEffect(() => {
     fetchProducts();
+    loadUserPreferences();
   }, []);
+
+  const loadUserPreferences = () => {
+    // Load wishlist from localStorage
+    const savedWishlist = localStorage.getItem('user_wishlist');
+    if (savedWishlist) {
+      setWishlist(new Set(JSON.parse(savedWishlist)));
+    }
+    
+    // Load compare list from localStorage
+    const savedCompareList = localStorage.getItem('user_compare');
+    if (savedCompareList) {
+      setCompareList(new Set(JSON.parse(savedCompareList)));
+    }
+  };
 
   const fetchProducts = async () => {
     try {
@@ -1253,9 +1280,12 @@ export const ProductsSection = ({ onProductClick }) => {
     }
   };
 
-  // Filter products based on category and search term
+  // Advanced filtering and sorting system
   useEffect(() => {
-    let filtered = products;
+    setIsFilterAnimating(true);
+    setTimeout(() => setIsFilterAnimating(false), 300);
+    
+    let filtered = [...products];
 
     // Filter by category
     if (selectedCategory !== 'all') {
@@ -1264,21 +1294,74 @@ export const ProductsSection = ({ onProductClick }) => {
       );
     }
 
-    // Filter by search term
-    if (searchTerm) {
+    // Filter by material
+    if (selectedMaterial !== 'all') {
       filtered = filtered.filter(product =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        product.description.toLowerCase().includes(searchTerm.toLowerCase())
+        product.material.toLowerCase().includes(selectedMaterial.toLowerCase())
       );
     }
 
+    // Filter by search term with advanced search
+    if (searchTerm) {
+      const searchLower = searchTerm.toLowerCase();
+      filtered = filtered.filter(product =>
+        product.name.toLowerCase().includes(searchLower) ||
+        product.description.toLowerCase().includes(searchLower) ||
+        product.category.toLowerCase().includes(searchLower) ||
+        product.material.toLowerCase().includes(searchLower)
+      );
+    }
+
+    // Filter by price range
+    filtered = filtered.filter(product => {
+      const price = parsePrice(product.price);
+      return price >= priceRange[0] && price <= priceRange[1];
+    });
+
+    // Filter by rating
+    if (selectedRating > 0) {
+      filtered = filtered.filter(product => product.rating >= selectedRating);
+    }
+
+    // Sort products
+    filtered = sortProducts(filtered, sortBy);
+
     setFilteredProducts(filtered);
-  }, [products, selectedCategory, searchTerm]);
+    setCurrentPage(1); // Reset to first page when filters change
+  }, [products, selectedCategory, selectedMaterial, searchTerm, priceRange, selectedRating, sortBy]);
+
+  const parsePrice = (priceStr) => {
+    if (typeof priceStr === 'number') return priceStr;
+    return parseInt(priceStr.replace(/[^\d]/g, '')) || 0;
+  };
+
+  const sortProducts = (productList, sortType) => {
+    switch (sortType) {
+      case 'price-low':
+        return productList.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
+      case 'price-high':
+        return productList.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+      case 'rating':
+        return productList.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+      case 'name':
+        return productList.sort((a, b) => a.name.localeCompare(b.name));
+      case 'newest':
+        return productList.reverse();
+      default: // featured
+        return productList.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    }
+  };
 
   // Get unique categories from products
   const getCategories = () => {
     const categories = products.map(product => product.category);
     return ['all', ...new Set(categories)];
+  };
+
+  // Get unique materials from products
+  const getMaterials = () => {
+    const materials = products.map(product => product.material);
+    return ['all', ...new Set(materials)];
   };
 
   const getCategoryDisplayName = (category) => {
@@ -1294,6 +1377,38 @@ export const ProductsSection = ({ onProductClick }) => {
     };
     return categoryNames[category] || category;
   };
+
+  // Wishlist functions
+  const toggleWishlist = (productId) => {
+    const newWishlist = new Set(wishlist);
+    if (newWishlist.has(productId)) {
+      newWishlist.delete(productId);
+    } else {
+      newWishlist.add(productId);
+    }
+    setWishlist(newWishlist);
+    localStorage.setItem('user_wishlist', JSON.stringify([...newWishlist]));
+  };
+
+  // Compare functions
+  const toggleCompare = (productId) => {
+    const newCompareList = new Set(compareList);
+    if (newCompareList.has(productId)) {
+      newCompareList.delete(productId);
+    } else if (newCompareList.size < 3) { // Max 3 products to compare
+      newCompareList.add(productId);
+    }
+    setCompareList(newCompareList);
+    localStorage.setItem('user_compare', JSON.stringify([...newCompareList]));
+  };
+
+  // Pagination
+  const paginatedProducts = filteredProducts.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
   const getStaticProducts = () => [
     {
