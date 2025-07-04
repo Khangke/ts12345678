@@ -2054,209 +2054,501 @@ export const ProductsSection = ({ onProductClick }) => {
           </div>
         </div>
 
-        {/* Modern Loading State */}
+        {/* Ultra-Modern Loading State with Luxury Animation */}
         {loading ? (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6">
+          <div className={`grid gap-3 lg:gap-6 transition-all duration-500 ${
+            viewMode === 'grid' 
+              ? 'grid-cols-2 lg:grid-cols-4' 
+              : 'grid-cols-1'
+          }`}>
             {[...Array(8)].map((_, index) => (
               <div key={index} className="group">
-                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl shadow-lg overflow-hidden animate-pulse">
-                  <div className="w-full h-40 lg:h-56 bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-600"></div>
-                  <div className="p-3 lg:p-4 space-y-2">
-                    <div className="h-4 lg:h-5 bg-slate-200 dark:bg-slate-700 rounded-lg w-3/4"></div>
-                    <div className="h-3 lg:h-4 bg-slate-200 dark:bg-slate-700 rounded-lg w-full"></div>
-                    <div className="h-3 lg:h-4 bg-slate-200 dark:bg-slate-700 rounded-lg w-2/3"></div>
-                    <div className="flex justify-between items-center pt-2">
-                      <div className="h-4 lg:h-6 bg-slate-200 dark:bg-slate-700 rounded-lg w-1/3"></div>
-                      <div className="h-8 lg:h-10 bg-slate-200 dark:bg-slate-700 rounded-full w-16 lg:w-20"></div>
+                <div className="glass-morphism-luxury rounded-3xl shadow-xl overflow-hidden animate-pulse border border-white/20 dark:border-gray-700/30">
+                  {/* Enhanced Image Skeleton */}
+                  <div className="relative">
+                    <div className="w-full h-40 lg:h-56 bg-gradient-to-br from-slate-200 via-amber-100 to-orange-200 dark:from-slate-700 dark:via-amber-900/30 dark:to-orange-900/30 animate-shimmer"></div>
+                    {/* Floating badges skeleton */}
+                    <div className="absolute top-3 left-3 w-16 h-6 bg-amber-300/50 rounded-full animate-pulse"></div>
+                    <div className="absolute top-3 right-3 w-12 h-6 bg-orange-300/50 rounded-full animate-pulse"></div>
+                  </div>
+                  
+                  <div className="p-3 lg:p-4 space-y-3">
+                    {/* Title skeleton with stagger */}
+                    <div 
+                      className="h-4 lg:h-5 bg-gradient-to-r from-slate-200 to-amber-200 dark:from-slate-700 dark:to-amber-800 rounded-lg animate-pulse"
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    ></div>
+                    
+                    {/* Description skeleton */}
+                    <div className="space-y-2">
+                      <div 
+                        className="h-3 lg:h-4 bg-slate-200 dark:bg-slate-700 rounded-lg w-full animate-pulse"
+                        style={{ animationDelay: `${index * 100 + 50}ms` }}
+                      ></div>
+                      <div 
+                        className="h-3 lg:h-4 bg-slate-200 dark:bg-slate-700 rounded-lg w-3/4 animate-pulse"
+                        style={{ animationDelay: `${index * 100 + 100}ms` }}
+                      ></div>
                     </div>
+                    
+                    {/* Price and CTA skeleton */}
+                    <div className="flex items-center justify-between pt-2">
+                      <div 
+                        className="h-6 lg:h-8 bg-gradient-to-r from-amber-300 to-orange-300 dark:from-amber-700 dark:to-orange-700 rounded-lg w-1/3 animate-pulse"
+                        style={{ animationDelay: `${index * 100 + 150}ms` }}
+                      ></div>
+                      <div 
+                        className="h-8 lg:h-10 bg-slate-200 dark:bg-slate-700 rounded-full w-16 lg:w-24 animate-pulse"
+                        style={{ animationDelay: `${index * 100 + 200}ms` }}
+                      ></div>
+                    </div>
+                  </div>
+                  
+                  {/* Loading progress bar */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-slate-200 dark:bg-slate-700">
+                    <div 
+                      className="h-full bg-gradient-to-r from-amber-500 to-orange-500 animate-loading-progress"
+                      style={{ animationDelay: `${index * 200}ms` }}
+                    ></div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         ) : filteredProducts.length === 0 ? (
-          // Modern No Results State
+          /* Enhanced No Results State with Better UX */
           <div className="text-center py-12 lg:py-20">
-            <div className="inline-flex items-center justify-center w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-600 rounded-full mb-6">
-              <svg className="w-10 h-10 lg:w-12 lg:h-12 text-slate-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9.172 16.172a4 4 0 005.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0012 15c-2.34 0-4.291.94-5.709 2.291M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+            <div className="glass-morphism-luxury rounded-3xl p-8 lg:p-12 max-w-md mx-auto border border-white/20 dark:border-gray-700/30 shadow-xl">
+              {/* Enhanced empty state icon with animation */}
+              <div className="relative mx-auto w-20 h-20 lg:w-24 lg:h-24 mb-6">
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-amber-100 dark:from-slate-700 dark:to-amber-800 rounded-full animate-luxury-float"></div>
+                <div className="absolute inset-2 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center">
+                  <svg className="w-10 h-10 lg:w-12 lg:h-12 text-slate-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9.172 16.172a4 4 0 005.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0012 15c-2.34 0-4.291.94-5.709 2.291M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                {/* Floating decorative elements */}
+                <div className="absolute -top-2 -right-2 w-4 h-4 bg-amber-400 rounded-full animate-bounce opacity-60"></div>
+                <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-orange-400 rounded-full animate-pulse opacity-40"></div>
+              </div>
+              
+              <h3 className="text-lg lg:text-2xl font-bold text-slate-800 dark:text-white mb-3">
+                Không tìm thấy sản phẩm
+              </h3>
+              <p className="text-sm lg:text-base text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                {searchTerm 
+                  ? `Không có sản phẩm nào phù hợp với "${searchTerm}". Hãy thử từ khóa khác hoặc điều chỉnh bộ lọc.`
+                  : 'Không có sản phẩm nào trong danh mục này. Hãy thử thay đổi bộ lọc.'
+                }
+              </p>
+              
+              {/* Enhanced action buttons */}
+              <div className="space-y-3">
+                <button
+                  onClick={() => {
+                    setSearchTerm('');
+                    setSelectedCategory('all');
+                    setSelectedMaterial('all');
+                    setSelectedRating(0);
+                    setPriceRange([0, 30000000]);
+                  }}
+                  className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3 px-6 rounded-2xl font-semibold hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
+                  <span className="flex items-center justify-center space-x-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                    <span>Xem tất cả sản phẩm</span>
+                  </span>
+                </button>
+                
+                {searchTerm && (
+                  <button
+                    onClick={() => setSearchTerm('')}
+                    className="w-full bg-white/60 dark:bg-gray-800/60 text-slate-700 dark:text-white py-2 px-4 rounded-xl font-medium hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-300 border border-white/30 dark:border-gray-700/50"
+                  >
+                    Xóa từ khóa tìm kiếm
+                  </button>
+                )}
+              </div>
             </div>
-            <h3 className="text-lg lg:text-2xl font-semibold text-slate-800 dark:text-white mb-3">Không tìm thấy sản phẩm</h3>
-            <p className="text-sm lg:text-base text-slate-600 dark:text-slate-400 mb-6 max-w-md mx-auto">
-              {searchTerm 
-                ? `Không có sản phẩm nào phù hợp với "${searchTerm}". Hãy thử từ khóa khác.`
-                : 'Không có sản phẩm nào trong danh mục này.'
-              }
-            </p>
-            <button
-              onClick={() => {
-                setSearchTerm('');
-                setSelectedCategory('all');
-              }}
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-full hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-            >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
-              Xem tất cả sản phẩm
-            </button>
           </div>
         ) : (
-          /* Modern Product Grid */
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6">
-            {filteredProducts.map((product, index) => (
-              <div 
-                key={product.id} 
-                ref={setRef(index)}
-                className={`group cursor-pointer transition-all duration-500 ${
-                  visibleItems.has(index) ? 'animate-fade-in-up opacity-100' : 'opacity-0'
-                }`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => onProductClick(product)}
-              >
-                {/* Modern Glass Morphism Card */}
-                <div className="relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl border border-white/40 dark:border-gray-700/40 rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden transform hover:scale-[1.02] lg:hover:scale-105 hover:-translate-y-2 transition-all duration-500 group">
-                  {/* Modern Image Container */}
-                  <div className="relative overflow-hidden rounded-t-3xl">
-                    <img 
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-36 lg:h-52 object-cover group-hover:scale-110 transition-transform duration-700"
-                      loading="lazy"
-                    />
+          <>
+            {/* Ultra-Modern Product Grid/List View */}
+            <div className={`grid gap-3 lg:gap-6 transition-all duration-500 ${
+              isFilterAnimating ? 'opacity-50 scale-95' : 'opacity-100 scale-100'
+            } ${viewMode === 'grid' 
+              ? 'grid-cols-2 lg:grid-cols-4' 
+              : 'grid-cols-1 max-w-4xl mx-auto'
+            }`}>
+              {paginatedProducts.map((product, index) => (
+                <div 
+                  key={product.id} 
+                  ref={setRef(index)}
+                  className={`group cursor-pointer transition-all duration-700 h-full ${
+                    visibleItems.has(index) ? 'animate-cinematic-entrance opacity-100' : 'opacity-0'
+                  } ${viewMode === 'list' ? 'transform hover:scale-[1.01]' : 'transform hover:scale-[1.02] lg:hover:scale-105'}`}
+                  style={{ animationDelay: `${index * 100}ms` }}
+                  onClick={() => onProductClick(product)}
+                >
+                  {/* Ultra-Luxury Product Card */}
+                  <div className={`relative glass-morphism-luxury border border-white/40 dark:border-gray-700/40 rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-700 h-full ${
+                    viewMode === 'list' 
+                      ? 'flex hover:-translate-y-1' 
+                      : 'flex flex-col hover:-translate-y-2'
+                  } group-hover:border-amber-400/50 dark:group-hover:border-amber-600/50`}>
                     
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    {/* Modern Category Badge */}
-                    <div className="absolute top-3 left-3">
-                      <span className="bg-gradient-to-r from-orange-500/90 to-amber-500/90 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-xs font-medium shadow-lg">
-                        {product.category.length > 12 ? product.category.substring(0, 12) + '...' : product.category}
-                      </span>
-                    </div>
-                    
-                    {/* Modern Rating Badge */}
-                    <div className="absolute top-3 right-3">
-                      <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-2 py-1 rounded-full shadow-md flex items-center space-x-1">
-                        <span className="text-amber-400 text-xs">★</span>
-                        <span className="text-xs font-medium text-gray-800 dark:text-white">{product.rating}</span>
-                      </div>
-                    </div>
-                    
-                    {/* Modern Quick Action */}
-                    <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                      <button 
-                        className="bg-gradient-to-r from-orange-500 to-amber-500 text-white p-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onProductClick(product);
-                        }}
-                      >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                  
-                  {/* Modern Content Area */}
-                  <div className="p-3 lg:p-5">
-                    {/* Product Name */}
-                    <h3 className="text-sm lg:text-lg font-semibold text-slate-800 dark:text-white mb-2 line-clamp-1 lg:line-clamp-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors duration-300">
-                      {product.name}
-                    </h3>
-                    
-                    {/* Mobile Compact Description */}
-                    <p className="text-xs text-slate-600 dark:text-slate-300 mb-2 line-clamp-1 lg:hidden">
-                      {product.description}
-                    </p>
-                    
-                    {/* Desktop Full Description */}
-                    <p className="hidden lg:block text-sm text-slate-600 dark:text-slate-300 mb-3 line-clamp-2">
-                      {product.description}
-                    </p>
-                    
-                    {/* Material & Size Info */}
-                    <div className="flex items-center justify-between mb-3 lg:mb-4">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-gradient-to-r from-orange-400 to-amber-400 rounded-full"></div>
-                        <span className="text-xs lg:text-sm text-slate-500 dark:text-slate-400 truncate max-w-24 lg:max-w-none">
-                          {product.material.length > 15 ? product.material.substring(0, 15) + '...' : product.material}
-                        </span>
-                      </div>
-                      {product.sizes && (
-                        <span className="text-xs bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2 py-1 rounded-full">
-                          {product.sizes.length} size
-                        </span>
-                      )}
-                    </div>
-                    
-                    {/* Price & CTA */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex flex-col">
-                        <span className="text-lg lg:text-xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
-                          {product.price}
-                        </span>
-                        <span className="text-xs text-slate-500 dark:text-slate-400">Giá tốt nhất</span>
+                    {/* Enhanced Image Container */}
+                    <div className={`relative overflow-hidden ${
+                      viewMode === 'list' 
+                        ? 'w-48 lg:w-64 flex-shrink-0' 
+                        : 'w-full aspect-square lg:aspect-[4/5]'
+                    } rounded-t-3xl ${viewMode === 'list' ? 'lg:rounded-l-3xl lg:rounded-t-none' : ''}`}>
+                      
+                      <img 
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        loading="lazy"
+                      />
+                      
+                      {/* Premium Gradient Overlays */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-amber-900/20 via-transparent to-transparent"></div>
+                      
+                      {/* Enhanced Badges */}
+                      <div className="absolute top-3 left-3 flex flex-wrap gap-1">
+                        {product.isNew && (
+                          <span className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg backdrop-blur-sm animate-pulse">
+                            Mới
+                          </span>
+                        )}
+                        {product.isFeatured && (
+                          <span className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg backdrop-blur-sm">
+                            Nổi bật
+                          </span>
+                        )}
+                        {product.discount && (
+                          <span className="bg-gradient-to-r from-red-500 to-red-600 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg backdrop-blur-sm">
+                            -{product.discount}%
+                          </span>
+                        )}
                       </div>
                       
-                      {/* Mobile CTA Button */}
-                      <button 
-                        className="lg:hidden bg-gradient-to-r from-orange-500 to-amber-500 text-white px-3 py-2 rounded-full text-xs font-medium shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onProductClick(product);
-                        }}
-                      >
-                        Xem
-                      </button>
+                      {/* Enhanced Rating Badge */}
+                      <div className="absolute top-3 right-3">
+                        <div className="glass-morphism-luxury px-2 py-1 rounded-full shadow-md flex items-center space-x-1 border border-white/30">
+                          <span className="text-amber-400 text-xs">★</span>
+                          <span className="text-xs font-bold text-white">{product.rating}</span>
+                        </div>
+                      </div>
                       
-                      {/* Desktop CTA Button */}
-                      <button 
-                        className="hidden lg:block bg-gradient-to-r from-orange-500 to-amber-500 text-white px-5 py-2.5 rounded-full text-sm font-medium shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onProductClick(product);
-                        }}
-                      >
-                        Chi tiết
-                      </button>
+                      {/* Enhanced Quick Action Buttons */}
+                      <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 space-y-2">
+                        {/* Quick View Button */}
+                        <button 
+                          className="block w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 backdrop-blur-sm border border-white/20"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setQuickViewProduct(product);
+                          }}
+                          title="Xem nhanh"
+                        >
+                          <svg className="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg>
+                        </button>
+                        
+                        {/* Wishlist Button */}
+                        <button 
+                          className={`block w-10 h-10 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 backdrop-blur-sm border border-white/20 ${
+                            wishlist.has(product.id)
+                              ? 'bg-gradient-to-r from-red-500 to-red-600 text-white'
+                              : 'bg-white/90 text-gray-600 hover:bg-red-100 hover:text-red-600'
+                          }`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleWishlist(product.id);
+                          }}
+                          title={wishlist.has(product.id) ? 'Bỏ yêu thích' : 'Thêm yêu thích'}
+                        >
+                          <svg className="w-5 h-5 mx-auto" fill={wishlist.has(product.id) ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                          </svg>
+                        </button>
+                        
+                        {/* Compare Button */}
+                        <button 
+                          className={`block w-10 h-10 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 backdrop-blur-sm border border-white/20 ${
+                            compareList.has(product.id)
+                              ? 'bg-gradient-to-r from-purple-500 to-purple-600 text-white'
+                              : 'bg-white/90 text-gray-600 hover:bg-purple-100 hover:text-purple-600'
+                          } ${compareList.size >= 3 && !compareList.has(product.id) ? 'opacity-50 cursor-not-allowed' : ''}`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (compareList.size < 3 || compareList.has(product.id)) {
+                              toggleCompare(product.id);
+                            }
+                          }}
+                          title={compareList.has(product.id) ? 'Bỏ so sánh' : 'Thêm so sánh'}
+                          disabled={compareList.size >= 3 && !compareList.has(product.id)}
+                        >
+                          <svg className="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                          </svg>
+                        </button>
+                      </div>
                     </div>
                     
-                    {/* Modern Progress Indicator */}
-                    <div className="mt-3 h-1 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="h-full bg-gradient-to-r from-orange-500 to-amber-500 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-out"></div>
+                    {/* Enhanced Content Area */}
+                    <div className={`p-3 lg:p-5 flex-1 flex flex-col ${viewMode === 'list' ? 'justify-between' : ''}`}>
+                      
+                      {/* Product Header */}
+                      <div className="flex-1">
+                        <h3 className={`font-bold text-slate-800 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors duration-300 leading-tight ${
+                          viewMode === 'list' 
+                            ? 'text-lg lg:text-xl line-clamp-2' 
+                            : 'text-sm lg:text-lg line-clamp-2'
+                        }`}>
+                          {product.name}
+                        </h3>
+                        
+                        {/* Description - More prominent in list view */}
+                        <p className={`text-slate-600 dark:text-slate-300 mb-3 leading-relaxed group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors duration-300 ${
+                          viewMode === 'list' 
+                            ? 'text-sm lg:text-base line-clamp-3' 
+                            : 'text-xs lg:text-sm line-clamp-2 lg:block hidden'
+                        }`}>
+                          {product.description}
+                        </p>
+                      </div>
+                      
+                      {/* Enhanced Meta Information */}
+                      <div className="space-y-3">
+                        
+                        {/* Category & Material Info */}
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <div className="w-2 h-2 bg-gradient-to-r from-orange-400 to-amber-400 rounded-full animate-pulse"></div>
+                            <span className="text-xs lg:text-sm text-slate-500 dark:text-slate-400 truncate">
+                              {product.material.length > 20 ? product.material.substring(0, 20) + '...' : product.material}
+                            </span>
+                          </div>
+                          
+                          {/* Enhanced Review Count */}
+                          <div className="flex items-center space-x-1">
+                            <span className="text-yellow-400 text-xs">★</span>
+                            <span className="text-xs text-slate-500 dark:text-slate-400">
+                              ({product.reviewCount || 0})
+                            </span>
+                          </div>
+                        </div>
+                        
+                        {/* Features Preview (List view only) */}
+                        {viewMode === 'list' && product.features && (
+                          <div className="flex flex-wrap gap-1">
+                            {product.features.slice(0, 3).map((feature, idx) => (
+                              <span key={idx} className="bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 px-2 py-1 rounded-full text-xs">
+                                {feature}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        
+                        {/* Enhanced Price Section */}
+                        <div className={`flex items-center justify-between ${viewMode === 'list' ? 'pt-2' : ''}`}>
+                          <div className="flex flex-col">
+                            <div className="flex items-center space-x-2">
+                              <span className={`font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent ${
+                                viewMode === 'list' ? 'text-xl lg:text-2xl' : 'text-lg lg:text-xl'
+                              }`}>
+                                {product.price}
+                              </span>
+                              {product.originalPrice && (
+                                <span className="text-sm text-slate-500 line-through">
+                                  {product.originalPrice}
+                                </span>
+                              )}
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <span className="text-xs text-slate-500 dark:text-slate-400">
+                                {product.sizes ? `${product.sizes.length} size` : 'Giá tốt nhất'}
+                              </span>
+                              {product.inStock ? (
+                                <span className="text-xs text-green-600 dark:text-green-400 font-medium">Còn hàng</span>
+                              ) : (
+                                <span className="text-xs text-red-600 dark:text-red-400 font-medium">Hết hàng</span>
+                              )}
+                            </div>
+                          </div>
+                          
+                          {/* Enhanced CTA Button */}
+                          <button 
+                            className={`bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-full font-semibold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 hover:from-orange-600 hover:to-amber-600 ${
+                              viewMode === 'list' 
+                                ? 'px-6 py-3 text-sm lg:text-base' 
+                                : 'px-3 py-2 lg:px-5 lg:py-2.5 text-xs lg:text-sm'
+                            }`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onProductClick(product);
+                            }}
+                          >
+                            {viewMode === 'list' ? 'Xem chi tiết' : 'Xem'}
+                          </button>
+                        </div>
+                      </div>
+                      
+                      {/* Enhanced Progress Indicator */}
+                      <div className="mt-3 h-1 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="h-full bg-gradient-to-r from-orange-500 to-amber-500 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-out"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
+              ))}
+            </div>
+
+            {/* Enhanced Pagination */}
+            {totalPages > 1 && (
+              <div className="flex justify-center items-center mt-12 lg:mt-16 space-x-2">
+                <button
+                  onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                  disabled={currentPage === 1}
+                  className="w-10 h-10 glass-morphism-luxury rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed border border-white/20 dark:border-gray-700/30"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                
+                {[...Array(totalPages)].map((_, i) => {
+                  const page = i + 1;
+                  const isActive = page === currentPage;
+                  const isNearCurrent = Math.abs(page - currentPage) <= 2;
+                  const isFirstOrLast = page === 1 || page === totalPages;
+                  
+                  if (!isNearCurrent && !isFirstOrLast) {
+                    if (page === currentPage - 3 || page === currentPage + 3) {
+                      return <span key={page} className="text-slate-400">...</span>;
+                    }
+                    return null;
+                  }
+                  
+                  return (
+                    <button
+                      key={page}
+                      onClick={() => setCurrentPage(page)}
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center font-medium transition-all duration-300 ${
+                        isActive
+                          ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg transform scale-110'
+                          : 'glass-morphism-luxury text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 border border-white/20 dark:border-gray-700/30'
+                      }`}
+                    >
+                      {page}
+                    </button>
+                  );
+                })}
+                
+                <button
+                  onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                  disabled={currentPage === totalPages}
+                  className="w-10 h-10 glass-morphism-luxury rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed border border-white/20 dark:border-gray-700/30"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
               </div>
-            ))}
-          </div>
+            )}
+          </>
         )}
 
-        {/* Modern CTA Section */}
-        <div className="text-center mt-12 lg:mt-16">
-          <div className="inline-flex items-center space-x-4 bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/40 dark:border-gray-700/40 rounded-2xl px-8 py-6 shadow-xl">
-            <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
+        {/* Enhanced CTA Section with Advanced Features */}
+        <div className="text-center mt-12 lg:mt-20">
+          <div className="glass-morphism-luxury rounded-3xl px-8 py-8 lg:py-12 shadow-xl border border-white/20 dark:border-gray-700/30 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-center">
+              
+              {/* Premium Features */}
+              <div className="lg:col-span-2 text-left">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl lg:text-2xl font-bold text-slate-800 dark:text-white mb-1">
+                      Khám phá bộ sưu tập hoàn chỉnh
+                    </h3>
+                    <p className="text-sm lg:text-base text-slate-600 dark:text-slate-400">
+                      Hơn {products.length} sản phẩm trầm hương cao cấp từ khắp Việt Nam
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Premium Benefits */}
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-slate-600 dark:text-slate-400">Miễn phí vận chuyển</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span className="text-slate-600 dark:text-slate-400">Chất lượng đảm bảo</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    <span className="text-slate-600 dark:text-slate-400">Tư vấn chuyên nghiệp</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                    <span className="text-slate-600 dark:text-slate-400">Uy tín 10+ năm</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* CTA Buttons */}
+              <div className="space-y-3">
+                <button 
+                  onClick={() => {
+                    setSelectedCategory('all');
+                    setSearchTerm('');
+                    setCurrentPage(1);
+                  }}
+                  className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3 px-6 rounded-2xl font-semibold hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
+                  Xem tất cả sản phẩm
+                </button>
+                
+                {(wishlist.size > 0 || compareList.size > 0) && (
+                  <div className="flex space-x-2">
+                    {wishlist.size > 0 && (
+                      <button className="flex-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 py-2 px-4 rounded-xl font-medium hover:bg-red-200 dark:hover:bg-red-900/50 transition-all duration-300">
+                        Yêu thích ({wishlist.size})
+                      </button>
+                    )}
+                    {compareList.size > 0 && (
+                      <button className="flex-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 py-2 px-4 rounded-xl font-medium hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-all duration-300">
+                        So sánh ({compareList.size})
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
-            <div className="text-left">
-              <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-1">
-                Khám phá thêm sản phẩm
-              </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                Xem toàn bộ bộ sưu tập trầm hương cao cấp
-              </p>
-            </div>
-            <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-6 py-3 rounded-full hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-medium">
-              Xem tất cả
-            </button>
           </div>
         </div>
+
+        {/* Quick View Modal */}
+        {quickViewProduct && (
+          <QuickViewModal 
+            product={quickViewProduct} 
+            onClose={() => setQuickViewProduct(null)} 
+          />
+        )}
       </div>
     </section>
   );
