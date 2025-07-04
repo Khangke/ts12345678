@@ -864,20 +864,9 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
             </span>
           </div>
 
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-7xl font-bold text-white mb-2 sm:mb-3 lg:mb-6 leading-tight" style={{
-            textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 15px rgba(255,255,255,0.3)'
-          }}>
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-7xl font-bold text-gray-800 dark:text-white mb-2 sm:mb-3 lg:mb-6 leading-tight">
             Trầm hương{' '}
-            <span className="text-white font-black" style={{
-              background: 'linear-gradient(45deg, #fbbf24, #f59e0b, #d97706, #fbbf24)',
-              backgroundSize: '300% 300%',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              color: 'transparent',
-              textShadow: '2px 2px 8px rgba(0,0,0,0.9)',
-              filter: 'drop-shadow(0 0 12px rgba(251, 191, 36, 0.8))',
-              animation: 'gradient-shift 3s ease infinite'
-            }}>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 dark:from-amber-400 dark:via-orange-400 dark:to-yellow-400 relative">
               chất lượng cao
             </span>
           </h2>
