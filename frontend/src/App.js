@@ -362,37 +362,55 @@ function App() {
   return (
     <DarkModeProvider>
       <Router>
-        <div className="App bg-white dark:bg-gray-900 transition-colors duration-300 min-h-screen m-0 p-0">
-          {/* Desktop Header */}
-          <div className="hidden lg:block">
-            <Header cartCount={cartCount} onCartClick={() => setShowCart(true)} />
+        <div className="App relative min-h-screen">
+          {/* Luxury Background Effects */}
+          <div className="fixed inset-0 pointer-events-none z-0">
+            {/* Premium Gradient Mesh */}
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+            
+            {/* Floating Orbs */}
+            <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-amber-400/20 to-orange-500/20 rounded-full blur-3xl animate-luxury-float"></div>
+            <div className="absolute top-40 right-32 w-24 h-24 bg-gradient-to-r from-violet-500/15 to-purple-600/15 rounded-full blur-2xl animate-luxury-float" style={{animationDelay: '2s'}}></div>
+            <div className="absolute bottom-32 left-1/4 w-20 h-20 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-xl animate-luxury-float" style={{animationDelay: '4s'}}></div>
+            
+            {/* Luxury Light Rays */}
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-amber-400/10 to-transparent"></div>
+            <div className="absolute top-1/2 left-0 transform -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-amber-400/5 to-transparent"></div>
           </div>
+
+          {/* Content Layer */}
+          <div className="relative z-10">
+            {/* Desktop Header */}
+            <div className="hidden lg:block">
+              <Header cartCount={cartCount} onCartClick={() => setShowCart(true)} />
+            </div>
+            
+            {/* Mobile Header */}
+            <div className="lg:hidden">
+              <MobileHeader 
+                cartCount={cartCount} 
+                onCartClick={() => setShowCart(true)}
+                isMenuOpen={isMenuOpen}
+                setIsMenuOpen={setIsMenuOpen}
+              />
+            </div>
           
-          {/* Mobile Header */}
-          <div className="lg:hidden">
-            <MobileHeader 
-              cartCount={cartCount} 
-              onCartClick={() => setShowCart(true)}
-              isMenuOpen={isMenuOpen}
-              setIsMenuOpen={setIsMenuOpen}
-            />
+          <Routes>
+            <Route path="/" element={<HomePage onProductClick={setSelectedProduct} />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/products" element={<ProductsPage onProductClick={setSelectedProduct} />} />
+            <Route path="/news" element={<NewsPage />} />
+            <Route path="/news/:id" element={<NewsDetailPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/admin/*" element={<AdminApp />} />
+          </Routes>
+          
+          <Footer />
+          
+          {/* Mobile-specific components */}
+          <MobileBottomNav cartCount={cartCount} onCartClick={() => setShowCart(true)} />
+          <MobileQuickActions />
           </div>
-        
-        <Routes>
-          <Route path="/" element={<HomePage onProductClick={setSelectedProduct} />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/products" element={<ProductsPage onProductClick={setSelectedProduct} />} />
-          <Route path="/news" element={<NewsPage />} />
-          <Route path="/news/:id" element={<NewsDetailPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/admin/*" element={<AdminApp />} />
-        </Routes>
-        
-        <Footer />
-        
-        {/* Mobile-specific components */}
-        <MobileBottomNav cartCount={cartCount} onCartClick={() => setShowCart(true)} />
-        <MobileQuickActions />
         
         {selectedProduct && (
           <ProductDetailModal
