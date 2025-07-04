@@ -851,7 +851,7 @@ backend:
         agent: "testing"
         comment: "✅ POST /api/orders successfully creates orders with customer information and items ✅ Created orders include size-specific pricing when applicable ✅ GET /api/admin/orders with valid token returns all orders ✅ PUT /api/admin/orders/{id}/status updates order status correctly ✅ Successfully created and verified orders with different statuses (pending, confirmed, delivered) ✅ Order management APIs are fully functional"
 
-  - task: "Test Products API"
+  - task: "Test products API endpoints for frontend"
     implemented: true
     working: true
     file: "backend/server.py"
@@ -861,10 +861,10 @@ backend:
     status_history:
       - working: "NA"
         agent: "testing"
-        comment: "Testing public products API as per review request"
+        comment: "Testing products API endpoints as per review request"
       - working: true
         agent: "testing"
-        comment: "✅ GET /api/products returns 200 status code with 3 seeded products ✅ Products have all required fields: id, name, description, price, size_prices, category, material, rating, sizes ✅ GET /api/admin/products with valid token returns same 3 products ✅ Product CRUD operations (create, read, update, delete) all working correctly ✅ Products API is fully functional and returns correctly formatted data"
+        comment: "✅ GET /api/products returns 200 status code with exactly 3 seeded products (Vòng tay trầm hương cao cấp, Tinh dầu trầm hương nguyên chất, Cảnh trầm hương phong thủy) ✅ Each product has all required fields: id, name, description, price, size_prices, category, material, rating, sizes ✅ Response format matches what frontend expects with size_prices correctly mapping sizes to prices ✅ CORS headers are properly configured with Access-Control-Allow-Origin set to '*' allowing frontend access ✅ Size-based pricing is correctly implemented with different prices for each size ✅ Created test orders with size-specific pricing successfully"
 
   - task: "Test Size-based Pricing Verification"
     implemented: true
