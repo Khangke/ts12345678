@@ -371,9 +371,9 @@ export const HeroSection = () => {
             }`}
           >
             {/* Premium Badge */}
-            <div className="inline-flex items-center space-x-3 glass-morphism-luxury px-6 py-3 rounded-2xl border border-amber-400/30">
-              <div className="w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-premium-pulse"></div>
-              <span className="text-sm font-semibold text-amber-300 uppercase tracking-wider">
+            <div className="inline-flex items-center space-x-3 glass-morphism-luxury px-6 py-3 rounded-2xl border border-amber-400/50 shadow-lg">
+              <div className="w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-premium-pulse shadow-md"></div>
+              <span className="text-sm font-bold text-amber-200 uppercase tracking-wider drop-shadow-md">
                 {slides[currentSlide].badge}
               </span>
             </div>
