@@ -330,7 +330,7 @@ export const HeroSection = () => {
       titleAccent: "Đỉnh Cao",
       subtitle: "Premium Quality",
       description: "Sản phẩm được tuyển chọn từ những vùng đất linh thiêng, mang đến trải nghiệm tinh túy nhất.",
-      badge: "Premium Grade",
+      badge: "Sơn Mộc Hương",
       image: "https://images.unsplash.com/photo-1533158326339-7f3cf2404354?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwzfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85"
     }
   ];
