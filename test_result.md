@@ -1316,6 +1316,66 @@ backend:
         agent: "testing"
         comment: "✅ Size-based pricing is correctly implemented with size_prices dictionary ✅ Product model contains all required fields for frontend display ✅ Order model supports size-specific pricing with selected_size and size_specific_price fields ✅ Backward compatibility works with both new size-based pricing and legacy products ✅ Data format is fully compatible with frontend requirements"
 
+  - task: "Test GET /api/admin/stats endpoint after product page enhancements"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Testing GET /api/admin/stats endpoint after product page enhancements"
+      - working: true
+        agent: "testing"
+        comment: "✅ GET /api/admin/stats returns 200 status code with correct data structure ✅ Stats include product_count (3 products) ✅ Stats include orders breakdown by status (pending, confirmed, shipping, delivered, cancelled) ✅ Stats include total_revenue calculation ✅ Response time is excellent at 8.2 ms ✅ Data format is compatible with admin dashboard visualization requirements"
+
+  - task: "Test POST /api/orders endpoint with size-specific pricing"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Testing POST /api/orders endpoint with size-specific pricing after product page enhancements"
+      - working: true
+        agent: "testing"
+        comment: "✅ POST /api/orders successfully creates orders with size-specific pricing ✅ Order items correctly store selected_size and size_specific_price ✅ Response includes order_id, customer information, and correct status (pending) ✅ Response time is excellent at 9.1 ms ✅ Created orders appear correctly in GET /api/admin/orders endpoint"
+
+  - task: "Test GET /api/admin/orders endpoint after product page enhancements"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Testing GET /api/admin/orders endpoint after product page enhancements"
+      - working: true
+        agent: "testing"
+        comment: "✅ GET /api/admin/orders returns 200 status code with array of orders ✅ Orders include all required fields (id, order_id, customer_name, items, status, etc.) ✅ Order items include size-specific information when applicable ✅ Response time is excellent at 7.0 ms ✅ Data format is compatible with admin order management UI requirements"
+
+  - task: "Test PUT /api/admin/orders/{id}/status endpoint after product page enhancements"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Testing PUT /api/admin/orders/{id}/status endpoint after product page enhancements"
+      - working: true
+        agent: "testing"
+        comment: "✅ PUT /api/admin/orders/{id}/status successfully updates order status ✅ All status values work correctly (confirmed, shipping, delivered, cancelled) ✅ Response includes updated status and timestamp ✅ Response time is excellent (8-11 ms) ✅ Updated orders appear correctly in GET /api/admin/orders endpoint with new status"
+
 agent_communication:
   - agent: "testing"
-    message: "Backend API testing completed after product page optimization: ✅ GET /api/products returns correct data with 3 products and size-based pricing ✅ Backend health check confirms all systems operational ✅ API response times are excellent (all under 15ms) ✅ Data format is compatible with frontend requirements ✅ All backend functionality is working correctly with no errors. The backend is ready to support the optimized frontend."
+    message: "Comprehensive backend API testing completed after product page enhancements: ✅ GET /api/products returns 200 status code with 3 products including all required fields for enhanced UI ✅ GET /api/admin/stats returns 200 status code with correct product count, order stats, and revenue data ✅ POST /api/orders successfully creates orders with size-specific pricing ✅ GET /api/admin/orders returns 200 status code with all orders and required fields ✅ PUT /api/admin/orders/{id}/status successfully updates order status to all valid values ✅ All API endpoints return correct JSON format with excellent response times (under 15ms) ✅ Size-based pricing is fully implemented and working correctly ✅ Backward compatibility is maintained for legacy data ✅ All backend APIs are functioning properly with no errors or performance issues"
