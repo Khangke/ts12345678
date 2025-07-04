@@ -288,25 +288,8 @@ export const Header = ({ cartCount, onCartClick }) => {
 
 // Ultra-Luxury Hero Section - Premium Design
 export const HeroSection = () => {
-  const [heroRef, isHeroVisible] = useScrollAnimation(0.2);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 3;
-
-  // Auto-slide functionality
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
+          <button 
+            onClick={prevSlide}
 
   const slides = [
     {
