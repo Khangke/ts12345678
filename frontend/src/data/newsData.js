@@ -1,28 +1,145 @@
 export const newsData = [
   {
     id: 1,
-    title: "Bí mật của trầm hương tự nhiên: Cách nhận biết trầm thật và giả",
+    title: "Trầm Hương Việt Nam: Hành Trình Từ Rừng Già Đến Nghệ Thuật Thưởng Hương Cao Cấp",
     category: "Kiến thức",
-    excerpt: "Trầm hương thật có những đặc điểm riêng biệt. Hãy cùng tìm hiểu cách phân biệt trầm hương tự nhiên với hàng giả để đầu tư đúng giá trị.",
+    excerpt: "Khám phá bí mật của trầm hương Việt Nam - từ quá trình hình thành tự nhiên trong rừng già đến việc trở thành loại hương liệu quý hiếm được thế giới săn đón. Tìm hiểu về 8 vùng trầm nổi tiếng và cách thưởng hương đúng cách.",
     content: `
       <div class="prose prose-lg max-w-none">
-        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Trầm hương được mệnh danh là "vàng của rừng", nhưng làm sao để phân biệt được trầm hương thật và giả? Đây là câu hỏi mà nhiều người quan tâm đến trầm hương thường đặt ra.</p>
+        <h2 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6">Trầm Hương - Kho Báu Thiên Nhiên Của Đất Việt</h2>
         
-        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Quan sát bằng mắt thường</h3>
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">Trầm hương Việt Nam được mệnh danh là "Vàng đen của rừng", không chỉ bởi giá trị kinh tế cao ngất ngưởng mà còn bởi hương thơm tinh tế, thanh khiết mà thiên nhiên ban tặng. Trong thế giới hương liệu cao cấp, trầm hương Việt Nam đã khẳng định vị thế đặc biệt với chất lượng vượt trội và mùi hương độc đáo.</p>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4 mt-8">🌳 Quá Trình Hình Thành Trầm Hương Tự Nhiên</h3>
+        
+        <p class="mb-4">Trầm hương được hình thành từ cây Dó Bầu (Aquilaria crassna) khi bị tổn thương bởi côn trùng, nấm hoặc tác động bên ngoài. Để bảo vệ mình, cây tiết ra một loại nhựa thơm có tính kháng khuẩn mạnh. Quá trình này diễn ra từ 10-30 năm, thậm chí hàng trăm năm, tạo nên những khối trầm quý giá.</p>
+
+        <div class="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-lg mb-6">
+          <h4 class="font-semibold text-amber-800 dark:text-amber-400 mb-3">🔍 Các Giai Đoạn Phát Triển Của Trầm:</h4>
+          <ul class="space-y-2">
+            <li><strong>Giai đoạn 1 (5-10 năm):</strong> Trầm non, hương nhẹ, giá trị thấp</li>
+            <li><strong>Giai đoạn 2 (10-20 năm):</strong> Trầm trung, hương đậm đà hơn</li>
+            <li><strong>Giai đoạn 3 (20+ năm):</strong> Trầm già, hương phức hợp, giá trị cao</li>
+            <li><strong>Giai đoạn 4 (50+ năm):</strong> Kỳ trầm, hương tuyệt vời, cực hiếm</li>
+          </ul>
+        </div>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4 mt-8">🗺️ 8 Vùng Trầm Nổi Tiếng Việt Nam</h3>
+        
+        <div class="grid gap-4 mb-6">
+          <div class="border border-amber-200 dark:border-amber-800 p-4 rounded-lg">
+            <h4 class="font-bold text-amber-700 dark:text-amber-300">1. Trầm Khánh Hòa - Nha Trang</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Đặc điểm: Hương ngọt thanh, ít cay. Phù hợp: Thưởng hương ban ngày, thư giãn.</p>
+          </div>
+          <div class="border border-amber-200 dark:border-amber-800 p-4 rounded-lg">
+            <h4 class="font-bold text-amber-700 dark:text-amber-300">2. Trầm Kiến Tường - Tây Ninh</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Đặc điểm: Hương nồng, có độ ngọt đặc trưng. Phù hợp: Thiền định, tịnh tâm.</p>
+          </div>
+          <div class="border border-amber-200 dark:border-amber-800 p-4 rounded-lg">
+            <h4 class="font-bold text-amber-700 dark:text-amber-300">3. Trầm Quảng Nam - Bờ Y</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Đặc điểm: Hương cay nồng, đậm đà. Phù hợp: Thưởng hương tối, không gian sang trọng.</p>
+          </div>
+          <div class="border border-amber-200 dark:border-amber-800 p-4 rounded-lg">
+            <h4 class="font-bold text-amber-700 dark:text-amber-300">4. Trầm Đăk Lăk - Ban Mê Thuột</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Đặc điểm: Hương ấm, có chút đắng nhẹ. Phù hợp: Mùa đông, không gian ấm cúng.</p>
+          </div>
+        </div>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4 mt-8">🎭 Nghệ Thuật Thưởng Hương Trầm</h3>
+        
+        <p class="mb-4">Thưởng hương trầm không chỉ đơn thuần là đốt và ngửi, mà là cả một nghệ thuật tinh tế đòi hỏi sự hiểu biết và cảm nhận sâu sắc.</p>
+
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg mb-6">
+          <h4 class="font-semibold text-blue-800 dark:text-blue-400 mb-3">📝 Quy Trình Thưởng Hương Chuẩn:</h4>
+          <ol class="space-y-3 list-decimal list-inside">
+            <li><strong>Chuẩn bị không gian:</strong> Phòng thoáng, sạch sẽ, yên tĩnh</li>
+            <li><strong>Chọn dụng cụ:</strong> Bếp than, tàn trầm, kẹp trầm chuyên dụng</li>
+            <li><strong>Khởi hương:</strong> Đốt than đến khi đỏ đều, đặt mảnh trầm nhỏ</li>
+            <li><strong>Thưởng hương:</strong> Ngồi yên, hít nhẹ, cảm nhận từng tầng hương</li>
+            <li><strong>Ghi nhận:</strong> Lưu lại cảm nhận để so sánh với lần sau</li>
+          </ol>
+        </div>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4 mt-8">💎 Phân Loại Trầm Hương Theo Chất Lượng</h3>
+        
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full border border-gray-300 dark:border-gray-600">
+            <thead class="bg-amber-100 dark:bg-amber-900/30">
+              <tr>
+                <th class="border p-3 text-left">Loại Trầm</th>
+                <th class="border p-3 text-left">Đặc Điểm</th>
+                <th class="border p-3 text-left">Giá Trị</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border p-3 font-semibold">Kỳ Trầm</td>
+                <td class="border p-3">Chìm nước, hương phức tạp, 30+ năm tuổi</td>
+                <td class="border p-3 text-red-600">Cực cao</td>
+              </tr>
+              <tr>
+                <td class="border p-3 font-semibold">Trầm A</td>
+                <td class="border p-3">Một phần chìm, hương đậm, 15-30 năm</td>
+                <td class="border p-3 text-orange-600">Cao</td>
+              </tr>
+              <tr>
+                <td class="border p-3 font-semibold">Trầm B</td>
+                <td class="border p-3">Nổi nước, hương vừa, 10-15 năm</td>
+                <td class="border p-3 text-yellow-600">Trung bình</td>
+              </tr>
+              <tr>
+                <td class="border p-3 font-semibold">Trầm C</td>
+                <td class="border p-3">Hương nhẹ, 5-10 năm tuổi</td>
+                <td class="border p-3 text-green-600">Phổ thông</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4 mt-8">🌍 Trầm Hương Việt Nam Trên Thế Giới</h3>
+        
+        <p class="mb-4">Trầm hương Việt Nam đã xuất khẩu đến hơn 40 quốc gia, được đánh giá cao tại các thị trường khó tính như Nhật Bản, Hàn Quốc, Trung Quốc, và các nước Trung Đông.</p>
+
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg mb-6">
+          <h4 class="font-semibold text-green-800 dark:text-green-400 mb-3">🏆 Thành Tựu Đáng Tự Hào:</h4>
+          <ul class="space-y-2">
+            <li>• Việt Nam là nước xuất khẩu trầm hương lớn thứ 2 thế giới</li>
+            <li>• Trầm Khánh Hòa được UNESCO công nhận là di sản văn hóa phi vật thể</li>
+            <li>• Giá trị xuất khẩu đạt hàng trăm triệu USD mỗi năm</li>
+            <li>• Có hơn 500 doanh nghiệp chuyên về trầm hương</li>
+          </ul>
+        </div>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4 mt-8">🔮 Xu Hướng Phát Triển Tương Lai</h3>
+        
+        <p class="mb-4">Với sự phát triển của công nghệ và nhu cầu ngày càng cao của thị trường quốc tế, ngành trầm hương Việt Nam đang hướng tới:</p>
+
         <ul class="space-y-2 mb-6">
-          <li>• <strong>Trầm thật:</strong> Có vân gỗ tự nhiên, màu sắc không đều, có những đường vân kẽ chỉ đặc trưng</li>
-          <li>• <strong>Trầm giả:</strong> Màu sắc đồng đều, vân gỗ giả tạo, thường có màu đen đậm bất thường</li>
+          <li>• <strong>Nuôi trồng bền vững:</strong> Phát triển các khu vườn trầm theo tiêu chuẩn quốc tế</li>
+          <li>• <strong>Công nghệ chế biến:</strong> Ứng dụng AI và IoT trong sản xuất</li>
+          <li>• <strong>Sản phẩm đa dạng:</strong> Từ vòng tay, nhang đến tinh dầu cao cấp</li>
+          <li>• <strong>Thương hiệu quốc gia:</strong> Xây dựng thương hiệu "Trầm hương Việt Nam"</li>
         </ul>
 
-        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Kiểm tra mùi hương</h3>
-        <p class="mb-4">Trầm hương thật có mùi thơm nhẹ nhàng, thanh tao, không gắt. Khi đốt, hương thơm lan tỏa đều và bền lâu. Trầm giả thường có mùi hắc hoặc quá nồng.</p>
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg mb-6">
+          <h4 class="font-semibold text-purple-800 dark:text-purple-400 mb-3">💡 Lời Khuyên Cho Người Mới Bắt Đầu:</h4>
+          <ul class="space-y-2">
+            <li>1. Bắt đầu với trầm loại C để làm quen với hương</li>
+            <li>2. Học cách phân biệt trầm thật - giả từ những chuyên gia</li>
+            <li>3. Tham gia các câu lạc bộ thưởng hương để tích lũy kinh nghiệm</li>
+            <li>4. Đầu tư vào dụng cụ thưởng hương chất lượng</li>
+            <li>5. Kiên nhẫn và tận hưởng từng khoảnh khắc thưởng hương</li>
+          </ul>
+        </div>
+
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed italic">Trầm hương Việt Nam không chỉ là một sản phẩm thương mại, mà còn là di sản văn hóa, là tinh hoa của thiên nhiên và con người Việt Nam. Hãy cùng bảo vệ và phát triển kho báu này để các thế hệ tương lai có thể tiếp tục thưởng thức và tự hào về "vàng đen" của đất nước.</p>
       </div>
     `,
     image: "https://images.unsplash.com/photo-1542838132-92c53300491e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHx3b29kJTIwZXh0cmFjdGlvbnxlbnwwfHx8fDE3NTE0Mjk4Njh8MA&ixlib=rb-4.1.0&q=85",
-    author: "Chuyên gia Nguyễn Văn Minh",
-    date: "2025-01-02",
-    readTime: "8 phút đọc",
-    sourceUrl: "https://sonmochuong.vn/cach-nhan-biet-tram-huong-that-gia"
+    author: "Thạc sĩ Nguyễn Quang Minh",
+    date: "2025-01-15",
+    readTime: "15 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/tram-huong-viet-nam-hanh-trinh-tu-rung-gia"
   },
   {
     id: 2,
