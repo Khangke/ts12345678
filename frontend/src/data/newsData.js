@@ -6,133 +6,238 @@ export const newsData = [
     excerpt: "Khám phá bí mật của trầm hương Việt Nam - từ quá trình hình thành tự nhiên trong rừng già đến việc trở thành loại hương liệu quý hiếm được thế giới săn đón. Tìm hiểu về 8 vùng trầm nổi tiếng và cách thưởng hương đúng cách.",
     content: `
       <div class="prose prose-lg max-w-none">
-        <h2 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6">Trầm Hương - Kho Báu Thiên Nhiên Của Đất Việt</h2>
+        <h2 class="text-3xl font-bold text-amber-800 dark:text-amber-400 mb-8 text-center">Trầm Hương - Kho Báu Thiên Nhiên Của Đất Việt</h2>
         
-        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">Trầm hương Việt Nam được mệnh danh là "Vàng đen của rừng", không chỉ bởi giá trị kinh tế cao ngất ngưởng mà còn bởi hương thơm tinh tế, thanh khiết mà thiên nhiên ban tặng. Trong thế giới hương liệu cao cấp, trầm hương Việt Nam đã khẳng định vị thế đặc biệt với chất lượng vượt trội và mùi hương độc đáo.</p>
-
-        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4 mt-8">🌳 Quá Trình Hình Thành Trầm Hương Tự Nhiên</h3>
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHx3b29kJTIwZXh0cmFjdGlvbnxlbnwwfHx8fDE3NTE0Mjk4Njh8MA&ixlib=rb-4.1.0&q=85" alt="Trầm hương Việt Nam" class="w-full h-64 object-cover rounded-lg mb-8" />
         
-        <p class="mb-4">Trầm hương được hình thành từ cây Dó Bầu (Aquilaria crassna) khi bị tổn thương bởi côn trùng, nấm hoặc tác động bên ngoài. Để bảo vệ mình, cây tiết ra một loại nhựa thơm có tính kháng khuẩn mạnh. Quá trình này diễn ra từ 10-30 năm, thậm chí hàng trăm năm, tạo nên những khối trầm quý giá.</p>
+        <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed font-medium">Trầm hương Việt Nam được mệnh danh là "Vàng đen của rừng", không chỉ bởi giá trị kinh tế cao ngất ngưởng mà còn bởi hương thơm tinh tế, thanh khiết mà thiên nhiên ban tặng. Trong thế giới hương liệu cao cấp, trầm hương Việt Nam đã khẳng định vị thế đặc biệt với chất lượng vượt trội và mùi hương độc đáo.</p>
 
-        <div class="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-lg mb-6">
-          <h4 class="font-semibold text-amber-800 dark:text-amber-400 mb-3">🔍 Các Giai Đoạn Phát Triển Của Trầm:</h4>
-          <ul class="space-y-2">
-            <li><strong>Giai đoạn 1 (5-10 năm):</strong> Trầm non, hương nhẹ, giá trị thấp</li>
-            <li><strong>Giai đoạn 2 (10-20 năm):</strong> Trầm trung, hương đậm đà hơn</li>
-            <li><strong>Giai đoạn 3 (20+ năm):</strong> Trầm già, hương phức hợp, giá trị cao</li>
-            <li><strong>Giai đoạn 4 (50+ năm):</strong> Kỳ trầm, hương tuyệt vời, cực hiếm</li>
-          </ul>
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12 flex items-center">
+          <span class="text-3xl mr-3">🌳</span>
+          Quá Trình Hình Thành Trầm Hương Tự Nhiên
+        </h3>
+        
+        <p class="text-lg mb-6 leading-relaxed">Trầm hương được hình thành từ cây Dó Bầu (Aquilaria crassna) khi bị tổn thương bởi côn trùng, nấm hoặc tác động bên ngoài. Để bảo vệ mình, cây tiết ra một loại nhựa thơm có tính kháng khuẩn mạnh. Quá trình này diễn ra từ 10-30 năm, thậm chí hàng trăm năm, tạo nên những khối trầm quý giá.</p>
+
+        <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-8 rounded-xl mb-8 border-l-4 border-amber-500">
+          <h4 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4 flex items-center">
+            <span class="text-2xl mr-3">🔍</span>
+            Các Giai Đoạn Phát Triển Của Trầm:
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
+              <strong class="text-amber-600 dark:text-amber-400">Giai đoạn 1 (5-10 năm):</strong><br/>
+              Trầm non, hương nhẹ, giá trị thấp
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
+              <strong class="text-amber-600 dark:text-amber-400">Giai đoạn 2 (10-20 năm):</strong><br/>
+              Trầm trung, hương đậm đà hơn
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
+              <strong class="text-amber-600 dark:text-amber-400">Giai đoạn 3 (20+ năm):</strong><br/>
+              Trầm già, hương phức hợp, giá trị cao
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
+              <strong class="text-amber-600 dark:text-amber-400">Giai đoạn 4 (50+ năm):</strong><br/>
+              Kỳ trầm, hương tuyệt vời, cực hiếm
+            </div>
+          </div>
         </div>
 
-        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4 mt-8">🗺️ 8 Vùng Trầm Nổi Tiếng Việt Nam</h3>
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12 flex items-center">
+          <span class="text-3xl mr-3">🗺️</span>
+          8 Vùng Trầm Nổi Tiếng Việt Nam
+        </h3>
         
-        <div class="grid gap-4 mb-6">
-          <div class="border border-amber-200 dark:border-amber-800 p-4 rounded-lg">
-            <h4 class="font-bold text-amber-700 dark:text-amber-300">1. Trầm Khánh Hòa - Nha Trang</h4>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Đặc điểm: Hương ngọt thanh, ít cay. Phù hợp: Thưởng hương ban ngày, thư giãn.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="border-2 border-amber-200 dark:border-amber-800 p-6 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/10 dark:to-orange-900/10 hover:shadow-lg transition-shadow">
+            <h4 class="text-lg font-bold text-amber-700 dark:text-amber-300 mb-2">1. Trầm Khánh Hòa - Nha Trang</h4>
+            <p class="text-gray-600 dark:text-gray-400"><strong>Đặc điểm:</strong> Hương ngọt thanh, ít cay<br/><strong>Phù hợp:</strong> Thưởng hương ban ngày, thư giãn</p>
           </div>
-          <div class="border border-amber-200 dark:border-amber-800 p-4 rounded-lg">
-            <h4 class="font-bold text-amber-700 dark:text-amber-300">2. Trầm Kiến Tường - Tây Ninh</h4>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Đặc điểm: Hương nồng, có độ ngọt đặc trưng. Phù hợp: Thiền định, tịnh tâm.</p>
+          <div class="border-2 border-amber-200 dark:border-amber-800 p-6 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/10 dark:to-orange-900/10 hover:shadow-lg transition-shadow">
+            <h4 class="text-lg font-bold text-amber-700 dark:text-amber-300 mb-2">2. Trầm Kiến Tường - Tây Ninh</h4>
+            <p class="text-gray-600 dark:text-gray-400"><strong>Đặc điểm:</strong> Hương nồng, có độ ngọt đặc trưng<br/><strong>Phù hợp:</strong> Thiền định, tịnh tâm</p>
           </div>
-          <div class="border border-amber-200 dark:border-amber-800 p-4 rounded-lg">
-            <h4 class="font-bold text-amber-700 dark:text-amber-300">3. Trầm Quảng Nam - Bờ Y</h4>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Đặc điểm: Hương cay nồng, đậm đà. Phù hợp: Thưởng hương tối, không gian sang trọng.</p>
+          <div class="border-2 border-amber-200 dark:border-amber-800 p-6 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/10 dark:to-orange-900/10 hover:shadow-lg transition-shadow">
+            <h4 class="text-lg font-bold text-amber-700 dark:text-amber-300 mb-2">3. Trầm Quảng Nam - Bờ Y</h4>
+            <p class="text-gray-600 dark:text-gray-400"><strong>Đặc điểm:</strong> Hương cay nồng, đậm đà<br/><strong>Phù hợp:</strong> Thưởng hương tối, không gian sang trọng</p>
           </div>
-          <div class="border border-amber-200 dark:border-amber-800 p-4 rounded-lg">
-            <h4 class="font-bold text-amber-700 dark:text-amber-300">4. Trầm Đăk Lăk - Ban Mê Thuột</h4>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Đặc điểm: Hương ấm, có chút đắng nhẹ. Phù hợp: Mùa đông, không gian ấm cúng.</p>
+          <div class="border-2 border-amber-200 dark:border-amber-800 p-6 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/10 dark:to-orange-900/10 hover:shadow-lg transition-shadow">
+            <h4 class="text-lg font-bold text-amber-700 dark:text-amber-300 mb-2">4. Trầm Đăk Lăk - Ban Mê Thuột</h4>
+            <p class="text-gray-600 dark:text-gray-400"><strong>Đặc điểm:</strong> Hương ấm, có chút đắng nhẹ<br/><strong>Phù hợp:</strong> Mùa đông, không gian ấm cúng</p>
           </div>
         </div>
 
-        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4 mt-8">🎭 Nghệ Thuật Thưởng Hương Trầm</h3>
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12 flex items-center">
+          <span class="text-3xl mr-3">🎭</span>
+          Nghệ Thuật Thưởng Hương Trầm
+        </h3>
         
-        <p class="mb-4">Thưởng hương trầm không chỉ đơn thuần là đốt và ngửi, mà là cả một nghệ thuật tinh tế đòi hỏi sự hiểu biết và cảm nhận sâu sắc.</p>
+        <p class="text-lg mb-6 leading-relaxed">Thưởng hương trầm không chỉ đơn thuần là đốt và ngửi, mà là cả một nghệ thuật tinh tế đòi hỏi sự hiểu biết và cảm nhận sâu sắc về từng tầng hương, từng nota âm thanh mà thiên nhiên đã ưu ái ban tặng.</p>
 
-        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg mb-6">
-          <h4 class="font-semibold text-blue-800 dark:text-blue-400 mb-3">📝 Quy Trình Thưởng Hương Chuẩn:</h4>
-          <ol class="space-y-3 list-decimal list-inside">
-            <li><strong>Chuẩn bị không gian:</strong> Phòng thoáng, sạch sẽ, yên tĩnh</li>
-            <li><strong>Chọn dụng cụ:</strong> Bếp than, tàn trầm, kẹp trầm chuyên dụng</li>
-            <li><strong>Khởi hương:</strong> Đốt than đến khi đỏ đều, đặt mảnh trầm nhỏ</li>
-            <li><strong>Thưởng hương:</strong> Ngồi yên, hít nhẹ, cảm nhận từng tầng hương</li>
-            <li><strong>Ghi nhận:</strong> Lưu lại cảm nhận để so sánh với lần sau</li>
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 rounded-xl mb-8 border-l-4 border-blue-500">
+          <h4 class="text-xl font-bold text-blue-800 dark:text-blue-400 mb-4 flex items-center">
+            <span class="text-2xl mr-3">📝</span>
+            Quy Trình Thưởng Hương Chuẩn:
+          </h4>
+          <ol class="space-y-4 text-lg">
+            <li class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">1</span>
+              <div><strong>Chuẩn bị không gian:</strong> Phòng thoáng, sạch sẽ, yên tĩnh</div>
+            </li>
+            <li class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">2</span>
+              <div><strong>Chọn dụng cụ:</strong> Bếp than, tàn trầm, kẹp trầm chuyên dụng</div>
+            </li>
+            <li class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">3</span>
+              <div><strong>Khởi hương:</strong> Đốt than đến khi đỏ đều, đặt mảnh trầm nhỏ</div>
+            </li>
+            <li class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">4</span>
+              <div><strong>Thưởng hương:</strong> Ngồi yên, hít nhẹ, cảm nhận từng tầng hương</div>
+            </li>
+            <li class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">5</span>
+              <div><strong>Ghi nhận:</strong> Lưu lại cảm nhận để so sánh với lần sau</div>
+            </li>
           </ol>
         </div>
 
-        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4 mt-8">💎 Phân Loại Trầm Hương Theo Chất Lượng</h3>
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12 flex items-center">
+          <span class="text-3xl mr-3">💎</span>
+          Phân Loại Trầm Hương Theo Chất Lượng
+        </h3>
         
-        <div class="overflow-x-auto mb-6">
-          <table class="w-full border border-gray-300 dark:border-gray-600">
-            <thead class="bg-amber-100 dark:bg-amber-900/30">
+        <div class="overflow-x-auto mb-8">
+          <table class="w-full border border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden shadow-lg">
+            <thead class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30">
               <tr>
-                <th class="border p-3 text-left">Loại Trầm</th>
-                <th class="border p-3 text-left">Đặc Điểm</th>
-                <th class="border p-3 text-left">Giá Trị</th>
+                <th class="border p-4 text-left font-bold text-amber-800 dark:text-amber-300">Loại Trầm</th>
+                <th class="border p-4 text-left font-bold text-amber-800 dark:text-amber-300">Đặc Điểm</th>
+                <th class="border p-4 text-left font-bold text-amber-800 dark:text-amber-300">Giá Trị</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td class="border p-3 font-semibold">Kỳ Trầm</td>
-                <td class="border p-3">Chìm nước, hương phức tạp, 30+ năm tuổi</td>
-                <td class="border p-3 text-red-600">Cực cao</td>
+            <tbody class="text-lg">
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-bold text-red-600">Kỳ Trầm</td>
+                <td class="border p-4">Chìm nước, hương phức tạp, 30+ năm tuổi</td>
+                <td class="border p-4 text-red-600 font-bold">Cực cao</td>
               </tr>
-              <tr>
-                <td class="border p-3 font-semibold">Trầm A</td>
-                <td class="border p-3">Một phần chìm, hương đậm, 15-30 năm</td>
-                <td class="border p-3 text-orange-600">Cao</td>
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-bold text-orange-600">Trầm A</td>
+                <td class="border p-4">Một phần chìm, hương đậm, 15-30 năm</td>
+                <td class="border p-4 text-orange-600 font-bold">Cao</td>
               </tr>
-              <tr>
-                <td class="border p-3 font-semibold">Trầm B</td>
-                <td class="border p-3">Nổi nước, hương vừa, 10-15 năm</td>
-                <td class="border p-3 text-yellow-600">Trung bình</td>
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-bold text-yellow-600">Trầm B</td>
+                <td class="border p-4">Nổi nước, hương vừa, 10-15 năm</td>
+                <td class="border p-4 text-yellow-600 font-bold">Trung bình</td>
               </tr>
-              <tr>
-                <td class="border p-3 font-semibold">Trầm C</td>
-                <td class="border p-3">Hương nhẹ, 5-10 năm tuổi</td>
-                <td class="border p-3 text-green-600">Phổ thông</td>
+              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <td class="border p-4 font-bold text-green-600">Trầm C</td>
+                <td class="border p-4">Hương nhẹ, 5-10 năm tuổi</td>
+                <td class="border p-4 text-green-600 font-bold">Phổ thông</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4 mt-8">🌍 Trầm Hương Việt Nam Trên Thế Giới</h3>
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12 flex items-center">
+          <span class="text-3xl mr-3">🌍</span>
+          Trầm Hương Việt Nam Trên Thế Giới
+        </h3>
         
-        <p class="mb-4">Trầm hương Việt Nam đã xuất khẩu đến hơn 40 quốc gia, được đánh giá cao tại các thị trường khó tính như Nhật Bản, Hàn Quốc, Trung Quốc, và các nước Trung Đông.</p>
+        <p class="text-lg mb-6 leading-relaxed">Trầm hương Việt Nam đã xuất khẩu đến hơn 40 quốc gia, được đánh giá cao tại các thị trường khó tính như Nhật Bản, Hàn Quốc, Trung Quốc, và các nước Trung Đông. Đây là niềm tự hào của ngành lâm nghiệp Việt Nam.</p>
 
-        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg mb-6">
-          <h4 class="font-semibold text-green-800 dark:text-green-400 mb-3">🏆 Thành Tựu Đáng Tự Hào:</h4>
-          <ul class="space-y-2">
-            <li>• Việt Nam là nước xuất khẩu trầm hương lớn thứ 2 thế giới</li>
-            <li>• Trầm Khánh Hòa được UNESCO công nhận là di sản văn hóa phi vật thể</li>
-            <li>• Giá trị xuất khẩu đạt hàng trăm triệu USD mỗi năm</li>
-            <li>• Có hơn 500 doanh nghiệp chuyên về trầm hương</li>
-          </ul>
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-8 rounded-xl mb-8 border-l-4 border-green-500">
+          <h4 class="text-xl font-bold text-green-800 dark:text-green-400 mb-4 flex items-center">
+            <span class="text-2xl mr-3">🏆</span>
+            Thành Tựu Đáng Tự Hào:
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+            <div class="flex items-center">
+              <span class="text-green-500 mr-3">✓</span>
+              Việt Nam là nước xuất khẩu trầm hương lớn thứ 2 thế giới
+            </div>
+            <div class="flex items-center">
+              <span class="text-green-500 mr-3">✓</span>
+              Trầm Khánh Hòa được UNESCO công nhận là di sản văn hóa phi vật thể
+            </div>
+            <div class="flex items-center">
+              <span class="text-green-500 mr-3">✓</span>
+              Giá trị xuất khẩu đạt hàng trăm triệu USD mỗi năm
+            </div>
+            <div class="flex items-center">
+              <span class="text-green-500 mr-3">✓</span>
+              Có hơn 500 doanh nghiệp chuyên về trầm hương
+            </div>
+          </div>
         </div>
 
-        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4 mt-8">🔮 Xu Hướng Phát Triển Tương Lai</h3>
+        <h3 class="text-2xl font-bold text-amber-800 dark:text-amber-400 mb-6 mt-12 flex items-center">
+          <span class="text-3xl mr-3">🔮</span>
+          Xu Hướng Phát Triển Tương Lai
+        </h3>
         
-        <p class="mb-4">Với sự phát triển của công nghệ và nhu cầu ngày càng cao của thị trường quốc tế, ngành trầm hương Việt Nam đang hướng tới:</p>
+        <p class="text-lg mb-6 leading-relaxed">Với sự phát triển của công nghệ và nhu cầu ngày càng cao của thị trường quốc tế, ngành trầm hương Việt Nam đang hướng tới một tương lai bền vững và thịnh vượng:</p>
 
-        <ul class="space-y-2 mb-6">
-          <li>• <strong>Nuôi trồng bền vững:</strong> Phát triển các khu vườn trầm theo tiêu chuẩn quốc tế</li>
-          <li>• <strong>Công nghệ chế biến:</strong> Ứng dụng AI và IoT trong sản xuất</li>
-          <li>• <strong>Sản phẩm đa dạng:</strong> Từ vòng tay, nhang đến tinh dầu cao cấp</li>
-          <li>• <strong>Thương hiệu quốc gia:</strong> Xây dựng thương hiệu "Trầm hương Việt Nam"</li>
-        </ul>
-
-        <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg mb-6">
-          <h4 class="font-semibold text-purple-800 dark:text-purple-400 mb-3">💡 Lời Khuyên Cho Người Mới Bắt Đầu:</h4>
-          <ul class="space-y-2">
-            <li>1. Bắt đầu với trầm loại C để làm quen với hương</li>
-            <li>2. Học cách phân biệt trầm thật - giả từ những chuyên gia</li>
-            <li>3. Tham gia các câu lạc bộ thưởng hương để tích lũy kinh nghiệm</li>
-            <li>4. Đầu tư vào dụng cụ thưởng hương chất lượng</li>
-            <li>5. Kiên nhẫn và tận hưởng từng khoảnh khắc thưởng hương</li>
-          </ul>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl border border-purple-200 dark:border-purple-800">
+            <h4 class="font-bold text-purple-700 dark:text-purple-300 mb-2 text-lg">🌱 Nuôi trồng bền vững</h4>
+            <p class="text-gray-600 dark:text-gray-400">Phát triển các khu vườn trầm theo tiêu chuẩn quốc tế</p>
+          </div>
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl border border-purple-200 dark:border-purple-800">
+            <h4 class="font-bold text-purple-700 dark:text-purple-300 mb-2 text-lg">🤖 Công nghệ chế biến</h4>
+            <p class="text-gray-600 dark:text-gray-400">Ứng dụng AI và IoT trong sản xuất</p>
+          </div>
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl border border-purple-200 dark:border-purple-800">
+            <h4 class="font-bold text-purple-700 dark:text-purple-300 mb-2 text-lg">🎯 Sản phẩm đa dạng</h4>
+            <p class="text-gray-600 dark:text-gray-400">Từ vòng tay, nhang đến tinh dầu cao cấp</p>
+          </div>
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl border border-purple-200 dark:border-purple-800">
+            <h4 class="font-bold text-purple-700 dark:text-purple-300 mb-2 text-lg">🏅 Thương hiệu quốc gia</h4>
+            <p class="text-gray-600 dark:text-gray-400">Xây dựng thương hiệu "Trầm hương Việt Nam"</p>
+          </div>
         </div>
 
-        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed italic">Trầm hương Việt Nam không chỉ là một sản phẩm thương mại, mà còn là di sản văn hóa, là tinh hoa của thiên nhiên và con người Việt Nam. Hãy cùng bảo vệ và phát triển kho báu này để các thế hệ tương lai có thể tiếp tục thưởng thức và tự hào về "vàng đen" của đất nước.</p>
+        <div class="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 p-8 rounded-xl mb-8 border-l-4 border-purple-500">
+          <h4 class="text-xl font-bold text-purple-800 dark:text-purple-400 mb-4 flex items-center">
+            <span class="text-2xl mr-3">💡</span>
+            Lời Khuyên Cho Người Mới Bắt Đầu:
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+            <div class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold mr-3 mt-1">1</span>
+              <p>Bắt đầu với trầm loại C để làm quen với hương</p>
+            </div>
+            <div class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold mr-3 mt-1">2</span>
+              <p>Học cách phân biệt trầm thật - giả từ những chuyên gia</p>
+            </div>
+            <div class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold mr-3 mt-1">3</span>
+              <p>Tham gia các câu lạc bộ thưởng hương để tích lũy kinh nghiệm</p>
+            </div>
+            <div class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold mr-3 mt-1">4</span>
+              <p>Đầu tư vào dụng cụ thưởng hương chất lượng</p>
+            </div>
+            <div class="flex items-start">
+              <span class="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold mr-3 mt-1">5</span>
+              <p>Kiên nhẫn và tận hưởng từng khoảnh khắc thưởng hương</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 p-8 rounded-xl text-center border-2 border-amber-300 dark:border-amber-700">
+          <p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed italic font-medium">
+            "Trầm hương Việt Nam không chỉ là một sản phẩm thương mại, mà còn là di sản văn hóa, là tinh hoa của thiên nhiên và con người Việt Nam. Hãy cùng bảo vệ và phát triển kho báu này để các thế hệ tương lai có thể tiếp tục thưởng thức và tự hào về 'vàng đen' của đất nước."
+          </p>
+          <div class="mt-4 text-amber-600 dark:text-amber-400 font-semibold">
+            - Sơn Mộc Hương -
+          </div>
+        </div>
       </div>
     `,
     image: "https://images.unsplash.com/photo-1542838132-92c53300491e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHx3b29kJTIwZXh0cmFjdGlvbnxlbnwwfHx8fDE3NTE0Mjk4Njh8MA&ixlib=rb-4.1.0&q=85",
