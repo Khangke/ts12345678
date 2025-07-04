@@ -1124,7 +1124,7 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
 // About Section Component - Ultra Modern Luxury Design
 export const AboutSection = () => {
   return (
-    <section id="about" className="relative py-12 sm:py-16 lg:py-24 overflow-hidden">
+    <section id="about" className="relative py-12 sm:py-16 lg:py-32 overflow-hidden">
       {/* Luxury Background with Animated Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="absolute inset-0 bg-gradient-to-tr from-amber-900/20 via-transparent to-orange-900/20"></div>
@@ -1137,28 +1137,33 @@ export const AboutSection = () => {
         <div className="absolute top-60 right-20 w-48 h-48 bg-orange-400/15 rounded-full blur-2xl animate-pulse delay-1000"></div>
         <div className="absolute bottom-20 left-1/4 w-56 h-56 bg-amber-300/8 rounded-full blur-3xl animate-pulse delay-2000"></div>
         <div className="absolute top-1/3 left-1/2 w-32 h-32 bg-amber-500/20 rounded-full blur-xl animate-pulse delay-500"></div>
+        <div className="absolute top-1/4 right-1/4 w-40 h-40 bg-amber-600/12 rounded-full blur-2xl animate-pulse delay-1500"></div>
+        <div className="absolute bottom-1/3 right-10 w-28 h-28 bg-orange-500/15 rounded-full blur-xl animate-pulse delay-3000"></div>
       </div>
 
       {/* Premium Container */}
       <div className="container-luxury relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-          <div className="inline-flex items-center justify-center p-2 mb-4 rounded-full bg-amber-500/20 backdrop-blur-sm">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-24">
+          <div className="inline-flex items-center justify-center p-2 mb-6 rounded-full bg-amber-500/20 backdrop-blur-sm">
             <span className="text-amber-300 text-sm font-medium px-3 py-1">Giới thiệu</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-4 sm:mb-6 text-shadow-premium">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-black text-white mb-6 lg:mb-8 text-shadow-premium">
             Sơn Mộc Hương
           </h2>
-          <div className="text-gradient-luxury text-xl sm:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8">
+          <div className="text-gradient-luxury text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-bold mb-8 lg:mb-12">
             Trầm hương chất lượng cao từ thiên nhiên
           </div>
+          <p className="text-gray-300 text-lg lg:text-xl xl:text-2xl max-w-4xl mx-auto leading-relaxed">
+            Hành trình 15 năm kiến tạo thương hiệu trầm hương cao cấp hàng đầu Việt Nam
+          </p>
         </div>
 
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
+        {/* Main Content Grid - Enhanced for Desktop */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-8 xl:gap-12 items-start mb-16 lg:mb-24">
           
-          {/* Left Side - Enhanced Image Gallery */}
-          <div className="relative">
+          {/* Left Side - Enhanced Image Gallery (Desktop: 5 columns) */}
+          <div className="lg:col-span-5 relative">
             {/* Mobile: Single Column Layout */}
             <div className="block lg:hidden space-y-4">
               <div className="card-luxury p-0 overflow-hidden">
@@ -1192,58 +1197,62 @@ export const AboutSection = () => {
               </div>
             </div>
 
-            {/* Desktop: Enhanced Grid Layout */}
+            {/* Desktop: Enhanced Larger Grid Layout */}
             <div className="hidden lg:block relative">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="space-y-6">
+              <div className="grid grid-cols-2 gap-6 xl:gap-8">
+                <div className="space-y-6 xl:space-y-8">
                   <div className="card-luxury p-0 overflow-hidden hover-lift-luxury">
                     <img 
                       src="https://images.unsplash.com/photo-1509726360306-3f44543aea4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85"
                       alt="Nhang trầm cao cấp"
-                      className="w-full h-64 object-cover"
+                      className="w-full h-80 xl:h-96 object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <div className="text-sm font-medium">Nhang trầm cao cấp</div>
-                      <div className="text-xs text-amber-300">Hương thơm tinh tế</div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-6 left-6 text-white">
+                      <div className="text-lg font-bold mb-1">Nhang trầm cao cấp</div>
+                      <div className="text-sm text-amber-300 mb-2">Hương thơm tinh tế, thanh khiết</div>
+                      <div className="text-xs text-gray-300">Từ gỗ trầm Khánh Hòa</div>
                     </div>
                   </div>
                   <div className="card-luxury p-0 overflow-hidden hover-lift-luxury">
                     <img 
                       src="https://images.unsplash.com/photo-1541795083-1b160cf4f3d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwYnVybmluZ3xlbnwwfHx8fDE3NTE0Mjk4ODl8MA&ixlib=rb-4.1.0&q=85"
                       alt="Khói nhang thơm"
-                      className="w-full h-40 object-cover"
+                      className="w-full h-52 xl:h-64 object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    <div className="absolute bottom-3 left-3 text-white">
-                      <div className="text-sm font-medium">Khói nhang thơm</div>
-                      <div className="text-xs text-amber-300">Không gian thư giãn</div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <div className="text-base font-bold mb-1">Khói nhang thơm</div>
+                      <div className="text-sm text-amber-300 mb-1">Không gian thư giãn</div>
+                      <div className="text-xs text-gray-300">Thư giãn tâm hồn</div>
                     </div>
                   </div>
                 </div>
-                <div className="space-y-6 mt-12">
+                <div className="space-y-6 xl:space-y-8 mt-16 xl:mt-20">
                   <div className="card-luxury p-0 overflow-hidden hover-lift-luxury">
                     <img 
                       src="https://images.unsplash.com/photo-1581669808238-7f73311e2031?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHx3b29kZW4lMjBiZWFkc3xlbnwwfHx8fDE3NTE0Mjk4OTR8MA&ixlib=rb-4.1.0&q=85"
                       alt="Vòng tay trầm hương"
-                      className="w-full h-48 object-cover"
+                      className="w-full h-64 xl:h-80 object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    <div className="absolute bottom-3 left-3 text-white">
-                      <div className="text-sm font-medium">Vòng tay trầm</div>
-                      <div className="text-xs text-amber-300">Phong thủy may mắn</div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <div className="text-base font-bold mb-1">Vòng tay trầm hương</div>
+                      <div className="text-sm text-amber-300 mb-1">Phong thủy may mắn</div>
+                      <div className="text-xs text-gray-300">Handmade cao cấp</div>
                     </div>
                   </div>
                   <div className="card-luxury p-0 overflow-hidden hover-lift-luxury">
                     <img 
                       src="https://images.unsplash.com/photo-1742474561321-10e657e125f4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxhZ2Fyd29vZCUyMG9pbHxlbnwwfHx8fDE3NTE0Mjk4NzN8MA&ixlib=rb-4.1.0&q=85"
                       alt="Gỗ trầm hương"
-                      className="w-full h-56 object-cover"
+                      className="w-full h-68 xl:h-80 object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    <div className="absolute bottom-3 left-3 text-white">
-                      <div className="text-sm font-medium">Gỗ trầm hương</div>
-                      <div className="text-xs text-amber-300">Nguyên liệu thiên nhiên</div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <div className="text-base font-bold mb-1">Gỗ trầm hương</div>
+                      <div className="text-sm text-amber-300 mb-1">Nguyên liệu thiên nhiên</div>
+                      <div className="text-xs text-gray-300">Chất lượng A+</div>
                     </div>
                   </div>
                 </div>
@@ -1251,59 +1260,72 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          {/* Right Side - Enhanced Content */}
-          <div className="relative">
+          {/* Right Side - Enhanced Content (Desktop: 7 columns) */}
+          <div className="lg:col-span-7 relative space-y-8 lg:space-y-10">
             {/* Company Introduction */}
-            <div className="glass-premium p-6 sm:p-8 rounded-3xl mb-8">
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 sm:mb-6">
+            <div className="glass-premium p-8 lg:p-10 xl:p-12 rounded-3xl">
+              <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-6 lg:mb-8">
                 Câu chuyện thương hiệu
               </h3>
-              <p className="text-gray-300 text-sm sm:text-base lg:text-lg mb-6 leading-relaxed">
-                Sơn Mộc Hương được thành lập với sứ mệnh mang đến những sản phẩm trầm hương cao cấp từ thiên nhiên. 
-                Chúng tôi tự hào về hành trình gần 15 năm khám phá và chọn lọc nguyên liệu trầm hương nguyên chất 
-                từ những vùng đất nổi tiếng nhất Việt Nam như Khánh Hòa, Bình Thuận, và Quảng Nam.
-              </p>
-              <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">
-                Với đội ngũ thợ thủ công lành nghề và quy trình sản xuất truyền thống kết hợp công nghệ hiện đại, 
-                mỗi sản phẩm của chúng tôi đều mang trong mình tinh hoa văn hóa Việt và chất lượng quốc tế.
-              </p>
+              <div className="space-y-6 text-gray-300 text-base lg:text-lg xl:text-xl leading-relaxed">
+                <p>
+                  Sơn Mộc Hương được thành lập với sứ mệnh mang đến những sản phẩm trầm hương cao cấp từ thiên nhiên. 
+                  Chúng tôi tự hào về hành trình gần 15 năm khám phá và chọn lọc nguyên liệu trầm hương nguyên chất 
+                  từ những vùng đất nổi tiếng nhất Việt Nam như Khánh Hòa, Bình Thuận, và Quảng Nam.
+                </p>
+                <p>
+                  Với đội ngũ thợ thủ công lành nghề và quy trình sản xuất truyền thống kết hợp công nghệ hiện đại, 
+                  mỗi sản phẩm của chúng tôi đều mang trong mình tinh hoa văn hóa Việt và chất lượng quốc tế.
+                </p>
+                <p className="text-amber-200 font-medium">
+                  "Chúng tôi không chỉ bán sản phẩm, mà còn truyền tải những giá trị văn hóa tinh thần sâu sắc 
+                  của dân tộc qua từng sản phẩm trầm hương."
+                </p>
+              </div>
             </div>
 
             {/* Statistics Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">
-              <div className="glass-luxury p-4 sm:p-6 rounded-2xl text-center">
-                <div className="text-gradient-luxury text-xl sm:text-2xl lg:text-3xl font-bold">15+</div>
-                <div className="text-gray-300 text-xs sm:text-sm">Năm kinh nghiệm</div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+              <div className="glass-luxury p-6 lg:p-8 rounded-2xl text-center col-span-1">
+                <div className="text-gradient-luxury text-2xl lg:text-3xl xl:text-4xl font-bold">15+</div>
+                <div className="text-gray-300 text-sm lg:text-base">Năm kinh nghiệm</div>
               </div>
-              <div className="glass-luxury p-4 sm:p-6 rounded-2xl text-center">
-                <div className="text-gradient-luxury text-xl sm:text-2xl lg:text-3xl font-bold">5000+</div>
-                <div className="text-gray-300 text-xs sm:text-sm">Khách hàng tin tưởng</div>
+              <div className="glass-luxury p-6 lg:p-8 rounded-2xl text-center col-span-1">
+                <div className="text-gradient-luxury text-2xl lg:text-3xl xl:text-4xl font-bold">5000+</div>
+                <div className="text-gray-300 text-sm lg:text-base">Khách hàng tin tưởng</div>
               </div>
-              <div className="glass-luxury p-4 sm:p-6 rounded-2xl text-center col-span-2 sm:col-span-1">
-                <div className="text-gradient-luxury text-xl sm:text-2xl lg:text-3xl font-bold">100%</div>
-                <div className="text-gray-300 text-xs sm:text-sm">Tự nhiên</div>
+              <div className="glass-luxury p-6 lg:p-8 rounded-2xl text-center col-span-1">
+                <div className="text-gradient-luxury text-2xl lg:text-3xl xl:text-4xl font-bold">100%</div>
+                <div className="text-gray-300 text-sm lg:text-base">Tự nhiên</div>
+              </div>
+              <div className="glass-luxury p-6 lg:p-8 rounded-2xl text-center col-span-1">
+                <div className="text-gradient-luxury text-2xl lg:text-3xl xl:text-4xl font-bold">24/7</div>
+                <div className="text-gray-300 text-sm lg:text-base">Hỗ trợ khách hàng</div>
               </div>
             </div>
 
-            {/* Features List */}
-            <div className="glass-premium p-6 sm:p-8 rounded-3xl mb-8">
-              <h4 className="text-lg sm:text-xl font-bold text-white mb-6">Cam kết chất lượng</h4>
-              <div className="space-y-4">
+            {/* Enhanced Features List */}
+            <div className="glass-premium p-8 lg:p-10 xl:p-12 rounded-3xl">
+              <h4 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-8 lg:mb-10">Cam kết chất lượng</h4>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                 {[
-                  { icon: "🌿", title: "Nguyên liệu nguyên chất 100%", desc: "Chọn lọc kỹ lưỡng từ các vùng trầm nổi tiếng" },
-                  { icon: "🏆", title: "Chất lượng cao cấp", desc: "Đạt tiêu chuẩn xuất khẩu quốc tế" },
-                  { icon: "👥", title: "Đội ngũ thợ thủ công", desc: "Hơn 20 năm kinh nghiệm trong nghề" },
-                  { icon: "🚚", title: "Giao hàng toàn quốc", desc: "Miễn phí ship từ 300.000đ" },
-                  { icon: "💎", title: "Bảo hành chất lượng", desc: "Đổi trả trong 30 ngày nếu không hài lòng" },
-                  { icon: "📞", title: "Hỗ trợ 24/7", desc: "Tư vấn nhiệt tình, chuyên nghiệp" }
+                  { icon: "🌿", title: "Nguyên liệu nguyên chất 100%", desc: "Chọn lọc kỹ lưỡng từ các vùng trầm nổi tiếng", detail: "Khánh Hòa, Bình Thuận, Quảng Nam" },
+                  { icon: "🏆", title: "Chất lượng cao cấp", desc: "Đạt tiêu chuẩn xuất khẩu quốc tế", detail: "ISO 9001:2015, CE Certificate" },
+                  { icon: "👥", title: "Đội ngũ thợ thủ công", desc: "Hơn 20 năm kinh nghiệm trong nghề", detail: "Kỹ thuật truyền thống gia truyền" },
+                  { icon: "🚚", title: "Giao hàng toàn quốc", desc: "Miễn phí ship từ 300.000đ", detail: "Giao hàng trong 24-48h" },
+                  { icon: "💎", title: "Bảo hành chất lượng", desc: "Đổi trả trong 30 ngày nếu không hài lòng", detail: "Cam kết hoàn tiền 100%" },
+                  { icon: "📞", title: "Hỗ trợ 24/7", desc: "Tư vấn nhiệt tình, chuyên nghiệp", detail: "Hotline: 1900-xxxx" }
                 ].map((feature, index) => (
-                  <div key={index} className="flex items-start space-x-4 p-3 sm:p-4 rounded-xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
-                    <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center text-sm sm:text-base">
-                      {feature.icon}
-                    </div>
-                    <div className="flex-1">
-                      <div className="text-white text-sm sm:text-base font-medium mb-1">{feature.title}</div>
-                      <div className="text-gray-300 text-xs sm:text-sm">{feature.desc}</div>
+                  <div key={index} className="p-6 lg:p-8 rounded-2xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover-lift">
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 w-12 h-12 lg:w-14 lg:h-14 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center text-lg lg:text-xl">
+                        {feature.icon}
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-white text-base lg:text-lg xl:text-xl font-bold mb-2">{feature.title}</div>
+                        <div className="text-gray-300 text-sm lg:text-base mb-2">{feature.desc}</div>
+                        <div className="text-amber-300 text-xs lg:text-sm font-medium">{feature.detail}</div>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -1311,41 +1333,84 @@ export const AboutSection = () => {
             </div>
 
             {/* Call to Action */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="btn-luxury flex-1 text-white font-semibold">
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+              <button className="btn-luxury flex-1 text-white font-semibold text-lg lg:text-xl py-4 lg:py-5">
                 Khám phá sản phẩm
               </button>
-              <button className="glass-luxury px-6 py-4 rounded-2xl text-white font-medium border border-white/20 hover:bg-white/10 transition-all duration-300">
+              <button className="glass-luxury px-8 lg:px-10 py-4 lg:py-5 rounded-2xl text-white font-medium border border-white/20 hover:bg-white/10 transition-all duration-300 text-lg lg:text-xl">
                 Liên hệ tư vấn
               </button>
             </div>
           </div>
         </div>
 
-        {/* Bottom Section - Trust Indicators */}
-        <div className="mt-16 sm:mt-20 lg:mt-24">
-          <div className="text-center mb-8 sm:mb-12">
-            <h4 className="text-xl sm:text-2xl font-bold text-white mb-4">Được tin tưởng bởi</h4>
-            <p className="text-gray-300 text-sm sm:text-base">Hàng nghìn khách hàng đã chọn Sơn Mộc Hương</p>
-          </div>
-          
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
-            {[
-              { title: "Chất lượng cao", desc: "Sản phẩm đạt chuẩn quốc tế" },
-              { title: "Giá cả hợp lý", desc: "Tốt nhất trong phân khúc" },
-              { title: "Dịch vụ tận tâm", desc: "Hỗ trợ khách hàng 24/7" },
-              { title: "Giao hàng nhanh", desc: "Toàn quốc trong 2-3 ngày" }
-            ].map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="glass-luxury p-4 sm:p-6 rounded-2xl mb-4 hover-lift-luxury">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                    <span className="text-white text-lg sm:text-xl font-bold">✓</span>
+        {/* Desktop Enhanced Bottom Sections */}
+        <div className="space-y-16 lg:space-y-24">
+          {/* Company Values Section - Desktop Only */}
+          <div className="hidden lg:block">
+            <div className="text-center mb-12 lg:mb-16">
+              <h4 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-6">Giá trị cốt lõi</h4>
+              <p className="text-gray-300 text-lg lg:text-xl xl:text-2xl max-w-3xl mx-auto">
+                Những nguyên tắc định hình nên sự phát triển bền vững của Sơn Mộc Hương
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+              {[
+                { 
+                  icon: "🎯", 
+                  title: "Tầm nhìn", 
+                  desc: "Trở thành thương hiệu trầm hương hàng đầu Việt Nam",
+                  content: "Chúng tôi hướng tới mục tiêu trở thành địa chỉ tin cậy số 1 cho những ai yêu thích trầm hương chất lượng cao, đồng thời quảng bá văn hóa trầm hương Việt Nam ra thế giới."
+                },
+                { 
+                  icon: "💯", 
+                  title: "Sứ mệnh", 
+                  desc: "Mang đến sản phẩm trầm hương nguyên chất, chất lượng cao",
+                  content: "Sứ mệnh của chúng tôi là bảo tồn và phát triển nghề thủ công truyền thống, tạo ra những sản phẩm trầm hương có giá trị thực, phục vụ nhu cầu tinh thần của khách hàng."
+                },
+                { 
+                  icon: "⭐", 
+                  title: "Giá trị", 
+                  desc: "Chân thành - Chất lượng - Uy tín - Bền vững",
+                  content: "Chúng tôi đặt sự chân thành trong từng sản phẩm, cam kết chất lượng tuyệt đối, xây dựng uy tín qua nhiều năm và hướng tới sự phát triển bền vững."
+                }
+              ].map((value, index) => (
+                <div key={index} className="glass-premium p-8 lg:p-10 rounded-3xl text-center hover-lift-luxury">
+                  <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl lg:text-3xl">
+                    {value.icon}
                   </div>
-                  <div className="text-white text-sm sm:text-base font-medium mb-2">{item.title}</div>
-                  <div className="text-gray-300 text-xs sm:text-sm">{item.desc}</div>
+                  <h5 className="text-xl lg:text-2xl font-bold text-white mb-3">{value.title}</h5>
+                  <p className="text-amber-300 text-base lg:text-lg font-medium mb-4">{value.desc}</p>
+                  <p className="text-gray-300 text-sm lg:text-base leading-relaxed">{value.content}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="mt-16 sm:mt-20 lg:mt-24">
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+              <h4 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-4 lg:mb-6">Được tin tưởng bởi</h4>
+              <p className="text-gray-300 text-base lg:text-lg xl:text-xl">Hàng nghìn khách hàng đã chọn Sơn Mộc Hương</p>
+            </div>
+            
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+              {[
+                { title: "Chất lượng cao", desc: "Sản phẩm đạt chuẩn quốc tế", icon: "🏅" },
+                { title: "Giá cả hợp lý", desc: "Tốt nhất trong phân khúc", icon: "💰" },
+                { title: "Dịch vụ tận tâm", desc: "Hỗ trợ khách hàng 24/7", icon: "🤝" },
+                { title: "Giao hàng nhanh", desc: "Toàn quốc trong 2-3 ngày", icon: "🚀" }
+              ].map((item, index) => (
+                <div key={index} className="text-center">
+                  <div className="glass-luxury p-6 lg:p-8 xl:p-10 rounded-2xl mb-4 hover-lift-luxury">
+                    <div className="text-3xl lg:text-4xl xl:text-5xl mb-4 lg:mb-6">{item.icon}</div>
+                    <div className="text-white text-base lg:text-lg xl:text-xl font-bold mb-3">{item.title}</div>
+                    <div className="text-gray-300 text-sm lg:text-base">{item.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
