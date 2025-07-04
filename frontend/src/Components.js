@@ -381,10 +381,20 @@ export const HeroSection = () => {
             {/* Cinematic Title */}
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black leading-none tracking-tight">
-                <span className="block text-white mb-2 animate-text-glow drop-shadow-2xl">
+                <span className="block text-white mb-2 animate-text-glow" style={{
+                  textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(255,255,255,0.5), 0 0 40px rgba(255,255,255,0.3)'
+                }}>
                   {slides[currentSlide].title}
                 </span>
-                <span className="block text-gradient-premium animate-shimmer-premium drop-shadow-xl">
+                <span className="block text-white animate-shimmer-premium" style={{
+                  background: 'linear-gradient(45deg, #ffffff, #fbbf24, #f59e0b, #ffffff)',
+                  backgroundSize: '300% 300%',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  color: 'transparent',
+                  textShadow: '2px 2px 8px rgba(0,0,0,0.9)',
+                  filter: 'drop-shadow(0 0 10px rgba(251, 191, 36, 0.8))'
+                }}>
                   {slides[currentSlide].titleAccent}
                 </span>
               </h1>
