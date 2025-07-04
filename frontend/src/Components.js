@@ -2902,7 +2902,7 @@ export const ContactSection = () => {
               <span className="text-amber-400 text-sm sm:text-base font-medium">✨ Liên hệ với chúng tôi</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-4 sm:mb-6 leading-tight">
-              Kết nối với
+              Kết nối với{' '}
               <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600 animate-gradient">
                 Sơn Mộc Hương
