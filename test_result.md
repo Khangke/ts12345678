@@ -955,6 +955,21 @@ backend:
         agent: "testing"
         comment: "Đã test lại API response format cho modern UI sau frontend toast notifications và loading states implementation và xác nhận tất cả endpoints trả về dữ liệu với cấu trúc phù hợp. Products API trả về đầy đủ các trường cần thiết (id, name, description, price, image, images, category, material, rating, sizes, size_prices). Admin stats API trả về cấu trúc dữ liệu phù hợp cho dashboard với charts và cards (product_count, orders breakdown, total_revenue, recent_orders)."
       
+  - task: "Test API endpoints after FilterIcon duplicate fix"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Bắt đầu test API endpoints sau khi sửa lỗi FilterIcon duplicate trong frontend"
+      - working: true
+        agent: "testing"
+        comment: "✅ GET /api/products endpoint trả về status 200 và danh sách 3 sản phẩm với đầy đủ thông tin size-based pricing (Vòng tay trầm hương cao cấp, Tinh dầu trầm hương nguyên chất, Cảnh trầm hương phong thủy) ✅ GET /api/admin/stats endpoint trả về status 200 và thống kê chính xác về sản phẩm (3 products), đơn hàng (0 orders) và doanh thu (0 revenue) ✅ POST /api/orders endpoint hoạt động tốt, có thể tạo đơn hàng mới với size-specific pricing ✅ Admin authentication flow hoạt động đúng: login với admin/admin123 trả về JWT token hợp lệ, endpoint /api/admin/me trả về thông tin user đúng khi có token và lỗi 401 khi không có token. Tất cả API endpoints đều trả về status code 200 và dữ liệu đúng định dạng. Backend hoạt động ổn định và không bị ảnh hưởng bởi việc sửa lỗi FilterIcon duplicate trong frontend."
+      
   - task: "Test sample orders flow for testing"
     implemented: true
     working: true
