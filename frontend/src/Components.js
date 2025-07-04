@@ -494,6 +494,42 @@ export const HeroSection = () => {
         <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex items-center space-x-6">
           <button 
             onClick={prevSlide}
+            className="w-12 h-12 glass-morphism-luxury rounded-full flex items-center justify-center border border-white/20 hover:border-amber-400/50 transition-all duration-300 hover:scale-110"
+          >
+            <ChevronDownIcon className="w-5 h-5 text-white rotate-90" />
+          </button>
+          
+          <div className="flex items-center space-x-3">
+            {[...Array(totalSlides)].map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentSlide 
+                    ? 'bg-amber-500 w-8' 
+                    : 'bg-white/30 hover:bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
+          
+          <button 
+            onClick={nextSlide}
+            className="w-12 h-12 glass-morphism-luxury rounded-full flex items-center justify-center border border-white/20 hover:border-amber-400/50 transition-all duration-300 hover:scale-110"
+          >
+            <ChevronDownIcon className="w-5 h-5 text-white -rotate-90" />
+          </button>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-6 right-6 text-slate-400 text-sm flex items-center space-x-2 animate-bounce">
+          <span>Khám phá thêm</span>
+          <ChevronDownIcon className="w-4 h-4" />
+        </div>
+      </div>
+    </section>
+  );
+};
 
   const slides = [
     {
