@@ -287,6 +287,7 @@ export const Header = ({ cartCount, onCartClick }) => {
 };
 
 // Hero Section Component - Samsung-Inspired Modern & Sophisticated (Mobile Optimized)
+// Ultra-Luxury Hero Section - Premium Design
 export const HeroSection = () => {
   const [heroRef, isHeroVisible] = useScrollAnimation(0.2);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -296,7 +297,7 @@ export const HeroSection = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(timer);
   }, []);
 
@@ -310,144 +311,226 @@ export const HeroSection = () => {
 
   const slides = [
     {
-      title: "Trầm Hương Cao Cấp",
-      subtitle: "Membership",
-      description: "Khám phá bộ sưu tập trầm hương nguyên chất từ thiên nhiên Việt Nam với chất lượng đảm bảo.",
-      badge: "Premium Collection"
+      title: "Trầm Hương",
+      titleAccent: "Cao Cấp",
+      subtitle: "Premium Collection",
+      description: "Khám phá bộ sưu tập trầm hương nguyên chất từ thiên nhiên Việt Nam với chất lượng luxury đỉnh cao.",
+      badge: "Luxury Collection",
+      image: "https://images.unsplash.com/photo-1509726360306-3f44543aea4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85"
     },
     {
-      title: "Đặc Quyền Khách Hàng",
-      subtitle: "VIP Program", 
-      description: "Nhận ưu đãi đặc biệt, miễn phí vận chuyển và tư vấn chuyên sâu từ các chuyên gia trầm hương.",
-      badge: "VIP Benefits"
+      title: "Đặc Quyền",
+      titleAccent: "VIP",
+      subtitle: "Exclusive Program", 
+      description: "Trải nghiệm dịch vụ đẳng cấp với ưu đãi đặc biệt và tư vấn chuyên sâu từ các master trầm hương.",
+      badge: "VIP Experience",
+      image: "https://images.unsplash.com/photo-1604467794349-0b74285de7e7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwyfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85"
     },
     {
-      title: "Chất Lượng Đỉnh Cao",
+      title: "Chất Lượng",
+      titleAccent: "Đỉnh Cao",
       subtitle: "Premium Quality",
-      description: "Sản phẩm trầm hương được tuyển chọn kỹ lưỡng từ những vùng đất nổi tiếng nhất.",
-      badge: "Quality Assured"
+      description: "Sản phẩm được tuyển chọn từ những vùng đất linh thiêng, mang đến trải nghiệm tinh túy nhất.",
+      badge: "Premium Grade",
+      image: "https://images.unsplash.com/photo-1533158326339-7f3cf2404354?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwzfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85"
     }
   ];
 
   return (
-    <section id="home" className="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Minimal gradient overlay */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-800/20 via-transparent to-gray-900/20"></div>
+      {/* Luxury Background Effects */}
+      <div className="absolute inset-0">
+        {/* Premium Gradient Base */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"></div>
         
-        {/* Subtle dot pattern */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }}></div>
+        {/* Animated Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-amber-900/10 via-transparent to-violet-900/10 animate-gradient-luxury"></div>
+        
+        {/* Floating Luxury Orbs */}
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-amber-500/15 to-orange-500/15 rounded-full blur-3xl animate-luxury-float"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-violet-500/10 to-purple-500/10 rounded-full blur-3xl animate-luxury-float" style={{animationDelay: '3s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-blue-500/8 to-cyan-500/8 rounded-full blur-2xl animate-luxury-float" style={{animationDelay: '6s'}}></div>
+        
+        {/* Luxury Geometric Patterns */}
+        <div className="absolute top-32 right-32 w-40 h-40 border border-amber-400/20 rotate-45 animate-spin-luxury"></div>
+        <div className="absolute bottom-40 left-40 w-32 h-32 border border-violet-400/15 rotate-12 animate-scale-breath"></div>
+        
+        {/* Premium Light Rays */}
+        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-amber-400/15 to-transparent"></div>
+        <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-violet-400/10 to-transparent"></div>
       </div>
 
-      <div className="container mx-auto px-3 md:px-4 lg:px-8 relative z-10">
-        <div className="grid grid-cols-2 gap-4 md:gap-8 lg:gap-16 items-center min-h-[50vh] md:min-h-[60vh] lg:min-h-[70vh]">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-screen py-20">
           
-          {/* Left Section - Circular Badge (Compact) */}
+          {/* Left Section - Ultra-Modern Content */}
           <div 
             ref={heroRef}
-            className={`flex justify-center transition-all duration-1000 ${
-              isHeroVisible ? 'animate-fade-in-left' : 'opacity-0 translate-x-[-40px]'
+            className={`space-y-8 lg:space-y-12 transition-all duration-1500 ${
+              isHeroVisible ? 'animate-cinematic-entrance' : 'opacity-0 translate-y-20'
             }`}
           >
-            <div className="relative">
-              {/* Main Circular Badge - Smaller on mobile */}
-              <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full bg-gradient-to-br from-gray-700 via-gray-600 to-gray-500 flex items-center justify-center shadow-2xl relative overflow-hidden group">
-                
-                {/* Badge border */}
-                <div className="absolute inset-2 sm:inset-3 md:inset-4 rounded-full border border-gray-400/30"></div>
-                <div className="absolute inset-4 sm:inset-6 md:inset-8 rounded-full border border-gray-300/20"></div>
-                
-                {/* Center icon/logo */}
-                <div className="relative z-10 text-center">
-                  <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 mx-auto mb-1 sm:mb-2 md:mb-4 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full flex items-center justify-center shadow-xl">
-                    <span className="text-sm sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white">SMH</span>
-                  </div>
-                  <h3 className="text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-semibold text-gray-300 mb-1 sm:mb-2">
-                    {slides[currentSlide].badge}
-                  </h3>
-                  <div className="w-4 sm:w-6 md:w-8 h-0.5 bg-amber-500 mx-auto"></div>
-                </div>
-
-                {/* Hover effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-amber-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
-              </div>
-
-              {/* Decorative elements - Smaller */}
-              <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 md:-top-4 md:-right-4 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-amber-500 rounded-full opacity-20 animate-pulse"></div>
-              <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 md:-bottom-6 md:-left-6 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 bg-amber-400 rounded-full opacity-30 animate-pulse" style={{ animationDelay: '1s' }}></div>
-            </div>
-          </div>
-
-          {/* Right Section - Content (Compact) */}
-          <div 
-            className={`space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8 transition-all duration-1000 ${
-              isHeroVisible ? 'animate-fade-in-right' : 'opacity-0 translate-x-[40px]'
-            }`}
-            style={{ animationDelay: '0.3s' }}
-          >
-            {/* Badge - Smaller */}
-            <div className="inline-flex items-center space-x-1 sm:space-x-2 bg-amber-900/20 backdrop-blur-sm px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full border border-amber-600/30">
-              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-500 rounded-full animate-pulse"></div>
-              <span className="text-[10px] sm:text-xs md:text-sm font-medium text-amber-400 uppercase tracking-wide">
-                Sơn Mộc Hương
+            {/* Premium Badge */}
+            <div className="inline-flex items-center space-x-3 glass-morphism-luxury px-6 py-3 rounded-2xl border border-amber-400/30">
+              <div className="w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-premium-pulse"></div>
+              <span className="text-sm font-semibold text-amber-300 uppercase tracking-wider">
+                {slides[currentSlide].badge}
               </span>
             </div>
 
-            {/* Main Title - Responsive sizes */}
-            <div className="space-y-1 sm:space-y-2">
-              <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                <span className="block text-white mb-1 sm:mb-2">
+            {/* Cinematic Title */}
+            <div className="space-y-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black leading-none tracking-tight">
+                <span className="block text-white mb-2 animate-text-glow">
                   {slides[currentSlide].title}
                 </span>
-                <span className="block text-amber-400 font-light text-sm sm:text-lg md:text-xl lg:text-3xl xl:text-4xl">
-                  {slides[currentSlide].subtitle}
+                <span className="block text-gradient-premium animate-shimmer-premium">
+                  {slides[currentSlide].titleAccent}
                 </span>
               </h1>
+              <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-shimmer-premium"></div>
             </div>
 
-            {/* Description - Compact */}
-            <div className="max-w-none sm:max-w-lg md:max-w-xl">
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-300 leading-relaxed">
+            {/* Luxury Subtitle */}
+            <div className="space-y-2">
+              <p className="text-xl lg:text-2xl font-light text-amber-300 tracking-wide">
+                {slides[currentSlide].subtitle}
+              </p>
+            </div>
+
+            {/* Premium Description */}
+            <div className="max-w-2xl">
+              <p className="text-lg lg:text-xl text-slate-300 leading-relaxed font-light">
                 {slides[currentSlide].description}
               </p>
             </div>
 
-            {/* CTA Button - Smaller */}
-            <div className="pt-2 sm:pt-3 md:pt-4">
+            {/* Luxury CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-8">
               <Link 
                 to="/products"
-                className="inline-flex items-center justify-center px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 bg-white text-gray-900 rounded-full text-sm sm:text-base md:text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-white/50 min-w-[120px] sm:min-w-[140px] md:min-w-[160px]"
+                className="btn-luxury group relative overflow-hidden"
               >
-                Khám phá ngay
+                <span className="relative z-10 flex items-center space-x-3">
+                  <span>Khám Phá Ngay</span>
+                  <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
               </Link>
+              
+              <button className="glass-morphism-luxury px-8 py-4 rounded-2xl text-white font-semibold hover:bg-white/10 transition-all duration-500 border border-white/20 hover:border-amber-400/50">
+                Xem Video
+              </button>
             </div>
 
-            {/* Trust Indicators - Compact */}
-            <div className="grid grid-cols-1 gap-2 pt-3 sm:pt-4 md:pt-6 text-[10px] sm:text-xs md:text-sm text-gray-400">
-              <div className="flex items-center space-x-1 sm:space-x-2">
-                <CheckCircleIcon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-green-400 flex-shrink-0" />
-                <span>Chất lượng đảm bảo</span>
+            {/* Premium Trust Indicators */}
+            <div className="grid grid-cols-3 gap-6 pt-12">
+              <div className="text-center space-y-2">
+                <div className="w-12 h-12 mx-auto glass-morphism-luxury rounded-2xl flex items-center justify-center border border-amber-400/30">
+                  <CheckCircleIcon className="w-6 h-6 text-amber-400" />
+                </div>
+                <p className="text-sm text-slate-400 font-medium">Chất Lượng<br/>Đảm Bảo</p>
               </div>
-              <div className="flex items-center space-x-1 sm:space-x-2">
-                <TruckIcon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-blue-400 flex-shrink-0" />
-                <span>Miễn phí ship</span>
+              <div className="text-center space-y-2">
+                <div className="w-12 h-12 mx-auto glass-morphism-luxury rounded-2xl flex items-center justify-center border border-blue-400/30">
+                  <TruckIcon className="w-6 h-6 text-blue-400" />
+                </div>
+                <p className="text-sm text-slate-400 font-medium">Miễn Phí<br/>Vận Chuyển</p>
               </div>
-              <div className="flex items-center space-x-1 sm:space-x-2">
-                <ShieldIcon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-amber-400 flex-shrink-0" />
-                <span>Uy tín 10+ năm</span>
+              <div className="text-center space-y-2">
+                <div className="w-12 h-12 mx-auto glass-morphism-luxury rounded-2xl flex items-center justify-center border border-violet-400/30">
+                  <ShieldIcon className="w-6 h-6 text-violet-400" />
+                </div>
+                <p className="text-sm text-slate-400 font-medium">Uy Tín<br/>10+ Năm</p>
               </div>
+            </div>
+          </div>
+
+          {/* Right Section - Luxury Visual */}
+          <div 
+            className={`relative transition-all duration-1500 ${
+              isHeroVisible ? 'animate-cinematic-entrance' : 'opacity-0 translate-y-20'
+            }`}
+            style={{ animationDelay: '0.5s' }}
+          >
+            <div className="relative">
+              {/* Main Premium Image */}
+              <div className="relative glass-morphism-premium rounded-[4rem] p-8 overflow-hidden">
+                <div className="aspect-[4/5] rounded-[3rem] overflow-hidden relative">
+                  <img 
+                    src={slides[currentSlide].image}
+                    alt={`${slides[currentSlide].title} ${slides[currentSlide].titleAccent}`}
+                    className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-1000 image-luxury"
+                  />
+                  
+                  {/* Image Overlay Effects */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-transparent"></div>
+                </div>
+                
+                {/* Floating Quality Badge */}
+                <div className="absolute top-12 right-12 glass-morphism-premium px-4 py-2 rounded-xl border border-amber-400/30">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></div>
+                    <span className="text-xs font-semibold text-amber-300 uppercase tracking-wide">Premium</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Decorative Elements */}
+              <div className="absolute -top-6 -left-6 w-24 h-24 glass-morphism-luxury rounded-3xl border border-amber-400/20 animate-luxury-float"></div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 glass-morphism-luxury rounded-full border border-violet-400/20 animate-luxury-float" style={{animationDelay: '2s'}}></div>
+              
+              {/* Premium Particle Effects */}
+              <div className="absolute top-20 left-10 w-3 h-3 bg-amber-400 rounded-full animate-particle-dance"></div>
+              <div className="absolute bottom-32 right-16 w-2 h-2 bg-violet-400 rounded-full animate-particle-dance" style={{animationDelay: '1s'}}></div>
+              <div className="absolute top-40 right-8 w-4 h-4 bg-blue-400 rounded-full animate-particle-dance" style={{animationDelay: '3s'}}></div>
             </div>
           </div>
         </div>
 
-        {/* Navigation Arrows - Smaller */}
-        <button 
-          onClick={prevSlide}
+        {/* Luxury Navigation Controls */}
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex items-center space-x-6">
+          <button 
+            onClick={prevSlide}
+            className="w-12 h-12 glass-morphism-luxury rounded-full flex items-center justify-center border border-white/20 hover:border-amber-400/50 transition-all duration-300 hover:scale-110"
+          >
+            <ChevronDownIcon className="w-5 h-5 text-white rotate-90" />
+          </button>
+          
+          <div className="flex space-x-3">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-500 ${
+                  currentSlide === index 
+                    ? 'bg-amber-400 scale-125 shadow-glow-gold' 
+                    : 'bg-white/30 hover:bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
+          
+          <button 
+            onClick={nextSlide}
+            className="w-12 h-12 glass-morphism-luxury rounded-full flex items-center justify-center border border-white/20 hover:border-amber-400/50 transition-all duration-300 hover:scale-110"
+          >
+            <ChevronDownIcon className="w-5 h-5 text-white -rotate-90" />
+          </button>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-6 right-6 text-slate-400 text-sm flex items-center space-x-2 animate-bounce">
+          <span>Khám phá thêm</span>
+          <ChevronDownIcon className="w-4 h-4" />
+        </div>
+      </div>
+    </section>
+  );
+};
           className="absolute left-2 sm:left-4 lg:left-8 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50"
         >
           <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
