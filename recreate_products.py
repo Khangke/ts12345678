@@ -6,7 +6,7 @@ import sys
 from typing import Dict, Any, List, Optional
 
 # Backend URL from the frontend .env file
-BACKEND_URL = "https://7d5be568-9887-4de4-b010-f06afde777f4.preview.emergentagent.com"
+BACKEND_URL = "https://a1cb31bf-2479-43be-b075-f3461045ed16.preview.emergentagent.com"
 API_URL = f"{BACKEND_URL}/api"
 
 # Admin credentials
