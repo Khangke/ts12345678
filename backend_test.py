@@ -1502,18 +1502,24 @@ def test_products_api_for_review_request():
 def run_tests():
     """Run specific tests as requested in the review"""
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
-    print(f"{Colors.HEADER}TESTING BACKEND APIs FOR PRODUCTS ENDPOINTS{Colors.ENDC}")
+    print(f"{Colors.HEADER}TESTING BACKEND APIs AFTER FRONTEND FILTERICON FIX{Colors.ENDC}")
     print(f"{Colors.HEADER}Backend URL: {BACKEND_URL}{Colors.ENDC}")
     print(f"{Colors.HEADER}{'=' * 80}{Colors.ENDC}")
     
     # Check MongoDB connection
     check_mongodb_connection()
     
-    # Test the specific products API endpoints as requested in the review
-    test_products_api_for_review_request()
+    # Test GET /api/products endpoint
+    print(f"{Colors.HEADER}Testing GET /api/products endpoint{Colors.ENDC}")
+    test_public_products()
     
     # Get admin token for authenticated tests
     token = get_admin_token()
+    
+    # Test admin authentication flow
+    print(f"{Colors.HEADER}Testing Admin Authentication Flow{Colors.ENDC}")
+    test_admin_login()
+    test_admin_me(token)
     
     # Test admin stats endpoint
     print(f"{Colors.HEADER}Testing GET /api/admin/stats endpoint{Colors.ENDC}")
