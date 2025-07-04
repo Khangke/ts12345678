@@ -494,25 +494,6 @@ export const HeroSection = () => {
         <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex items-center space-x-6">
           <button 
             onClick={prevSlide}
-  const [heroRef, isHeroVisible] = useScrollAnimation(0.2);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 3;
-
-  // Auto-slide functionality
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
 
   const slides = [
     {
