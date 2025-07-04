@@ -403,14 +403,18 @@ export const HeroSection = () => {
 
             {/* Luxury Subtitle */}
             <div className="space-y-2">
-              <p className="text-xl lg:text-2xl font-medium text-amber-200 tracking-wide drop-shadow-lg">
+              <p className="text-xl lg:text-2xl font-bold text-white tracking-wide" style={{
+                textShadow: '2px 2px 6px rgba(0,0,0,0.8), 0 0 15px rgba(251, 191, 36, 0.6)'
+              }}>
                 {slides[currentSlide].subtitle}
               </p>
             </div>
 
             {/* Premium Description */}
             <div className="max-w-2xl">
-              <p className="text-lg lg:text-xl text-gray-100 leading-relaxed font-normal drop-shadow-md">
+              <p className="text-lg lg:text-xl text-white leading-relaxed font-medium" style={{
+                textShadow: '1px 1px 4px rgba(0,0,0,0.8), 0 0 10px rgba(255,255,255,0.3)'
+              }}>
                 {slides[currentSlide].description}
               </p>
             </div>
