@@ -393,14 +393,14 @@ export const HeroSection = () => {
 
             {/* Luxury Subtitle */}
             <div className="space-y-2">
-              <p className="text-xl lg:text-2xl font-light text-amber-300 tracking-wide">
+              <p className="text-xl lg:text-2xl font-medium text-amber-200 tracking-wide drop-shadow-lg">
                 {slides[currentSlide].subtitle}
               </p>
             </div>
 
             {/* Premium Description */}
             <div className="max-w-2xl">
-              <p className="text-lg lg:text-xl text-slate-300 leading-relaxed font-light">
+              <p className="text-lg lg:text-xl text-gray-100 leading-relaxed font-normal drop-shadow-md">
                 {slides[currentSlide].description}
               </p>
             </div>
