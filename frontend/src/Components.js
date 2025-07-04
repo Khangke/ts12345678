@@ -871,18 +871,14 @@ export const FeaturedProductsSection = ({ onProductClick }) => {
             </span>
           </h2>
           
-          <p className="text-[11px] sm:text-xs lg:text-lg xl:text-xl text-white max-w-4xl mx-auto leading-relaxed font-medium px-1 sm:px-2" style={{
-            textShadow: '1px 1px 4px rgba(0,0,0,0.8)'
-          }}>
+          <p className="text-[11px] sm:text-xs lg:text-lg xl:text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-light px-1 sm:px-2">
             {loading || isInitialLoad ? (
               <>Đang tải những sản phẩm trầm hương tốt nhất cho bạn...</>
             ) : (
               <>
                 Khám phá những sản phẩm trầm hương được khách hàng yêu thích nhất
                 <br className="hidden sm:block" />
-                <span className="text-amber-200 font-bold block mt-1" style={{
-                  textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 8px rgba(251, 191, 36, 0.5)'
-                }}>
+                <span className="text-amber-700 dark:text-amber-300 font-medium block mt-1">
                   Chất lượng cao cấp, giá cả hợp lý
                 </span>
               </>
