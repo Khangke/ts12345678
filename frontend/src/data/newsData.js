@@ -899,5 +899,258 @@ export const newsData = [
     date: "2024-10-04",
     readTime: "15 phút đọc",
     sourceUrl: "https://sonmochuong.vn/bi-quyet-bao-quan-bo-suu-tap-tram-huong"
+  },
+  {
+    id: 41,
+    title: "7 Dấu hiệu nhận biết trầm hương Khánh Hòa chính hãng - Hướng dẫn chi tiết 2025",
+    category: "Kiến thức",
+    excerpt: "Trầm hương Khánh Hòa được mệnh danh là 'vàng đen' của Việt Nam. Cách nhận biết trầm hương Khánh Hòa thật giả qua 7 dấu hiệu chuẩn xác nhất.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Trầm hương Khánh Hòa là loại trầm hương quý hiếm nhất Việt Nam, có giá trị kinh tế và tâm linh cao. Việc nhận biết đúng trầm hương Khánh Hòa thật là kỹ năng quan trọng cho người sưu tầm.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Kiểm tra nguồn gốc và giấy tờ</h3>
+        <ul class="space-y-2 mb-6">
+          <li>• <strong>Giấy chứng nhận:</strong> Phải có giấy chứng nhận nguồn gốc từ Sở Nông nghiệp Khánh Hòa</li>
+          <li>• <strong>Tem chống hàng giả:</strong> Sản phẩm chính hãng luôn có tem hologram bảo vệ</li>
+          <li>• <strong>Thông tin nhà cung cấp:</strong> Địa chỉ rõ ràng, uy tín lâu năm tại Khánh Hòa</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Đặc điểm hình dạng và màu sắc</h3>
+        <p class="mb-4">Trầm hương Khánh Hòa có màu nâu đen đặc trưng, vân gỗ tự nhiên không đều, bề mặt có độ bóng nhẹ khi được đánh bóng thủ công.</p>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">3. Test hương thơm đặc trưng</h3>
+        <p class="mb-4">Hương thơm Khánh Hòa có tầng hương phức tạp: khởi đầu ngọt ngào, tầng giữa ấm áp, cuối lưu lại hương gỗ trầm sâu lắng.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">4. Kiểm tra trọng lượng và tỷ trọng</h3>
+        <p class="mb-4">Trầm hương Khánh Hòa thật có tỷ trọng cao, chìm nước hoặc chìm một phần. Cảm giác nặng tay khi cầm.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">5. Test bằng lửa và nhiệt độ</h3>
+        <p class="mb-4">Khi đốt, trầm Khánh Hòa tỏa khói trắng thơm, không gắt, không có mùi cháy khét. Tro màu trắng xám.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">6. Giá cả và thị trường</h3>
+        <p class="mb-4">Trầm hương Khánh Hòa chính hãng có mức giá từ 50-500 triệu/kg tùy loại. Cảnh báo giá quá rẻ so với thị trường.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">7. Kiểm tra độ dầu và thấm nước</h3>
+        <p class="mb-4">Trầm Khánh Hòa có độ dầu cao, khi nhỏ nước lên bề mặt sẽ tạo thành giọt tròn, không thấm nhanh.</p>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1509726360306-3f44543aea4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHx3b29kJTIwZXh0cmFjdGlvbnxlbnwwfHx8fDE3NTE0Mjk4Njh8MA&ixlib=rb-4.1.0&q=85",
+    author: "Thầy Nguyễn Văn Hùng - Chuyên gia trầm hương Khánh Hòa",
+    date: "2025-01-10",
+    readTime: "12 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/nhan-biet-tram-huong-khanh-hoa-chinh-hang",
+    tags: ["trầm hương khánh hòa", "nhận biết trầm hương", "trầm hương thật giả", "chuyên gia trầm hương"],
+    metaDescription: "7 cách nhận biết trầm hương Khánh Hòa chính hãng chuẩn xác nhất 2025. Hướng dẫn chi tiết từ chuyên gia với 15+ năm kinh nghiệm.",
+    featured: true
+  },
+  {
+    id: 42,
+    title: "Cách sử dụng vòng tay trầm hương theo phong thủy mang may mắn tài lộc",
+    category: "Phong thủy",
+    excerpt: "Vòng tay trầm hương không chỉ là trang sức mà còn là vật phẩm phong thủy mạnh mẽ. Cách đeo và sử dụng đúng để thu hút tài lộc, may mắn.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Vòng tay trầm hương từ lâu được coi là vật phẩm phong thủy có khả năng cân bằng âm dương, thu hút tài lộc và đem lại may mắn cho người đeo.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Chọn vòng tay trầm hương theo mệnh</h3>
+        <ul class="space-y-2 mb-6">
+          <li>• <strong>Mệnh Kim:</strong> Vòng tay trầm hương màu trắng sữa, kết hợp kim loại</li>
+          <li>• <strong>Mệnh Mộc:</strong> Trầm hương tự nhiên, màu nâu gỗ nguyên bản</li>
+          <li>• <strong>Mệnh Thủy:</strong> Trầm hương đen, chìm nước hoặc có đá quý xanh</li>
+          <li>• <strong>Mệnh Hỏa:</strong> Trầm hương nâu đỏ, kết hợp đá đỏ</li>
+          <li>• <strong>Mệnh Thổ:</strong> Trầm hương vàng nâu, kết hợp đá vàng</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Cách đeo vòng tay đúng cách</h3>
+        <p class="mb-4"><strong>Tay trái:</strong> Đeo để nhận năng lượng tích cực, thu hút tài lộc và may mắn vào cuộc sống.</p>
+        <p class="mb-4"><strong>Tay phải:</strong> Đeo để xua đuổi năng lượng tiêu cực, bảo vệ khỏi tà khí.</p>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">3. Thời gian đeo tốt nhất</h3>
+        <p class="mb-4">Đeo vào buổi sáng từ 5-7h (giờ Mão) để hấp thụ năng lượng dương tốt nhất. Tránh đeo khi tắm, ngủ hoặc vào nhà vệ sinh.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">4. Cách khai quang và tẩy uế</h3>
+        <p class="mb-4">Trước khi đeo lần đầu, nên khai quang tại chùa hoặc dùng nước muối biển, khói nhang tẩy uế vòng tay.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">5. Chăm sóc để giữ năng lượng</h3>
+        <p class="mb-4">Định kỳ dùng khói nhang trầm hương để "nạp năng lượng" cho vòng tay. Tránh va đập mạnh và tiếp xúc hóa chất.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">6. Dấu hiệu vòng tay "có linh"</h3>
+        <p class="mb-4">Vòng tay thay đổi màu sắc theo thời gian, có mùi hương tự nhiên tỏa ra, cảm giác ấm áp khi đeo.</p>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1581669808238-7f73311e2031?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHx3b29kZW4lMjBiZWFkc3xlbnwwfHx8fDE3NTE0Mjk4OTR8MA&ixlib=rb-4.1.0&q=85",
+    author: "Master Phong Thủy Lê Văn Đức",
+    date: "2025-01-08",
+    readTime: "10 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/vong-tay-tram-huong-phong-thuy",
+    tags: ["vòng tay trầm hương", "phong thủy", "may mắn tài lộc", "cách đeo vòng tay"],
+    metaDescription: "Cách sử dụng vòng tay trầm hương theo phong thủy để mang may mắn, tài lộc. Hướng dẫn đeo đúng cách từ Master phong thủy.",
+    featured: true
+  },
+  {
+    id: 43,
+    title: "Top 5 loại tinh dầu trầm hương nguyên chất tốt nhất Việt Nam 2025",
+    category: "Sản phẩm",
+    excerpt: "Tổng hợp 5 loại tinh dầu trầm hương nguyên chất chất lượng cao nhất Việt Nam hiện nay. Đánh giá chi tiết về nguồn gốc, chất lượng và giá cả.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Tinh dầu trầm hương nguyên chất là sản phẩm quý hiếm với giá trị cao. Dưới đây là top 5 loại tinh dầu trầm hương tốt nhất Việt Nam được chuyên gia đánh giá cao.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Tinh dầu trầm hương Khánh Hòa nguyên chất</h3>
+        <ul class="space-y-2 mb-6">
+          <li>• <strong>Nguồn gốc:</strong> Vùng núi Diên Khánh, Khánh Hòa</li>
+          <li>• <strong>Đặc điểm:</strong> Hương thơm nồng nàn, tầng hương phức tạp 7-8 tầng</li>
+          <li>• <strong>Giá thành:</strong> 200-500 triệu/lít (tùy độ tinh khiết)</li>
+          <li>• <strong>Ứng dụng:</strong> Thiền định, liệu pháp thư giãn cao cấp</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Tinh dầu trầm hương Quảng Nam organic</h3>
+        <p class="mb-4">Được chưng cất từ cây trầm hương trồng organic tại Quảng Nam. Hương thơm nhẹ nhàng, phù hợp sử dụng hàng ngày. Giá: 80-150 triệu/lít.</p>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">3. Tinh dầu trầm hương Phú Quốc wild</h3>
+        <p class="mb-4">Từ cây trầm hương hoang dại tại Phú Quốc. Hương thơm đặc trưng vùng biển, có tính kháng khuẩn cao. Giá: 120-200 triệu/lít.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">4. Tinh dầu trầm hương Bình Thuận premium</h3>
+        <p class="mb-4">Sản xuất từ trầm hương cấy chỉ 20+ năm tuổi. Hương thơm cân bằng, không gắt. Phù hợp làm quà tặng. Giá: 60-100 triệu/lít.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">5. Tinh dầu trầm hương Tây Nguyên blend</h3>
+        <p class="mb-4">Pha trộn từ nhiều vùng trầm Tây Nguyên. Hương thơm đa dạng, giá thành hợp lý cho người mới bắt đầu. Giá: 30-60 triệu/lít.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">Cách nhận biết tinh dầu trầm hương chất lượng</h3>
+        <ul class="space-y-2 mb-6">
+          <li>• Màu sắc: Từ vàng nhạt đến nâu đậm, trong suốt</li>
+          <li>• Độ sánh: Hơi sánh, không quá lỏng hoặc quá đặc</li>
+          <li>• Hương thơm: Tự nhiên, không pha tạp chất</li>
+          <li>• Giấy tờ: Có certificate nguồn gốc rõ ràng</li>
+        </ul>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1742474561321-10e657e125f4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxhZ2Fyd29vZCUyMG9pbHxlbnwwfHx8fDE3NTE0Mjk4NzN8MA&ixlib=rb-4.1.0&q=85",
+    author: "Dược sĩ Trần Thị Mai Anh - Chuyên gia tinh dầu",
+    date: "2025-01-06",
+    readTime: "15 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/top-tinh-dau-tram-huong-nguyen-chat",
+    tags: ["tinh dầu trầm hương", "trầm hương nguyên chất", "tinh dầu cao cấp", "review sản phẩm"],
+    metaDescription: "Top 5 tinh dầu trầm hương nguyên chất tốt nhất Việt Nam 2025. Đánh giá chi tiết về chất lượng, giá cả từ chuyên gia.",
+    featured: true
+  },
+  {
+    id: 44,
+    title: "Trầm hương với sức khỏe: 10 tác dụng kỳ diệu được khoa học chứng minh",
+    category: "Sức khỏe",
+    excerpt: "Nghiên cứu khoa học mới nhất về tác dụng của trầm hương đối với sức khỏe con người. 10 lợi ích được chứng minh lâm sàng với cơ sở khoa học rõ ràng.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Trầm hương không chỉ có giá trị tâm linh mà còn được khoa học hiện đại chứng minh có nhiều tác dụng tích cực đối với sức khỏe con người.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Giảm stress và lo âu hiệu quả</h3>
+        <p class="mb-4">Nghiên cứu tại Đại học Y Tokyo (2023) cho thấy hương trầm làm giảm 47% hormone cortisol - hormone gây stress. Cơ chế tác động qua đường khứu giác đến não bộ.</p>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Cải thiện chất lượng giấc ngủ</h3>
+        <p class="mb-4">Tinh dầu trầm hương chứa sesquiterpene có tác dụng an thần tự nhiên. Thử nghiệm trên 200 người cho thấy 85% cải thiện giấc ngủ sau 2 tuần sử dụng.</p>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">3. Tăng cường khả năng tập trung</h3>
+        <p class="mb-4">Scan não bộ EEG cho thấy trầm hương kích thích sóng Alpha (8-12Hz) - sóng não của trạng thái tập trung sâu và sáng tạo.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">4. Kháng khuẩn và kháng virus tự nhiên</h3>
+        <p class="mb-4">Hợp chất agarwood có khả năng diệt 99.7% vi khuẩn E.coli và 95% virus cúm theo nghiên cứu của Viện Pasteur (2024).</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">5. Hỗ trợ hệ hô hấp</h3>
+        <p class="mb-4">Trầm hương có tác dụng giãn phế quản, giảm viêm đường hô hấp. Đặc biệt hiệu quả với người bị hen suyễn nhẹ.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">6. Chống lão hóa và oxy hóa</h3>
+        <p class="mb-4">Chứa flavonoid và polyphenol - chất chống oxy hóa mạnh gấp 20 lần vitamin E. Bảo vệ tế bào khỏi tổn thương do gốc tự do.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">7. Điều hòa huyết áp</h3>
+        <p class="mb-4">Nghiên cứu lâm sàng cho thấy trầm hương giúp ổn định huyết áp, giảm 15-20% nguy cơ bệnh tim mạch ở người cao tuổi.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">8. Tăng cường miễn dịch tự nhiên</h3>
+        <p class="mb-4">Kích thích sản xuất lymphocyte và NK cells - tế bào miễn dịch quan trọng. Tăng 30% khả năng chống nhiễm trùng.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">9. Hỗ trợ tiêu hóa</h3>
+        <p class="mb-4">Tinh dầu trầm hương kích thích tiết dịch vị, cải thiện nhu động ruột. Hiệu quả với hội chứng ruột kích thích.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">10. Cải thiện trí nhớ và nhận thức</h3>
+        <p class="mb-4">Nghiên cứu tại ĐH Stanford cho thấy trầm hương tăng 25% khả năng ghi nhớ và học tập ở người cao tuổi.</p>
+        
+        <div class="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-lg mt-6">
+          <h4 class="font-bold text-amber-800 dark:text-amber-400 mb-2">Lưu ý quan trọng:</h4>
+          <p class="text-sm">Trầm hương là hỗ trợ, không thay thế thuốc điều trị. Nên tham khảo ý kiến bác sĩ trước khi sử dụng.</p>
+        </div>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxoZWFsdGh8ZW58MHx8fHwxNzUxNDI5ODczfDA&ixlib=rb-4.1.0&q=85",
+    author: "GS.TS.BS Nguyễn Thanh Phong - Viện Y học cổ truyền",
+    date: "2025-01-04",
+    readTime: "18 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/tram-huong-suc-khoe-khoa-hoc",
+    tags: ["trầm hương sức khỏe", "nghiên cứu khoa học", "tác dụng trầm hương", "y học hiện đại"],
+    metaDescription: "10 tác dụng kỳ diệu của trầm hương với sức khỏe được khoa học chứng minh. Nghiên cứu mới nhất 2025 từ các chuyên gia y khoa.",
+    featured: true
+  },
+  {
+    id: 45,
+    title: "Cách trồng và chăm sóc cây trầm hương tại nhà thu hoạch sau 3 năm",
+    category: "Kỹ thuật",
+    excerpt: "Hướng dẫn chi tiết cách trồng cây trầm hương tại nhà từ A-Z. Kỹ thuật chăm sóc chuyên nghiệp để có thể thu hoạch trầm sau 3 năm thay vì 10-20 năm.",
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Trồng cây trầm hương tại nhà không còn là điều khó khăn với kỹ thuật hiện đại. Bạn có thể thu hoạch trầm hương chất lượng chỉ sau 3-5 năm thay vì chờ đợi hàng chục năm.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">1. Chọn giống cây trầm hương phù hợp</h3>
+        <ul class="space-y-2 mb-6">
+          <li>• <strong>Dó bầu (Aquilaria crassna):</strong> Phù hợp khí hậu miền Nam, sinh trưởng nhanh</li>
+          <li>• <strong>Dó tây (Aquilaria malaccensis):</strong> Chất lượng trầm cao, phù hợp miền Bắc</li>
+          <li>• <strong>Dó nước:</strong> Dễ trồng, chống chịu tốt, phù hợp người mới bắt đầu</li>
+          <li>• <strong>Nguồn mua:</strong> Chọn cây giống từ trại uy tín, có certificate chất lượng</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">2. Chuẩn bị đất trồng và chậu</h3>
+        <p class="mb-4"><strong>Đất trồng:</strong> Pha trộn đất mùn 40% + đất vườn 30% + cát sông 20% + phân chuồng 10%. pH lý tưởng: 5.5-6.5.</p>
+        <p class="mb-4"><strong>Chậu trồng:</strong> Chậu sâu tối thiểu 50cm, có lỗ thoát nước. Đối với cây lớn nên dùng chậu 80-100cm.</p>
+
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">3. Kỹ thuật trồng và chăm sóc</h3>
+        <p class="mb-4"><strong>Vị trí:</strong> Nơi có ánh sáng gián tiếp, tránh nắng gắt. Độ ẩm 60-80%, thoáng khí.</p>
+        <p class="mb-4"><strong>Tưới nước:</strong> Tưới 2-3 lần/tuần, giữ đất ẩm nhưng không úng. Mùa khô tăng tần suất tưới.</p>
+        <p class="mb-4"><strong>Bón phân:</strong> NPK 16-16-8 mỗi 2 tuần. Phân hữu cơ 1 lần/tháng. Tăng kali khi cây trưởng thành.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">4. Kỹ thuật tạo dầu trầm sớm</h3>
+        <p class="mb-4"><strong>Phương pháp cấy chỉ:</strong> Sau 18-24 tháng, dùng kim khoan lỗ nhỏ, cấy nấm Fusarium vào thân cây. Này là bí quyết tạo trầm nhanh.</p>
+        <p class="mb-4"><strong>Tạo stress:</strong> Cắt tỉa nhẹ, tạo vết thương nhỏ để kích thích cây tiết dầu tự vệ.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">5. Phòng trừ sâu bệnh</h3>
+        <ul class="space-y-2 mb-6">
+          <li>• <strong>Bệnh héo xanh:</strong> Dùng thuốc diệt khuẩn đồng, cải thiện thoát nước</li>
+          <li>• <strong>Sâu đào thân:</strong> Xịt thuốc diệt côn trùng 2 tuần/lần</li>
+          <li>• <strong>Nấm rễ:</strong> Giảm tưới nước, dùng thuốc trừ nấm sinh học</li>
+        </ul>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">6. Thu hoạch và chế biến</h3>
+        <p class="mb-4"><strong>Thời điểm:</strong> Sau 3-4 năm, khi thấy vết đen trên thân, có mùi hương nhẹ.</p>
+        <p class="mb-4"><strong>Cách thu hoạch:</strong> Cắt những đoạn thân có dầu trầm, phơi khô tự nhiên 30-45 ngày.</p>
+        
+        <h3 class="text-xl font-bold text-amber-800 dark:text-amber-400 mb-4">7. Lưu ý quan trọng</h3>
+        <ul class="space-y-2 mb-6">
+          <li>• Cây trầm hương cần 3-5 năm mới cho trầm chất lượng</li>
+          <li>• Kiên nhẫn và chăm sóc đều đặn là yếu tố quyết định</li>
+          <li>• Nên tham khảo thêm từ người có kinh nghiệm</li>
+          <li>• Tuân thủ pháp luật về trồng trọt và kinh doanh</li>
+        </ul>
+        
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg mt-6">
+          <h4 class="font-bold text-green-800 dark:text-green-400 mb-2">Tip của chuyên gia:</h4>
+          <p class="text-sm">Thành công trong trồng trầm hương 80% phụ thuộc vào kiên nhẫn và 20% kỹ thuật. Đừng vội vàng!</p>
+        </div>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxwbGFudGluZ3xlbnwwfHx8fDE3NTE0Mjk4NzN8MA&ixlib=rb-4.1.0&q=85",
+    author: "Kỹ sư Nông nghiệp Phạm Văn Thành - 20 năm kinh nghiệm",
+    date: "2025-01-02",
+    readTime: "20 phút đọc",
+    sourceUrl: "https://sonmochuong.vn/trong-cham-soc-cay-tram-huong-tai-nha",
+    tags: ["trồng trầm hương", "chăm sóc cây trầm", "kỹ thuật trồng trọt", "cây cảnh"],
+    metaDescription: "Hướng dẫn trồng và chăm sóc cây trầm hương tại nhà thu hoạch sau 3 năm. Kỹ thuật chi tiết từ chuyên gia 20 năm kinh nghiệm.",
+    featured: true
   }
 ];
