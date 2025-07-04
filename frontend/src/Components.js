@@ -1381,58 +1381,71 @@ export const ProductsSection = ({ onProductClick }) => {
   const { visibleItems, setRef } = useStaggerAnimation(filteredProducts, 100);
 
   return (
-    <section id="products" className="py-6 lg:py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-500">
-      <div className="container mx-auto px-3 lg:px-4">
-        {/* Compact Mobile Header */}
-        <div className="text-center mb-4 lg:mb-16">
-          <h2 className="text-xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-2 lg:mb-4 animate-fade-in-up transition-colors duration-300">
-            Tất cả sản phẩm
-          </h2>
-          <div className="w-12 lg:w-32 h-1 bg-gradient-to-r from-amber-800 to-orange-600 dark:from-amber-400 dark:to-orange-400 mx-auto rounded-full mb-2 lg:mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}></div>
-          <p className="text-xs lg:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto animate-fade-in-up transition-colors duration-300 px-2 leading-relaxed" style={{ animationDelay: '0.4s' }}>
-            Khám phá bộ sưu tập trầm hương đa dạng từ Sơn Mộc Hương - từ vòng tay trầm hương đến nhang nụ, 
-            tất cả đều được chọn lọc kỹ lưỡng để mang đến cho bạn chất lượng tốt nhất.
+    <section id="products" className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-orange-50 dark:from-slate-900 dark:via-gray-900 dark:to-orange-900/20 relative overflow-hidden">
+      {/* Modern Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-200/30 to-amber-200/30 dark:from-orange-800/10 dark:to-amber-800/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-amber-200/30 to-orange-200/30 dark:from-amber-800/10 dark:to-orange-800/10 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-br from-orange-300/20 to-amber-300/20 dark:from-orange-700/10 dark:to-amber-700/10 rounded-full blur-2xl transform -translate-x-1/2 -translate-y-1/2"></div>
+      </div>
+
+      <div className="container mx-auto px-3 lg:px-6 py-6 lg:py-12 relative z-10">
+        {/* Modern Header with Glass Morphism */}
+        <div className="text-center mb-6 lg:mb-12">
+          <div className="inline-flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-orange-500 to-amber-500 dark:from-orange-600 dark:to-amber-600 rounded-2xl lg:rounded-3xl shadow-xl mb-4 lg:mb-6">
+            <svg className="w-8 h-8 lg:w-10 lg:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+            </svg>
+          </div>
+          <h1 className="text-2xl lg:text-5xl font-bold bg-gradient-to-r from-slate-800 to-orange-600 dark:from-white dark:to-orange-400 bg-clip-text text-transparent mb-3 lg:mb-4">
+            Bộ Sưu Tập Trầm Hương
+          </h1>
+          <p className="text-sm lg:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Khám phá những sản phẩm trầm hương cao cấp được tuyển chọn kỹ lưỡng, mang đến trải nghiệm thư giãn và tinh tế nhất.
           </p>
         </div>
 
-        {/* Compact Search Bar */}
-        <div className="max-w-2xl mx-auto mb-3 lg:mb-8">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Tìm kiếm sản phẩm theo tên..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-3 lg:px-6 py-2.5 lg:py-4 pl-9 lg:pl-12 border border-gray-300 dark:border-gray-600 rounded-full focus:outline-none focus:border-amber-800 dark:focus:border-amber-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-300 shadow-lg focus:shadow-xl text-sm lg:text-base"
-            />
-            <div className="absolute left-3 lg:left-4 top-1/2 transform -translate-y-1/2">
-              <svg className="w-4 h-4 lg:w-5 lg:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </div>
-            {searchTerm && (
-              <button
-                onClick={() => setSearchTerm('')}
-                className="absolute right-3 lg:right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
-              >
-                <svg className="w-4 h-4 lg:w-5 lg:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+        {/* Modern Search Bar with Glass Effect */}
+        <div className="max-w-2xl mx-auto mb-6 lg:mb-8">
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-amber-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl shadow-xl">
+              <input
+                type="text"
+                placeholder="Tìm kiếm sản phẩm yêu thích..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full px-6 py-4 pl-14 bg-transparent text-slate-700 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none text-sm lg:text-base"
+              />
+              <div className="absolute left-5 top-1/2 transform -translate-y-1/2">
+                <svg className="w-5 h-5 text-slate-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
-              </button>
-            )}
+              </div>
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm('')}
+                  className="absolute right-5 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
+            </div>
           </div>
         </div>
 
-        {/* Compact Category Filter */}
-        <div className="flex flex-wrap justify-center gap-1.5 lg:gap-3 mb-4 lg:mb-12">
+        {/* Modern Category Filter */}
+        <div className="flex flex-wrap justify-center gap-2 lg:gap-3 mb-6 lg:mb-10">
           {getCategories().map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-2.5 lg:px-6 py-1 lg:py-3 rounded-full text-[11px] lg:text-sm font-medium transition-all duration-300 ${
+              className={`px-4 py-2 lg:px-6 lg:py-3 rounded-full text-xs lg:text-sm font-medium transition-all duration-300 backdrop-blur-sm ${
                 selectedCategory === category
-                  ? 'bg-amber-800 dark:bg-amber-600 text-white shadow-lg transform scale-105'
-                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:border-amber-300 dark:hover:border-amber-600 hover:shadow-md'
+                  ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg shadow-orange-500/25 transform scale-105'
+                  : 'bg-white/70 dark:bg-gray-800/70 text-slate-700 dark:text-slate-300 border border-white/50 dark:border-gray-700/50 hover:bg-white/90 dark:hover:bg-gray-800/90 hover:shadow-md hover:scale-102'
               }`}
             >
               {getCategoryDisplayName(category)}
@@ -1440,47 +1453,53 @@ export const ProductsSection = ({ onProductClick }) => {
           ))}
         </div>
 
-        {/* Compact Products Count */}
-        <div className="text-center mb-3 lg:mb-8">
-          <p className="text-[11px] lg:text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
-            Hiển thị <span className="font-semibold text-amber-800 dark:text-amber-400">{filteredProducts.length}</span> sản phẩm
+        {/* Products Count with Modern Styling */}
+        <div className="text-center mb-6 lg:mb-8">
+          <div className="inline-flex items-center space-x-2 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm px-4 py-2 rounded-full border border-white/40 dark:border-gray-700/40">
+            <span className="text-sm lg:text-base text-slate-600 dark:text-slate-400">
+              Hiển thị <span className="font-semibold text-orange-600 dark:text-orange-400">{filteredProducts.length}</span> sản phẩm
+            </span>
             {searchTerm && (
-              <span> cho từ khóa "<span className="font-semibold text-amber-800 dark:text-amber-400">{searchTerm}</span>"</span>
+              <span className="text-xs lg:text-sm text-slate-500 dark:text-slate-500">
+                cho "{searchTerm}"
+              </span>
             )}
-          </p>
+          </div>
         </div>
 
-        {/* Mobile Optimized Loading State */}
+        {/* Modern Loading State */}
         {loading ? (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6">
             {[...Array(8)].map((_, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl shadow-lg overflow-hidden animate-pulse">
-                <div className="w-full h-28 lg:h-48 bg-gray-300 dark:bg-gray-600"></div>
-                <div className="p-2 lg:p-6 space-y-1.5 lg:space-y-3">
-                  <div className="h-2.5 lg:h-4 bg-gray-300 dark:bg-gray-600 rounded w-3/4"></div>
-                  <div className="h-2 lg:h-3 bg-gray-300 dark:bg-gray-600 rounded w-full"></div>
-                  <div className="h-2 lg:h-3 bg-gray-300 dark:bg-gray-600 rounded w-2/3"></div>
-                  <div className="flex justify-between items-center">
-                    <div className="h-3 lg:h-6 bg-gray-300 dark:bg-gray-600 rounded w-1/3"></div>
-                    <div className="h-4 lg:h-8 bg-gray-300 dark:bg-gray-600 rounded w-12 lg:w-20"></div>
+              <div key={index} className="group">
+                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl shadow-lg overflow-hidden animate-pulse">
+                  <div className="w-full h-40 lg:h-56 bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-600"></div>
+                  <div className="p-3 lg:p-4 space-y-2">
+                    <div className="h-4 lg:h-5 bg-slate-200 dark:bg-slate-700 rounded-lg w-3/4"></div>
+                    <div className="h-3 lg:h-4 bg-slate-200 dark:bg-slate-700 rounded-lg w-full"></div>
+                    <div className="h-3 lg:h-4 bg-slate-200 dark:bg-slate-700 rounded-lg w-2/3"></div>
+                    <div className="flex justify-between items-center pt-2">
+                      <div className="h-4 lg:h-6 bg-slate-200 dark:bg-slate-700 rounded-lg w-1/3"></div>
+                      <div className="h-8 lg:h-10 bg-slate-200 dark:bg-slate-700 rounded-full w-16 lg:w-20"></div>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         ) : filteredProducts.length === 0 ? (
-          // Mobile Optimized No products found
-          <div className="text-center py-6 lg:py-16">
-            <div className="mb-2 lg:mb-4">
-              <svg className="w-10 h-10 lg:w-16 lg:h-16 text-gray-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.291.94-5.709 2.291M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          // Modern No Results State
+          <div className="text-center py-12 lg:py-20">
+            <div className="inline-flex items-center justify-center w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-600 rounded-full mb-6">
+              <svg className="w-10 h-10 lg:w-12 lg:h-12 text-slate-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9.172 16.172a4 4 0 005.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0012 15c-2.34 0-4.291.94-5.709 2.291M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="text-base lg:text-xl font-semibold text-gray-800 dark:text-white mb-2">Không tìm thấy sản phẩm</h3>
-            <p className="text-xs lg:text-base text-gray-600 dark:text-gray-400 mb-3 lg:mb-4 px-4">
+            <h3 className="text-lg lg:text-2xl font-semibold text-slate-800 dark:text-white mb-3">Không tìm thấy sản phẩm</h3>
+            <p className="text-sm lg:text-base text-slate-600 dark:text-slate-400 mb-6 max-w-md mx-auto">
               {searchTerm 
-                ? `Không có sản phẩm nào phù hợp với từ khóa "${searchTerm}"`
-                : 'Không có sản phẩm nào trong danh mục này'
+                ? `Không có sản phẩm nào phù hợp với "${searchTerm}". Hãy thử từ khóa khác.`
+                : 'Không có sản phẩm nào trong danh mục này.'
               }
             </p>
             <button
@@ -1488,19 +1507,22 @@ export const ProductsSection = ({ onProductClick }) => {
                 setSearchTerm('');
                 setSelectedCategory('all');
               }}
-              className="bg-amber-800 dark:bg-amber-600 text-white px-3 lg:px-6 py-2 rounded-full hover:bg-amber-900 dark:hover:bg-amber-700 transition-all duration-300 text-xs lg:text-base"
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-full hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
               Xem tất cả sản phẩm
             </button>
           </div>
         ) : (
-          /* Mobile First Product Grid - 2 columns on mobile, 4 on desktop */
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-8">
+          /* Modern Product Grid */
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6">
             {filteredProducts.map((product, index) => (
               <div 
                 key={product.id} 
                 ref={setRef(index)}
-                className={`bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-2xl shadow-lg dark:shadow-amber-900/10 overflow-hidden hover:shadow-2xl dark:hover:shadow-amber-900/20 cursor-pointer group transition-all duration-500 hover:transform hover:scale-102 lg:hover:scale-105 hover:-translate-y-1 lg:hover:-translate-y-2 ${
+                className={`group cursor-pointer transition-all duration-500 ${
                   visibleItems.has(index) ? 'animate-fade-in-up opacity-100' : 'opacity-0'
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
