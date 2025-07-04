@@ -318,11 +318,11 @@ export const HeroSection = () => {
       image: "https://images.unsplash.com/photo-1509726360306-3f44543aea4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85"
     },
     {
-      title: "Đặc Quyền",
-      titleAccent: "VIP",
-      subtitle: "Exclusive Program", 
-      description: "Trải nghiệm dịch vụ đẳng cấp với ưu đãi đặc biệt và tư vấn chuyên sâu từ các master trầm hương.",
-      badge: "VIP Experience",
+      title: "Sơn Mộc",
+      titleAccent: "Hương",
+      subtitle: "Premium Brand", 
+      description: "Thương hiệu Sơn Mộc Hương - Người bạn đồng hành tin cậy trong hành trình khám phá vẻ đẹp tinh túy của trầm hương Việt Nam.",
+      badge: "Sơn Mộc Hương",
       image: "https://images.unsplash.com/photo-1604467794349-0b74285de7e7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwyfHxpbmNlbnNlJTIwc3RpY2tzfGVufDB8fHx8MTc1MTQyOTg2OHww&ixlib=rb-4.1.0&q=85"
     },
     {
